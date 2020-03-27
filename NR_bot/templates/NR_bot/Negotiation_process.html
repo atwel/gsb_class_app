@@ -1,0 +1,54 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+<div style="margin-left:25%">
+Time spent on issues</div>
+{% endblock %}
+
+{% block content %}
+<div style="margin-left:25%">
+<div id="sliders">
+Estimate the percentage of the total time you spent on each issue<br><br>
+<table style="width=60%">
+  <colgroup>
+     <col span="1" style="width: 15%;">
+     <col span="2" style="width: 20%;">
+     <col span="3" style="width: 10%;">
+  </colgroup>
+<tr>
+<th>Salary</th><th><input name="salary_fract" id="salary_fract" type="range" min="1" max="99" step="1" value="12" oninput="salary_fract_output.value = this.value" style="vertical-align:middle"/></th><th><output id="salary_fract_output">12</output>%<th></tr>
+
+<tr><th>Bonus</th><th><input name="bonus_fract" id="bonus_fract" type="range" style="vertical-align:middle" min="1" max="100" step="1" value="12" oninput="bonus_fract_output.value = this.value"/></th><th><output id="bonus_fract_output">12</output>%</th></tr>
+<tr><th>Job Assignment</th><th><input name="job_assignment_fract"  id= "job_assignment_fract" style="vertical-align:middle" type="range" min="1" max="100" step="1" value="12" oninput="job_assignment_fract_output.value = this.value"/></th><th><output id="job_assignment_fract_output">12</output>%</th></tr>
+<tr><th>Location</th><th><input name="location_fract" id="location_fract" style="vertical-align:middle" type="range" min="1" max="100" step="1" value="12" oninput="location_fract_output.value = this.value"/></th><th><output id="location_fract_output">12</output>%</th></tr>
+<tr><th>Vacation Time</th><th><input name="vacation_time_fract" id="vacation_time_fract" type="range" style="vertical-align:middle" min="1" max="100" step="1" value="12" oninput="vacation_time_fract_output.value = this.value"/></th><th><output id="vacation_time_fract_output">12</output>%</th></tr>
+<tr><th>Insurance Coverage</th><th><input name="insurance_coverage_fract" id="insurance_coverage_fract" style="vertical-align:middle" type="range" min="1" max="100" step="1" value="12" oninput="insurance_coverage_fract_output.value = this.value"/></th><th><output id="insurance_coverage_fract_output">12</output>%</th></tr>
+<tr><th>Starting Date</th><th><input name="starting_date_fract" id="starting_date_fract" style="vertical-align:middle" type="range" min="1" max="100" step="1" value="12" oninput="starting_date_fract_output.value = this.value"/></th><th><output id="starting_date_fract_output">12</output>%</th></tr>
+<tr><th>Moving Expenses</th><th><input name="moving_expenses_fract" id="moving_expenses_fract" style="vertical-align:middle" type="range" min="1" max="100" step="1" value="12" oninput="moving_expenses_fract_output.value = this.value"/></th><th><output id="moving_expenses_fract_output">12</output>%</th></tr>
+
+<tr><th></th><th style="text-align:right">Total:&ensp;</th><th><div id="total">96%</div></th></tr>
+</table>
+</div>
+</div>
+
+<div id="clocked" style="margin-left:90%">
+    {% next_button %}
+</div>
+<div id="blocked" style="display:none;margin-left:80%">
+NEXT button will return when the Total = 100%
+</div>
+
+<script>
+  document.querySelector("#sliders").addEventListener("change", function(e){
+    var subtotal=Number(document.querySelector("#salary_fract").value)+Number(document.querySelector("#bonus_fract").value)+Number(document.querySelector("#job_assignment_fract").value)+Number(document.querySelector("#location_fract").value)+Number(document.querySelector("#insurance_coverage_fract").value)+Number(document.querySelector("#vacation_time_fract").value)+Number(document.querySelector("#starting_date_fract").value)+Number(document.querySelector("#moving_expenses_fract").value);
+    document.querySelector("#total").innerHTML= subtotal.toString()+"%";
+   if (subtotal != 100){
+  document.getElementById("clocked").style.display="none";
+  document.getElementById("blocked").style.display="block"
+} else { document.getElementById("clocked").style.display="block";
+  document.getElementById("blocked").style.display="none"}
+})
+</script>
+
+{% endblock %}
