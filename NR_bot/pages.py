@@ -102,4 +102,4 @@ class MyWaitPage(WaitPage):
 
 
 #Introduction, Case_page, Preferences_input, Preferences_result, Planning_doc, Link_to_simulation, Case_page_no_timer, Negotiated_outcome
-page_sequence = [Introduction, Case_page, Preferences_input, Preferences_result, Planning_doc, Link_to_simulation, Case_page_no_timer,Outcome_intro, Negotiated_outcome, Negotiation_process, WaitPage]
+page_sequence = [Introduction, Case_page, Preferences_input, Preferences_result, Planning_doc, Link_to_simulation, Case_page_no_timer,Outcome_intro, Negotiated_outcome, Negotiation_process, MyWaitPage]
