@@ -1,0 +1,28 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Your Target Outcome
+{% endblock %}
+
+{% block content %}
+    You want the salary to be <strong>{{ player.salary }}</strong> and the bonus <strong>{{ player.bonus }}</strong> per year.
+    The job would be in <strong>{{ player.job_assignment }}</strong> in <strong>{{ player.location }}</strong> starting <strong>{{ player.starting_date }}</strong>.<br><br>
+
+    There would be <strong>{{ player.vacation_time }} days </strong>of vacation, enrollment in insurance <strong> {{ player.insurance_coverage }}</strong> and <strong>{{ player.moving_expenses }}</strong> of moving expenses would be covered.<br><br>
+
+     This results in <strong>{{ player.total_points }} points</strong> out of the maximum <strong>13,200</strong> possible.<br><br><br>
+
+    <div id="low_score_message"></div><br>
+
+    <script>
+    if ("{{ player.low_score }}" == "True"){
+    	a = "<h3 style='color:red'>WARNING</h3>You should have gotten all possible points. Maybe you misread something or maybe you were thinking about where you actually want to live. When you go into the real negotiation, be sure to negotiate for largest number of points given your payoff schedule";
+      document.getElementById("low_score_message").innerHTML = a;}
+
+
+    </script>
+
+    {% next_button %}
+
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Target Outcome
+{% endblock %}
+
+{% block content %}
+  <br>
+    <h4>What is your ideal version of this job?</h4>
+    The first thing you need to do is figure out what is the best possible outcome for you given your role.<br><br>
+    (You have real preferences and those on your role sheet. Use the role sheet ones here!)<br>
+    {% formfields %}
+    {% next_button %}
+
+{% endblock %}

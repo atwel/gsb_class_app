@@ -1,0 +1,14 @@
+{% extends "global/WaitPage.html" %}
+{% load otree static %}
+
+{% block title %}
+    Reporting the outcome
+{% endblock %}
+
+{% block content %}
+Now that you're done negotiating, both stay in the Breakout room. The person in the role of the recruiter will report the outcome and the candidate will advance to a waiting page.
+<div id="clocked" style="margin-left:90%">
+    {% next_button %}
+</div>
+
+{% endblock %}
