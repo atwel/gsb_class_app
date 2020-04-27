@@ -1,0 +1,24 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Negotiated Outcome
+{% endblock %}
+
+{% block content %}
+<br><br>
+{% if group.deal %}
+ {% formfield group.final_sale_price %}
+
+{% else %}
+What were the last prices the respective companies offered?<br><br><br>
+ {% formfield group.last_Seltek %}
+<br>
+ {% formfield group.last_Biopharm %}
+{% endif %}
+<br>
+<div id="clocked" style="margin-left:90%">
+    {% next_button %}
+</div>
+
+{% endblock %}

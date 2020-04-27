@@ -2,8 +2,7 @@
 {% load otree static %}
 
 {% block title %}
-<center>
-    Planning Document</center>
+Planning Document
 {% endblock %}
 
 {% block content %}
@@ -24,14 +23,14 @@ var words = field.value.split(" ");
 }
 
 </script>
-<center>
-<div style="width:50%;text-align:left">
-Write about how you will approach this negotiation. You might consider things like the relative importance of issues, your emotions. and strategies for getting to your desired outcome. You have 5 minutes to complete it.</div></center><br>
 
-<center><div style="width:50vw"> <textarea name="planning_text" columns=10 rows=20 required="" id="id_planning_text" class="form-control" onkeyup="textCounter(this, {{ max_word_limit }});" id="message">
+<div style="width:60%;text-align:left">
+Write about how you will approach this negotiation. You might consider things like the relative importance of issues, your emotions. and strategies for getting to your desired outcome. You have 5 minutes to complete it.</div><br>
+
+<div style="width:750px"> <textarea name="planning_text" cols=200 rows=20 required="" id="id_planning_text" class="form-control" onkeyup="textCounter(this, {{ max_word_limit }});" id="message" style="max-width:100%">
 </textarea></div>
-    <div id="counter" style="margin-left:30%">Words Left: {{ max_word_limit }}</div></center>
-  <div id="clocked" style="display:none;margin-left:90%">
+    <div id="counter" style="margin-left:30%">Words Left: {{ max_word_limit }}</div>
+  <div id="clocked" style="display:none;margin-left:75%">
         {% next_button %}
   </div>
 

@@ -12,11 +12,17 @@ SESSION_CONFIG_DEFAULTS = dict(
 
 SESSION_CONFIGS = [
     dict(
+            name='BioPharm_Seltek',
+            display_name="BioPharm Seltek",
+            num_demo_participants=2,
+            app_sequence=['BiopharmSeltek']),
+    dict(
         name='New_Recruit',
         display_name="New Recruit",
         num_demo_participants=2,
-        app_sequence=['NewRecruit'],
-    )]
+        app_sequence=['NewRecruit']),
+
+    ]
 
 # ISO-639 code
 # for example: de, fr, ja, ko, zh-hans
@@ -24,7 +30,7 @@ LANGUAGE_CODE = 'en'
 
 # e.g. EUR, GBP, CNY, JPY
 REAL_WORLD_CURRENCY_CODE = 'USD'
-USE_POINTS = True
+USE_POINTS = False
 
 ROOMS = [
     dict(
@@ -38,15 +44,13 @@ ROOMS = [
         participant_label_file = "_rooms/Sp20_2.txt",
     )
 ]
-OTREE_AUTH_LEVEL = "STUDY"
-ADMIN_USERNAME = 'atwell'
-# for security, best to set admin password in an environment variable
-ADMIN_PASSWORD = "aaaa"#environ.get('OTREE_ADMIN_PASSWORD')
+
 
 DEMO_PAGE_INTRO_HTML = """
 Here are some oTree games.
 """
-
+ADMIN_USERNAME = "Atwell"
+ADMIN_PASSWORD = "aaaa"
 # don't share this with anybody.
 SECRET_KEY = 'z$k1!j!#nzwc#1af2%x9$^vde#u*(mf$wbdrmsw4f=$u2@jo!e'
 

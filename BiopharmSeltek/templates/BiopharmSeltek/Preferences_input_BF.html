@@ -1,0 +1,16 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Possible Outcomes
+{% endblock %}
+
+{% block content %}
+  <br>
+    The first thing you need to do is figure out what is the best possible outcome for you given your role.<br>
+<br>
+    {% formfields %}<br><br>
+    <div id="clocked" style="margin-left:90%">
+        {% next_button %}
+    </div>
+{% endblock %}

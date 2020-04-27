@@ -39,7 +39,7 @@ class Subsession(BaseSubsession):
 
 
 class Group(BaseGroup):
-    link = models.StringField(initial="https://stanford.zoom.us/j/4340648848")
+    link = models.StringField(initial="https://stanford.zoom.us/j/4340648848",label="Stanford Zoom URL")
     salary = models.CurrencyField(choices=list(Constants.salary.keys()),widget=widgets.RadioSelectHorizontal, label="Salary in USD")
     bonus = models.StringField(choices=list(Constants.bonus.keys()), widget=widgets.RadioSelectHorizontal, label="Annual Bonus as percentage of salary")
     job_assignment = models.StringField(choices=list(Constants.job_assignment.keys()),widget=widgets.RadioSelectHorizontal, label="Job is within:")

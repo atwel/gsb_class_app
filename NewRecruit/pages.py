@@ -3,6 +3,37 @@ from ._builtin import Page, WaitPage
 from .models import Constants
 
 
+class IntroWaitPage(WaitPage):
+    wait_for_all_groups = True
+
+    def after_all_players_arrive(self):
+            csv_str = "Pre-assign Room Name,Email Address\n"
+            for index, players in enumerate(self.subsession.get_group_matrix()):
+                    for player in players:
+                        csv_str += "room{},{}@stanford.edu\n".format(index+1,player.participant.label)
+            print(csv_str)
+            with open("breakout_room_assignment.csv","w+") as f:
+                f.write(csv_str)
+
+
+class Introduction(Page):
+    form_model = "player"
+
+    def vars_for_template(self):
+        return dict(reading_limit=Constants.reading_time)
+
+
+class Case_page(Page):
+    form_model = "player"
+
+    timeout_seconds= Constants.reading_time * 60
+    def vars_for_template(self):
+        if self.player.id_in_group == 1:
+            return dict(file_loc='NewRecruit/Recruiter.pdf')
+        else:
+            return dict(file_loc='NewRecruit/Candidate.pdf')
+
+
 class Preferences_input(Page):
     form_model = "player"
     form_fields = ['salary',
@@ -30,19 +61,37 @@ class Preferences_input(Page):
         self.player.total_points = total_points
 
 
-
 class Preferences_result(Page):
     form_model = "player"
 
-class Case_page(Page):
+
+class Planning_doc(Page):
+    form_model = "player"
+    form_fields = ["planning_text"]
+
+    def vars_for_template(self):
+        return dict(max_word_limit=Constants.planning_doc_length, timeout_seconds=120)
+
+
+class Create_link(Page):
+    form_model = "group"
+
+    form_fields = ["link"]
+
+    def is_displayed(self):
+        return self.player.id_in_group == 1
+
+
+class Create_link_wait(WaitPage):
     form_model = "player"
 
-    timeout_seconds= Constants.reading_time * 60
     def vars_for_template(self):
-        if self.player.id_in_group == 1:
-            return dict(file_loc='NewRecruit/Recruiter.pdf#toolbar=0')
-        else:
-            return dict(file_loc='NewRecruit/Candidate.pdf#toolbar=0')
+        return {"title_text":"Creation of Meeting"}
+
+
+class Link_to_simulation(Page):
+    form_model = "group"
+
 
 class Case_page_no_timer(Page):
     form_model = "player"
@@ -53,27 +102,6 @@ class Case_page_no_timer(Page):
         else:
             return dict(file_loc='NewRecruit/Candidate.pdf#toolbar=0')
 
-
-class Planning_doc(Page):
-    form_model = "player"
-    form_fields = ["planning_text"]
-
-
-    timeout_seconds = 120
-
-    def vars_for_template(self):
-        return dict(max_word_limit=Constants.planning_doc_length, timeout_seconds=120)
-
-class Introduction(Page):
-    form_model = "player"
-
-    def vars_for_template(self):
-        return dict(reading_limit=Constants.reading_time)
-
-
-
-class Link_to_simulation(Page):
-    form_model = "group"
 
 class Negotiated_outcome(Page):
 
@@ -87,32 +115,26 @@ class Negotiated_outcome(Page):
                             'job_assignment',
                             'starting_date']
     def is_displayed(self):
-        return self.player.id_in_group == 1
+        return self.player.id_in_group == 2
+
 
 class Negotiation_process(Page):
     form_model = "group"
     form_fields = ["salary_fract","bonus_fract","job_assignment_fract","insurance_coverage_fract","moving_expenses_fract","vacation_time_fract","location_fract","starting_date_fract"]
 
     def is_displayed(self):
-        return self.player.id_in_group == 1
+        return self.player.id_in_group == 2
 
-class Outcome_intro(Page):
+
+class Outcome_wait(WaitPage):
     form_model = "group"
 
-class MyWaitPage(WaitPage):
-    pass
-
-class IntroWaitPage(WaitPage):
-    wait_for_all_groups = True
-
-    def after_all_players_arrive(self):
-            csv_str = "Pre-assign Room Name,Email Address\n"
-            for index, players in enumerate(self.subsession.get_group_matrix()):
-                    for player in players:
-                        csv_str += "room{},{}@stanford.edu\n".format(index+1,player.participant.label)
-            print(csv_str)
-            with open("breakout_room_assignment.csv","w+") as f:
-                f.write(csv_str)
+    def vars_for_template(self):
+        return {"title_text": "Reporting the outcome", "body_text":"As the person in the role of the Candidate, you'll stay on this page until the Recruiter finishes inputing the results.\n\n"}
 
 
-page_sequence = [IntroWaitPage, Introduction, Case_page, Preferences_input, Preferences_result, Planning_doc, Link_to_simulation, Case_page_no_timer,Outcome_intro, Negotiated_outcome, Negotiation_process, MyWaitPage]
+class Outro(Page):
+    form_model = "group"
+
+
+page_sequence = [IntroWaitPage, Introduction, Case_page, Preferences_input, Preferences_result, Planning_doc, Create_link, Create_link_wait, Link_to_simulation, Case_page_no_timer, Negotiated_outcome, Negotiation_process, Outcome_wait, Outro]
