@@ -30,9 +30,9 @@ class Case_page(Page):
     def vars_for_template(self):
         if self.player.id_in_group == 1:
             # is meeting host
-            return dict(file_loc='BioPharmSeltek/Seltek.pdf')
+            return dict(file_loc='BiopharmSeltek/Seltek.pdf')
         else:
-            return dict(file_loc='BioPharmSeltek/BioPharm.pdf')
+            return dict(file_loc='BiopharmSeltek/BioPharm.pdf')
 
 
 class Preferences_input_ST(Page):
@@ -86,9 +86,9 @@ class Case_page_no_timer(Page):
 
     def vars_for_template(self):
         if self.player.id_in_group == 1:
-            return dict(file_loc='BioPharmSeltek/Seltek.pdf')
+            return dict(file_loc='BiopharmSeltek/Seltek.pdf')
         else:
-            return dict(file_loc='BioPharmSeltek/BioPharm.pdf')
+            return dict(file_loc='BiopharmSeltek/BioPharm.pdf')
 
 
 class Negotiated_outcome_one(Page):
