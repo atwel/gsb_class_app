@@ -2,17 +2,21 @@
 {% load otree static %}
 
 {% block title %}
+Starting the meeting
+{% endblock %}
 
+{% block styles %}
+<link rel="stylesheet" href="{% static "global/custom_theme.css" %}">
 {% endblock %}
 
 {% block content %}
 <div style="max-height:750vh">
-<center>Now you'll join your negotiation partner in this breakout room:<br><br>
-
-<iframe height="400vh" width="75%" src="{{ group.link }}"></iframe>
+Now you'll join your negotiation partner in this breakout room. Once you join the meeting, go to the next page to get back to the case materials.<br><br><br>
+<center>
+<iframe height="400vh" width="75%" src="{{ group.link }}"></iframe></center>
 <br><br>
-  Once you join the meeting, go to the next page to get back to the case materials.
-</center>
+
+
 <div id="clocked" style="margin-left:90%">
       {% next_button %}
 </div>
