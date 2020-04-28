@@ -17,6 +17,15 @@ doc = """
 Negotatiing BioPharm Seltek with a partner
 """
 
+with open("_rooms/Sp20_1.txt", "r") as f:
+    raw_string = f.read()
+    names_section1 = raw_string.replace("\n", ",")
+
+with open("_rooms/Sp20_2.txt", "r") as f:
+    raw_string = f.read()
+    names_section2 = raw_string.replace("\n", ",")
+
+
 
 class Constants(BaseConstants):
     name_in_url = 'BiopharmSeltek'
@@ -25,6 +34,10 @@ class Constants(BaseConstants):
     reading_time = 6
     planning_doc_length = 150
     planning_doc_time_minutes = 3
+    link_581_1 ="https://stanford.zoom.us/j/98453129717"
+    link_581_2 = "https://stanford.zoom.us/j/93410198117"
+    section_1_participants = names_section1
+    section_2_participants = names_section2
 
 
 class Subsession(BaseSubsession):
@@ -32,7 +45,7 @@ class Subsession(BaseSubsession):
 
 
 class Group(BaseGroup):
-    link = models.StringField(initial="https://stanford.zoom.us/j/98998918960",label="Stanford Zoom URL")
+    link = models.StringField(label="Stanford Zoom URL")
     initial_price = models.CurrencyField(label="What was the price of the first offer in millions of USD (e.g. XX.xx )?")
     made_initial = models.StringField(choices=["BioPharm","Seltek"], widget=widgets.RadioSelectHorizontal, label="Which company made the first offer?")
     deal = models.BooleanField(label="Did the companies reach a deal?",widget=widgets.RadioSelectHorizontal)

@@ -123,7 +123,17 @@ class Outcome_wait(WaitPage):
 class Outro(Page):
     form_model = "group"
 
-    
+    def vars_for_template(self):
+        try:
+            if self.participant.label in Constants.section_1_participants:
+                return {"return_link": Constants.link_581_1}
+            elif self.participant.label in Constants.section_2_participants:
+                return {"return_link": Constants.link_581_2}
+            else:
+                return {"return_link":"google.com"}
+        except:
+            return {"return_link":"google.com"}
 
 
-page_sequence = [IntroWaitPage, Introduction, Case_page, Preferences_input_BF, Preferences_input_ST, Planning_doc, Create_link, Create_link_wait, Link_to_simulation, Case_page_no_timer, Negotiated_outcome_one, Negotiated_outcome_two, Outcome_wait, Outro]
+#IntroWaitPage, Introduction, Case_page, Preferences_input_BF, Preferences_input_ST, Planning_doc, Create_link, Create_link_wait, Link_to_simulation, Case_page_no_timer, Negotiated_outcome_one, Negotiated_outcome_two, Outcome_wait,
+page_sequence = [Outro]
