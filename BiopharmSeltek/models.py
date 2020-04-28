@@ -32,7 +32,7 @@ class Subsession(BaseSubsession):
 
 
 class Group(BaseGroup):
-    link = models.StringField(initial="https://stanford.zoom.us/j/4340648848",label="Stanford Zoom URL")
+    link = models.StringField(initial="https://stanford.zoom.us/j/98998918960",label="Stanford Zoom URL")
     initial_price = models.CurrencyField(label="What was the price of the first offer in millions of USD (e.g. XX.xx )?")
     made_initial = models.StringField(choices=["BioPharm","Seltek"], widget=widgets.RadioSelectHorizontal, label="Which company made the first offer?")
     deal = models.BooleanField(label="Did the companies reach a deal?",widget=widgets.RadioSelectHorizontal)

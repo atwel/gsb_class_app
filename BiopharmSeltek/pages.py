@@ -123,5 +123,7 @@ class Outcome_wait(WaitPage):
 class Outro(Page):
     form_model = "group"
 
+    
+
 
 page_sequence = [IntroWaitPage, Introduction, Case_page, Preferences_input_BF, Preferences_input_ST, Planning_doc, Create_link, Create_link_wait, Link_to_simulation, Case_page_no_timer, Negotiated_outcome_one, Negotiated_outcome_two, Outcome_wait, Outro]
