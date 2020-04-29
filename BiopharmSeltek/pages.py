@@ -50,6 +50,8 @@ class Preferences_input_ST(Page):
     form_model = "group"
     form_fields = ['target_ST', "batna_ST"]
 
+    timeout_seconds= 60
+    timer_text = 'Time left to input values'
     def is_displayed(self):
             return self.player.id_in_group == 1
 
@@ -61,6 +63,8 @@ class Preferences_input_BF(Page):
     form_model = "group"
     form_fields = ['target_BF', "batna_BF"]
 
+    timeout_seconds= 60
+    timer_text = 'Time left to input values'
     def is_displayed(self):
             return self.player.id_in_group == 2
 
