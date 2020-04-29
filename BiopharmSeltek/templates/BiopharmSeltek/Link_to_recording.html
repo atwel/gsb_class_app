@@ -15,13 +15,13 @@ function check(input) {
 
 	var inp = input.value.toLowerCase();
 
-	var base = "http://stanford.zoom.us"
+	var base = "https://stanford.zoom.us"
 
   if (inp.includes(base)) {
   input.setCustomValidity('');
 }
  	else {
- 	input.setCustomValidity("The link should have http://stanford.zoom.us in it. Did you forget to copy the recording link?");}
+ 	input.setCustomValidity("The link should have https://stanford.zoom.us in it. Did you forget to copy the recording link?");}
 
 }
 
@@ -40,7 +40,7 @@ You'll get a short break before we begin again.
 As the <strong>Seltek</strong> representative, you hosted this negotiation. Please paste the link to the cloud recording here. Zoom should send you a <strong>Sharing Link</strong> when it's ready. <br><br> <em>You should leave this page up until you get the link.</em> <br><br>If necessary, see directions below to do manually share the meeting.<br><br>
 <center>
 <input type="text" name="link" oninput=check(this)><br>
-<span style="font-size:.75em">Must be a <em>http://stanford.zoom.us</em> URL</span></center><br><br>
+<span style="font-size:.75em">Must be a <em>https://stanford.zoom.us</em> URL</span></center><br><br>
 
 <div style="margin-left:90%">
 <button class="otree-btn-next btn btn-primary">Submit</button>
