@@ -101,7 +101,7 @@ class Link_to_simulation(Page):
             return {"return_link":"http://google.com"}
 
 
-class Start_Recording(Page):
+class Start_recording(Page):
     form_model = "group"
 
     def is_displayed(self):
