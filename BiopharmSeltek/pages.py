@@ -33,7 +33,7 @@ class Seltek_materials(Page):
         return self.player.id_in_group == 1
 
 
-class BioPharm_materials(Page):
+class Biopharm_materials(Page):
     form_model = "player"
 
     timeout_seconds= Constants.reading_time * 60
@@ -213,4 +213,4 @@ class Link_to_recording(Page):
 
 
 
-page_sequence = [IntroWaitPage, Introduction, Seltek_materials, BioPharm_materials, Preferences_input_BF, Preferences_input_ST, Planning_doc, Create_link, Create_link_wait, Link_to_simulation, Start_Recording, Seltek_materials_no_timer, BioPharm_materials_no_timer, Negotiated_outcome_one, Negotiated_outcome_two, Outcome_wait, Sign_off_page, Journaling_page, Outro, Link_to_recording]
+page_sequence = [IntroWaitPage, Introduction, Seltek_materials, Biopharm_materials, Preferences_input_BF, Preferences_input_ST, Planning_doc, Create_link, Create_link_wait, Link_to_simulation, Start_Recording, Seltek_materials_no_timer, BioPharm_materials_no_timer, Negotiated_outcome_one, Negotiated_outcome_two, Outcome_wait, Sign_off_page, Journaling_page, Outro, Link_to_recording]
