@@ -121,7 +121,7 @@ class Seltek_materials_no_timer(Page):
 
 class BioPharm_materials_no_timer(Page):
     form_model = "player"
-    template_name = "BiopharmSeltek/BioPharm_materials.html"
+    template_name = "BiopharmSeltek/Biopharm_materials.html"
 
     timer_text = 'Time left for negotiating the case:'
     timeout_seconds = Constants.negotiating_time *60
