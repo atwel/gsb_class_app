@@ -6,6 +6,8 @@ from .models import Constants
 class IntroWaitPage(WaitPage):
     #wait_for_all_groups = True
 
+    def vars_for_template(self):
+            return {"title_text": "Waiting for your partner", "body_text":"Wait a moment while your partner signs on.\n\n"}
     #def after_all_players_arrive(self):
     #        csv_str = "Pre-assign Room Name,Email Address\n"
     #        for index, players in enumerate(self.subsession.get_group_matrix()):
