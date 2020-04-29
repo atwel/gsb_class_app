@@ -85,7 +85,7 @@ class Create_link_wait(WaitPage):
     form_model = "player"
 
     def vars_for_template(self):
-        return {"title_text":"Creation of Meeting"}
+        return {"title_text":"Creation of Meeting","body_text":"The Seltek representative is creating a Zoom meetings. You'll get a link for it shortly."}
 
 
 class Link_to_simulation(Page):
@@ -158,10 +158,8 @@ class Outcome_wait(WaitPage):
     form_model = "group"
 
     def vars_for_template(self):
-        if self.player.id_in_group == 1:
-            return {"title_text": "Reporting the outcome", "body_text":"Wait a moment while the BioPharm representative finishes inputing the results.\n\n"}
-        else:
-            return {"title_text": "Linking to the recording", "body_text":"Wait a moment while the Seltek representative finishes linking to recording.\n\n"}
+        return {"title_text": "Reporting the outcome", "body_text":"Wait a moment while the BioPharm representative finishes inputing the results.\n\n"}
+
 
 
 class Sign_off_page(Page):
