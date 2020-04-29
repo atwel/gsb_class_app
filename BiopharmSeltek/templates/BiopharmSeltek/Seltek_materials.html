@@ -1,0 +1,78 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+THE BIOPHARM-SELTEK NEGOTIATION<br>
+<span style="font-size:.6em"> a DRRC case</span><span style="font-size:.5em">©</span>
+{% endblock %}
+
+
+{% block styles %}
+<link rel="stylesheet" href="{% static "global/custom_theme.css" %}">
+{% endblock %}
+
+{% block content %}
+<script type="text/javascript" src="{% static 'global/jquery.countdown.js' %}"></script>
+
+<script type="text/javascript">
+    $(function() {
+        var currentDate = new Date();
+        var milliseconds = 300000;
+        $('div#clocked').countdown(currentDate.valueOf() + milliseconds, function(event) {
+                console.log(event.type)
+                switch(event.type) {
+                    case "finish":
+                      $('div#clocked').show();
+                    case "finished":
+                        $('div#clocked').show();
+                }
+            });
+
+
+    });
+</script>
+
+<h2></h2>
+<br>
+<h4>Role for Seltek, CFO</h4>
+<br>
+<h6>(You'll be able to see these materials again once the live negotiation has started)</h6>
+<br>
+<p>You are the Chief Financial Officer of Seltek, a medium-sized pharmaceutical company with annual sales of $150 million. You need to sell off a U.S. plant that was set up to produce a line of genetically engineered compounds. Seltek has only been able to develop one successful compound, Petrochek, a bacterium that breaks down oil into water-soluble compounds. You have been selling Petrochek to the oil industry, where it is used to help clean up oil spills, and have just completed the research to show that it can be used in sewage treatment plants to biodegrade whatever petroleum-based products find their way into sewers. The business potential for the oil industry has a present value of $5-7 million; the potential for the sewage treatment industry is hard to pinpoint, but might be very lucrative, depending on worldwide environmental regulation trends.</p>
+<p>Your company, Seltek, needs to sell the U.S. plant because it barely breaks even with the one product it can manufacture there. Top management originally expected to be manufacturing a whole line of genetically engineered compounds, but some compounds that initially seemed promising have since been abandoned. The current strategy is to concentrate instead on conventional pharmaceuticals. Therefore, Seltek has decided to get completely out of biotech manufacturing, and this is why the biotech plant and the Petrochek patent must be sold.</p>
+<p>The plant has been hard to sell because it is uniquely configured to manufacture genetically engineered compounds. This kind of manufacturing requires special water processing. With minor modifications, the plant could also be used for making computer chips; however, the computer chip industry has too much capacity, so it’s highly unlikely any chip manufacturer would buy it.</p>
+<p>You have considered the option of rebuilding the plant so that it would have a normal configuration for general manufacturing. Doing so would take six months and cost $3 million, but after rebuilding it would have an appraised value of $10 million (thus, you would just as soon sell the plant for $7 million right now because the net yield from rebuilding the plant is only $7 million—$10 million minus the $3 million you would have to invest). Furthermore, you would prefer to sell the plant to someone who will take over operating it as a pharmaceutical plant, because this will keep the work force intact. This is very important to you because, when it became obvious that Seltek’s biotech operation was foundering, many of the workers thought about finding new jobs while the labor market was favorable. You convinced the key employees to stay on, promising them six months severance pay if the plant were shut down. The liability for severance pay is $1 million, which you would avoid having to pay if you sold the plant as a “turnkey” operation to BioPharm.</p>
+<p>BioPharm, a $700 million U.S. pharmaceutical company, has expressed some interest in buying the plant. Their plant engineers have inspected the plant and deemed it suitable for their purposes. You know from public documents that they have no genetically engineered compounds in their current product line, so you're not sure whether they intend to reconfigure it as a normal manufacturing facility. The only reservation expressed by their engineers was that the location is 70 miles away from their headquarters facilities.</p>
+
+<p>The sooner you sell the plant, the better. Seltek management needs to turn its full attention to conventional pharmaceutical manufacturing. There’s enough demand for Petrochek that you could keep the plant operating at break-even for up to a year if BioPharm can’t do the deal right away. That wouldn’t be desirable, however, because you want to free up the funds invested in the plant for other projects that have greater strategic importance.</p>
+<p>Once you sell the plant, you will need to sell the Petrochek patent. It’s the only compound you have been manufacturing at the plant, and the patent is of zero use to you once the plant is sold. Elf, a European petrochemicals company, has offered you $4 million for the patent, and if you waited a year, there’s a 50% chance you could sell the patent for $5 million to Exxon when Exxon’s new biotechnology plant goes into full operation. (Neither Elf nor Exxon is interested in buying your plant.) It would be perfect if BioPharm would buy the patent—for at least $4 million—as well as the plant.</p>
+<p>Your company is desperately short of funds to invest in new projects, so selling the plant and the patent is an immediate priority. This means that you will refuse to lease the plant to BioPharm, if that’s what they are interested in.</p>
+<p>The plant can be turned over to BioPharm immediately if they’re interested. In order to complete the sale, you or they will have to pay off a $200,000 property tax liability. This was incurred as a result of a problem with the appraisal. Seltek contested the figure that the appraiser had come up with, because it was inconsistent with the tax break Seltek had been offered to locate the plant where it is. The court ruled in favor of Seltek, so now it’s time to pay up. There’s no issue here because you put the $200,000 into an escrow account pending resolution of the dispute.</p>
+<br>
+<h4>Seltek Plant</h4>
+The following information is in the public domain and was made available to BioPharm.
+
+<ol>
+<li>The plant (i.e., the building and land) was appraised by a real estate agent two years ago at $20 million. The local real estate market has declined 20 per cent in the last two years due to the state of the local economy.</li>
+
+<li>Public accounting information shows that the plant is valued at $12 million on Seltek’s accounting statements. The land value is recorded at its original purchase price of $1 million, and the building has been depreciated from an original $20 million down to $11 million, for tax advantages. (The IRS lets a corporation reduce the “book” value of a building every year as if it were “wearing out,” like an automobile does with increasing mileage. The resulting theoretical “loss” in value can be deducted from the company’s tax bill.)</li>
+
+<li>The building is insured against total loss (fire, explosion, hurricane, etc.) for $8 million.</li>
+
+<li>An identical plot of land across the street from the Seltek plant just sold for $500,000 after being on the market for three years.</li>
+
+<li>There are no environmental liabilities pending, but there is a $200,000 tax lien on the property.</li>
+</ol><br><br>
+<div style="background-color:lightgray; font-size:.75em;padding:2%">
+Formerly known as Synertech-Dosagen<br>
+Leonard Greenhalgh - Dartmouth College<br>
+© 2000-2018 Dispute Resolution Research Center (DRRC), Kellogg School of Management, Northwestern University. All rights reserved.<br>
+DRRC teaching materials are protected by copyright law. DRRC requires a per person royalty for use of its exercises. Each purchase of an exercise authorizes copying or electronic distribution of that exercise equal to the quantity purchased.
+
+</div>
+<br><br>
+<div id="clocked" style="display:none;margin-left:90%">
+    {% next_button %}
+</div>
+
+{% endblock %}

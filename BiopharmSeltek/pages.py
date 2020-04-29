@@ -23,16 +23,24 @@ class Introduction(Page):
         return dict(reading_limit=Constants.reading_time)
 
 
-class Case_page(Page):
+class Seltek_materials(Page):
     form_model = "player"
 
     timeout_seconds= Constants.reading_time * 60
-    def vars_for_template(self):
-        if self.player.id_in_group == 1:
-            # is meeting host
-            return dict(file_loc='BiopharmSeltek/Seltek.pdf')
-        else:
-            return dict(file_loc='BiopharmSeltek/BioPharm.pdf')
+    timer_text = 'Time left for reading the materials'
+
+    def is_displayed(self):
+        return self.player.id_in_group == 1
+
+
+class BioPharm_materials(Page):
+    form_model = "player"
+
+    timeout_seconds= Constants.reading_time * 60
+    timer_text = 'Time left for reading the materials'
+
+    def is_displayed(self):
+        return self.player.id_in_group == 2
 
 
 class Preferences_input_ST(Page):
@@ -56,6 +64,7 @@ class Planning_doc(Page):
     form_fields = ["planning_text"]
 
     timeout_seconds= Constants.planning_doc_time_minutes * 60
+    timer_text = 'Time left for writing your document:'
 
     def vars_for_template(self):
         return dict(max_word_limit=Constants.planning_doc_length)
@@ -80,15 +89,44 @@ class Create_link_wait(WaitPage):
 class Link_to_simulation(Page):
     form_model = "group"
 
+    def vars_for_template(self):
+        try:
+            if self.participant.label in Constants.section_1_participants:
+                return {"return_link": Constants.link_581_1}
+            elif self.participant.label in Constants.section_2_participants:
+                return {"return_link": Constants.link_581_2}
+            else:
+                return {"return_link":"http://google.com"}
+        except:
+            return {"return_link":"http://google.com"}
 
-class Case_page_no_timer(Page):
+
+class Start_Recording(Page):
+    form_model = "group"
+
+    def is_displayed(self):
+        return self.player.id_in_group == 1
+
+
+class Seltek_materials_no_timer(Page):
     form_model = "player"
 
-    def vars_for_template(self):
-        if self.player.id_in_group == 1:
-            return dict(file_loc='BiopharmSeltek/Seltek.pdf')
-        else:
-            return dict(file_loc='BiopharmSeltek/BioPharm.pdf')
+    template_name = "BiopharmSeltek/Seltek_materials.html"
+
+    timer_text = 'Time left for negotiating the case:'
+    timeout_seconds = Constants.negotiating_time *60
+    def is_displayed(self):
+        return self.player.id_in_group == 1
+
+
+class BioPharm_materials_no_timer(Page):
+    form_model = "player"
+    template_name = "BiopharmSeltek/BioPharm_materials.html"
+
+    timer_text = 'Time left for negotiating the case:'
+    timeout_seconds = Constants.negotiating_time *60
+    def is_displayed(self):
+        return self.player.id_in_group == 2
 
 
 class Negotiated_outcome_one(Page):
@@ -98,6 +136,7 @@ class Negotiated_outcome_one(Page):
 
     def is_displayed(self):
         return self.player.id_in_group == 2
+
 
 class Negotiated_outcome_two(Page):
 
@@ -117,11 +156,48 @@ class Outcome_wait(WaitPage):
     form_model = "group"
 
     def vars_for_template(self):
-        return {"title_text": "Reporting the outcome", "body_text":"As the Seltek representative, you'll stay on this page until the BioPharm representative finishes inputing the results.\n\n"}
+        if self.player.id_in_group == 1:
+            return {"title_text": "Reporting the outcome", "body_text":"Wait a moment while the BioPharm representative finishes inputing the results.\n\n"}
+        else:
+            return {"title_text": "Linking to the recording", "body_text":"Wait a moment while the Seltek representative finishes linking to recording.\n\n"}
+
+
+class Sign_off_page(Page):
+    form_model = "group"
+
+
+class Journaling_page(Page):
+    form_model = "player"
+
+    form_fields = ["journaling_text"]
+
+    timeout_seconds = 180
 
 
 class Outro(Page):
     form_model = "group"
+
+    def is_displayed(self):
+        return self.player.id_in_group == 2
+
+    def vars_for_template(self):
+        try:
+            if self.participant.label in Constants.section_1_participants:
+                return {"return_link": Constants.link_581_1}
+            elif self.participant.label in Constants.section_2_participants:
+                return {"return_link": Constants.link_581_2}
+            else:
+                return {"return_link":"google.com"}
+        except:
+            return {"return_link":"google.com"}
+
+class Link_to_recording(Page):
+    form_model = "group"
+
+    formfields = ["link_to_recording"]
+
+    def is_displayed(self):
+        return self.player.id_in_group == 1
 
     def vars_for_template(self):
         try:
@@ -135,5 +211,6 @@ class Outro(Page):
             return {"return_link":"google.com"}
 
 
-#IntroWaitPage, Introduction, Case_page, Preferences_input_BF, Preferences_input_ST, Planning_doc, Create_link, Create_link_wait, Link_to_simulation, Case_page_no_timer, Negotiated_outcome_one, Negotiated_outcome_two, Outcome_wait,
-page_sequence = [Outro]
+
+
+page_sequence = [IntroWaitPage, Introduction, Seltek_materials, BioPharm_materials, Preferences_input_BF, Preferences_input_ST, Planning_doc, Create_link, Create_link_wait, Link_to_simulation, Start_Recording, Seltek_materials_no_timer, BioPharm_materials_no_timer, Negotiated_outcome_one, Negotiated_outcome_two, Outcome_wait, Sign_off_page, Journaling_page, Outro, Link_to_recording]

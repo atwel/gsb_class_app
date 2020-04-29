@@ -10,7 +10,6 @@ from otree.api import (
 )
 
 
-
 author = 'Jon Atwell'
 
 doc = """
@@ -26,15 +25,16 @@ with open("_rooms/Sp20_2.txt", "r") as f:
     names_section2 = raw_string.replace("\n", ",")
 
 
-
 class Constants(BaseConstants):
     name_in_url = 'BiopharmSeltek'
     players_per_group = 2
     num_rounds = 1
-    reading_time = 6
+    reading_time = 10
     planning_doc_length = 150
-    planning_doc_time_minutes = 3
-    link_581_1 ="https://stanford.zoom.us/j/98453129717"
+    planning_doc_time_minutes = 5
+    negotiating_time = 35
+
+    link_581_1 = "https://stanford.zoom.us/j/98453129717"
     link_581_2 = "https://stanford.zoom.us/j/93410198117"
     section_1_participants = names_section1
     section_2_participants = names_section2
@@ -46,6 +46,7 @@ class Subsession(BaseSubsession):
 
 class Group(BaseGroup):
     link = models.StringField(label="Stanford Zoom URL")
+    link_to_recording = models.StringField(label="Please provide the link to your recording.")
     initial_price = models.CurrencyField(label="What was the price of the first offer in millions of USD (e.g. XX.xx )?")
     made_initial = models.StringField(choices=["BioPharm","Seltek"], widget=widgets.RadioSelectHorizontal, label="Which company made the first offer?")
     deal = models.BooleanField(label="Did the companies reach a deal?",widget=widgets.RadioSelectHorizontal)
@@ -59,3 +60,4 @@ class Group(BaseGroup):
 
 class Player(BasePlayer):
     planning_text = models.LongStringField(label="Describe your plan for this negotiation")
+    journaling_text = models.LongStringField(label="Please describe your experience of the negotiation.")
