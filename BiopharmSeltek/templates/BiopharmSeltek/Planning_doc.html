@@ -34,6 +34,10 @@ Write about how you will approach this negotiation. You might consider things li
 <div style="width:750px"> <textarea name="planning_text" cols=200 rows=20 required="" id="id_planning_text" class="form-control" onkeyup="textCounter(this, {{ max_word_limit }});" id="message" style="max-width:100%">
 </textarea></div>
     <div id="counter" style="margin-left:30%">Words Left: {{ max_word_limit }}</div>
+
+<br>
+    View the case materials
+    <a target="_blank" rel="noopener noreferrer" href="{% static return_link %}">here</a> (new tab).
   <div id="clocked" style="display:none;margin-left:90%">
         {% next_button %}
   </div>

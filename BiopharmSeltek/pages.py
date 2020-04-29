@@ -53,6 +53,9 @@ class Preferences_input_ST(Page):
     def is_displayed(self):
             return self.player.id_in_group == 1
 
+    def vars_for_template(self):
+        return {"return_link": "BiopharmSeltek/Seltek_materials.html"}
+
 
 class Preferences_input_BF(Page):
     form_model = "group"
@@ -60,6 +63,9 @@ class Preferences_input_BF(Page):
 
     def is_displayed(self):
             return self.player.id_in_group == 2
+
+    def vars_for_template(self):
+        return {"return_link": "BiopharmSeltek/Biopharm_materials.html"}
 
 
 class Planning_doc(Page):
@@ -70,7 +76,10 @@ class Planning_doc(Page):
     timer_text = 'Time left for writing your document:'
 
     def vars_for_template(self):
-        return dict(max_word_limit=Constants.planning_doc_length)
+        if self.player.id_in_group == 1:
+            return {"return_link": "BiopharmSeltek/Seltek_materials.html","max_word_limit":Constants.planning_doc_length}
+        if self.player.id_in_group == 2:
+            return {"return_link": "BiopharmSeltek/Biopharm_materials.html","max_word_limit":Constants.planning_doc_length}
 
 
 class Create_link(Page):
@@ -193,6 +202,12 @@ class Journaling_page(Page):
 
     timeout_seconds = 180
 
+    def vars_for_template(self):
+        if self.player.id_in_group == 1:
+            return {"return_link": "BiopharmSeltek/Seltek_materials.html"}
+        if self.player.id_in_group == 2:
+            return {"return_link": "BiopharmSeltek/Biopharm_materials.html"}
+
 
 class Outro(Page):
     form_model = "group"
@@ -207,9 +222,9 @@ class Outro(Page):
             elif self.participant.label in Constants.section_2_participants:
                 return {"return_link": Constants.link_581_2}
             else:
-                return {"return_link":"google.com"}
+                return {"return_link":"https://gsb.stanford.edu"}
         except:
-            return {"return_link":"google.com"}
+            return {"return_link":"https://gsb.stanford.edu"}
 
 class Link_to_recording(Page):
     form_model = "group"
