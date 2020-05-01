@@ -35,6 +35,8 @@ class Seltek_materials(Page):
     def is_displayed(self):
         return self.player.id_in_group == 1
 
+    def vars_for_template(self):
+        return {"pdf_file": "BiopharmSeltek/Seltek.pdf"}
 
 class Biopharm_materials(Page):
     form_model = "player"
@@ -44,6 +46,9 @@ class Biopharm_materials(Page):
 
     def is_displayed(self):
         return self.player.id_in_group == 2
+
+    def vars_for_template(self):
+        return {"pdf_file": "BiopharmSeltek/Biopharm.pdf"}
 
 
 class Preferences_input_ST(Page):
