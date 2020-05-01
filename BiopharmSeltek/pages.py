@@ -48,7 +48,7 @@ class Biopharm_materials(Page):
         return self.player.id_in_group == 2
 
     def vars_for_template(self):
-        return {"pdf_file": "BiopharmSeltek/Biopharm.pdf"}
+        return {"pdf_file": "BiopharmSeltek/BioPharm.pdf"}
 
 
 class Preferences_input_ST(Page):
