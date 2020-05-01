@@ -114,7 +114,7 @@ class Create_link_wait(WaitPage):
     form_model = "player"
 
     def vars_for_template(self):
-        return {"title_text":"Creation of Meeting","body_text":"The Seltek representative is creating a Zoom meetings. You'll get a link for it shortly."}
+        return {"title_text":"Creation of Meeting","body_text":"The Seltek representative is creating a Zoom meeting. You'll get a link for it shortly."}
 
 
 

@@ -16,13 +16,13 @@ function check(input) {
 
 	var inp = input.value.toLowerCase();
 
-	var base = "http://stanford.zoom.us"
+	var base = "https://stanford.zoom.us"
 
   if (inp.includes(base)) {
   input.setCustomValidity('');
 }
  	else {
- 	input.setCustomValidity("The link should start with http://stanford.zoom.us in it. Did you forget to copy the new link?");}
+ 	input.setCustomValidity("The link should start with https://stanford.zoom.us in it. Did you forget to copy the new link?");}
 
 }
 </script>
@@ -30,7 +30,7 @@ function check(input) {
 As the <strong>Seltek</strong> representative, you are hosting this negotiation. Please create a Zoom meeting and then copy and paste the link to share with the <strong>Biopharm</strong> representative here. Don’t forget to record the meeting!<br><br><br>
 <center>
 <input type="text" name="link" oninput=check(this)><br>
-<span style="font-size:.75em">Must be a <em>http://stanford.zoom.us</em> URL</span></center><br><br>
+<span style="font-size:.75em">Must be a <em>https://stanford.zoom.us</em> URL</span></center><br><br>
 
 <div style="margin-left:90%">
       {% next_button %}
