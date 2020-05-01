@@ -154,6 +154,9 @@ class Seltek_materials_no_timer(Page):
     def is_displayed(self):
         return self.player.id_in_group == 1
 
+    def vars_for_template(self):
+        return {"pdf_file": "BiopharmSeltek/Seltek.pdf"}
+
 
 class BioPharm_materials_no_timer(Page):
     form_model = "player"
@@ -167,6 +170,9 @@ class BioPharm_materials_no_timer(Page):
 
     def is_displayed(self):
         return self.player.id_in_group == 2
+
+    def vars_for_template(self):
+        return {"pdf_file": "BiopharmSeltek/BioPharm.pdf"}
 
 
 class Negotiated_outcome_one(Page):
