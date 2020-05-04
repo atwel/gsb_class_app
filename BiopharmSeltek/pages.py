@@ -114,6 +114,7 @@ class Start_recording(Page):
         return self.player.id_in_group == 1
 
     def before_next_page(self):
+        self.participant.vars["sim_start"] = time.time()
         self.participant.vars["sim_timer"] = time.time() + Constants.negotiating_time * 60 + 30
 
 
@@ -121,7 +122,10 @@ class Create_link_wait(WaitPage):
     form_model = "player"
 
     def vars_for_template(self):
-        return {"title_text":"Creation of Meeting","body_text":"The Seltek representative is creating a Zoom meeting. You'll get a link for it shortly."}
+        if self.player.id_in_group == 1:
+            return {"title_text": "Partner is catching up", "body_text": "Your Biopharm partner is catching up. You'll wait here until they arrive."}
+        else:
+            return {"title_text":"Creation of Meeting","body_text":"The Seltek representative is creating a Zoom meeting. You'll get a link for it shortly."}
 
 
 
@@ -205,17 +209,26 @@ class Negotiated_outcome_two(Page):
         return self.player.id_in_group == 2
 
 
+
 class Outcome_wait(WaitPage):
     form_model = "group"
 
+    form_fields = ["nego_time"]
+
     def vars_for_template(self):
-        return {"title_text": "Reporting the outcome", "body_text":"Wait a moment while the BioPharm representative finishes inputting the results.\n\n"}
+        if self.player.id_in_group == 1:
+            return {"title_text": "Reporting the outcome", "body_text":"Wait a moment while the BioPharm representative finishes inputting the results.\n\n"}
+        else:
+            return {"title_text": "Waiting", "body_text":"Wait a moment for the Seltek representative.\n\n"}
 
 
 
 class Sign_off_page(Page):
     form_model = "group"
 
+    def before_next_page(self):
+        if self.player.id_in_group == 1:
+            self.group.nego_time = int(time.time() - self.participant.vars["sim_start"])
 
 class Journaling_page(Page):
     form_model = "player"

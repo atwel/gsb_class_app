@@ -57,6 +57,7 @@ class Group(BaseGroup):
     target_BF = models.CurrencyField(label="What is your ideal purchase price for the Seltek plant in millions of USD (e.g. XX.xx)?")
     batna_ST = models.CurrencyField(label="At what price in millions of USD should you walk away without a deal?")
     target_ST = models.CurrencyField(label="What is your ideal sale price for your plant in millions of USD (e.g. XX.x)?")
+    nego_time = models.IntegerField()
 
 class Player(BasePlayer):
     planning_text = models.LongStringField(label="Describe your plan for this negotiation")
