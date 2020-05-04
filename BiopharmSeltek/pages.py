@@ -259,7 +259,7 @@ class Outro(Page):
 class Link_to_recording(Page):
     form_model = "group"
 
-    formfields = ["link_to_recording"]
+    form_fields = ["link_to_recording"]
 
     def is_displayed(self):
         return self.player.id_in_group == 1
