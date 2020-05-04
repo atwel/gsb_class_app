@@ -32,7 +32,7 @@ class Constants(BaseConstants):
     reading_time = 10
     planning_doc_length = 150
     planning_doc_time_minutes = 5
-    negotiating_time = 35
+    negotiating_time = 25
 
     link_581_1 = "https://stanford.zoom.us/j/98453129717"
     link_581_2 = "https://stanford.zoom.us/j/93410198117"
@@ -61,3 +61,8 @@ class Group(BaseGroup):
 class Player(BasePlayer):
     planning_text = models.LongStringField(label="Describe your plan for this negotiation")
     journaling_text = models.LongStringField(label="Please describe your experience of the negotiation.")
+    settings_rating = models.FloatField()
+    skilled_rating = models.FloatField()
+    experience_rating = models.FloatField()
+    alter_interact = models.FloatField()
+    alter_closeness = models.FloatField()

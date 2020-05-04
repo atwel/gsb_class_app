@@ -19,11 +19,18 @@ class IntroWaitPage(WaitPage):
     #            f.write(csv_str)
 
 
+
+
 class Introduction(Page):
     form_model = "player"
 
     def vars_for_template(self):
         return dict(reading_limit=Constants.reading_time)
+
+class Survey(Page):
+    form_model = "player"
+
+    form_fields = ["settings_rating", "skilled_rating","experience_rating"]
 
 
 class Seltek_materials(Page):
@@ -202,7 +209,7 @@ class Outcome_wait(WaitPage):
     form_model = "group"
 
     def vars_for_template(self):
-        return {"title_text": "Reporting the outcome", "body_text":"Wait a moment while the BioPharm representative finishes inputing the results.\n\n"}
+        return {"title_text": "Reporting the outcome", "body_text":"Wait a moment while the BioPharm representative finishes inputting the results.\n\n"}
 
 
 
@@ -222,6 +229,14 @@ class Journaling_page(Page):
             return {"return_link": "BiopharmSeltek/Seltek_materials.html"}
         if self.player.id_in_group == 2:
             return {"return_link": "BiopharmSeltek/Biopharm_materials.html"}
+
+
+class Alter_questions(Page):
+
+    form_model = "player"
+
+    form_fields = ["alter_interact", "alter_closeness"]
+
 
 
 class Outro(Page):
@@ -263,4 +278,4 @@ class Link_to_recording(Page):
 
 
 
-page_sequence = [IntroWaitPage, Introduction, Seltek_materials, Biopharm_materials, Preferences_input_BF, Preferences_input_ST, Planning_doc, Create_link, Start_recording, Create_link_wait, Link_to_simulation, Seltek_materials_no_timer, BioPharm_materials_no_timer, Negotiated_outcome_one, Negotiated_outcome_two, Outcome_wait, Sign_off_page, Journaling_page, Outro, Link_to_recording]
+page_sequence = [IntroWaitPage, Introduction, Survey, Seltek_materials, Biopharm_materials, Preferences_input_BF, Preferences_input_ST, Planning_doc, Create_link, Start_recording, Create_link_wait, Link_to_simulation, Seltek_materials_no_timer, BioPharm_materials_no_timer, Negotiated_outcome_one, Negotiated_outcome_two, Outcome_wait, Sign_off_page, Journaling_page, Alter_questions, Outro, Link_to_recording]
