@@ -34,7 +34,7 @@ class Constants(BaseConstants):
 
     reading_time = 5 #minutes
     material_button_show= .02 #minutes
-    material_button_show_no_timer= 15 #minutes
+    material_button_show_no_timer= .02 #minutes
     calculator_time = 5 #minutes
     planning_doc_time= 5 # minutes
     negotiating_time = 25 # minutes
