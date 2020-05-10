@@ -85,6 +85,17 @@ class Candidate_calculator(Page):
         return self.player.role() == "candidate"
 
     def before_next_page(self):
+        if self.timeout_happened:
+            self.player.initial_offer_points=0
+            self.player.bonus=10
+            self.player.job_assignment="Division A"
+            self.player.location = "San Francisco"
+            self.player.insurance_coverage = "Plan A"
+            self.player.vacation_time = "25 days"
+            self.player.moving_expenses = 100
+            self.player.salary = 90000
+            self.player.starting_date = "June 1"
+
         id = 1
         self.player.initial_offer_points = Constants.salary[self.player.salary][id]+\
                                 Constants.bonus[self.player.bonus][id]+\
@@ -113,6 +124,16 @@ class Recruiter_calculator(Page):
         return self.player.role() == "recruiter"
 
     def before_next_page(self):
+        if self.timeout_happened:
+            self.player.initial_offer_points=0
+            self.player.bonus=10
+            self.player.job_assignment="Division A"
+            self.player.location = "San Francisco"
+            self.player.insurance_coverage = "Plan A"
+            self.player.vacation_time = "25 days"
+            self.player.moving_expenses = 100
+            self.player.salary = 90000
+            self.player.starting_date = "June 1"
         id = 0
         self.player.initial_offer_points = Constants.salary[self.player.salary][id]+\
                                 Constants.bonus[self.player.bonus][id]+\
