@@ -91,7 +91,7 @@ class Candidate_calculator(Page):
             self.player.job_assignment="Division A"
             self.player.location = "San Francisco"
             self.player.insurance_coverage = "Plan A"
-            self.player.vacation_time = "25 days"
+            self.player.vacation_time = 25
             self.player.moving_expenses = 100
             self.player.salary = 90000
             self.player.starting_date = "June 1"
@@ -130,7 +130,7 @@ class Recruiter_calculator(Page):
             self.player.job_assignment="Division A"
             self.player.location = "San Francisco"
             self.player.insurance_coverage = "Plan A"
-            self.player.vacation_time = "25 days"
+            self.player.vacation_time = 25
             self.player.moving_expenses = 100
             self.player.salary = 90000
             self.player.starting_date = "June 1"
