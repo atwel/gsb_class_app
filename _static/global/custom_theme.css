@@ -13,9 +13,7 @@
    whole screen */
 .input-group,
 input.form-control,
-select.form-control,
-textarea.form-control {
-    max-width: 400px;
+select.form-control
 }
 
 /* This allows the number field to contain around 7 digits. */
@@ -104,9 +102,10 @@ body {
 }
 
 .container {
-padding-left: 4%;
-padding-right: 4%;
-margin-top: 2%;
+padding-left: 8%;
+padding-right: 8%;
+padding-top:4%;
+margin-top: 4%;
 }
 
 .page-header {
@@ -114,7 +113,7 @@ padding-top:8%;
 }
 
 .otree-body {
-    max-width:60%;
+    max-width:80%;
     background-color: white;
 
 }

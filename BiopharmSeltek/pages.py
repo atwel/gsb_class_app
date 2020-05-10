@@ -4,21 +4,18 @@ from .models import Constants
 
 import time
 
+
 class IntroWaitPage(WaitPage):
-    #wait_for_all_groups = True
 
     def vars_for_template(self):
             return {"title_text": "Waiting for your partner", "body_text":"Wait a moment while your partner signs on.\n\n"}
-    #def after_all_players_arrive(self):
-    #        csv_str = "Pre-assign Room Name,Email Address\n"
-    #        for index, players in enumerate(self.subsession.get_group_matrix()):
-    #                for player in players:
-    #                    csv_str += "room{},{}@stanford.edu\n".format(index+1,player.participant.label)
-    #        print(csv_str)
-    #        with open("breakout_room_assignment.csv","w+") as f:
-    #            f.write(csv_str)
 
-
+    def after_all_players_arrive(self):
+            csv_str = "Pre-assign Room Name,Email Address\n"
+            for index, players in enumerate(self.subsession.get_group_matrix()):
+                    for player in players:
+                        csv_str += "room{},{}@stanford.edu\n".format(index+1,player.participant.label)
+            print(csv_str)
 
 
 class Introduction(Page):

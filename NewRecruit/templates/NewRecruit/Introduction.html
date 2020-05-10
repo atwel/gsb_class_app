@@ -2,16 +2,32 @@
 {% load otree static %}
 
 {% block title %}
-    New Recruit - DRRC<span style="font-size:.5em">©
+    New Recruit
+{% endblock %}
+
+{% block styles %}
+<link rel="stylesheet" href="{% static "global/custom_theme.css" %}">
 {% endblock %}
 
 {% block content %}
-<div style="width:65%;margin-top:10%">
-You are about to negotiate the <b><i>New Recruit</i></b> case.<br><br> It is a straightforward two-person case that will touch on a number of key issues in the <b><i>mathematics</i></b> of negotiation.<br><br>
-You'll have {{ reading_limit }} minutes to read the case. You'll then specify your target outcome, write a short planning document, negotiate with a partner and report the outcome.</div>
-<br><br>
+
+You are about to negotiate the <b><i>New Recruit</i></b> case, a two-person case.<br>
+
+<div style="font-size:1.25em;padding-top:1.5%;padding-bottom:1.5%">
+Your partner is <strong>{{ partner_name }}</strong>.</div>
+
+You will:
+<ul>
+<li>have {{ Constants.reading_time }} minutes to read the case.</li>
+<li>identify the initial offer you'd like to make.</li>
+<li>have {{ Constants.planning_doc_time }} minutes to write a short planning document.</li>
+<li>have {{ Constants.negotiating_time }} minutes to negotiate with a partner.</li>
+<li>report the outcome and about the process.</li>
+</ul>
+<br>
 <div style="margin-left:90%">
     {% next_button %}
 </div>
+<br>
 
 {% endblock %}

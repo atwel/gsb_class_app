@@ -4,51 +4,89 @@ from .models import Constants
 
 
 class IntroWaitPage(WaitPage):
-    wait_for_all_groups = True
+
+    def vars_for_template(self):
+        return {"title_text": "Waiting for your partner", "body_text":"Wait a moment while your partner signs on.\n\n"}
 
     def after_all_players_arrive(self):
-            csv_str = "Pre-assign Room Name,Email Address\n"
-            for index, players in enumerate(self.subsession.get_group_matrix()):
-                    for player in players:
-                        csv_str += "room{},{}@stanford.edu\n".format(index+1,player.participant.label)
-            print(csv_str)
-            with open("breakout_room_assignment.csv","w+") as f:
-                f.write(csv_str)
+        csv_str = "Pre-assign Room Name, Email Address\n"
+        for index, players in enumerate(self.subsession.get_group_matrix()):
+                for player in players:
+                    csv_str += "room{},{}@stanford.edu\n".format(index+1,player.participant.label)
+        print(csv_str)
+
+        c, r = self.group.get_players()
+        try:
+            c.participant.vars["partner_name"] = Constants.SUNet_to_name[r.participant.label]
+        except:
+            c.participant.vars["partner_name"] = "Unidentified"
+        try:
+            r.participant.vars["partner_name"] = Constants.SUNet_to_name[c.participant.label]
+        except:
+            r.participant.vars["partner_name"] =  "Unidentified"
+
 
 
 class Introduction(Page):
     form_model = "player"
 
     def vars_for_template(self):
-        return dict(reading_limit=Constants.reading_time)
+        return dict(partner_name = self.participant.vars["partner_name"])
 
 
-class Case_page(Page):
+
+class Candidate(Page):
     form_model = "player"
 
-    timeout_seconds= Constants.reading_time * 60
+    timeout_seconds = Constants.reading_time*60
+    timer_text = 'Time left for reading the materials'
+
+    def is_displayed(self):
+        return self.player.role() == "candidate"
+
     def vars_for_template(self):
-        if self.player.id_in_group == 1:
-            return dict(file_loc='NewRecruit/Recruiter.pdf')
-        else:
-            return dict(file_loc='NewRecruit/Candidate.pdf')
+        return {"pdf_file": "NewRecruit/Candidate.pdf"}
+
+    def js_vars(self):
+        return dict(button_show=Constants.material_button_show*60000)
 
 
-class Preferences_input(Page):
+class Recruiter(Page):
     form_model = "player"
-    form_fields = ['salary',
-                            'bonus',
+
+    timeout_seconds = Constants.reading_time*60
+    timer_text = 'Time left for reading the materials'
+
+    def is_displayed(self):
+        return self.player.role() == "recruiter"
+
+    def vars_for_template(self):
+        return {"pdf_file": "NewRecruit/Recruiter.pdf"}
+
+    def js_vars(self):
+        return dict(button_show=Constants.material_button_show*60000)
+
+
+class Candidate_calculator(Page):
+    form_model = "player"
+    form_fields = ['bonus',
+                            'job_assignment',
                             'location',
                             'insurance_coverage',
                             'vacation_time',
                             'moving_expenses',
-                            'job_assignment',
+                            "salary",
                             'starting_date']
 
-    def before_next_page(self):
-        id = self.player.id_in_group - 1
+    timeout_seconds = Constants.calculator_time * 60
+    timer_text = "Time left to come up with an initial offer"
 
-        total_points = Constants.salary[self.player.salary][id]+\
+    def is_displayed(self):
+        return self.player.role() == "candidate"
+
+    def before_next_page(self):
+        id = 1
+        self.player.initial_offer_points = Constants.salary[self.player.salary][id]+\
                                 Constants.bonus[self.player.bonus][id]+\
                                 Constants.location[self.player.location][id]+\
                                 Constants.insurance_coverage[self.player.insurance_coverage][id]+\
@@ -56,51 +94,79 @@ class Preferences_input(Page):
                                 Constants.moving_expenses[self.player.moving_expenses][id]+\
                                 Constants.job_assignment[self.player.job_assignment][id]+\
                                 Constants.starting_date[self.player.starting_date][id]
-        if total_points != 13200:
-            self.player.low_score = True
-        self.player.total_points = total_points
 
-
-class Preferences_result(Page):
+class Recruiter_calculator(Page):
     form_model = "player"
+    form_fields = ['bonus',
+                            'job_assignment',
+                            'location',
+                            'insurance_coverage',
+                            'vacation_time',
+                            'moving_expenses',
+                            "salary",
+                            'starting_date']
 
+    timeout_seconds = Constants.calculator_time * 60
+    timer_text = "Time left to come up with an initial offer"
+
+    def is_displayed(self):
+        return self.player.role() == "recruiter"
+
+    def before_next_page(self):
+        id = 0
+        self.player.initial_offer_points = Constants.salary[self.player.salary][id]+\
+                                Constants.bonus[self.player.bonus][id]+\
+                                Constants.location[self.player.location][id]+\
+                                Constants.insurance_coverage[self.player.insurance_coverage][id]+\
+                                Constants.vacation_time[self.player.vacation_time][id]+\
+                                Constants.moving_expenses[self.player.moving_expenses][id]+\
+                                Constants.job_assignment[self.player.job_assignment][id]+\
+                                Constants.starting_date[self.player.starting_date][id]
 
 class Planning_doc(Page):
     form_model = "player"
     form_fields = ["planning_text"]
 
+    timeout_seconds = Constants.planning_doc_time *60
+    timer_text = "Time left to finish the planning document"
+
+
     def vars_for_template(self):
-        return dict(max_word_limit=Constants.planning_doc_length, timeout_seconds=120)
+        if self.player.role() == "recruiter":
+            return {"pdf_file": "NewRecruit/Recruiter.pdf"}
+        else:
+            return {"pdf_file": "NewRecruit/Candidate.pdf"}
 
 
-class Create_link(Page):
+
+class Back_to_class(Page):
     form_model = "group"
 
-    form_fields = ["link"]
+
+class Candidate_no_timer(Page):
+    form_model = "player"
 
     def is_displayed(self):
-        return self.player.id_in_group == 1
-
-
-class Create_link_wait(WaitPage):
-    form_model = "player"
+        return self.player.role() == "candidate"
 
     def vars_for_template(self):
-        return {"title_text":"Creation of Meeting"}
+        return {"pdf_file": "NewRecruit/Candidate.pdf"}
+
+    def js_vars(self):
+        return dict(button_show=Constants.material_button_show_no_timer*60000)
 
 
-class Link_to_simulation(Page):
-    form_model = "group"
-
-
-class Case_page_no_timer(Page):
+class Recruiter_no_timer(Page):
     form_model = "player"
 
+    def is_displayed(self):
+        return self.player.role() == "recruiter"
+
     def vars_for_template(self):
-        if self.player.id_in_group == 1:
-            return dict(file_loc='NewRecruit/Recruiter.pdf#toolbar=0')
-        else:
-            return dict(file_loc='NewRecruit/Candidate.pdf#toolbar=0')
+        return {"pdf_file": "NewRecruit/Recruiter.pdf"}
+
+    def js_vars(self):
+        return dict(button_show=Constants.material_button_show_no_timer*60000)
 
 
 class Negotiated_outcome(Page):
@@ -115,7 +181,7 @@ class Negotiated_outcome(Page):
                             'job_assignment',
                             'starting_date']
     def is_displayed(self):
-        return self.player.id_in_group == 2
+        return self.player.role() == "recruiter"
 
 
 class Negotiation_process(Page):
@@ -123,18 +189,34 @@ class Negotiation_process(Page):
     form_fields = ["salary_fract","bonus_fract","job_assignment_fract","insurance_coverage_fract","moving_expenses_fract","vacation_time_fract","location_fract","starting_date_fract"]
 
     def is_displayed(self):
-        return self.player.id_in_group == 2
+        return self.player.role() == "recruiter"
 
+
+class Journaling_page(Page):
+    form_model = "player"
+
+    form_fields = ["journaling_text"]
+
+    timeout_seconds = 180
+
+    def vars_for_template(self):
+        return {"Recruiter": "NewRecruit/Recruiter.pdf", "Candidate": "NewRecruit/Candidate.pdf"}
 
 class Outcome_wait(WaitPage):
     form_model = "group"
 
     def vars_for_template(self):
-        return {"title_text": "Reporting the outcome", "body_text":"As the person in the role of the Candidate, you'll stay on this page until the Recruiter finishes inputing the results.\n\n"}
+        return {"title_text": "Reporting the outcome", "body_text":"As the person in the role of the Candidate, you'll stay on this page until the Recruiter finishes inputting the results.\n\n"}
 
 
 class Outro(Page):
     form_model = "group"
 
+class Explore_calc(Page):
 
-page_sequence = [IntroWaitPage, Introduction, Case_page, Preferences_input, Preferences_result, Planning_doc, Create_link, Create_link_wait, Link_to_simulation, Case_page_no_timer, Negotiated_outcome, Negotiation_process, Outcome_wait, Outro]
+    form_model = "group"
+
+
+
+
+page_sequence = [IntroWaitPage, Introduction, Candidate, Recruiter, Candidate_calculator, Recruiter_calculator, Planning_doc, Back_to_class, Candidate_no_timer, Recruiter_no_timer, Negotiated_outcome, Negotiation_process, Outcome_wait, Journaling_page, Outro, Explore_calc]
