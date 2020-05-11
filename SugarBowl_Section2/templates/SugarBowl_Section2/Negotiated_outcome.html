@@ -1,0 +1,22 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Negotiated Outcome
+{% endblock %}
+
+{% block styles %}
+<link rel="stylesheet" href="{% static "global/custom_theme.css" %}">
+
+{% endblock %}
+
+{% block content %}
+
+{% formfields %}
+
+<br>
+<div id="clocked" style="margin-left:90%">
+    {% next_button %}
+</div>
+
+{% endblock %}

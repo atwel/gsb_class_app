@@ -21,8 +21,17 @@ SESSION_CONFIGS = [
         display_name="New Recruit",
         num_demo_participants=2,
         app_sequence=['NewRecruit']),
-
-    ]
+    dict(
+        name='Sugar_Bowl_Section1',
+        display_name="Sugar Bowl Section 1",
+        num_demo_participants=2,
+        app_sequence=['SugarBowl_Section1']),
+    dict(
+        name='Sugar_Bowl_Section_2',
+        display_name="Sugar Bowl Section 2",
+        num_demo_participants=2,
+        app_sequence=['SugarBowl_Section2'])
+]
 
 # ISO-639 code
 # for example: de, fr, ja, ko, zh-hans

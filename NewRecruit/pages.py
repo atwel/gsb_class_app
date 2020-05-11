@@ -209,8 +209,6 @@ class Negotiation_process(Page):
     form_model = "group"
     form_fields = ["salary_fract","bonus_fract","job_assignment_fract","insurance_coverage_fract","moving_expenses_fract","vacation_time_fract","location_fract","starting_date_fract"]
 
-    def is_displayed(self):
-        return self.player.role() == "recruiter"
 
 
 class Journaling_page(Page):
