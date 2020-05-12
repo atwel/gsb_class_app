@@ -71,15 +71,6 @@ class Group(BaseGroup):
     insurance_coverage = models.StringField()
     starting_date = models.StringField()
 
-    salary_fract = models.FloatField()
-    bonus_fract = models.FloatField()
-    job_assignment_fract = models.FloatField()
-    location_fract =models.FloatField()
-    insurance_coverage_fract = models.FloatField()
-    vacation_time_fract = models.FloatField()
-    starting_date_fract = models.FloatField()
-    moving_expenses_fract = models.FloatField()
-
 
 class Player(BasePlayer):
     salary = models.IntegerField()
@@ -96,6 +87,15 @@ class Player(BasePlayer):
     initial_offer_points = models.IntegerField()
     final_points = models.IntegerField()
 
+    salary_fract = models.FloatField()
+    bonus_fract = models.FloatField()
+    job_assignment_fract = models.FloatField()
+    location_fract =models.FloatField()
+    insurance_coverage_fract = models.FloatField()
+    vacation_time_fract = models.FloatField()
+    starting_date_fract = models.FloatField()
+    moving_expenses_fract = models.FloatField()
+
 
 
     def role(self):
@@ -103,10 +103,3 @@ class Player(BasePlayer):
             return 'candidate'
         else:
             return 'recruiter'
-
-def custom_export(players):
-    # header row
-    yield ["Name","p.role","p.salary","p.bonus","p.moving_expenses","	p.vacation_time","p.job_assignment","p.location","p.insurance_coverage","p.starting_date","	p.planning_text","p.journaling_text","p.initial_offer_points","p.final_points","	p.group.id_in_subsession","p.group.salary","p.group.bonus","p.group.moving_expenses","p.group.vacation_time","p.group.job_assignment","p.group.location","p.group.insurance_coverage","p.group.starting_date","p.group.salary_fract","p.group.bonus_fract","p.group.job_assignment_fract","p.group.location_fract","p.group.insurance_coverage_fract","p.group.vacation_time_fract","p.group.starting_date_fract","p.group.moving_expenses_fract"]
-
-    for p in players:
-        yield [p.participant.label,p.role,p.salary,p.bonus,p.moving_expenses,p.vacation_time,p.job_assignment,p.location,p.insurance_coverage,p.starting_date,p.planning_text,p.journaling_text,p.initial_offer_points,p.final_points]
