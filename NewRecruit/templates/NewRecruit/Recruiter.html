@@ -46,7 +46,7 @@ NEW RECRUIT
 <script type="text/javascript">
     $(function() {
         var currentDate = new Date();
-        var milliseconds = 000;
+        var milliseconds = js_vars.button_show;
         $('div#clocked').countdown(currentDate.valueOf() + milliseconds, function(event) {
                 console.log(event.type)
                 switch(event.type) {

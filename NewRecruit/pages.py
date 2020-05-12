@@ -30,8 +30,6 @@ class IntroWaitPage(WaitPage):
 class Introduction(Page):
     form_model = "player"
 
-    def vars_for_template(self):
-        return dict(partner_name = self.participant.vars["partner_name"])
 
 
 
@@ -161,7 +159,11 @@ class Planning_doc(Page):
 
 
 class Back_to_class(Page):
-    form_model = "group"
+    form_model = "player"
+
+    def vars_for_template(self):
+        return dict(partner_name = self.participant.vars["partner_name"])
+
 
 
 class Candidate_no_timer(Page):
@@ -238,4 +240,4 @@ class Explore_calc(Page):
 
 
 
-page_sequence = [IntroWaitPage, Introduction, Candidate, Recruiter, Candidate_calculator, Recruiter_calculator, Planning_doc, Back_to_class, Candidate_no_timer, Recruiter_no_timer, Negotiated_outcome, Negotiation_process, Outcome_wait, Journaling_page, Outro, Explore_calc]
+page_sequence = [IntroWaitPage, Introduction, Candidate, Recruiter, Candidate_calculator, Recruiter_calculator, Planning_doc, Back_to_class, Candidate_no_timer, Recruiter_no_timer, Negotiated_outcome, Negotiation_process, Journaling_page, Outro, Explore_calc]

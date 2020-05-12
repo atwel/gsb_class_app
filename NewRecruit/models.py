@@ -33,8 +33,8 @@ class Constants(BaseConstants):
     num_rounds = 1
 
     reading_time = 5 #minutes
-    material_button_show= .02 #minutes
-    material_button_show_no_timer= .02 #minutes
+    material_button_show= 2 #minutes
+    material_button_show_no_timer= 2 #minutes
     calculator_time = 5 #minutes
     planning_doc_time= 5 # minutes
     negotiating_time = 25 # minutes
@@ -103,3 +103,10 @@ class Player(BasePlayer):
             return 'candidate'
         else:
             return 'recruiter'
+
+def custom_export(players):
+    # header row
+    yield ["Name","p.role","p.salary","p.bonus","p.moving_expenses","	p.vacation_time","p.job_assignment","p.location","p.insurance_coverage","p.starting_date","	p.planning_text","p.journaling_text","p.initial_offer_points","p.final_points","	p.group.id_in_subsession","p.group.salary","p.group.bonus","p.group.moving_expenses","p.group.vacation_time","p.group.job_assignment","p.group.location","p.group.insurance_coverage","p.group.starting_date","p.group.salary_fract","p.group.bonus_fract","p.group.job_assignment_fract","p.group.location_fract","p.group.insurance_coverage_fract","p.group.vacation_time_fract","p.group.starting_date_fract","p.group.moving_expenses_fract"]
+
+    for p in players:
+        yield [p.participant.label,p.role,p.salary,p.bonus,p.moving_expenses,p.vacation_time,p.job_assignment,p.location,p.insurance_coverage,p.starting_date,p.planning_text,p.journaling_text,p.initial_offer_points,p.final_points]
