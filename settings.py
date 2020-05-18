@@ -30,7 +30,18 @@ SESSION_CONFIGS = [
         name='Sugar_Bowl_Section_2',
         display_name="Sugar Bowl Section 2",
         num_demo_participants=2,
-        app_sequence=['SugarBowl_Section2'])
+        app_sequence=['SugarBowl_Section2']),
+    dict(
+        name='Federated_Science',
+        display_name="Federated Science",
+        num_demo_participants=3,
+        app_sequence=['Federated']),
+    dict(
+        name='HarborCo',
+        display_name="Harbor Co",
+        num_demo_participants=6,
+        app_sequence=['HarborCo'])
+
 ]
 
 # ISO-639 code

@@ -1,0 +1,101 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+Federated Science Fund
+
+{% endblock %}
+
+
+{% block styles %}
+<link rel="stylesheet" href="{% static "global/custom_theme.css" %}">
+<style>
+#points {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#points td, #points th {
+  border: 1px solid #ddd;
+  padding: 2px;
+
+  text-align: center;
+}
+
+.tr_top {
+  border-bottom: 3px solid;
+}
+
+#points tr:nth-child(even){background-color: #f2f2f2;}
+
+
+#points th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: center;
+  background-color: #8c1515;
+  color: white;
+}
+</style>
+{% endblock %}
+
+{% block content %}
+<script type="text/javascript" src="{% static 'global/jquery.countdown.js' %}"></script>
+
+<script type="text/javascript">
+    $(function() {
+        var currentDate = new Date();
+        var milliseconds = js_vars.button_show;
+        $('div#clocked').countdown(currentDate.valueOf() + milliseconds, function(event) {
+                console.log(event.type)
+                switch(event.type) {
+                    case "finish":
+                      $('div#clocked').show();
+                    case "finished":
+                        $('div#clocked').show();
+                }
+            });
+
+
+    });
+</script>
+a DRRC case written by Elizabeth A. Mannix
+<h2></h2>
+<br>
+<h4>Role of <em>Turbo Enterprises</em></h4>
+<br>
+<h6>You'll be able to see these materials again once the live negotiation has started but you can also <a href="{% static pdf_file %}" download>download a pdf version here.</a></h6>
+<br>
+<p>Stockman, Turbo and United are three small firms producing specialized products, equipment and research for the scientific and medical communities. As this has become such a critical, high-growth area, each firm is exploring ways to expand and improve its technology. This step necessarily involves innovations in the Research and Development divisions. As a result, each firm has recently applied for R & D funding from the Federated Science Fund.</p>
+<p>The Federated Science Fund (FSF) is a government agency dedicated to funding research in advanced medical technology. The FSF has indicated a willingness to provide funds for the proposed research, but since each firm’s request was highly similar, funds will only be provided to a consortium of two or three firms. The FSF will not grant funding to Stockman, Turbo or United alone.</p>
+<p>Stockman, Turbo and United differ in their staffs and facilities. Consequently, the FSF feels that they would qualify for different levels of funding, depending on how they organize. The FSF has indicated that the following amount of funds would be awarded, depending on the consortium formed.</p>
+<br>
+<table id="points">
+<tr><th>Organization(s)</th><th>R&D funds</th></tr>
+<tr><td>Stockman alone</td><td>$0</td></tr>
+<tr><td>Turbo alone</td><td>$0</td></tr>
+<tr><td>United alone</td><td>$0</td></tr>
+<tr><td>Stockman & Turbo</td><td>$4,400,000</td></tr>
+<tr><td>Stockman & United</td><td>$3,800,000</td></tr>
+<tr><td>Turbo & United</td><td>$3,000,000</td></tr>
+<tr><td>Stockman, Turbo & United</td><td>$4,800,000</td></tr>
+</table>
+<br>
+
+<p>Your job is to meet with the representatives of the two other organizations to negotiate the best arrangement you can for your organization. You must not only agree on a particular consortium, but also on your share of the grant awarded by FSF. You should be aware that a consortium does imply that the member firms will be working on projects jointly; they will have a great deal of future interaction. However, you will have no future interaction with any firm left out of the consortium.</p>
+<p>This is your first year with Turbo Enterprises and you are eager to do well. Although the negotiation for this grant is fairly unusual, you have been in similar bargaining situations in your previous job. The criteria used by FSF to determine the different funding allocations to the different consortia seem to reflect the relative strengths of the three firms. Relative to the other two firms, Turbo is the oldest firm. It is well-established, with a mid-sized staff and a moderately sized laboratory. Turbo concentrates in cancer-related technologies and has a reputation for steady output and reliable products. You feel that with a financial boost Turbo has the potential to develop some truly critical medical breakthroughs. In comparison, Stockman concentrates on basic research, producing a wide variety of products. Stockman has the greatest number of scientists and the largest laboratory. United Industries is the youngest company, with the smallest staff and lab. It is known for innovative technological breakthroughs. You have heard that it is currently concentrating on AIDS-related research. In terms of future productivity and potential, Turbo has more need of this funding than Stockman, but possibly less than United. However, you contribute less to the value of each consortium than Stockman, but more than United. You must decide on the importance of these different issues in formulating your negotiation strategy.</p>
+<p>The total amount of time for the negotiation is {{ Constants.negotiating_time }} minutes.  Two of the three organizations will first speak privately and the third organization must wait for the first five minutes of the meeting. For an agreement to be reached, all three parties must enter the same funding split after the negotiation</p>
+
+
+
+<div style="background-color:lightgray; font-size:.75em;padding:2%">
+<strong>© 1996-2018 Dispute Resolution Research Center (DRRC), Kellogg School of Management, Northwestern University. All rights reserved.</strong><br>
+DRRC teaching materials are protected by copyright law. DRRC requires a per person royalty for use of its exercises. Each purchase of an exercise authorizes copying or electronic distribution of that exercise equal to the quantity purchased.
+</div>
+<br><br>
+<div id="clocked" style="display:none;margin-left:90%">
+    {% next_button %}
+</div>
+
+{% endblock %}

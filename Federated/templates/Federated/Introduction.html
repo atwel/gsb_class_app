@@ -1,0 +1,30 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+  Federated Science
+{% endblock %}
+
+{% block styles %}
+<link rel="stylesheet" href="{% static "global/custom_theme.css" %}">
+{% endblock %}
+
+{% block content %}
+
+You are about to negotiate the <b><i>Federated Science</i></b> case, a <strong>three-party</strong> case.<br>
+
+<br><br>
+You will:
+<ul>
+<li>have {{ Constants.reading_time }} minutes to read the case.</li>
+<li>have {{ Constants.planning_doc_time }} minutes to write a planning document.</li>
+<li>have {{ Constants.negotiating_time }} minutes for negotiations.</li>
+<li>report the outcome and have an opportunity to reflect on the negotiation.</li>
+</ul>
+<br>
+<div style="margin-left:90%">
+    {% next_button %}
+</div>
+<br>
+
+{% endblock %}

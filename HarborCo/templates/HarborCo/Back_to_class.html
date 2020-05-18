@@ -1,0 +1,29 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    HarborCo
+{% endblock %}
+
+{% block styles %}
+<link rel="stylesheet" href="{% static "global/custom_theme.css" %}">
+{% endblock %}
+
+{% block content %}
+<br><br>
+
+<h4>You are now prepared to negotiate!</h4>
+<br>
+<p>The negotiation will be begin with the start of class on Thursday.</p>
+
+<p>The case materials are on the next page if you'd like to view them again.</p>
+
+
+<br><br>
+
+<div style="margin-left:90%">
+    {% next_button %}
+</div>
+<br>
+
+{% endblock %}
