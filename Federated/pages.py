@@ -152,7 +152,7 @@ class Back_to_class(Page):
         else:
             if self.player.role() == "united":
                 return {"rep": "United", "alter":"Turbo", "in_first":True}
-            elif self.player.role() == "stockman":
+            elif self.player.role() == "turbo":
                 return {"alter": "United", "rep":"Turbo", "in_first":True}
             else:
                 return {"rep": "Stockman", "alter":"NA", "in_first":False}

@@ -57,7 +57,7 @@ class Group(BaseGroup):
     def set_first_meet(self):
         for i, p in enumerate(self.get_players()):
             try:
-                p.name = SUNet_to_name[p.participant_label]
+                p.name = SUNet_to_name[p.participant.label]
             except:
                 p.name = "Demo_{}".format(i)
 
