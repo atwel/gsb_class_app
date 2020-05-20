@@ -40,12 +40,7 @@ SESSION_CONFIGS = [
         name='HarborCo',
         display_name="Harbor Co",
         num_demo_participants=6,
-        app_sequence=['HarborCo']),
-    dict(
-        name='HarborCo_vote',
-        display_name="Harbor Co voting",
-        num_demo_participants=6,
-        app_sequence=['HarborCo_vote'])
+        app_sequence=['HarborCo'])
 
 ]
 
