@@ -1,0 +1,43 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+Voting
+
+{% endblock %}
+
+
+{% block styles %}
+<link rel="stylesheet" href="{% static "global/custom_theme.css" %}">
+
+{% endblock %}
+
+
+
+{% block content %}
+
+<h5>HarborCo has asked you to vote on the following proposal:</h5><br>
+
+The <strong>Industry Mix</strong> of the project would be <strong>{{ mix }}</strong>.<br>
+{% if eco_if %}
+The <strong>Ecological Impact</strong> permissions would allow the project to do <strong>{{ eco }}</strong>.
+{% else %}
+The <strong>Ecological Impact</strong> permissions would require HarborCo to <strong>{{ eco }}</strong> the local ecology.
+{% endif %}<br>
+The <strong>Employment Rules</strong> would have <strong>{{ union }}</strong>.
+<br>
+{% if loan_if %}
+The project would receive <strong>Federal Loans</strong> of <strong>{{ loan }}</strong>.
+{% else %}
+The project would receive <strong>{{ loan }}</strong>
+{% endif %}<br>
+
+As a part of the project, <strong>{{ comp }}</strong> in <strong>compensation to other ports</strong>.
+<br><br><br>
+{% formfields %}
+<br>
+<div id="clocked" style="margin-left:90%">
+    {% next_button %}
+</div>
+
+{% endblock %}

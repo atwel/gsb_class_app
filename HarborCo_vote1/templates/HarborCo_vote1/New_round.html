@@ -1,0 +1,27 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+Entering Negotiations
+{% endblock %}
+
+{% block styles %}
+<link rel="stylesheet" href="{% static "global/custom_theme.css" %}">
+<style>
+.otree-timer {
+    display: none;
+}
+</style>
+{% endblock %}
+
+{% block content %}
+
+<br><br>
+  You are entering negotiations. You will vote on a proposal either at an appointed time (15, 45 and 85 minutes) or when HarborCo puts a proposal up for a vote.
+<br><br><br>
+<div style="margin-left:90%">
+    {% next_button %}
+</div>
+<br>
+
+{% endblock %}
