@@ -18,6 +18,9 @@ class Proposal(Page):
     def is_displayed(self):
         return self.player.role() == "harborco"
 
+    def vars_for_template(self):
+        return {"pdf_file": "HarborCo/Harborco.pdf"}
+
 
 class Tally(WaitPage):
 
@@ -72,9 +75,19 @@ class Vote(Page):
         return self.player.role() != "harborco"
 
     def vars_for_template(self):
+        if self.player.role() == "union":
+            pdf_file="HarborCo/Union.pdf"
+        if self.player.role() == "enviro":
+            pdf_file="HarborCo/EnvironmentalLeague.pdf"
+        if self.player.role() == "gov":
+            pdf_file="HarborCo/Governor.pdf"
+        if self.player.role() == "ports":
+            pdf_file="HarborCo/OtherPorts.pdf"
+        if self.player.role() == "dcr":
+            pdf_file="HarborCo/FederalDCR.pdf"
         eco_if = (self.group.eco == "Some harm")
         loan_if = (self.group.loan != "No federal loan")
-        return {"eco_if":eco_if, "loan_if":loan_if,"eco":self.group.eco.lower(),"mix":self.group.mix.lower(),"loan":self.group.loan.lower(), "union":self.group.union.lower(),"comp":self.group.comp}
+        return {"eco_if":eco_if, "pdf_file":pdf_file, "loan_if":loan_if,"eco":self.group.eco.lower(),"mix":self.group.mix.lower(),"loan":self.group.loan.lower(), "union":self.group.union.lower(),"comp":self.group.comp}
 
 
 class Results_high_pass(Page):
