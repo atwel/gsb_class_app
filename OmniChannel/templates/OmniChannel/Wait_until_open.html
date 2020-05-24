@@ -1,0 +1,54 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+You're ready for class!
+
+{% endblock %}
+
+
+{% block styles %}
+<link rel="stylesheet" href="{% static "global/custom_theme.css" %}">
+<style>
+
+#points {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 70%;
+  border: 2px solid
+}
+
+#points td {
+  border: 1px solid #ddd;
+  padding: 2px;
+  text-align: center;
+  width: 50%;
+  padding-bottom: 4px;
+}
+
+#points th {
+  border: 1px solid #ddd;
+  text-align: center;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  background-color: #8c1515;
+  border: 1px solid #000;
+  color: white;
+}
+
+#points tr:nth-child(even){background-color: #f2f2f2;}
+
+</style>
+{% endblock %}
+
+{% block content %}
+
+<p>You are now prepared to start working with your team at the start of class.</p>
+<p>You'll be able to return here to see your role materials again once class starts. You'll also be required to input the final agreement and your reflection after the negotiation here in the web-app.</p>
+<p> You may close your browser window; it will return to this page when you log in again.</p>
+
+
+
+<br><br>
+
+{% endblock %}

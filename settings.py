@@ -35,10 +35,6 @@ SESSION_CONFIG_DEFAULTS = dict(
         display_name="Federated Science",
         num_demo_participants=3,
         app_sequence=['Federated']),
-"""
-
-
-SESSION_CONFIGS = [
     dict(
         name='HarborCo_section1',
         display_name="Harbor Co section 1",
@@ -59,6 +55,15 @@ SESSION_CONFIGS = [
             display_name="Section 2 voting",
             num_demo_participants=6,
             app_sequence=['HarborCo_vote2'])
+"""
+
+
+SESSION_CONFIGS = [
+    dict(
+        name='OmniChannel',
+        display_name="OmniChannel",
+        num_demo_participants=2,
+        app_sequence=['OmniChannel']),
 
 ]
 

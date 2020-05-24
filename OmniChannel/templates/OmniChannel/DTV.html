@@ -1,0 +1,157 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+OmniChannel
+
+{% endblock %}
+
+
+{% block styles %}
+<link rel="stylesheet" href="{% static "global/custom_theme.css" %}">
+<style>
+
+#points {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 80%;
+  border: 2px solid
+}
+
+#points td {
+  border: 1px solid #ddd;
+  padding: 5px;
+  text-align: center;
+  width: 50%;
+  padding-bottom: 4px;
+}
+
+#points th {
+  border: 1px solid #ddd;
+  text-align: center;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  background-color: #8c1515;
+  border: 1px solid #000;
+  color: white;
+}
+
+#points tr:nth-child(even){background-color: #f2f2f2;}
+
+</style>
+{% endblock %}
+
+{% block content %}
+A DRRC case by Nir Halevy and Amir Kaspi
+<br><br>
+<p>You'll be able to see these materials again once the live negotiation has started but you can also <a href="{% static pdf_file %}" download>download a pdf version here.</a></p>
+<br>
+<br>
+<h1>Role: <em>3DTV</em> negotiation team member</h1>
+<br>
+<p>You are member the Business Development Unit for 3DTV, a start-up in the TV space that was founded three years ago, with a main office in Shanghai, China, and a smaller office in Palo Alto, California. 3DTV develops the next generation of 3D video that will allow users to see any content in 3D without wearing an external device (e.g., 3D glasses). Your competitive advantage comes from a patent that allows you to turn any 2D format into 3D; your most recent valuation was $100M. You have been working hard on a technology that provides your users a one-stop-shop for all their digital and traditional TV needs. Your unique platform allows users to watch the content either on typical 2D screen or in 3D without the need to use any external device.</p>
+<p>3DTV plans on raising funds next year. To do well, you hope to show potential investors high adoption rates. You have determined that the best way to achieve this strategic goal is to partner with a major provider of regular 2D content in the U.S., and use your technology to enable your subscribers to view it in 3D. Although licensing the content directly from the owner would be the most cost effective way, these negotiations typically take many quarters and you are interested in building a partnership more rapidly. Therefore, you have determined that the main potential partner for such a deal is OmniChannel, a major player in the U.S. TV content market. Established in 1970, OmniChannel (OC) is a publicly traded company that provides users with a one-stop-shop for over 100 channels. OC clients can also access 20 premium channels from PreimumTV, which owns the exclusive distribution rights to premium contents (e.g., HBO). OC users are paying a monthly subscription fee to access the platform.</p>
+<p>In parallel to your core mission, which is to develop your own unique TV experience, you have recently made headlines for building your advance data center technology. 3DTV developed a technology that allows it to run its data centers more effectively. You have just registered a patent on that technology, which basically cuts data center costs in half. The new data centers will allow you to process and run the new 3D format more efficiently. Because of this, your data centers became the crown jewel in the industry.</p>
+
+<p>In preparation for the negotiation with OC, your team received the following email from 3DTV’s CEO:</p>
+
+<div style="background-color:whitesmoke;padding:3%;border:1px;">
+  <strong>From:</strong> Office of the CEO, 3DTV<br>
+  <strong>To: </strong>Business Development Team, 3DTV <br><br>
+  <p>Dear Business Development team,</p>
+  <p>Over the past few years our company has been working hard on launching a TV and digital solution that will be tailored to the cord cutter audience. The goal is to provide our users a one stop shop for all their digital and traditional TV needs.</p>
+  <p>As you know, our success depends on licensing as many channels as possible. Hence, I have determined that we should approach OmniChannel (OC) which owns the licensing and sub-licensing rights to more than 100 channels including local, national and international TV. OC recently signed an agreement with PremiumTV which has access to 20 premium channels, but it’s still unclear if OC has the right to sub-license these channels to us. The more of these channels we can license, the better. You should know that OC has a product in the market (while outdated, still popular) that offers its subscribers the ability to access these channels for a traditional 2D experience.</p>
+
+  <p>A key benefit of working with OC is that the bundle of channels provides us a large sample that will allow us to further enhance our algorithm and platform to improve the speed and quality of the digital signal we provide users.</p>
+  <p>There are two ways in which we can leverage the channels from OC:
+<ol><li><strong>Internal research purposes.</strong> To turn 2D content into 3D, we need to analyze the metadata that each channelprovides us. There is a lot of value for us getting these rights in a bundled fashion. Most importantly, such vast amounts of data will help us improve the algorithm quickly. As such, it will expedite the time to market, save expensive R&D costs and accelerate the overall research effort. We will probably see some incremental cost savings (1-2%) but probably not more than that in the long run.</li>
+<li><strong>Offer the content to our subscribers.</strong> In addition to the above use, we want to be able to pass OC’s content via our unique technology to our subscribers either in a 2D or 3D format. Obviously that will increase our revenue. We will be able to generate more revenue if we get the option to deliver both 2D and 3D (rather than only 3D).</li></ol>
+
+<p> OC will likely push back on use case #2 as it competes with their current product. We should be able to get support for use case #1 and I would like to you also push for getting the ability to pass their content externally in a 3D format to our subscribers.</p>
+<p>I know it won’t be easy to negotiate this deal but I trust that you will negotiate the best deal for 3DTV! I have outlined in the attachment to this email the parameters for this negotiation.</p>
+<p>Please read the attachment carefully.</p>
+<p>Bai Liu<br>
+<strong>CEO</strong></p>
+</div>
+
+<br><br>
+<p>The attachment to the email from your CEO included the following important points:
+<ul><li>OC are the most credible partners when it comes
+to licensing and sub-licensing TV content. They also have the largest number of channels and quality of channels (i.e., premium channels). The more channels we have access to, the better – we want to avoid the need to license additional channels from other providers. The latter would be very difficult and will probably take 12-24 months to negotiate and another 12-24 months to integrate and combine with the OC offering.</li>
+<li>Needless to say, we would like this deal to give our product team as much flexibility as possible in terms of usage rights of the data.</li>
+<li><strong>IMPORTANT INFORMATION FROM YOUR CEO ABOUT THE PROCESS:</strong>
+This is going to be a cross-cultural, Chinese-American negotiation. Communication and information exchange may be challenging. We should act in accordance with our principles and values. I fully expect you to:
+<ol><li>Maintain the formality and hierarchy that we pride ourselves on. Only the leader of the negotiation team should speak; everyone else should demonstrate utmost respect and deference, and maintain the unity and harmony of the team.</li>
+<li>Be as minimal as possible in your communications. Always prefer silence over chatter. Remember, the empty vessel makes the most noise.</li>
+<li> Be true to our principle of <em>Guanxi</em> - we only do business with others with whom we have close ties. Thus, it is important that you establish relationships with the Americans. You should spend the first 10 minutes of the negotiation on social introductions, and asking the Americans about their families, hobbies, and entertainment preferences (this information will be useful when we shall host them in Shanghai).</li></ol></ul>
+<br>
+<p>As members of the Business Development Team for 3DTV, you will have to reach agreement on 9 issues with OC’s representatives to finalize the deal. The Payoff Schedule on the next page provides information about the relative importance of different issues to your team. Make sure not to show your payoff schedule to the other party. <strong>You have a total of 60 minutes to complete this negotiation. If you fail to reach agreement with 3DTV today your outcome will be 0 points.</strong></p><br><br>
+
+<center>
+<h4>Payoff Schedule</h4>
+<table id="points">
+<tr><th>Issues</th><th>Options</th><th>Points</th></tr>
+<tr><td rowspan=3 style="background-color:white"><strong>Use of manipulated data</strong><p>Manipulated and merged data can be used to learn how to augment the realism of content. You are <strong><em>extremely</em></strong> interested in this for your research and development.</p></td><td>3DTV has a perpetual license to use the data for internal research</td><td>3800</td></tr>
+<tr><td>3DTV has a license to use the data for internal research during the agreement term</td><td>1900</td></tr>
+<tr style="border-bottom: 3px solid #000;"><td>3DTV cannot use manipulated data for internal research</td><td>0</td></tr>
+<tr><td rowspan=2 style="background-color:#f2f2f2"><strong>Data License Restrictions</strong>
+<p>Your main interest is in broadcasting the content in 3D; getting permission to also broadcast the content in 2D will be helpful, but is not a top priority for you.</p></td><td>3DTV can offer the content to their subscribers in 2D or 3D format</td><td>3200</td></tr>
+<tr style="border-bottom: 3px solid #000;"><td>3DTV can offer the content to their subscribers in 3D format only</td><td>0</td></tr>
+<tr><td rowspan=5><strong># of PremiumTV channels licensed</strong>
+<br>(Raw Channel Data & Meta Data)
+<p>You are interested in maximizing the number of channels you license to show high adoption rates to future investors and maximize opportunities to improve your machine learning algorithm.</p></td><td>20</td><td>2400</td></tr>
+<tr><td>15</td><td>1800</td></tr>
+<tr><td>10</td><td>1200</td></tr>
+<tr><td>5</td><td>600</td></tr>
+<tr style="border-bottom: 3px solid #000;"><td>0</td><td>0</td></tr>
+
+<tr><td rowspan=5><strong>Fees for PremiumTV channels</strong><br>
+You obviously prefer to pay less rather than more in licensing fees. The following fees are per channel/month.</td><td>11,000</td><td>6600</td></tr>
+<tr><td>12,000</td><td>4950</td></tr>
+<tr><td>13,000</td><td>3300</td></tr>
+<tr><td>14,000</td><td>1650</td></tr>
+<tr style="border-bottom: 3px solid #000;"><td>15,000</td><td>0</td></tr>
+<tr><td rowspan=5><strong># of OC channels licensed</strong><br>(Raw Channel Data & Meta Data)<br>
+You are interested in maximizing the number of channels you license to show high adoption rates to future investors and maximize opportunities to improve your machine learning algorithm.</td><td>100</td><td>0</td></tr>
+<tr><td>90</td><td>-500</td></tr>
+<tr><td>80</td><td>-1000</td></tr>
+<tr><td>70</td><td>-1500</td></tr>
+<tr style="border-bottom: 3px solid #000;"><td>60</td><td>-2000</td></tr>
+
+<tr><td rowspan=5><strong>Fees for OC channels</strong><br>You obviously prefer to pay less rather than more in licensing fees. The following fees are per channel/month.</td><td>600</td><td>0</td></tr>
+<tr><td>700</td><td>-1200</td></tr>
+<tr><td>800</td><td>-2400</td></tr>
+<tr><td>900</td><td>-3600</td></tr>
+<tr style="border-bottom: 3px solid #000;"><td>1000</td><td>-4800</td></tr>
+
+<tr><td rowspan=5><strong>Fees for using 3DTV’s Data Centers</strong><br>You are willing to include access to your data centers in this deal. Obviously, you prefer to charge more rather than less for such access.</td><td>$30,000 per month</td><td>4400</td></tr>
+<tr><td>$25,000 per month</td><td>3300</td></tr>
+<tr><td>$20,000 per month</td><td>2200</td></tr>
+<tr><td>$15,000 per month</td><td>1100</td></tr>
+<tr style="border-bottom: 3px solid #000;"><td>$10,000 per month</td><td>0</td></tr>
+
+<tr><td rowspan=5><strong>Length of Agreement</strong><br>You are interested in establishing a long-term partnership. Thus, the longer the term of the agreement, the better.</td><td>8 years</td><td>6000</td></tr>
+<tr><td>7 years</td><td>4500</td></tr>
+<tr><td>6 years</td><td>3000</td></tr>
+<tr><td>5 years</td><td>1500</td></tr>
+<tr style="border-bottom: 3px solid #000;"><td>4 years</td><td>0</td></tr>
+
+<tr><td rowspan=5><strong>Termination Option</strong><br>You view this as a long term partnership, and you need it to continue uninterrupted to allow you to achieve the high adoption rates you want to show investors and to improve your algorithm. If this partnership will need to be terminated during the contract term, you need sufficient time to negotiate with other content providers.</td><td>12 months</td><td>5200</td></tr>
+<tr><td>9 months</td><td>3900</td></tr>
+<tr><td>6 months</td><td>2600</td></tr>
+<tr><td>3 months</td><td>1300</td></tr>
+<tr><td>1 month</td><td>0</td></tr>
+</table>
+
+
+<br><br><br>
+<div style="background-color:lightgray; font-size:.75em;padding:2%">
+  <strong>©2018 Dispute Resolution Research Center (DRRC), Kellogg School of Management, Northwestern University. All rights reserved.</strong><br>
+  DRRC teaching materials are protected by copyright law. DRRC requires a per person royalty for use of its exercises. Each purchase of an exercise authorizes copying or electronic distribution of that exercise equal to the quantity purchased.
+</div>
+<br><br>
+<div style="margin-left:90%">
+    {% next_button %}
+</div>
+
+{% endblock %}

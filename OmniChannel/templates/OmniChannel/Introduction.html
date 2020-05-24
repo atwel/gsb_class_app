@@ -1,0 +1,31 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+OmniChannel
+{% endblock %}
+
+{% block styles %}
+<link rel="stylesheet" href="{% static "global/custom_theme.css" %}">
+{% endblock %}
+
+{% block content %}
+
+You now preparing to negotiate the <b><i>OmniChannel</i></b> case, a <strong>two-party, team-against-team</strong> negotiation.<br>
+
+<br><br>
+You will:
+<ul>
+<li>read the case at your own pace.</li>
+<li>write a planning document at your own pace.</li>
+<li>have {{ Constants.coordinating_time }} minutes to coordinate with your team members at the start of class.</li>
+<li>negotiate an agreement as members of teams.</li>
+<li>report the outcome and have an opportunity to reflect on the negotiation.</li>
+</ul>
+<br>
+<div style="margin-left:90%">
+    {% next_button %}
+</div>
+<br>
+
+{% endblock %}
