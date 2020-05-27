@@ -62,7 +62,7 @@ class Player(BasePlayer):
     def role(self):
         try:
             self.name = SUNet_to_name[self.participant.label]
-            self.participant.label = SUNet_to_name[self.participant.label]
+            #self.participant.label = SUNet_to_name[self.participant.label]
         except:
             pass
         if self.id_in_group == 1:

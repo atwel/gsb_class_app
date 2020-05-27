@@ -7,8 +7,6 @@ from .models import Constants
 class Introduction(Page):
     form_model = "player"
 
-    
-
 
 class DTV(Page):
     form_model = "player"
