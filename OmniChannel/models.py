@@ -46,7 +46,7 @@ class Player(BasePlayer):
 
     data = models.StringField(label="Use of Manipulated Data", choices=["3DTV has a perpetual license to use the data for internal research.","3DTV has a license to use that for internal research during the agreement term.","3DTV cannot use manipulated data for internal research."])
     license_restrictions = models.StringField(label="Data License Restriction",choices=["3DTV can offer the content to their subscribers in 2D or 3D format.","3DTV can offer the content to their subscribers in 3D format only."])
-    premium_count = models.IntegerField(label="# of Premium channels licensed",choices=[0,5,10,15,20,25])
+    premium_count = models.IntegerField(label="# of Premium channels licensed",choices=[0,5,10,15,20])
     premium_fees = models.IntegerField(label="Fees for PremiumTV ($/month)", choices=[11000,12000,13000,14000,15000])
     regular_count = models.IntegerField(label="# of OC channels licensed",choices=[60,70,80,90,100])
     regular_fees = models.IntegerField(label="Fees for OC channels ($/month)", choices=[600,700,800,900,1000])
