@@ -5,13 +5,21 @@ from .models import Constants
 import time
 
 
+class InPersonHC(Page):
+
+        form_model = "player"
+        form_fields = ["healthcheck","inperson"]
+
+        timeout_seconds= 60
+        timer_text = 'Time left to input values'
+
 class IntroWaitPage(WaitPage):
 
     def vars_for_template(self):
-            return {"title_text": "Waiting for your partner", "body_text":"Wait a moment while your partner signs on.\n\n"}
+            return {"title_text": "Hang tight", "body_text":"Please wait a moment while you get paired with a counterparty.\n\n"}
 
     def after_all_players_arrive(self):
-            csv_str = "Pre-assign Room Name,Email Address\n"
+            csv_str = "Pre-assign Room Name, Email Address\n"
             for index, players in enumerate(self.subsession.get_group_matrix()):
                     for player in players:
                         csv_str += "room{},{}@stanford.edu\n".format(index+1,player.participant.label)
@@ -104,7 +112,7 @@ class Create_link(Page):
         return self.player.id_in_group == 1
 
 
-class Start_recording(Page):
+class Start_negotiation(Page):
     form_model = "group"
 
     def is_displayed(self):
@@ -142,9 +150,9 @@ class Link_to_simulation(Page):
             elif self.participant.label in Constants.section_2_participants:
                 return {"return_link": Constants.link_581_2}
             else:
-                return {"return_link":"http://google.com"}
+                return {"return_link":"http://stanford.edu"}
         except:
-            return {"return_link":"http://google.com"}
+            return {"return_link":"http://stanford.edu"}
 
 
 
@@ -288,4 +296,4 @@ class Link_to_recording(Page):
 
 
 
-page_sequence = [IntroWaitPage, Introduction, Survey, Seltek_materials, Biopharm_materials, Preferences_input_BF, Preferences_input_ST, Planning_doc, Create_link, Start_recording, Create_link_wait, Link_to_simulation, Seltek_materials_no_timer, BioPharm_materials_no_timer, Negotiated_outcome_one, Negotiated_outcome_two, Outcome_wait, Sign_off_page, Journaling_page, Alter_questions, Outro, Link_to_recording]
+page_sequence = [InPersonHC, IntroWaitPage, Introduction, Seltek_materials, Biopharm_materials, Preferences_input_BF, Preferences_input_ST, Planning_doc, Start_negotiation, Link_to_simulation, Seltek_materials_no_timer, BioPharm_materials_no_timer, Negotiated_outcome_one, Negotiated_outcome_two, Outcome_wait, Sign_off_page, Journaling_page, Outro]

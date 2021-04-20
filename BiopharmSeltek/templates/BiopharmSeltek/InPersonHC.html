@@ -2,7 +2,7 @@
 {% load otree static %}
 
 {% block title %}
-    Federated Science
+    Negotiating Survey
 {% endblock %}
 
 {% block styles %}
@@ -10,14 +10,14 @@
 {% endblock %}
 
 {% block content %}
-<div style="width:65%;margin-top:7%">
-You are all done negotiating the Federated Science case. Please join us back in the Zoom classroom. You'll get a short break before we begin again.
-<br><br><br>
 
+<div style="width:70%;margin-left:15%">
+<h5>You can negotiate this case in person. If you elect not to, you'll use a Zoom breakout room.</h5>
+ {% formfields %}
 </div>
-<br><br>
 <div style="margin-left:90%">
-      {% next_button %}
+    {% next_button %}
 </div>
+
 
 {% endblock %}

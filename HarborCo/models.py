@@ -8,12 +8,13 @@ from otree.api import (
     Currency as c,
     currency_range,
 )
+import random
 
 
 author = 'Jon Atwell'
 
 doc = """
-Negotatiing Sugar Bowl with a partner via email.
+Negotatiing Federated Sciences with two partners
 """
 
 with open("_rooms/Sp21_01.txt", "r") as f:
@@ -32,49 +33,60 @@ SUNet_to_name = {'atwell':"Prof. Atwell","apaza":"Adrian A (CA)","extra_01":"Unk
 
 
 class Constants(BaseConstants):
-    name_in_url = 'Sugar_Bowl_Section_2'
-    players_per_group = 2
+    name_in_url = 'HarborCo'
+    players_per_group = 6
     num_rounds = 1
-
-    reading_time = 5 #minutes
-    material_button_show= .02 #minutes
-    material_button_show_no_timer= .02 #minutes
-    calculator_time = 5 #minutes
-    planning_doc_time= 5 # minutes
-    negotiating_time = 25 # minutes
+    reading_time = 400
+    negotiating_time = 95 # minutes
+    reflection_time  = 5 # minutes
 
     planning_doc_length = 150 #words
+    planning_doc_time = 40
 
     section_1_participants = names_section1.split(",")
-    section_2_participants = names_section2.split(",")
-    SUNet_to_name = SUNet_to_name
-
-
 
 class Subsession(BaseSubsession):
     def creating_session(self):
-        names = Constants.section_2_participants.copy()
+        names = Constants.section_1_participants.copy()
         for p in self.get_players():
             p.participant.label = names.pop(0)
 
-
 class Group(BaseGroup):
-    final_price = models.IntegerField(label="What was the final purchase price in USD?")
-    who_purchased = models.StringField(choices=["Buyer","Dealer"],label="Which party purchased the sugar bowl?")
-    initial_offer = models.IntegerField(label="If you were going to make an offer in your initial email (you might not!), what would the price be (in USD)?")
-    reservation_price_dealer = models.IntegerField(label="What is your reservation price in USD for this piece?")
-    target_price_dealer = models.IntegerField(label="What is your aspiration price in USD for this piece?")
-    reservation_price_buyer = models.IntegerField(label="What is your reservation price in USD for this piece?")
+    stockman = models.BooleanField()
+    pairing = models.StringField()
+    start_time = models.StringField()
+
+    def set_first_meet(self):
+        for i, p in enumerate(self.get_players()):
+            try:
+                p.name = SUNet_to_name[p.participant_label]
+            except:
+                p.name = "Demo_{}".format(i)
+
+
 
 class Player(BasePlayer):
+    name = models.StringField()
 
-    planning_text = models.LongStringField(label="Describe your plan for this negotiation")
-    journaling_text = models.LongStringField(label="Please describe your experience of the negotiation. In what ways was negotiating via email different than through Zoom?")
+    planning_text = models.LongStringField(label="Describe your plan for this negotiation. In particular, how do intend to approach dealing with coalitions?")
 
+    united = models.IntegerField()
+    turbo = models.IntegerField()
+    stockman= models.IntegerField()
+
+    journaling_text = models.LongStringField(label="Please describe your experience of the negotiation.")
 
 
     def role(self):
         if self.id_in_group == 1:
-            return 'buyer'
+            return 'union'
+        elif self.id_in_group == 2:
+            return 'enviro'
+        elif self.id_in_group == 3:
+            return 'ports'
+        elif self.id_in_group == 4:
+            return 'dcr'
+        elif self.id_in_group == 5:
+            return 'harborco'
         else:
-            return 'dealer'
+            return 'gov'
