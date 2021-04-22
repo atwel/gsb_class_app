@@ -1,0 +1,28 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Negotiation check-in
+{% endblock %}
+
+{% block styles %}
+<link rel="stylesheet" href="{% static "global/custom_theme.css" %}">
+{% endblock %}
+
+{% block content %}
+
+<div>
+<h6>Please answer the following questions about negotiating in-person today.</h6>
+<br><br>
+ {% formfield player.healthcheck %}
+ <br><br>
+<p>If you're healthy and want to negotiate in person, I'll try to assign you to an in-person group. If not, you'll use a Zoom breakout room.</p>
+{% formfield player.inperson %}
+
+</div>
+<div style="margin-left:90%">
+    {% next_button %}
+</div>
+
+
+{% endblock %}

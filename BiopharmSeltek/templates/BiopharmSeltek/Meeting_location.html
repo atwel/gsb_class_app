@@ -1,0 +1,35 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+Negotiation location
+{% endblock %}
+
+{% block styles %}
+<link rel="stylesheet" href="{% static "global/custom_theme.css" %}">
+{% endblock %}
+
+{% block content %}
+
+{% if player.meeting_inperson %}
+<center><div style="margin-top:10%">
+You'll be negotiating with <span style="font-size:2em">{{ player.partner }}</span> at <span style="font-size:2em">{{ player.location }}</span>.
+<br><br>Here is a <a target="_blank" rel="noopener noreferrer" href="{% static pdf_file %}" >pdf map (new tab)</a> of the outdoor spaces in case you need it. Please get there as quickly as you can!</center>
+
+
+{% else %}
+<center>
+<div style="margin-top:10%">
+<p>You'll be negotiating with <span style="font-size:2em">{{ player.partner }}</span> in a Zoom breakout room.<br><br>In case you need it, here is the <a href={{ zoom_link }}>link back to our Zoom classroom</a></p><div></center>
+
+{% endif %}
+<br><br><br>
+
+
+<div id="clocked" style="margin-left:90%;margin-bottom:5%">
+      {% next_button %}
+
+</div>
+<br><br>
+
+{% endblock %}

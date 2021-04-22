@@ -14,7 +14,7 @@ dict(
         name='BioPharm_Seltek',
         display_name="BioPharm Seltek",
         num_demo_participants=2,
-        app_sequence=['BiopharmSeltek']),
+        app_sequence=["inperson",'BiopharmSeltek']),
 dict(
         name='New_Recruit',
         display_name="New Recruit",
@@ -42,28 +42,26 @@ dict(
         app_sequence=['HarborCo_vote'])
 ]
 
-# ISO-639 code
-# for example: de, fr, ja, ko, zh-hans
+
 LANGUAGE_CODE = 'en'
 
-# e.g. EUR, GBP, CNY, JPY
 REAL_WORLD_CURRENCY_CODE = 'USD'
 USE_POINTS = False
 
 ROOMS = [
     dict(
         name='OB581_01',
-        display_name='OB581.01, Sp20 ',
+        display_name='OB581.01, Sp21 ',
         participant_label_file = "_rooms/Sp21_01.txt",
     ),
     dict(
         name='OB581_02',
-        display_name='OB581.02, Sp20 ',
+        display_name='OB581.02, Sp21 ',
         participant_label_file = "_rooms/Sp21_02.txt",
     ),
     dict(
         name='OB581_03',
-        display_name='OB581.03, Sp20 ',
+        display_name='OB581.03, Sp21 ',
         participant_label_file = "_rooms/Sp21_03.txt",
     )
 ]
