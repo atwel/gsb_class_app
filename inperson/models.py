@@ -18,7 +18,7 @@ Figuring out who the participant is and if they can negotiate in person
 
 with open("_rooms/Sp21_01.txt", "r") as f:
     raw_string = f.read()
-    names_section1 = raw_string.replace("\n", ",")
+    names_section1 = raw_string.split("\n")
 
 with open("_rooms/Sp21_02.txt", "r") as f:
     raw_string = f.read()

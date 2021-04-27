@@ -20,10 +20,10 @@ class InPersonHC(Page):
                 self.participant.vars["zoom link"] = Constants.link_581_1
             elif self.participant.label in Constants.section_2_participants:
                 self.participant.vars["section"] = 2
-                self.participant.vars["zoom link"] = Constants.link_581_1
+                self.participant.vars["zoom link"] = Constants.link_581_2
             elif self.participant.label in Constants.section_3_participants:
                 self.participant.vars["section"] = 3
-                self.participant.vars["zoom link"] = Constants.link_581_1
+                self.participant.vars["zoom link"] = Constants.link_581_3
             else:
                 print("label not found", self.participant.label)
 

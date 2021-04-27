@@ -10,6 +10,14 @@ SESSION_CONFIG_DEFAULTS = dict(
 )
 
 SESSION_CONFIGS = [
+
+dict(name="Seating",
+        display_name="Seating allocation",
+        num_demo_participants=1,
+        app_sequence=["seating"],
+        section_number=1,
+        section_seats = 23,
+        start_index=0),
 dict(
         name='BioPharm_Seltek',
         display_name="BioPharm Seltek",

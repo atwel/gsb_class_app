@@ -1,0 +1,20 @@
+{% extends "global/Page.html" %}
+{% load otree %}
+
+{% block title %}
+OB581 seat allocation
+{% endblock %}
+
+{% block content %}
+
+{% if player.waiting %}
+<p>
+Thanks {{ name }}, I'll email you tonight to let you know whether you have a spot for tomorrow.
+</p>
+{% else %}
+<p>
+Thanks {{ name }}. You'll have a seat held for you within the next session or two. Please check back!
+</p>
+{% endif %}
+
+{% endblock %}
