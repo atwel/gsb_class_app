@@ -108,7 +108,7 @@ class Final_calculation(WaitPage):
             elif not p.declined:
                 neither.append(p.participant.label)
             elif p.declined:
-                declined.append(p.participant.lable)
+                declined.append(p.participant.label)
 
         print("accepted:", accepted)
         print("waiting:",waiting)
