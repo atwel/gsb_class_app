@@ -9,13 +9,21 @@ class IntroWaitPage(WaitPage):
     group_by_arrival_time = True
 
     def vars_for_template(self):
-            return {"title_text": "Hang tight", "body_text":"Please wait a moment to get paired.\n\n"}
+        return {"title_text": "Hang tight", "body_text":"Please wait a moment to get paired.\n\nIf you've been on this page for a while, try refreshing the page."}
+
 
 class Introduction(Page):
     form_model = "player"
 
     def vars_for_template(self):
         return dict(reading_limit=Constants.reading_time)
+
+
+class Meeting_location(Page):
+    form_model = "player"
+
+    def vars_for_template(self):
+            return {"zoom_link":self.participant.vars["zoom_link"], "pdf_file":"global/OutdoorMap.pdf"}
 
 
 class Seltek_materials(Page):
@@ -48,26 +56,26 @@ class Preferences_input_ST(Page):
     form_model = "group"
     form_fields = ['target_ST', "batna_ST"]
 
-    timeout_seconds= 60
+    timeout_seconds= 120
     timer_text = 'Time left to input values'
     def is_displayed(self):
             return self.player.id_in_group == 1
 
     def vars_for_template(self):
-        return {"return_link": "BiopharmSeltek/Seltek_materials.html"}
+        return {"pdf_file": "BiopharmSeltek/Seltek.pdf"}
 
 
 class Preferences_input_BF(Page):
     form_model = "group"
     form_fields = ['target_BF', "batna_BF"]
 
-    timeout_seconds= 60
+    timeout_seconds= 120
     timer_text = 'Time left to input values'
     def is_displayed(self):
             return self.player.id_in_group == 2
 
     def vars_for_template(self):
-        return {"return_link": "BiopharmSeltek/Biopharm_materials.html"}
+        return {"pdf_file": "BiopharmSeltek/BioPharm.pdf"}
 
 
 class Planning_doc(Page):
@@ -84,27 +92,19 @@ class Planning_doc(Page):
             return {"return_link": "BiopharmSeltek/Biopharm_materials.html","max_word_limit":Constants.planning_doc_length}
 
 
+class Meeting_location_reminder(Page):
+    form_model = "player"
+
+    def vars_for_template(self):
+            return {"zoom_link":self.participant.vars["zoom_link"], "pdf_file":"global/OutdoorMap.pdf"}
+
+
 class Meeting_wait(WaitPage):
     form_model = "group"
     after_all_players_arrive = 'set_timer'
 
     def vars_for_template(self):
-            return {"title_text":"Waiting...","body_text":"We're waiting for your counterparty to be ready."}
-
-
-
-
-class Meeting_location(Page):
-    form_model = "player"
-
-    def get_timeout_seconds(self):
-        return self.participant.vars["sim_timer"] - time.time()
-
-    timer_text = 'Time left for negotiating the case:'
-
-    def vars_for_template(self):
-            return {"zoom_link":self.participant.vars["zoom link"], "pdf_file":"global/OutdoorMap.pdf"}
-
+            return {"title_text":"Waiting...","body_text":"We're waiting for your counterparty to be ready. Once they finish up, you'll go back to the case materials page and the timed negotiation will begin."}
 
 
 class Seltek_materials_no_timer(Page):
@@ -163,7 +163,6 @@ class Negotiated_outcome_two(Page):
         return self.player.id_in_group == 2
 
 
-
 class Outcome_wait(WaitPage):
     form_model = "group"
 
@@ -183,6 +182,9 @@ class Sign_off_page(Page):
         bio = self.group.get_player_by_id(2)
         self.group.nego_time = int(time.time() - bio.participant.vars["sim_start"])
 
+class Finished_case(Page):
+    form_model = "group"
+
 
 class Journaling_page(Page):
     form_model = "player"
@@ -193,29 +195,16 @@ class Journaling_page(Page):
 
     def vars_for_template(self):
         if self.player.id_in_group == 1:
-            return {"return_link": "BiopharmSeltek/Seltek_materials.html"}
+            return {"pdf_file": "BiopharmSeltek/Seltek.pdf"}
         if self.player.id_in_group == 2:
-            return {"return_link": "BiopharmSeltek/Biopharm_materials.html"}
-
+            return {"pdf_file": "BiopharmSeltek/BioPharm.pdf"}
 
 
 class Outro(Page):
     form_model = "group"
 
-    def vars_for_template(self):
-        try:
-            if self.participant.label in Constants.section_1_participants:
-                return {"return_link": Constants.link_581_1}
-            elif self.participant.label in Constants.section_2_participants:
-                return {"return_link": Constants.link_581_2}
-            elif self.participant.label in Constants.section_3_participants:
-                return {"return_link": Constants.link_581_3}
-            else:
-                return {"return_link":"https://gsb.stanford.edu"}
-        except:
-            return {"return_link":"https://gsb.stanford.edu"}
 
 
 
 
-page_sequence = [IntroWaitPage, Introduction, Seltek_materials, Biopharm_materials, Preferences_input_BF, Preferences_input_ST, Planning_doc, Meeting_wait, Meeting_location, Seltek_materials_no_timer, BioPharm_materials_no_timer, Negotiated_outcome_one, Negotiated_outcome_two, Outcome_wait,  Outro, Journaling_page]
+page_sequence = [IntroWaitPage, Introduction, Meeting_location, Seltek_materials, Biopharm_materials, Preferences_input_BF, Preferences_input_ST, Planning_doc, Meeting_wait, Meeting_location_reminder, Seltek_materials_no_timer, BioPharm_materials_no_timer, Negotiated_outcome_one, Negotiated_outcome_two, Outcome_wait,  Finished_case, Journaling_page, Outro]

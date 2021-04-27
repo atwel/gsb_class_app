@@ -33,9 +33,18 @@ class Constants(BaseConstants):
 
 
 class Subsession(BaseSubsession):
+
     def group_by_arrival_time_method(self,waiting_players):
 
+        if self.session.config["section_number"] == 1:
+            locations = locations_1
+        elif self.session.config["section_number"] == 2:
+            locations = locations_2
+        elif self.session.config["section_number"] == 3:
+            locations = locations_3
+
         print('in group_by_arrival_time_method')
+        print("remaining locations")
         inperson_players = [p for p in waiting_players if p.participant.vars['inperson']]
         zoom_players = [p for p in waiting_players if not p.participant.vars['inperson']]
 
@@ -45,30 +54,14 @@ class Subsession(BaseSubsession):
             two = inperson_players.pop(0)
             one.partner = two.participant.vars["name"]
             two.partner = one.participant.vars["name"]
-            if one.participant.vars["section"] == 1:
-                if locations_1 != []:
-                    loc = locations_1.pop(0)
-                    one.meeting_inperson = True
-                    two.meeting_inperson = True
-                else:
-                    loc = "Zoom breakout"
-                    one.zoom_group = "{} and {} ({}-{})".format(two.partner,one.partner,one.participant.label, two.participant.label)
-            elif one.participant.vars["section"] == 2:
-                if locations_2 != []:
-                    loc = locations_2.pop(0)
-                    one.meeting_inperson = True
-                    two.meeting_inperson = True
-                else:
-                    loc = "Zoom breakout"
-                    one.zoom_group = "{} and {} ({}-{})".format(two.partner,one.partner,one.participant.label, two.participant.label)
+
+            if locations != []:
+                loc = locations.pop(0)
+                one.meeting_inperson = True
+                two.meeting_inperson = True
             else:
-                if locations_3 != []:
-                    loc = locations_3.pop(0)
-                    one.meeting_inperson = True
-                    two.meeting_inperson = True
-                else:
-                    loc = "Zoom breakout"
-                    one.zoom_group = "{} and {} ({}-{})".format(two.partner,one.partner,one.participant.label, two.participant.label)
+                loc = "Zoom breakout"
+                one.zoom_group = "{} and {} ({}-{})".format(two.partner,one.partner,one.participant.label, two.participant.label)
 
             one.location = loc
             two.location = loc
@@ -135,21 +128,27 @@ class Subsession(BaseSubsession):
                 else:
                     print('not enough players yet to create a group')
 
+    def vars_for_admin_report(self):
+        zoomies = []
+        for player in self.get_players():
+            if player.zoom_group != None:
+                zoomies.append(player.zoom_group)
+        return dict(zoom_groups=",\n".join(zoomies))
+
 
 
 class Group(BaseGroup):
     link = models.StringField(label="Stanford Zoom URL")
-    link_to_recording = models.StringField(label="Please provide the link to your recording.")
-    initial_price = models.CurrencyField(label="What was the price of the first offer in millions of USD (e.g. XX.xx )?")
+    initial_price = models.CurrencyField(label="What was the price of the first offer? (In millions of USD [e.g. $XX.xx])")
     made_initial = models.StringField(choices=["BioPharm","Seltek"], widget=widgets.RadioSelectHorizontal, label="Which company made the first offer?")
     deal = models.BooleanField(label="Did the companies reach a deal?",widget=widgets.RadioSelectHorizontal)
-    last_Biopharm = models.CurrencyField(label="What was the last offer made by BioPharm in millions of USD (e.g. XX.x)?")
-    last_Seltek = models.CurrencyField(label="What was the last offer made by Seltek in millions of USD (e.g. XX.xx)?")
-    final_sale_price = models.CurrencyField(label="What was the Final Sale Price in millions of USD (e.g. XX.xx)?")
+    last_Biopharm = models.CurrencyField(label="What was the last offer made by BioPharm? (In millions of USD [e.g. $XX.xx])")
+    last_Seltek = models.CurrencyField(label="What was the last offer made by Seltek? (In millions of USD [e.g. $XX.xx])")
+    final_sale_price = models.CurrencyField(label="What was the Final Sale Price? (In millions of USD [e.g. $XX.xx])")
     batna_BF = models.CurrencyField(label="At what price in millions of USD should you walk away without a deal?")
-    target_BF = models.CurrencyField(label="What is your ideal purchase price for the Seltek plant in millions of USD (e.g. XX.xx)?")
+    target_BF = models.CurrencyField(label="What is your ideal purchase price for the Seltek plant?  (In millions of USD [e.g. $XX.xx])")
     batna_ST = models.CurrencyField(label="At what price in millions of USD should you walk away without a deal?")
-    target_ST = models.CurrencyField(label="What is your ideal sale price for your plant in millions of USD (e.g. XX.x)?")
+    target_ST = models.CurrencyField(label="What is your ideal sale price for your plant?  (In millions of USD [e.g. $XX.xx])")
     nego_time = models.IntegerField()
 
     def set_timer(self):

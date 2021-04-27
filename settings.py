@@ -22,31 +22,37 @@ dict(
         name='BioPharm_Seltek',
         display_name="BioPharm Seltek",
         num_demo_participants=2,
+        section_number=1,
         app_sequence=["inperson",'BiopharmSeltek']),
 dict(
         name='New_Recruit',
         display_name="New Recruit",
         num_demo_participants=2,
+        section_number=1,
         app_sequence=['NewRecruit']),
 dict(
         name='Federated_Science',
         display_name="Federated Science",
         num_demo_participants=3,
+        section_number=1,
         app_sequence=['Federated']),
 dict(
         name='OmniChannel',
         display_name="OmniChannel",
         num_demo_participants=6,
+        section_number=1,
         app_sequence=['OmniChannel']),
 dict(
         name='HarborCo',
         display_name="Harbor Co",
         num_demo_participants=6,
+        section_number=1,
         app_sequence=['HarborCo']),
 dict(
         name='HarborCo_vote',
         display_name="HarborCo voting",
         num_demo_participants=6,
+        section_number=1,
         app_sequence=['HarborCo_vote'])
 ]
 

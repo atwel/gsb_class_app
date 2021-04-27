@@ -2,7 +2,7 @@
 {% load otree static %}
 
 {% block title %}
-Negotiation location
+Negotiation partner and location
 {% endblock %}
 
 {% block styles %}
@@ -12,17 +12,17 @@ Negotiation location
 {% block content %}
 
 {% if player.meeting_inperson %}
-<center><div style="margin-top:10%">
-You'll be negotiating with <span style="font-size:2em">{{ player.partner }}</span> at <span style="font-size:2em">{{ player.location }}</span>.
-<br><br>Here is a <a target="_blank" rel="noopener noreferrer" href="{% static pdf_file %}" >pdf map (new tab)</a> of the outdoor spaces in case you need it. Please get there as quickly as you can!<br>
-On the next page you can see the case materials and the timer.<br></div></center>
+<div style="margin-top:10%">
+You'll be negotiating with <span style="font-size:1.5em">{{ player.partner }}</span> at <span style="font-size:1.5em">{{ player.location }}</span>.
+<br><br>Here is a <a target="_blank" rel="noopener noreferrer" href="{% static pdf_file %}" >pdf map (new tab)</a> of the outdoor spaces in case you need it. Once you are done preparing for the negotiation, please get to the location as quickly as you can!<br>
+</div>
 
 {% else %}
-<center>
+
 <div style="margin-top:5%">
-<p>You'll be negotiating with <span style="font-size:2em">{{ player.partner }}</span> in a Zoom breakout room.<br><br>In case you need it, here is the <a href={{ zoom_link }}>link back to our Zoom classroom</a></p>
+<p>You'll be negotiating with <span style="font-size:1.5em">{{ player.partner }}</span> in a Zoom breakout room.<br><br>In case you need it, here is the <a href={{ zoom_link }}>link back to our Zoom classroom</a></p>
 <br>
-On the next page you can see the case materials and the timer.<br></div></center>
+</div>
 
 {% endif %}
 <br><br><br>

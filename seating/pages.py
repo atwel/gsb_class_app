@@ -160,7 +160,7 @@ class Final_calculation(WaitPage):
             for name in accepted:
                 seat_list.append("{}@stanford.edu".format(name))
 
-            srted = sorted(waiting,key=operator.itemgetter(1), reverse=True)
+            srted = sorted(waiting,key=operator.itemgetter(1))
             for name in srted[:remaining_spots]:
                 seat_list.append("{}@stanford.edu".format(name[0]))
             seat = ", ".join(seat_list)
