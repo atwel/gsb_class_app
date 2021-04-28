@@ -1,8 +1,6 @@
 kamilali
 gelilab
 bboss
-mcalvano
-ejcbrown
 gregcaso
 achang5
 bconrad2
@@ -34,7 +32,6 @@ hsmangat
 smaybank
 dmirab
 kmulumba
-mnehmad
 phannn
 mngwenya
 juliusn
@@ -42,7 +39,6 @@ gparosa
 emmract
 regramos
 bruxin
-scheina
 afsch
 suwana
 duribe
@@ -50,7 +46,6 @@ onome
 sravyav
 bwestbro
 ecz
-zifzaf
 jzou
 atwell
 apaza
