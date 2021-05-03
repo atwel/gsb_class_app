@@ -3,7 +3,6 @@ gelilab
 bboss
 gregcaso
 achang5
-bconrad2
 mdenning
 ellidia
 aelosua
@@ -13,10 +12,8 @@ cmgray
 pguerra
 rgupta16
 alhanna
-meganrh
 rhouser
 lidris
-bmj21
 reks
 shilpak2
 katzmanm
@@ -30,7 +27,6 @@ ekjl
 georgeli
 hsmangat
 smaybank
-dmirab
 kmulumba
 phannn
 mngwenya
@@ -38,8 +34,8 @@ juliusn
 gparosa
 emmract
 regramos
-bruxin
 afsch
+shafi
 suwana
 duribe
 onome
