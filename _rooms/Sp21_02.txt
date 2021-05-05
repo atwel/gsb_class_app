@@ -5,6 +5,7 @@ danranc
 jchoi91
 mcreamer
 nrgandhi
+giraldo
 ccgong
 dhallman
 sagari
@@ -13,7 +14,6 @@ qlores
 kylemca
 ajmccrea
 amejia1
-agmendez
 eemiller
 kiya
 pjm2022
@@ -29,7 +29,6 @@ ssykes
 kylietan
 ptoth
 twiegand
-jzerker
 stephz
 atwell
 apaza
