@@ -12,7 +12,6 @@ sagari
 slehman1
 qlores
 kylemca
-ajmccrea
 amejia1
 eemiller
 kiya
@@ -22,14 +21,11 @@ arnenm
 edwinq
 wlross
 bruxin
-kayjs
-joyceshi
 ats2022
 ssykes
 kylietan
 ptoth
 twiegand
-stephz
 atwell
 apaza
 extra_01

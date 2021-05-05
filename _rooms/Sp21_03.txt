@@ -8,9 +8,6 @@ aelosua
 jelzinga
 ritijg
 cmgray
-rgupta16
-alhanna
-rhouser
 reks
 shilpak2
 katzmanm
@@ -32,12 +29,10 @@ emmract
 regramos
 afsch
 shafi
-suwana
 duribe
 onome
 sravyav
 bwestbro
-ecz
 jzou
 atwell
 apaza
@@ -47,4 +42,3 @@ extra_03
 extra_04
 extra_05
 extra_06
-
