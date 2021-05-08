@@ -1,0 +1,31 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    New Recruit
+{% endblock %}
+
+{% block styles %}
+<link rel="stylesheet" href="{% static "global/custom_theme.css" %}">
+{% endblock %}
+
+{% block content %}
+
+You are going negotiate the <b><i>New Recruit</i></b> case, a two-person case.<br>
+
+<br><br>
+For this exercise you will:
+<ul>
+<li>Read the case materials.</li>
+<li>Use a built-in calculator to identify the initial offer you'd like to make.</li>
+<li>Write a short planning document.</li>
+<li>Have {{ Constants.negotiating_time }} minutes to negotiate with a partner in class.</li>
+<li>Report the outcome and about the process.</li>
+</ul>
+<br>
+<div style="margin-left:90%">
+    {% next_button %}
+</div>
+<br>
+
+{% endblock %}

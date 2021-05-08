@@ -1,0 +1,31 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    New Recruit
+{% endblock %}
+
+{% block styles %}
+<link rel="stylesheet" href="{% static "global/custom_theme.css" %}">
+{% endblock %}
+
+{% block content %}
+
+{% if player.meeting_inperson %}
+<center><div style="margin-top:10%">
+Today you'll be negotiating with <span style="font-size:1.5em">{{ player.partner }}</span> at <span style="font-size:1.5em">{{ player.location }}</span>. You are not required to go to that location if you can find each other in time, but know that it is reserved just for you.
+<br><br>Here is a <a target="_blank" rel="noopener noreferrer" href="{% static pdf_file %}" >pdf map (new tab)</a> of the outdoor spaces in case you need it.<br><br>
+Once you both advance to the next page, the timed portion of the negotiation will begin and you'll see the case materials again.
+</div></center>
+
+{% else %}
+<center>
+<div style="margin-top:5%">
+<p>You'll be negotiating with <span style="font-size:1.5em">{{ player.partner }}</span> in a Zoom breakout room.
+<br>
+Once you both advance to the next page, the timed portion of the negotiation will begin and you'll see the case materials again.
+</div></center>
+
+{% endif %}
+
+{% endblock %}

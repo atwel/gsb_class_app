@@ -1,0 +1,24 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    New Recruit
+{% endblock %}
+
+{% block styles %}
+<link rel="stylesheet" href="{% static "global/custom_theme.css" %}">
+{% endblock %}
+
+{% block content %}
+<div style="width:65%;margin-top:7%">
+You are all done negotiating the New Recruit case. Please join us back in the Zoom classroom. You'll get a short break before we begin again.
+<br><br><br>
+<h4>If you're bored, go to the next page to play with a calculator for both roles to get a better idea of why the negotiation went the way it did.</h4>
+
+</div>
+<br><br>
+<div style="margin-left:90%">
+      {% next_button %}
+</div>
+
+{% endblock %}
