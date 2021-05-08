@@ -207,4 +207,4 @@ class Outro(Page):
 
 
 
-page_sequence = [IntroWaitPage, Introduction, Meeting_location, Seltek_materials, Biopharm_materials, Preferences_input_BF, Preferences_input_ST, Planning_doc, Meeting_wait, Meeting_location_reminder, Seltek_materials_no_timer, BioPharm_materials_no_timer, Negotiated_outcome_one, Negotiated_outcome_two, Outcome_wait,  Finished_case, Journaling_page, Outro]
+page_sequence = [Introduction, Meeting_location, Seltek_materials, Biopharm_materials, Preferences_input_BF, Preferences_input_ST, Planning_doc, Meeting_wait, Meeting_location_reminder, Seltek_materials_no_timer, BioPharm_materials_no_timer, Negotiated_outcome_one, Negotiated_outcome_two, Outcome_wait,  Finished_case, Journaling_page, Outro]

@@ -3,66 +3,87 @@ from ._builtin import Page, WaitPage
 from .models import Constants
 
 
-class IntroWaitPage(WaitPage):
-
-    def vars_for_template(self):
-        return {"title_text": "Waiting for your partner", "body_text":"Wait a moment while your partner signs on.\n\n"}
-
-    def after_all_players_arrive(self):
-        csv_str = "Pre-assign Room Name, Email Address\n"
-        for index, players in enumerate(self.subsession.get_group_matrix()):
-                for player in players:
-                    csv_str += "room{},{}@stanford.edu\n".format(index+1,player.participant.label)
-        print(csv_str)
-
-        c, r = self.group.get_players()
-        try:
-            c.participant.vars["partner_name"] = Constants.SUNet_to_name[r.participant.label]
-        except:
-            c.participant.vars["partner_name"] = "Unidentified"
-        try:
-            r.participant.vars["partner_name"] = Constants.SUNet_to_name[c.participant.label]
-        except:
-            r.participant.vars["partner_name"] =  "Unidentified"
-
 
 
 class Introduction(Page):
     form_model = "player"
 
+    def before_next_page(self):
 
+        remote_all = 0
+        remote_candidates = 0
+        inperson_all = 0
+        inperson_candidates = 0
+        count_in_subsession = len(self.subsession.get_players())
+
+        for player in self.player.get_others_in_subsession():
+
+            if "arrival_time" in player.participant.vars:
+                print("found arrived player")
+                if player.participant.vars["inperson"]:
+                    print("found inperson player")
+                    inperson_all +=1
+                    if player.candidate:
+                        print("found candidate")
+                        inperson_candidates +=1
+                else:
+                    remote_all +=1
+                    if player.candidate:
+                        remote_candidates += 1
+
+        if remote_all + inperson_all == count_in_subsession - 1:
+            self.player.candidate = False
+            self.player.participant.vars["role"] = "recruiter"
+        else:
+            if self.participant.vars["inperson"]:
+                if inperson_candidates > inperson_all/2:
+                    # True when more than half are candidates
+                    self.player.candidate = False
+                    self.player.participant.vars["role"] = "recruiter"
+                else:
+                    self.player.candidate = True
+                    self.player.participant.vars["role"] = "candidate"
+            else:
+                if remote_candidates > remote_all/2:
+                    self.player.candidate = False
+                    self.player.participant.vars["role"] = "recruiter"
+                else:
+                    self.player.candidate = True
+                    self.player.participant.vars["role"] = "candidate"
+
+        print(self.player.candidate)
 
 
 class Candidate(Page):
     form_model = "player"
 
-    timeout_seconds = Constants.reading_time*60
-    timer_text = 'Time left for reading the materials'
+    #timeout_seconds = Constants.reading_time*60
+    #timer_text = 'Time left for reading the materials'
 
     def is_displayed(self):
-        return self.player.role() == "candidate"
+        return self.player.candidate
 
     def vars_for_template(self):
         return {"pdf_file": "NewRecruit/Candidate.pdf"}
 
     def js_vars(self):
-        return dict(button_show=Constants.material_button_show*60000)
+        return dict(button_show=0)#Constants.material_button_show*60000)
 
 
 class Recruiter(Page):
     form_model = "player"
 
-    timeout_seconds = Constants.reading_time*60
-    timer_text = 'Time left for reading the materials'
+    #timeout_seconds = Constants.reading_time*60
+    #timer_text = 'Time left for reading the materials'
 
     def is_displayed(self):
-        return self.player.role() == "recruiter"
+        return not self.player.candidate
 
     def vars_for_template(self):
         return {"pdf_file": "NewRecruit/Recruiter.pdf"}
 
     def js_vars(self):
-        return dict(button_show=Constants.material_button_show*60000)
+        return dict(button_show=0)#Constants.material_button_show*60000)
 
 
 class Candidate_calculator(Page):
@@ -76,11 +97,11 @@ class Candidate_calculator(Page):
                             "salary",
                             'starting_date']
 
-    timeout_seconds = Constants.calculator_time * 60
-    timer_text = "Time left to come up with an initial offer"
+    #timeout_seconds = Constants.calculator_time * 60
+    #timer_text = "Time left to come up with an initial offer"
 
     def is_displayed(self):
-        return self.player.role() == "candidate"
+        return self.player.candidate
 
     def before_next_page(self):
         if self.timeout_happened:
@@ -115,11 +136,11 @@ class Recruiter_calculator(Page):
                             "salary",
                             'starting_date']
 
-    timeout_seconds = Constants.calculator_time * 60
-    timer_text = "Time left to come up with an initial offer"
+    #timeout_seconds = Constants.calculator_time * 60
+    #timer_text = "Time left to come up with an initial offer"
 
     def is_displayed(self):
-        return self.player.role() == "recruiter"
+        return not self.player.candidate
 
     def before_next_page(self):
         if self.timeout_happened:
@@ -142,102 +163,28 @@ class Recruiter_calculator(Page):
                                 Constants.job_assignment[self.player.job_assignment][id]+\
                                 Constants.starting_date[self.player.starting_date][id]
 
+
 class Planning_doc(Page):
     form_model = "player"
     form_fields = ["planning_text"]
 
-    timeout_seconds = Constants.planning_doc_time *60
-    timer_text = "Time left to finish the planning document"
+    #timeout_seconds = Constants.planning_doc_time *60
+    #timer_text = "Time left to finish the planning document"
 
 
     def vars_for_template(self):
-        if self.player.role() == "recruiter":
-            return {"pdf_file": "NewRecruit/Recruiter.pdf"}
-        else:
+        if self.player.candidate:
             return {"pdf_file": "NewRecruit/Candidate.pdf"}
+        else:
+            return {"pdf_file": "NewRecruit/Recruiter.pdf"}
 
 
 
-class Back_to_class(Page):
+class Wait_for_class(Page):
     form_model = "player"
 
-    def vars_for_template(self):
-        return dict(partner_name = self.participant.vars["partner_name"])
-
-
-
-class Candidate_no_timer(Page):
-    form_model = "player"
-
-    def is_displayed(self):
-        return self.player.role() == "candidate"
-
-    def vars_for_template(self):
-        return {"pdf_file": "NewRecruit/Candidate.pdf"}
-
-    def js_vars(self):
-        return dict(button_show=Constants.material_button_show_no_timer*60000)
-
-
-class Recruiter_no_timer(Page):
-    form_model = "player"
-
-    def is_displayed(self):
-        return self.player.role() == "recruiter"
-
-    def vars_for_template(self):
-        return {"pdf_file": "NewRecruit/Recruiter.pdf"}
-
-    def js_vars(self):
-        return dict(button_show=Constants.material_button_show_no_timer*60000)
-
-
-class Negotiated_outcome(Page):
-
-    form_model = "group"
-    form_fields = ['salary',
-                            'bonus',
-                            'location',
-                            'insurance_coverage',
-                            'vacation_time',
-                            'moving_expenses',
-                            'job_assignment',
-                            'starting_date']
-    def is_displayed(self):
-        return self.player.role() == "recruiter"
-
-
-class Negotiation_process(Page):
-    form_model = "player"
-    form_fields = ["salary_fract","bonus_fract","job_assignment_fract","insurance_coverage_fract","moving_expenses_fract","vacation_time_fract","location_fract","starting_date_fract"]
-
-
-
-class Journaling_page(Page):
-    form_model = "player"
-
-    form_fields = ["journaling_text"]
-
-    timeout_seconds = 180
-
-    def vars_for_template(self):
-        return {"Recruiter": "NewRecruit/Recruiter.pdf", "Candidate": "NewRecruit/Candidate.pdf"}
-
-class Outcome_wait(WaitPage):
-    form_model = "group"
-
-    def vars_for_template(self):
-        return {"title_text": "Reporting the outcome", "body_text":"As the person in the role of the Candidate, you'll stay on this page until the Recruiter finishes inputting the results.\n\n"}
-
-
-class Outro(Page):
-    form_model = "group"
-
-class Explore_calc(Page):
-
-    form_model = "group"
 
 
 
 
-page_sequence = [IntroWaitPage, Introduction, Candidate, Recruiter, Candidate_calculator, Recruiter_calculator, Planning_doc, Back_to_class, Candidate_no_timer, Recruiter_no_timer, Negotiated_outcome, Negotiation_process, Journaling_page, Outro, Explore_calc]
+page_sequence = [Introduction, Candidate, Recruiter, Candidate_calculator, Recruiter_calculator, Planning_doc, Wait_for_class]

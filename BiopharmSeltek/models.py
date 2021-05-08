@@ -43,8 +43,7 @@ class Subsession(BaseSubsession):
         elif self.session.config["section_number"] == 3:
             locations = locations_3
 
-        print('in group_by_arrival_time_method')
-        print("remaining locations")
+
         inperson_players = [p for p in waiting_players if p.participant.vars['inperson']]
         zoom_players = [p for p in waiting_players if not p.participant.vars['inperson']]
 

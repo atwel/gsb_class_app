@@ -29,7 +29,7 @@ dict(
         display_name="New Recruit",
         num_demo_participants=2,
         section_number=1,
-        app_sequence=['NewRecruit']),
+        app_sequence=["inperson_before",'NewRecruit',"NewRecruit_part2"]),
 dict(
         name='Federated_Science',
         display_name="Federated Science",
@@ -76,6 +76,16 @@ ROOMS = [
     dict(
         name='OB581_03',
         display_name='OB581.03, Sp21 ',
+        participant_label_file = "_rooms/Sp21_03.txt",
+    ),
+    dict(
+        name='OB581_02B',
+        display_name='OB581.02B, Sp21 ',
+        participant_label_file = "_rooms/Sp21_02.txt",
+    ),
+    dict(
+        name='OB581_03B',
+        display_name='OB581.03B, Sp21 ',
         participant_label_file = "_rooms/Sp21_03.txt",
     )
 ]
