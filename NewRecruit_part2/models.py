@@ -49,7 +49,7 @@ class Subsession(BaseSubsession):
             locations = locations_2
         elif self.session.config["section_number"] == 3:
             locations = locations_3
-	print("LOCATIONS",locations)
+        print("LOCATIONS",locations)
         inperson_candidates = []
         inperson_recruiters = []
         zoom_candidates = []
