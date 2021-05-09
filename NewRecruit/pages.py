@@ -19,12 +19,9 @@ class Introduction(Page):
         for player in self.player.get_others_in_subsession():
 
             if "arrival_time" in player.participant.vars:
-                print("found arrived player")
                 if player.participant.vars["inperson"]:
-                    print("found inperson player")
                     inperson_all +=1
                     if player.candidate:
-                        print("found candidate")
                         inperson_candidates +=1
                 else:
                     remote_all +=1
@@ -51,7 +48,6 @@ class Introduction(Page):
                     self.player.candidate = True
                     self.player.participant.vars["role"] = "candidate"
 
-        print(self.player.candidate)
 
 
 class Candidate(Page):

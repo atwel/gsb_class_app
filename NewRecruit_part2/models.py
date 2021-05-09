@@ -49,7 +49,7 @@ class Subsession(BaseSubsession):
             locations = locations_2
         elif self.session.config["section_number"] == 3:
             locations = locations_3
-        print("LOCATIONS",locations)
+  
         inperson_candidates = []
         inperson_recruiters = []
         zoom_candidates = []
@@ -68,6 +68,7 @@ class Subsession(BaseSubsession):
                     zoom_candidates.append(p)
                 else:
                     zoom_recruiters.append(p)
+
         print("LISTS\n\n")
         print(inperson_candidates)
         print(inperson_recruiters)
@@ -79,7 +80,6 @@ class Subsession(BaseSubsession):
         elif len(inperson_candidates)  == len(inperson_recruiters) +1:
             extra_ip = inperson_recruiters.pop()
         inperson_pairs = list(zip(inperson_candidates, inperson_recruiters))
-        print("inperson_pairs", inperson_pairs)
 
         if len(zoom_candidates) > len(zoom_recruiters) and extra_ip != None:
             extra_z = zoom_candidates.pop(len(zoom_recruiters))
@@ -87,8 +87,6 @@ class Subsession(BaseSubsession):
             extra_z = zoom_recruiters.pop(len(zoom_candidates))
 
         dummies = zoom_recruiters[len(zoom_candidates):]
-        print("dummies\n")
-        print(dummies)
         zoom_pairs = list(zip(zoom_candidates, zoom_recruiters))
 
         if extra_z != None and extra_ip != None:
@@ -98,11 +96,9 @@ class Subsession(BaseSubsession):
             half = int(len(dummies)/2)
             zoom_pairs.extend(list(zip(dummies[:half],dummies[half:])))
 
-
         for one, two in inperson_pairs:
             one.partner = two.participant.vars["name"]
             two.partner = one.participant.vars["name"]
-
             if locations != []:
                 loc = locations.pop(0)
                 one.meeting_inperson = True
@@ -110,12 +106,12 @@ class Subsession(BaseSubsession):
             else:
                 loc = "Zoom breakout"
                 one.zoom_group = "{} and {} ({}-{})".format(two.partner,one.partner,one.participant.label, two.participant.label)
+            one.location = loc
+            two.location = loc
             for p in (one,two):
                 print(p.participant.vars["name"], p.participant.label, p.location, p.participant.vars["inperson"], p.partner)
-        print(zoom_pairs)
+        
         for one, two in zoom_pairs:
-            print(one)
-            print(two)
             loc = "Zoom breakout"
             one.location = loc
             two.location = loc
@@ -124,9 +120,8 @@ class Subsession(BaseSubsession):
             one.zoom_group = "{} and {} ({}-{})".format(two.partner,one.partner,one.participant.label, two.participant.label)
             for p in (one,two):
                 print(p.participant.vars["name"], p.participant.label, p.location, p.participant.vars["inperson"], p.partner)
-        print("\n\n\nHELLO\n\n\n")
-        all_pairs = inperson_pairs + zoom_pairs
-        print(all_pairs)
+        
+	all_pairs = inperson_pairs + zoom_pairs
 
         self.set_group_matrix(all_pairs)
 
