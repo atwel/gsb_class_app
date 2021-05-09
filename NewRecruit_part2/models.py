@@ -121,7 +121,7 @@ class Subsession(BaseSubsession):
             for p in (one,two):
                 print(p.participant.vars["name"], p.participant.label, p.location, p.participant.vars["inperson"], p.partner)
         
-	all_pairs = inperson_pairs + zoom_pairs
+        all_pairs = inperson_pairs + zoom_pairs
 
         self.set_group_matrix(all_pairs)
 
