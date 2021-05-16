@@ -35,8 +35,6 @@ dict(
         display_name="Federated Science",
         num_demo_participants=3,
         section_number=1,
-        section_seats=23,
-        start_index=0,
         app_sequence=["inperson_before",'Federated']),
 dict(
         name='OmniChannel',
