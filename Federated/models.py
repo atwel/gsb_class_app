@@ -52,7 +52,7 @@ class Subsession(BaseSubsession):
 
         for p in self.get_players():
             try:
-                the_label = p.participants.vars["name"]
+                the_label = p.participant.vars["name"]
                 if p.participant.vars["inperson"]:
                     if p.role() == "stockman":
                         stockman_inperson.append(the_label)
