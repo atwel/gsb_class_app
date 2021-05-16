@@ -52,7 +52,7 @@ class Subsession(BaseSubsession):
 
         for p in self.get_players():
             the_label = p.participant.label
-            if p.participant.vars["name"] != "autoadvanced":
+            try:
                 if p.participant.vars["inperson"]:
                     if p.role() == "stockman":
                         stockman_inperson.append(the_label)
@@ -68,6 +68,8 @@ class Subsession(BaseSubsession):
                         turbo_zooms.append(the_label)
                     else:
                         united_zooms.append(the_label)
+            except:
+                pass
 
         return {"SIP":stockman_inperson,"SZ":stockman_zooms,"TIP":turbo_inperson,"TZ":turbo_zooms,"UIP":united_inperson, "UZ":united_zooms}
 
