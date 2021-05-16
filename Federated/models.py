@@ -51,7 +51,7 @@ class Subsession(BaseSubsession):
         turbo_zooms = []
 
         for p in self.get_players():
-            the_label = p.participant.label
+            the_label = p.participant.vars["name"]
             try:
                 if p.participant.vars["inperson"]:
                     if p.role() == "stockman":
