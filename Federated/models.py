@@ -51,21 +51,22 @@ class Subsession(BaseSubsession):
         turbo_zooms = []
 
         for p in self.get_players():
+            the_label = p.participant.label
             if p.participant.vars["inperson"]:
                 if p.role() == "stockman":
-                    stockman_inperson.append(p.label)
+                    stockman_inperson.append(the_label)
                 elif p.role() == "turbo":
-                    turbo_inperson.append(p.label)
+                    turbo_inperson.append(the_label)
                 else:
-                    united_inperson.append(p.label)
+                    united_inperson.append(the_label)
 
             else:
                 if p.role() == "stockman":
-                    stockman_zooms.append(p.label)
+                    stockman_zooms.append(the_label)
                 elif p.role() == "turbo":
-                    turbo_zooms.append(p.label)
+                    turbo_zooms.append(the_label)
                 else:
-                    united_zooms.append(p.label)
+                    united_zooms.append(the_label)
 
         return {"SIP":stockman_inperson,"SZ":stockman_zooms,"TIP":turbo_inperson,"TZ":turbo_zooms,"UIP":united_inperson, "UZ":united_zooms}
 

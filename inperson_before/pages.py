@@ -12,8 +12,12 @@ class InPersonHC(Page):
         form_fields = ["healthcheck","inperson"]
 
         def before_next_page(self):
-            self.participant.vars["SUNet"] = self.participant.label
-            self.participant.vars["name"] = SUNet_to_name[self.participant.label]
+            try:
+                self.participant.vars["SUNet"] = self.participant.label
+                self.participant.vars["name"] = SUNet_to_name[self.participant.label]
+            except:
+                self.participant.vars["SUNet"] = "none"
+                self.participant.vars["name"] = "autoadvanced"
             self.participant.vars["arrival_time"] = time.time()
 
             if self.player.healthcheck and self.player.inperson:
