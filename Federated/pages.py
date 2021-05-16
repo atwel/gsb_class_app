@@ -20,8 +20,8 @@ class Introduction(Page):
 class Stockman(Page):
     form_model = "player"
 
-    timeout_seconds = Constants.reading_time*60
-    timer_text = 'Time left for reading the materials'
+    #timeout_seconds = Constants.reading_time*60
+    #timer_text = 'Time left for reading the materials'
 
     def is_displayed(self):
         return self.player.role() == "stockman"
@@ -51,8 +51,8 @@ class Stockman_nt(Page):
 class Turbo(Page):
     form_model = "player"
 
-    timeout_seconds = Constants.reading_time*60
-    timer_text = 'Time left for reading the materials'
+    #timeout_seconds = Constants.reading_time*60
+    #timer_text = 'Time left for reading the materials'
 
     def is_displayed(self):
         return self.player.role() == "turbo"
@@ -82,8 +82,8 @@ class Turbo_nt(Page):
 class United(Page):
     form_model = "player"
 
-    timeout_seconds = Constants.reading_time*60
-    timer_text = 'Time left for reading the materials'
+    #timeout_seconds = Constants.reading_time*60
+    #timer_text = 'Time left for reading the materials'
 
     def is_displayed(self):
         return self.player.role() == "united"
@@ -115,8 +115,8 @@ class Planning_doc(Page):
     form_model = "player"
     form_fields = ["planning_text"]
 
-    timeout_seconds = Constants.planning_doc_time *60
-    timer_text = "Time left to finish the planning document"
+    #timeout_seconds = Constants.planning_doc_time *60
+    #timer_text = "Time left to finish the planning document"
 
     def vars_for_template(self):
         if self.player.role() == "stockman":
@@ -126,6 +126,9 @@ class Planning_doc(Page):
         elif self.player.role() == "united":
             return {"pdf_file": "Federated/United.pdf"}
 
+
+class Ready_for_class(Page):
+    form_model = "player"
 
 class Wait_to_negotiate(WaitPage):
 
@@ -183,4 +186,4 @@ class Outro(Page):
 
 
 
-page_sequence = [IntroWaitPage, Introduction, Stockman, Turbo, United, Planning_doc, Wait_to_negotiate, Back_to_class, Stockman_nt, Turbo_nt, United_nt, Outcome, Journaling_page, Outro]
+page_sequence = [Introduction, Stockman, Turbo, United, Planning_doc, Ready_for_class, Back_to_class, Stockman_nt, Turbo_nt, United_nt, Outcome, Journaling_page, Outro]

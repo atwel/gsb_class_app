@@ -24,7 +24,6 @@ with open("_rooms/Sp21_02.txt", "r") as f:
     raw_string = f.read()
     names_section2 = raw_string.split("\n")
 
-
 with open("_rooms/Sp21_03.txt", "r") as f:
     raw_string = f.read()
     names_section3 = raw_string.split("\n")
@@ -56,8 +55,8 @@ class Subsession(BaseSubsession):
             zoom_link = Constants.link_581_3
 
         for player, label in zip(self.get_players(), section_participants):
-            print(label)
-            player.participant.label = label
+            #print(label)
+            #player.participant.label = label
             player.participant.vars["zoom_link"] = zoom_link
             player.participant.vars["section"] = self.session.config["section_number"]
 
