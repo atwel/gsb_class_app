@@ -67,7 +67,7 @@ class Subsession(BaseSubsession):
                 else:
                     united_zooms.append(p.label)
 
-         return {"SIP":stockman_inperson,"SZ":stockman_zooms,"TIP":turbo_inperson,"TZ":turbo_zooms,"UIP":united_inperson, "UZ"united_zooms}
+        return {"SIP":stockman_inperson,"SZ":stockman_zooms,"TIP":turbo_inperson,"TZ":turbo_zooms,"UIP":united_inperson, "UZ":united_zooms}
 
 class Group(BaseGroup):
     stockman = models.BooleanField()
