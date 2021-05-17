@@ -33,19 +33,25 @@ with open("_rooms/Sp21_03.txt", "r") as f:
 
 
 class Constants(BaseConstants):
-    name_in_url = 'seating'
+    name_in_url = 'seating_shuffle'
     players_per_group = None
     num_rounds = 1
     names_section1 = names_section1
     names_section2 = names_section2
     names_section3 = names_section3
-    eligible = None
-    ineligible = None
+
 
 class Subsession(BaseSubsession):
-    def creating_session(self):
-        start_index = self.session.config["start_index"]
+    have_seat = models.StringField(default="None yet")
+    no_seat = models.StringField(default="Also none yet")
 
+    def vars_for_admin_report(self):
+        return dict(have_seat=self.have_seat,no_seat=self.no_seat)
+
+    def before_session_starts(self):
+        self.session.vars["have_seat"] = "None yet"
+        self.session.vars["no_seat"] = "None yet"
+        start_index = self.session.config["start_index"]
         if self.session.config["section_number"] == 1:
             section_participants = names_section1
         elif self.session.config["section_number"] == 2:
@@ -53,19 +59,25 @@ class Subsession(BaseSubsession):
         else:
             section_participants = names_section3
 
+        for player, label in zip(self.get_players(), section_participants):
+            player.participant.label = label
+
         eligible = section_participants[start_index:start_index+self.session.config["section_seats"]]
-        self.session.vars["eligible"] = eligible
-        remainder = 23 - len(eligible)
+        remainder = self.session.config["section_seats"] - len(eligible)
         if remainder >0:
             eligible.extend(section_participants[:remainder])
 
         ineligible = list(set(section_participants).difference(set(eligible)))
-        self.session.vars["ineligible"] = ineligible
         print("eligible", eligible)
         print("ineligible", ineligible)
+        self.session.vars["eligible"] = eligible
+        self.session.vars["ineligible"] = ineligible
 
-
-
+        for player in self.get_players():
+            if player.participant.label in eligible:
+                player.participant.vars["eligible"] = True
+            else:
+                player.participant.vars["eligible"] = False
 
 class Group(BaseGroup):
     pass
@@ -74,4 +86,5 @@ class Group(BaseGroup):
 class Player(BasePlayer):
 
     claim_it = models.BooleanField(label="Would you like to claim it?")
-    waiting = models.BooleanField(label="You do not have first priority today. Would you like to add yourself to the waitlist?")
+    waiting = models.BooleanField(label="Would you like to add yourself to the waitlist?")
+    declined  = models.BooleanField(default=False)
