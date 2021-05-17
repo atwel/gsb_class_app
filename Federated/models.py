@@ -110,7 +110,7 @@ class Player(BasePlayer):
     united = models.IntegerField()
     turbo = models.IntegerField()
     stockman= models.IntegerField()
-    first_meeting = models.StringField(label="Who did Stockman start the negotiation with?",choices=["Turbo","United","Both"], widget=widgets.RadioSelectHorizontal)
+    first_meeting = models.StringField(label="Who did Turbo start the negotiation with?",choices=["Stockman","United","Both"], widget=widgets.RadioSelectHorizontal)
 
     journaling_text = models.LongStringField(label="Please describe your experience of the negotiation.")
 
