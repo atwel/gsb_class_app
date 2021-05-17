@@ -166,7 +166,7 @@ class Back_to_class(Page):
 class Outcome(Page):
     form_model = "player"
 
-    form_fields = ["united","stockman","turbo"]
+    form_fields = ["united","stockman","turbo","first_meeting"]
 
 
 
