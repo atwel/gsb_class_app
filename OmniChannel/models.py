@@ -40,7 +40,7 @@ class Subsession(BaseSubsession):
             try:
                 the_label = p.participant.vars["name"]
                 if p.participant.vars["inperson"]:
-                    if p.role() == "3dtv'":
+                    if p.role() == "3dtv":
                         DTV_inperson.append(the_label)
                     else:
                         omni_inperson.append(the_label)
