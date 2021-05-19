@@ -41,7 +41,7 @@ dict(
         display_name="OmniChannel",
         num_demo_participants=6,
         section_number=1,
-        app_sequence=['OmniChannel']),
+        app_sequence=["inperson_before",'OmniChannel']),
 dict(
         name='HarborCo',
         display_name="Harbor Co",

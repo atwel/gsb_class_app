@@ -58,7 +58,7 @@ class Planning_doc(Page):
 class Wait_until_open(Page):
     form_model = "player"
     #remove  next line when not demo-ing
-    timeout_seconds = 10
+    #timeout_seconds = 10
 
 class Outcome(Page):
     form_model = "player"
@@ -71,6 +71,9 @@ class Outcome(Page):
         else:
             return False
 
+class Journaling_page_pause(Page):
+    form_model = "player"
+
 class Journaling_page(Page):
     form_model = "player"
 
@@ -82,4 +85,4 @@ class Outro(Page):
     form_model = "group"
 
 
-page_sequence = [Introduction, DTV, Omni, Message_DTV, Message_OC, Planning_doc, Wait_until_open, DTV, Omni, Agreement,Outcome, Journaling_page,Outro]
+page_sequence = [Introduction, DTV, Omni, Message_DTV, Message_OC, Planning_doc, Wait_until_open, DTV, Omni, Agreement,Outcome, Journaling_page_pause, Journaling_page, Outro]
