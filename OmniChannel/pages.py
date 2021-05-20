@@ -79,7 +79,7 @@ class Journaling_page(Page):
 
     form_fields = ["journaling_text"]
 
-    timeout_seconds = Constants.reflection_time*60
+    #timeout_seconds = Constants.reflection_time*60
 
 class Outro(Page):
     form_model = "group"
