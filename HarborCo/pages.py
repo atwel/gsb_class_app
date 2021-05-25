@@ -7,12 +7,37 @@ from .models import Constants
 class Introduction(Page):
     form_model = "player"
 
+    def before_next_page(self):
+        count_present =0
+        for player in self.player.get_others_in_subsession():
+            if "arrival_time" in player.participant.vars:
+                count_present += 1
+
+
+        if self.participant.vars["name"] != "autoadvanced":
+            my_role = count_present % 6
+
+            if my_role ==  0:
+                self.player.hc_role = "union"
+            elif my_role == 1:
+                self.player.hc_role = "enviro"
+            elif my_role == 2:
+                self.player.hc_role = "ports"
+            elif my_role == 3:
+                self.player.hc_role = "dcr"
+            elif my_role == 4:
+                self.player.hc_role = "gov"
+            else:
+                self.player.hc_role = "harborco"
+
+
+
 
 class Harborco(Page):
     form_model = "player"
 
     def is_displayed(self):
-        return self.player.role() == "harborco"
+        return self.player.hc_role == "harborco"
 
     def vars_for_template(self):
         return {"pdf_file": "HarborCo/Harborco.pdf"}
@@ -23,7 +48,7 @@ class Union(Page):
     form_model = "player"
 
     def is_displayed(self):
-        return self.player.role() == "union"
+        return self.player.hc_role == "union"
 
     def vars_for_template(self):
         return {"pdf_file": "HarborCo/Union.pdf"}
@@ -33,7 +58,7 @@ class Enviro(Page):
     form_model = "player"
 
     def is_displayed(self):
-        return self.player.role() == "enviro"
+        return self.player.hc_role == "enviro"
 
     def vars_for_template(self):
         return {"pdf_file": "HarborCo/EnvironmentalLeague.pdf"}
@@ -43,7 +68,7 @@ class Governor(Page):
     form_model = "player"
 
     def is_displayed(self):
-        return self.player.role() == "gov"
+        return self.player.hc_role == "gov"
 
     def vars_for_template(self):
         return {"pdf_file": "HarborCo/Governor.pdf"}
@@ -53,7 +78,7 @@ class Ports(Page):
     form_model = "player"
 
     def is_displayed(self):
-        return self.player.role() == "ports"
+        return self.player.hc_role == "ports"
 
     def vars_for_template(self):
         return {"pdf_file": "HarborCo/OtherPorts.pdf"}
@@ -63,7 +88,7 @@ class Dcr(Page):
     form_model = "player"
 
     def is_displayed(self):
-        return self.player.role() == "dcr"
+        return self.player.hc_role == "dcr"
 
     def vars_for_template(self):
         return {"pdf_file": "HarborCo/FederalDCR.pdf"}
@@ -75,19 +100,20 @@ class Planning_doc(Page):
     form_fields = ["planning_text"]
 
     def vars_for_template(self):
-        if self.player.role() == "dcr":
+        if self.player.hc_role == "dcr":
             return {"pdf_file": "HarborCo/FederalDCR.pdf"}
-        elif self.player.role() == "harborco":
+        elif self.player.hc_role == "harborco":
             return {"pdf_file": "HarborCo/Harborco.pdf"}
-        elif self.player.role() == "ports":
+        elif self.player.hc_role == "ports":
             return {"pdf_file": "HarborCo/OtherPorts.pdf"}
-        elif self.player.role() == "union":
+        elif self.player.hc_role == "union":
             return {"pdf_file": "HarborCo/Union.pdf"}
-        elif self.player.role() == "gov":
+        elif self.player.hc_role == "gov":
             return {"pdf_file": "HarborCo/Governor.pdf"}
-        elif self.player.role() == "enviro":
+        elif self.player.hc_role == "enviro":
             return {"pdf_file": "HarborCo/EnvironmentalLeague.pdf"}
-
+        else:
+            return {"pdf_file":"HarborCo/Governor.pdf"}
 
 
 class Back_to_class(Page):

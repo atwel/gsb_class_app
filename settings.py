@@ -47,7 +47,7 @@ dict(
         display_name="Harbor Co",
         num_demo_participants=6,
         section_number=1,
-        app_sequence=['HarborCo']),
+        app_sequence=["inperson_before",'HarborCo']),
 dict(
         name='HarborCo_vote',
         display_name="HarborCo voting",

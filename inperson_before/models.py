@@ -55,8 +55,6 @@ class Subsession(BaseSubsession):
             zoom_link = Constants.link_581_3
 
         for player, label in zip(self.get_players(), section_participants):
-            #print(label)
-            #player.participant.label = label
             player.participant.vars["zoom_link"] = zoom_link
             player.participant.vars["section"] = self.session.config["section_number"]
 
@@ -66,7 +64,7 @@ class Group(BaseGroup):
 class Player(BasePlayer):
 
     healthcheck= models.BooleanField(label="Are you currently in compliance with GSB COVID on-campus policies? (i.e. Healthcheck submitted and OK'ed)",widget=widgets.RadioSelectHorizontal)
-    inperson = models.BooleanField(label="Do you want to negotiate this case in person?",widget=widgets.RadioSelectHorizontal)
+    inperson = models.BooleanField(label="Are you hoping to negotiate this case in person?",widget=widgets.RadioSelectHorizontal)
     zoom_link = models.StringField()
     section = models.IntegerField()
     arrived = models.BooleanField(default=False)
