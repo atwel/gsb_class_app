@@ -40,6 +40,20 @@ class Group(BaseGroup):
 
 class Player(BasePlayer):
     name = models.StringField()
-    hc_role = models.StringField(default="Unassigned")
     planning_text = models.LongStringField(label="Describe your plan for this negotiation. In particular, how do intend to approach dealing with coalitions?")
     journaling_text = models.LongStringField(label="Please describe your experience of the negotiation.")
+
+
+    def role(self):
+        if self.id_in_group == 1:
+            return 'union'
+        elif self.id_in_group == 2:
+            return 'enviro'
+        elif self.id_in_group == 3:
+            return 'ports'
+        elif self.id_in_group == 4:
+            return 'dcr'
+        elif self.id_in_group == 5:
+            return 'gov'
+        else:
+            return 'harborco'
