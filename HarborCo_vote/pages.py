@@ -1,13 +1,28 @@
 from otree.api import Currency as c, currency_range
 from ._builtin import Page, WaitPage
 from .models import Constants
+import time
 
+class New_round(Page):
+    form_model = "group"
 
+    timeout_seconds = 60
 
-class Introduction(Page):
-    form_model = "player"
+    def is_displayed(self):
+        if self.subsession.round_number == 1:
+            return True
+        else:
+            if not all([g.did_not_pass for g in self.group.in_previous_rounds()]) or self.group.in_round(self.group.round_number-1).timed_out:
+                self.group.did_not_pass = False
+                self.group.timed_out = True
+                self.group.pass_displayed = True
+            return False
 
-    after_all_players_arrive = "set_first_meet"
+    def before_next_page(self):
+        if self.player.role() == "harborco":
+            if self.subsession.round_number == 1:
+                self.group.start_time = time.time()
+
 
 
 class Proposal(Page):
@@ -16,52 +31,18 @@ class Proposal(Page):
     form_fields = ["mix","eco","union","loan","comp"]
 
     def is_displayed(self):
-        return self.player.role() == "harborco"
+        return (self.group.did_not_pass and self.player.role() == "harborco")
 
     def vars_for_template(self):
         return {"pdf_file": "HarborCo/Harborco.pdf"}
 
 
-class Tally(WaitPage):
+class Proposal_wait(WaitPage):
+    def is_displayed(self):
+        return self.group.did_not_pass and not self.group.pass_displayed
 
     def vars_for_template(self):
-        return {"title_text": "Waiting for all votes to be cast.", "body_text": "Other parties are still voting. Once votes are in and tallied, the results will be shown."}
-
-    def after_all_players_arrive(self):
-
-        count = 0
-        veto = False
-
-        for p in self.group.get_players():
-            if p.vote == "Yes":
-                count +=1
-
-            if p.role() == "dcr":
-                if (p.vote == "No" and self.group.loan != "No federal loan"):
-                    veto = True
-
-
-        if veto:
-            self.group.high_passed = False
-            self.group.passed = False
-            self.group.vetoed = True
-            self.group.no_pass = False
-        else:
-            self.group.vetoed = False
-            if count == 5:
-                print("In count == 5")
-                self.group.high_passed = True
-                self.group.passed = False
-                self.group.no_pass = False
-            elif count == 4:
-                self.group.high_passed = False
-                self.group.passed = True
-                self.group.no_pass = False
-            elif count <=3:
-                self.group.high_passed = False
-                self.group.passed = False
-                self.group.no_pass = True
-
+        return {"title_text": "Negotiations and Proposal Crafting", "body_text": "You are currently in negotiations and will remain so until a scheduled vote is called or HarborCo puts a proposal up for a vote."}
 
 
 class Vote(Page):
@@ -69,11 +50,11 @@ class Vote(Page):
 
     form_fields = ["vote"]
 
-    timeout_seconds = 60
+    timeout_seconds = 90
 
 
     def is_displayed(self):
-        return self.player.role() != "harborco"
+        return self.group.did_not_pass and self.player.role() != "harborco"
 
     def vars_for_template(self):
         if self.player.role() == "union":
@@ -90,6 +71,61 @@ class Vote(Page):
         loan_if = (self.group.loan != "No federal loan")
         return {"eco_if":eco_if,"pdf_file":pdf_file, "loan_if":loan_if,"eco":self.group.eco.lower(),"mix":self.group.mix.lower(),"loan":self.group.loan.lower(), "union":self.group.union.lower(),"comp":self.group.comp}
 
+class Tally(WaitPage):
+
+    def is_displayed(self):
+        return self.group.did_not_pass
+
+    def vars_for_template(self):
+        return {"title_text": "Waiting for all votes to be cast.", "body_text": "Other parties are still voting. Once votes are in and tallied, the results will be shown."}
+
+    def after_all_players_arrive(self):
+
+        if self.group.did_not_pass:
+
+            count = 0
+            veto = False
+
+            for p in self.group.get_players():
+                if p.vote == "Yes":
+                    count +=1
+
+                if p.role() == "dcr":
+                    if (p.vote == "No" and self.group.loan != "No federal loan"):
+                        veto = True
+
+            if veto:
+                self.group.high_passed = False
+                self.group.passed = False
+                self.group.vetoed = True
+                self.group.did_not_pass = True
+            else:
+                self.group.vetoed = False
+                if count == 5:
+                    self.group.high_passed = True
+                    self.group.passed = False
+                    self.group.did_not_pass = False
+                elif count == 4:
+                    self.group.high_passed = False
+                    self.group.passed = True
+                    self.group.did_not_pass = False
+                elif count <=3:
+                    self.group.high_passed = False
+                    self.group.passed = False
+                    self.group.did_not_pass = True
+
+
+
+        print(time.time(), self.group.in_round(1).start_time)
+        print("time passed", (time.time() - self.group.in_round(1).start_time)/60)
+        if (time.time() - self.group.in_round(1).start_time) / 60 > 4:
+            if not any([self.group.passed, self.group.high_passed]):
+                self.group.timed_out = True
+
+
+
+
+
 
 class Results_high_pass(Page):
 
@@ -98,7 +134,11 @@ class Results_high_pass(Page):
     timeout_seconds = 60
 
     def is_displayed(self):
-        return self.group.high_passed
+        value = self.group.high_passed and not self.group.pass_displayed
+        return value
+
+    def before_next_page(self):
+        self.group.pass_displayed = True
 
 
     def vars_for_template(self):
@@ -138,7 +178,11 @@ class Results_pass(Page):
     timeout_seconds = 60
 
     def is_displayed(self):
-        return self.group.passed
+        value = self.group.passed and not self.group.pass_displayed
+        return value
+
+    def before_next_page(self):
+        self.group.pass_displayed = True
 
     def vars_for_template(self):
         for p in self.group.get_players():
@@ -177,7 +221,8 @@ class Results_not_passed(Page):
     timeout_seconds = 60
 
     def is_displayed(self):
-        return self.group.no_pass
+        value = self.group.did_not_pass and not self.group.vetoed
+        return value
 
     def vars_for_template(self):
         for p in self.group.get_players():
@@ -248,16 +293,14 @@ class Results_veto(Page):
                     ports = "Against"
         return {"union":union,"gov":gov,"ports":ports, "enviro":enviro,"dcr":dcr }
 
+class Timed_out(Page):
+    form_model = 'group'
 
-class New_round(Page):
-    form_model = "group"
+    def is_displayed(self):
+        return self.group.timed_out and not self.group.pass_displayed
 
-    timeout_seconds = 60
+    def before_next_page(self):
+        self.group.pass_displayed = True
 
 
-
-class Proposal_wait(WaitPage):
-    def vars_for_template(self):
-        return {"title_text": "Negotiations and Proposal Crafting", "body_text": "You are currently in negotiations and will remain so until a scheduled vote is called or HarborCo puts a proposal up for a vote."}
-
-page_sequence = [New_round, Proposal, Proposal_wait, Vote, Tally, Results_veto,Results_high_pass, Results_not_passed, Results_pass]
+page_sequence = [New_round, Proposal, Proposal_wait, Vote, Tally, Results_high_pass, Results_pass, Results_not_passed, Results_veto,Timed_out]

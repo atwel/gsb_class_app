@@ -1,0 +1,25 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+Out of votes/time
+
+{% endblock %}
+
+
+{% block styles %}
+<link rel="stylesheet" href="{% static "global/custom_theme.css" %}">
+
+{% endblock %}
+
+{% block content %}
+<br><br>
+Sorry, but that was your last vote because you've run out of time:(  <br><br>
+Please go to the next page to reflect on the exercise. (It is not timed.)<br><br>
+<br><br>
+<div id="clocked" style="margin-left:90%">
+    {% next_button %}
+</div>
+
+
+{% endblock %}

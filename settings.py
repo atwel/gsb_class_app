@@ -53,7 +53,7 @@ dict(
         display_name="HarborCo voting",
         num_demo_participants=6,
         section_number=1,
-        app_sequence=['HarborCo_vote'])
+        app_sequence=['HarborCo_vote',"just_journal"])
 ]
 
 
