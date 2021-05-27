@@ -6,7 +6,7 @@ import time
 
 
 
-class Journaling_Page(Page):
+class Journaling_page(Page):
 
         form_model = "player"
         form_fields = ["journaling_text"]
