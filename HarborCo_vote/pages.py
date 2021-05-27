@@ -116,11 +116,11 @@ class Tally(WaitPage):
 
 
 
-        print(time.time(), self.group.in_round(1).start_time)
-        print("time passed", (time.time() - self.group.in_round(1).start_time)/60)
-        if (time.time() - self.group.in_round(1).start_time) / 60 > 75:
-            if not any([self.group.passed, self.group.high_passed]):
-                self.group.timed_out = True
+        #print(time.time(), self.group.in_round(1).start_time)
+        #print("time passed", (time.time() - self.group.in_round(1).start_time)/60)
+        #if (time.time() - self.group.in_round(1).start_time) / 60 > 75:
+        #    if not any([self.group.passed, self.group.high_passed]):
+        #        self.group.timed_out = True
 
 
 
