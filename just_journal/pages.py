@@ -14,4 +14,4 @@ class Journaling_page(Page):
 class Outro(Page):
     form_model = "group"
 
-page_sequence = [Journaling_Page, Outro]
+page_sequence = [Journaling_page, Outro]
