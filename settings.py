@@ -9,45 +9,47 @@ SESSION_CONFIG_DEFAULTS = dict(
     real_world_currency_per_point=1.00, participation_fee=0.00, doc=""
 )
 
-SESSION_CONFIGS = [
-
-dict(name="Seating",
+"""dict(name="Seating",
         display_name="Seating allocation",
         num_demo_participants=1,
         app_sequence=["seating"],
         section_number=1,
         section_seats = 23,
-        start_index=0),
+        start_index=0),"""
+
+SESSION_CONFIGS = [
+
+
 dict(
         name='BioPharm_Seltek',
         display_name="BioPharm Seltek",
         num_demo_participants=2,
         section_number=1,
-        app_sequence=["inperson",'BiopharmSeltek']),
+        app_sequence=['BiopharmSeltek']),
 dict(
         name='New_Recruit',
         display_name="New Recruit",
         num_demo_participants=2,
         section_number=1,
-        app_sequence=["inperson_before",'NewRecruit',"NewRecruit_part2"]),
+        app_sequence=['NewRecruit',"NewRecruit_part2"]),
 dict(
         name='Federated_Science',
         display_name="Federated Science",
         num_demo_participants=3,
         section_number=1,
-        app_sequence=["inperson_before",'Federated']),
+        app_sequence=['Federated']),
 dict(
         name='OmniChannel',
         display_name="OmniChannel",
         num_demo_participants=6,
         section_number=1,
-        app_sequence=["inperson_before",'OmniChannel']),
+        app_sequence=['OmniChannel']),
 dict(
         name='HarborCo',
         display_name="Harbor Co",
         num_demo_participants=6,
         section_number=1,
-        app_sequence=["inperson_before",'HarborCo']),
+        app_sequence=['HarborCo']),
 dict(
         name='HarborCo_vote',
         display_name="HarborCo voting",
@@ -76,16 +78,6 @@ ROOMS = [
     dict(
         name='OB581_03',
         display_name='OB581.03, Sp21 ',
-        participant_label_file = "_rooms/Sp21_03.txt",
-    ),
-    dict(
-        name='OB581_02B',
-        display_name='OB581.02B, Sp21 ',
-        participant_label_file = "_rooms/Sp21_02.txt",
-    ),
-    dict(
-        name='OB581_03B',
-        display_name='OB581.03B, Sp21 ',
         participant_label_file = "_rooms/Sp21_03.txt",
     )
 ]

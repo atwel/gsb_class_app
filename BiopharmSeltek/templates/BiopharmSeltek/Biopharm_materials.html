@@ -17,14 +17,14 @@ THE BIOPHARM-SELTEK NEGOTIATION<br>
 <script type="text/javascript">
     $(function() {
         var currentDate = new Date();
-        var milliseconds = 000;
+        var milliseconds = 480000;
         $('div#clocked').countdown(currentDate.valueOf() + milliseconds, function(event) {
                 console.log(event.type)
                 switch(event.type) {
                     case "finish":
-                      $('div#clocked').show();
+                      $('div#clocked').hide();
                     case "finished":
-                        $('div#clocked').show();
+                        $('div#clocked').hide();
                 }
             });
 
@@ -36,7 +36,7 @@ THE BIOPHARM-SELTEK NEGOTIATION<br>
 <br>
 <h4>Role for BioPharm, CFO</h4>
 <br>
-<h6>You'll be able to see these materials again once the live negotiation has started but you can also <a href="{% static pdf_file %}" download>download a pdf version here.</a></h6>
+<h6>You'll be able to see these materials again once the live negotiation has started but you can also <a target="_blank" rel="noopener noreferrer" href="{% static pdf_file %}">download a pdf version here.</a></h6>
 <br>
 <p>You are the Chief Financial Officer of BioPharm, a U.S.-based pharmaceutical company that has annual sales of $700 million. You need to buy or build a plant in the U.S. to produce a genetically engineered (“biotech”) antibiotic compound, Depox. You bought a license from the Belgian company that developed Depox. The Belgian company sold the license because they don’t have the plant capacity or other resources to expand the business beyond the European market. The licensing agreement gives you exclusive rights to manufacture and sell Depox in North America.</p>
 
@@ -80,8 +80,11 @@ DRRC teaching materials are protected by copyright law. DRRC requires a per pers
 
 </div>
 <br><br>
-<div id="clocked" style="display:none;margin-left:90%">
+<div style="margin-left:90%">
     {% next_button %}
+</div>
+<div id="clocked" style="margin-left:75%">
+<span style="color:red">Caution:</span><br>You can't return to this page once you click next.
 </div>
 
 {% endblock %}

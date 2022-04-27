@@ -17,9 +17,9 @@ doc = """
 Negotatiing BioPharm Seltek with a partner
 """
 
-locations_1 = ["Campus Dr Grove 1","Campus Dr Grove 2","Campus Dr Grove 3","Campus Dr Lawn 1","Campus Dr Lawn 2","Campus Dr Lawn 3","Community Court 1","Community Court 2","Community Court 3","Community Court 4","Community Court 5","GSB Bowl 1","GSB Bowl 2","GSB Bowl 3","Knight Way 1"]
-locations_2 = ["Campus Dr Lawn 1","Campus Dr Lawn 2","Campus Dr Lawn 3","Community Court 1","Community Court 2","Community Court 3","Community Court 4","Community Court 5","GSB Bowl 1","GSB Bowl 2","GSB Bowl 3","Knight Way 1","Knight Way 2","Knight Way 3","Knight Way 4","Town Square 3","Town Square 4"]
-locations_3 = ["Campus Dr Grove 1 ","Campus Dr Grove 2","Campus Dr Grove 3","Campus Dr Lawn 1","Campus Dr Lawn 2","Campus Dr Lawn 3","Community Court 1","Community Court 2","Community Court 3","Community Court 4","Community Court 5","Knight Way 1","Knight Way 2","Knight Way 3","Knight Way 4","Town Square 1","Town Square 3","Town Square 4","Town Square 5","Town Square 6"]
+#locations_1 = ["Campus Dr Grove 1","Campus Dr Grove 2","Campus Dr Grove 3","Campus Dr Lawn 1","Campus Dr Lawn 2","Campus Dr Lawn 3","Community Court 1","Community Court 2","Community Court 3","Community Court 4","Community Court 5","GSB Bowl 1","GSB Bowl 2","GSB Bowl 3","Knight Way 1"]
+#locations_2 = ["Campus Dr Lawn 1","Campus Dr Lawn 2","Campus Dr Lawn 3","Community Court 1","Community Court 2","Community Court 3","Community Court 4","Community Court 5","GSB Bowl 1","GSB Bowl 2","GSB Bowl 3","Knight Way 1","Knight Way 2","Knight Way 3","Knight Way 4","Town Square 3","Town Square 4"]
+#locations_3 = ["Campus Dr Grove 1 ","Campus Dr Grove 2","Campus Dr Grove 3","Campus Dr Lawn 1","Campus Dr Lawn 2","Campus Dr Lawn 3","Community Court 1","Community Court 2","Community Court 3","Community Court 4","Community Court 5","Knight Way 1","Knight Way 2","Knight Way 3","Knight Way 4","Town Square 1","Town Square 3","Town Square 4","Town Square 5","Town Square 6"]
 
 
 class Constants(BaseConstants):
@@ -27,14 +27,14 @@ class Constants(BaseConstants):
     players_per_group = 2
     num_rounds = 1
     reading_time = 10
-    planning_doc_length = 100
+    planning_doc_length = 75
     planning_doc_time_minutes = 5
     negotiating_time = 25
 
 
 class Subsession(BaseSubsession):
-
-    def group_by_arrival_time_method(self,waiting_players):
+    pass
+    """def group_by_arrival_time_method(self,waiting_players):
 
         if self.session.config["section_number"] == 1:
             locations = locations_1
@@ -126,18 +126,19 @@ class Subsession(BaseSubsession):
                     print("{} has been waiting for 2+ minutes".format(name))
                 else:
                     print('not enough players yet to create a group')
-
-    def vars_for_admin_report(self):
+    """
+    """def vars_for_admin_report(self):
         zoomies = []
         for player in self.get_players():
             if player.zoom_group != None:
                 zoomies.append(player.zoom_group)
         return dict(zoom_groups=",\n".join(zoomies))
+    """
 
 
 
 class Group(BaseGroup):
-    link = models.StringField(label="Stanford Zoom URL")
+    #link = models.StringField(label="Stanford Zoom URL")
     initial_price = models.CurrencyField(label="What was the price of the first offer? (In millions of USD [e.g. $XX.xx])")
     made_initial = models.StringField(choices=["BioPharm","Seltek"], widget=widgets.RadioSelectHorizontal, label="Which company made the first offer?")
     deal = models.BooleanField(label="Did the companies reach a deal?",widget=widgets.RadioSelectHorizontal)
@@ -156,12 +157,12 @@ class Group(BaseGroup):
             player.participant.vars["sim_timer"] = start_time + Constants.negotiating_time * 60 + 30
 
 class Player(BasePlayer):
-    planning_text = models.LongStringField(label="Describe your plan for this negotiation")
+    planning_text = models.LongStringField(label="Describe your plan for this negotiation.")
     journaling_text = models.LongStringField(label="Please describe your experience of the negotiation.")
-    location = models.StringField(label="Negotiation location")
-    meeting_inperson = models.BooleanField(default=False)
+    #location = models.StringField(label="Negotiation location")
+    #meeting_inperson = models.BooleanField(default=False)
     partner = models.StringField()
-    zoom_group = models.StringField()
+    #zoom_group = models.StringField()
 
     def waiting_too_long(self):
         return time.time() - self.participant.vars['arrival_time'] > 120

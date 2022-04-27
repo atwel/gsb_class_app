@@ -2,7 +2,7 @@
 {% load otree static %}
 
 {% block title %}
-REMINDER: Negotiation partner and location
+Negotiation partner
 {% endblock %}
 
 {% block styles %}
@@ -11,22 +11,13 @@ REMINDER: Negotiation partner and location
 
 {% block content %}
 
-{% if player.meeting_inperson %}
-<center><div style="margin-top:10%">
-Remember that you'll be negotiating with <span style="font-size:1.5em">{{ player.partner }}</span> at <span style="font-size:1.5em">{{ player.location }}</span>.
-<br><br>Here is a <a target="_blank" rel="noopener noreferrer" href="{% static pdf_file %}" >pdf map (new tab)</a> of the outdoor spaces in case you need it. Please get to the location as quickly as you can!<br><br>
-Once you both advance to the next page, the timed portion of the negotiation will begin and you'll see the case materials again.
-</div></center>
-
-{% else %}
-<center>
-<div style="margin-top:5%">
-<p>Remember that you'll be negotiating with <span style="font-size:1.5em">{{ player.partner }}</span> in a Zoom breakout room.<br><br>In case you need it, here is the <a href={{ zoom_link }}>link back to our Zoom classroom</a></p>
-<br>
-Once you both advance to the next page, the timed portion of the negotiation will begin and you'll see the case materials again.
-</div></center>
-
-{% endif %}
+<div style="margin-top:10%">
+Today you'll be negotiating with <span style="font-size:1.5em">{{ partner }}</span>. Find them and a spot to negotiate. If you're not sure who that is, come to the front of the room and we'll make sure you get paired off.
+<br><br>
+Once you both advance to the next page, the timed portion of the negotiation will begin ({{ negotiating_time }} minutes total). You'll see the case materials again on the next page.
+<br><br>
+Stay strong and good luck!
+</div>
 <br><br><br>
 
 
