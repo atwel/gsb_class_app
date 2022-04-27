@@ -24,6 +24,8 @@ class Introduction(Page):
             self.participant.vars["SUNet"] = "none"
             self.participant.vars["name"] = "(come see Dr. Atwell)"
 
+        self.player.name = self.participant.vars["name"]
+
     def vars_for_template(self):
         total_time = Constants.reading_time + Constants.planning_doc_time_minutes + Constants.negotiating_time + 10
         return {"reading_limit":Constants.reading_time,"total_time":total_time}
@@ -54,6 +56,7 @@ class Biopharm_materials(Page):
 
     timeout_seconds= Constants.reading_time * 60
     timer_text = 'Time left for reading the materials'
+
 
     def is_displayed(self):
         return self.player.id_in_group == 2
@@ -107,6 +110,12 @@ class Meeting_location_reminder(Page):
 
     def vars_for_template(self):
             partner = self.player.get_others_in_group()[0]
+            self.player.partner = partner.participant.vars["name"]
+            if self.player.id_in_group ==1:
+                self.player.grole = "Seltek"
+            else:
+                self.player.grole = "BioPharm"
+
             return {"negotiating_time":Constants.negotiating_time,"partner":partner.participant.vars["name"] }
 
             #return {"zoom_link":self.participant.vars["zoom_link"], "pdf_file":"global/OutdoorMap.pdf"}
@@ -220,4 +229,4 @@ class Outro(Page):
 
 
 
-page_sequence = [Introduction, Seltek_materials, Biopharm_materials, Preferences_input_BF, Preferences_input_ST, Planning_doc, Meeting_wait, Meeting_location_reminder, Seltek_materials_no_timer, BioPharm_materials_no_timer, Negotiated_outcome_one, Negotiated_outcome_two, Outcome_wait,  Finished_case, Journaling_page, Outro]
+page_sequence = [IntroWaitPage, Introduction, Seltek_materials, Biopharm_materials, Preferences_input_BF, Preferences_input_ST, Planning_doc, Meeting_wait, Meeting_location_reminder, Seltek_materials_no_timer, BioPharm_materials_no_timer, Negotiated_outcome_one, Negotiated_outcome_two, Outcome_wait,Finished_case, Journaling_page, Outro]

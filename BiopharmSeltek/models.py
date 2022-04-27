@@ -159,10 +159,10 @@ class Group(BaseGroup):
 class Player(BasePlayer):
     planning_text = models.LongStringField(label="Describe your plan for this negotiation.")
     journaling_text = models.LongStringField(label="Please describe your experience of the negotiation.")
-    #location = models.StringField(label="Negotiation location")
-    #meeting_inperson = models.BooleanField(default=False)
     partner = models.StringField()
-    #zoom_group = models.StringField()
+    name = models.StringField()
+    grole = models.StringField()
+
 
     def waiting_too_long(self):
         return time.time() - self.participant.vars['arrival_time'] > 120
