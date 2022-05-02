@@ -17,10 +17,6 @@ doc = """
 Negotatiing BioPharm Seltek with a partner
 """
 
-#locations_1 = ["Campus Dr Grove 1","Campus Dr Grove 2","Campus Dr Grove 3","Campus Dr Lawn 1","Campus Dr Lawn 2","Campus Dr Lawn 3","Community Court 1","Community Court 2","Community Court 3","Community Court 4","Community Court 5","GSB Bowl 1","GSB Bowl 2","GSB Bowl 3","Knight Way 1"]
-#locations_2 = ["Campus Dr Lawn 1","Campus Dr Lawn 2","Campus Dr Lawn 3","Community Court 1","Community Court 2","Community Court 3","Community Court 4","Community Court 5","GSB Bowl 1","GSB Bowl 2","GSB Bowl 3","Knight Way 1","Knight Way 2","Knight Way 3","Knight Way 4","Town Square 3","Town Square 4"]
-#locations_3 = ["Campus Dr Grove 1 ","Campus Dr Grove 2","Campus Dr Grove 3","Campus Dr Lawn 1","Campus Dr Lawn 2","Campus Dr Lawn 3","Community Court 1","Community Court 2","Community Court 3","Community Court 4","Community Court 5","Knight Way 1","Knight Way 2","Knight Way 3","Knight Way 4","Town Square 1","Town Square 3","Town Square 4","Town Square 5","Town Square 6"]
-
 
 class Constants(BaseConstants):
     name_in_url = 'BiopharmSeltek'
