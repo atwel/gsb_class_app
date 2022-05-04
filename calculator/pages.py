@@ -15,7 +15,7 @@ class Candidate_calculator(Page):
                             'starting_date']
 
     timeout_seconds = Constants.calculator_time * 60
-
+    timer_text = "Time left before you'll need to move to the next page: "
 
 
 class Recruiter_calculator(Page):
@@ -30,6 +30,7 @@ class Recruiter_calculator(Page):
                             'starting_date']
 
     timeout_seconds = Constants.calculator_time * 60
+    timer_text = "Time left before you'll need to move to the next page: "
 
 
 class Explore_calc(Page):
