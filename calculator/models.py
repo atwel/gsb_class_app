@@ -17,18 +17,6 @@ Negotatiing New Recruit with a partner
 """
 
 class Constants(BaseConstants):
-    name_in_url = 'New_Recruit'
-    players_per_group = None
-    num_rounds = 1
-
-    reading_time = 5 #minutes
-    material_button_show= .5 #minutes
-    material_button_show_no_timer= .5 #minutes
-    calculator_time = 5 #minutes
-    planning_doc_time= 5 # minutes
-    negotiating_time = 25 # minutes
-
-    planning_doc_length = 100 #words
 
     salary = { 90000:(-6000,0), 88000:(-4500,-1500), 86000:(-3000,-3000), 84000:(-1500,-4500), 82000:(0,-6000)}
     bonus = { 10:(0,4000), 8:(400,3000), 6:(800,2000), 4:(1200,1000), 2:(1600,0)}
@@ -38,24 +26,20 @@ class Constants(BaseConstants):
     insurance_coverage = {"Plan A":(0,800), "Plan B":(800,600), "Plan C":(1600,400), "Plan D":(2400,200), "Plan E":(3200,0)}
     starting_date = {"June 1":(0,2400), "June 15":(600,1800),"July 1":(1200,1200), "July 15":(1800,600), "August 1":(2400,0)}
     job_assignment = {"Division A":(0,0), "Division B":(-600,-600), "Division C":(-1200,-1200), "Division D":(-1800,-1800), "Division E":(-2400,-2400)}
-
+    name_in_url = 'calculator'
+    players_per_group = None
+    num_rounds = 1
+    calculator_time = 5
 
 class Subsession(BaseSubsession):
+
     pass
 
 class Group(BaseGroup):
-    salary = models.IntegerField()
-    bonus = models.IntegerField()
-    moving_expenses = models.IntegerField()
-    vacation_time = models.IntegerField()
-    job_assignment = models.StringField()
-    location = models.StringField()
-    insurance_coverage = models.StringField()
-    starting_date = models.StringField()
+    pass
 
 
 class Player(BasePlayer):
-    candidate = models.BooleanField()
 
     salary = models.IntegerField()
     bonus = models.IntegerField()
@@ -66,8 +50,22 @@ class Player(BasePlayer):
     insurance_coverage = models.StringField()
     starting_date = models.StringField()
 
-    planning_text = models.LongStringField(label="Describe your plan for this negotiation")
-    journaling_text = models.LongStringField(label="Please describe your experience of the negotiation.")
-    initial_offer_points = models.IntegerField()
-    final_points = models.IntegerField()
-    name = models.StringField()
+    salary_pareto = models.IntegerField()
+    bonus_pareto = models.IntegerField()
+    moving_expenses_pareto = models.IntegerField()
+    vacation_time_pareto = models.IntegerField()
+    job_assignment_pareto = models.StringField()
+    location_pareto = models.StringField()
+    insurance_coverage_pareto = models.StringField()
+    starting_date_pareto = models.StringField()
+
+    salary_pair = models.StringField()
+    bonus_pair = models.StringField()
+    moving_expenses_pair = models.StringField()
+    vacation_time_pair =models.StringField()
+    job_assignment_pair = models.StringField()
+    location_pair = models.StringField()
+    insurance_coverage_pair = models.StringField()
+    starting_date_pair = models.StringField()
+
+    optimal_points = models.IntegerField()

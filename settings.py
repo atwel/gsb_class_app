@@ -27,11 +27,11 @@ dict(
         section_number=1,
         app_sequence=['BiopharmSeltek']),
 dict(
-        name='New_Recruit',
-        display_name="New Recruit",
-        num_demo_participants=2,
+        name='Recruit_calc',
+        display_name="New Recruit calculator",
+        num_demo_participants=1,
         section_number=1,
-        app_sequence=['NewRecruit',"NewRecruit_part2"]),
+        app_sequence=["calculator"]),
 dict(
         name='Federated_Science',
         display_name="Federated Science",
