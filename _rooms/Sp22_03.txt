@@ -1,12 +1,11 @@
 tracycao
-amanc2
 crozelcm
+yearim
 vdivi
 fadavi
 jhamying
 shasson
 srkarr
-nkasper
 bkhoo
 akiam
 albertwj
@@ -15,7 +14,6 @@ jackylin
 samzliu
 sliu2022
 jmunoz8
-misatonk
 lneise
 sanvar
 sraches
@@ -25,9 +23,7 @@ ninasab
 kshah1
 fsa
 dss93
-sunilrao
 yalew
-mtw693
 atwell
 lizixin
 extra_01
