@@ -33,6 +33,12 @@ dict(
         section_number=1,
         app_sequence=["calculator"]),
 dict(
+        name='NoCode',
+        display_name="NoCode, Inc",
+        num_demo_participants=2,
+        section_number=1,
+        app_sequence=['NoCode']),
+dict(
         name='Federated_Science',
         display_name="Federated Science",
         num_demo_participants=3,

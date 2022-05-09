@@ -1,0 +1,25 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+Negotiation Experience
+{% endblock %}
+
+
+{% block styles %}
+<link rel="stylesheet" href="{% static "global/custom_theme.css" %}">
+{% endblock %}
+
+{% block content %}
+
+Now you should reflect on your experience of the negotiation. Focus on whatever elements or interactions you found most interesting. There is no word count requirement. <br>
+<br>
+<div style="width:100%"> <textarea name="journaling_text" cols=200 rows=10 required="" style="max-width:100%">
+</textarea></div>
+
+<br><br>
+<div style="margin-left:90%">
+    {% next_button %}
+</div>
+
+{% endblock %}

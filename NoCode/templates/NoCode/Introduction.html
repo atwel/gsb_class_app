@@ -1,0 +1,24 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    NoCode, Inc.
+{% endblock %}
+
+
+{% block styles %}
+<link rel="stylesheet" href="{% static "global/custom_theme.css" %}">
+{% endblock %}
+
+{% block content %}
+<br>
+Today you are going to negotiate the <b><i>NoCode, Inc.</i></b> case. It is a two-person negotiation about a job offer that will force you to think about negotiating multiple issues.<br><br>
+You'll have {{ reading_limit }} minutes to read the case materials and understand your interests. You'll write a planning document ({{ planning_doc_time }} minutes) and specify a target for total points. Then you'll negotiate the case with a partner, report the outcome and briefly write about how the negotiation went for you.
+<br><br>
+The exercise should take just about {{ total_time }} minutes in total. Click the Next button to see the case materials.
+<br><br>
+<div style="margin-left:90%">
+    {% next_button %}
+</div>
+
+{% endblock %}
