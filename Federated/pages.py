@@ -151,8 +151,12 @@ class Back_to_class(Page):
     form_model = "player"
 
     def before_next_page(self):
-        if self.group.end_time == None:
-            self.group.set_end_time()
+        try:
+            if self.group.end_time.field_maybe_none():
+                self.group.set_end_time()
+        except:
+            if self.group.end_time == None:
+                self.group.set_end_time()
 
     def vars_for_template(self):
         partners = self.player.get_others_in_group()
