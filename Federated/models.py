@@ -26,7 +26,7 @@ class Constants(BaseConstants):
     players_per_group = 3
     num_rounds = 1
 
-    reading_time = 5 #minutes
+    reading_time = 10 #minutes
     material_button_show= 2 #minutes
     planning_doc_time = 10 # minutes
     negotiating_time = 30 # minutes
@@ -62,10 +62,10 @@ class Subsession(BaseSubsession):
 class Group(BaseGroup):
     stockman = models.BooleanField()
     pairing = models.StringField()
-    start_time = models.StringField()
+    end_time = models.StringField()
 
-    def set_start_time(self):
-        self.start_time = datetime.datetime.now().strftime("%H:%M:%S")
+    def set_end_time(self):
+        self.end_time = (datetime.datetime.now() + datetime.timedelta(minutes=Constants.negotiating_time + 1)).strftime("%H:%M:%S")
 
     def set_first_meet(self):
         for i, p in enumerate(self.get_players()):

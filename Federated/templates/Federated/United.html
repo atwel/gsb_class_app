@@ -65,7 +65,13 @@ a DRRC case written by Elizabeth A. Mannix
 <br>
 <h4>Role of <em>United Industries</em></h4>
 <br>
-<h6>You'll be able to see these materials again once the live negotiation has started but you can also <a href="{% static pdf_file %}" download>download a pdf version here.</a></h6>
+<h6>You'll be able to see these materials again once the live negotiation has started but you can also <a target="_blank" rel="noopener noreferrer" href="{% static pdf_file %}">download a pdf version here.</a></h6>
+<br>
+{% if show_end_time %}
+<h5>You have until <span style="color:red">{{ End_time }}</span> to finish the negotiation</h5><br>
+{% else %}
+<span></span>
+{% endif %}
 <br>
 <p>Stockman, Turbo and United are three small firms producing specialized products, equipment and research for the scientific and medical communities. As this has become such a critical, high-growth area, each firm is exploring ways to expand and improve its technology. This step necessarily involves innovations in the Research and Development divisions. As a result, each firm has recently applied for R & D funding from the Federated Science Fund.</p>
 <p>The Federated Science Fund (FSF) is a government agency dedicated to funding research in advanced medical technology. The FSF has indicated a willingness to provide funds for the proposed research, but since each firm’s request was highly similar, funds will only be provided to a consortium of two or three firms. The FSF will not grant funding to Stockman, Turbo or United alone.</p>
