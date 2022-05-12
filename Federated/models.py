@@ -63,9 +63,11 @@ class Group(BaseGroup):
     stockman = models.BooleanField()
     pairing = models.StringField()
     end_time = models.StringField()
+    started = models.BooleanField(initial=False)
 
     def set_end_time(self):
         self.end_time = (datetime.datetime.now() + datetime.timedelta(minutes=Constants.negotiating_time + 1)).strftime("%H:%M:%S")
+        self.started = True
 
     def set_first_meet(self):
         for i, p in enumerate(self.get_players()):
