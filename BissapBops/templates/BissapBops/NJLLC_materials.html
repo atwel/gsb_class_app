@@ -1,0 +1,146 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+
+<div style="background-color:lightgray; font-size:.75em;padding:2%">
+<center>The <strong>Bissap Bops</strong> negotiation<br>
+<span style="font-size:.5em">By Onome Uwhuba (MBA '21) and Prof. Jon Atwell</span></center></div>
+{% endblock %}
+
+
+{% block styles %}
+<link rel="stylesheet" href="{% static "global/custom_theme.css" %}">
+{% endblock %}
+
+{% block content %}
+<script type="text/javascript" src="{% static 'global/jquery.countdown.js' %}"></script>
+
+<script type="text/javascript">
+    $(function() {
+        var currentDate = new Date();
+        var milliseconds = 480000;
+        $('div#clocked').countdown(currentDate.valueOf() + milliseconds, function(event) {
+                console.log(event.type)
+                switch(event.type) {
+                    case "finish":
+                      $('div#clocked').hide();
+                    case "finished":
+                        $('div#clocked').hide();
+                }
+            });
+
+
+    });
+</script>
+
+<br>
+<span style="font-size:1.2em"><strong>Role of Osi Ono</strong></span>, VP of Sales, Nigerian Juices LLC
+
+<h5>GENERAL BACKGROUND</h5>
+<p>USA-Mart and Nigerian Juices LLC (thereafter referred to as NJ LLC) are meeting in Kansas City, KS to negotiate their commercial agreement for the upcoming year (FY23, spanning in Oct. 2022 – Sept. 2023). You’ll be meeting shortly with Ann-Marie Ryan, the VP of International Foods for USA Mart.</p>
+
+<p>USA-Mart is the premium national grocery retailer, with stores in all 50 states, across major cities and key neighborhoods. As a premium chain, they are known for being food trend-spotters and have been early adopters of recent food hits (e.g., kombucha and kale). The International Foods category is an especially important category for trend spotting since many “hit” foods start off as foreign products before being adopted into the mainstream. USA-Mart is headquartered in Kansas City, KS, and is one of the biggest employers in that city.</p>
+
+<p>NJ LLC is a young & vibrant company focused on organic & natural beverages and foods with West African and Caribbean flavors (African Star Apple, Sour Sop, Breadfruit, etc.). The juices are sold under the Bissap Bops™ brand and are entirely natural, organic, low-sugar and are brewed with heritage techniques to achieve a slight carbonation. NJ’s beverages span products that do and don’t require refrigeration. NJ LLC also has a robust selection of non-beverage products including dried fruit snacks and spice mixes. NJ LLC is headquartered in Warri, Nigeria and is doing robust business all over West Africa.</p>
+
+<h5>WHO YOU ARE</h5>
+<p>You are Edosio (Americans call you Osi) Ono, the head of North American Sales for NJ LLC. As VP of Sales, you are responsible for growing the distribution of the Bissap Bops brand in the U.S. You’ve worked in sales roles at a variety of large companies prior to NJ LLC and have taken on more scope over time. This is your first time in a regional head of sales role. This is also your first time working for a young company and you’re counting on your equity stake in the business.</p>
+<p>You have successfully positioned Bissap Bops as a premium product in the U.S., working with prestige grocery chain USA-Mart, which was met with a great deal of excitement by your leadership team. NJ LLC’s Bissap Bops juices have done very well in the last year. They were promoted from being on an experimental rotation 5 quarters ago and have been given permanent shelf-space for the last 4 quarters. You’ve seen 100% quarter-on-quarter growth in sales and know you’re doing very well.</p>
+<p>Your biggest challenge now is continuing to grow sales to further penetrate the premium U.S. market. Your primary focus is maximizing sales potential across all product lines. The bigger NJ LLC gets, the more you are rewarded (across cash compensation & the value of your equity).</p>
+<p>To maximize growth, you think it is important that you create some separation between the Bissap Bops brand and its most successful juices. Rather than being reduced to a single niche beverage product like Orangina, you want Bissap Bops to become the West African equivalent of Goya Foods. Goya started out by serving Hispanic customers in North America but progressed to a trusted imprimatur of Spanish and South American culinary traditions for the broad American public and, finally, to a household brand available everywhere. To do this, you want to diversify the range of Bissap Bops-branded products USA-Mart carries. You know this combination of growth and diversification is risky from USA-Mart’s perspective, but you think they are underestimating the number of people who claim a connection to West-Africa or the Caribbean and the willingness of Americans to experiment with new flavors.</p>
+<h5>YOUR CORE INTERESTS & PAYOFFS</h5>
+<p>For the last two years you have been based in North America doing a bit of everything. You meet with your USA-Mart contacts. You troubleshoot logistical issues. You talk to managers at USA-Marts that carry Bissap Bops and those that don’t but probably should. You visit West African and Caribbean communities to understand how they shop and cook. You talk with consumers of all backgrounds and monitor brand awareness. You even manage Bissap Bop’s North American social media presence.</p>
+<p>At this point, you’re confident that the market for authentic West African and Caribbean flavors products is huge. You think Bissap Bops should be aiming to be like the Goya brand, not a purveyor of a niche beverage. Bissap Bops’ refrigerated juices are a hit already because the flavors resonate with both immigrant communities and the broader population. You think now is the time make big moves and you have convinced the executive team of NJ LLC to let you pursue an ambitious brand strategy.</p>
+<p>The crux of strategy is to diversify the offerings immediately. The juices are on the way to becoming mainstays, but if you don’t expand your offerings, you run the risk of the Bissap Bops brand becoming too strongly associated with just the juices. If that happens, people will be reluctant to try other products from a “juice company.” So, while
+it would be nice to take the incremental approach of allowing the juices to continue to gain popularity before diversifying, that would very likely come at the expense of long-term market potential. That upside is huge and that is why you’re willing to take risks now.</p>
+<p>As you’ve thought about negotiating a new commercial agreement with USA-Mart, you think they should be able to see things this way too but are worried that they won’t. They have been good partners thus far, but in your low-tech market research, you meet several Whole World Foods (WWF) store managers who would love to carry Bissap Bops. They put you in touch with the international brands manager about WWF starting to carry your juices and other products and initial conversations have gone well. That’s far from having a finalized distribution agreement and you worry a bit WWF’s position as a primarily high-end retailer, but they do have a track record of giving more visibility to “experimental” products and you are looking forward to working with them as a long-term partner.</p>
+<p>With your relationship with WWF developing, you head into your negotiations with a scoring system such that anything below zero points isn’t worth your time. You’re pretty confident that you can convince USA-Mart of the mutual benefits of positioning Bissap Bops as a general brand, but if they prove unwilling to take the small risks that can get you there, you aren’t willing to accept just any deal they propose.</p>
+<p>Below are the key issues that you’ve identified and how you’ve scored them.</p>
+<h5>Product Lines</h5>
+<p>NJ LLC has 12 juice SKUs, 6 refrigerated and 6 non-refrigerated. You also have 6 SKUs of non-beverage products (3 SKUs of dried fruits and 3 SKUs of spice mixes). Currently, USA-Mart carries all 6 refrigerated juices, of which 3 have been star performers. But the other 3 juices have shown strong growth & have a cult following.</p>
+<p>Given your strong performance, you think USA-Mart should start carrying all your juices and the dried fruits and spices. However, on one of your visits, a store manager floated the idea of having fewer juice flavors so as to not overwhelm consumers with choices and now you are worried that USA-Mart will push you to pare down the assortment they carry to the three best sellers. You are certain that this is moving the wrong direction. Having more SKUs is an essential part of your brand strategy and you’re going to push hard for them!</p>
+<p>The status quo is worth zero points to you, but you are willing to reduce the number of refrigerated juices in exchange for adding non-refrigerated ones. This would give you a footprint in a whole new area of the store and increase your visibility and that is a movement in the right direction.</p>
+
+<table style="width:95%">
+  <tr><th>Juice Assortment</th><th>Points</th></tr>
+  <tr><td>3 refrigerated juices</td><td>-25</td></tr>
+  <tr><td>6 refrigerated juices (current state)</td><td>0</td></tr>
+  <tr><td>3 best-selling refrigerated juices<br>3 non-refrigerated juices</td><td>25</td></tr>
+  <tr><td>6 refrigerated juices<br>3 non-refrigerated juices</td><td>60</td></tr>
+  <tr><td>12 juices (all juice lines)</td><td>100</td></tr>
+</table>
+<br><br>
+
+<p>When it comes to the dried fruit and spices SKUs, you first and foremost just want to get something on the shelves to increase your footprint in the store and diversify associations with the brand. You give yourself 25 points for that first item and 5 additional points for each SKU after that.</p>
+
+<table style="width:95%">
+  <tr><th>Count of dried fruit and spice SKUs</th><th>Points</th></tr>
+  <tr><td>0</td><td>-10</td></tr>
+  <tr><td>1</td><td>25</td></tr>
+  <tr><td>2</td><td>30</td></tr>
+  <tr><td>…</td><td>…</td></tr>
+  <tr><td>6</td><td>50</td></tr>
+</table>
+<br><br>
+
+<h5>Markets/Location</h5>
+<p>Currently your products are only stocked in the USA-Mart stores located in the Northeast region due to the relatively large populations of recent African and Caribbean immigrants in the cities within the region.</p>
+<p>Your goal is to maximize sales potential and you strongly believe that the flavors of the Bissap Bop brand will be tasty to a wide range of Americans. In fact, most of USA-Mart’s customers are not African or Caribbean immigrants so you don’t think it makes sense to remain only in the Northeast. You would strongly prefer to be available nationally.</p>
+<p>If USA-Mart is unwilling to do a full national rollout, you should push to expand to other cities that fit into the USA-Mart thesis for your products (i.e., cities with large African & Caribbean immigrant populations). This means expanding to places like Atlanta, Houston, Detroit, Minneapolis and Los Angeles. This limited expansion would be real progress and you think it might make USA-Mart more amenable to carrying more of your SKUs in this more targeted rollout. You might even approach this issue of market segments by treating the cities and the NE region as two separate markets, each with a different portfolio of SKUs. You think the markets would be about equal in size so half of the points above for beverages and spices/fruits would be reallocated to each market and tallied up independently. This makes sense to you, but you have no idea if USA-Mart does this.</p>
+
+<table style="width:95%">
+  <tr><th>Location</th><th>Points</th></tr>
+  <tr><td>Northeast Region only</td><td>-25</td></tr>
+  <tr><td>Northeast Region and cities w/ large African & Caribbean immigrant populations</td><td>50</td></tr>
+  <tr><td>All USA Locations</td><td>100</td></tr>
+</table>
+<br><br>
+
+<h5>Inventory Performance</h5>
+<p>Despite all your amazing growth (100% quarter-on-quarter), you know you could do even better. Your supply chain has struggled to meet USA-Mart’s inventory service level agreement (SLA) and has performed at only 80% of the inventory SLA.</p>
+<p>This SLA calculates how much inventory is available to USA-Mart to sell vs. the planned commercial agreement with NJ LLC. This means that if NJ LLC & USA-Mart agree to receive 100 units in Q1 and 100 units are delivered for sale, then there’s a 100% fulfillment of the SLA. In NJ LLC’s case, you’re delivering 80 units of the planned 100 units, leading to excessive out of stocks. You know that USA-Mart’s standard inventory SLA is 99% and that you are performing way below standard. Usually, retailers enforce financial penalties when SLAs are not met, but because you’re a new brand USA-Mart has not enforced them to date.</p>
+<p>Your VP of Logistics has blamed the U.S. customs clearance process for these delays and hasn’t been able to optimize delivery times even after a year of trying. Without a new approach NJ LLC is not going to improve on the 80% SLA, barring changes to U.S. customs clearing procedures. One solution your VP of Logistics has proposed to solve the inventory problem is to establish a warehouse in the Northeast. NJ LLC’s products wouldn’t suffer a loss of quality with some extra months of storage. Having storage would allow you to ship well in advance and focus on optimizing inventory only after the US customs process.</p>
+<p>If USA-Mart insists that you have an inventory SLA greater than 90%, you have decided that you’ll rent a warehouse space. Based on your research, the market rate of FDA-licensed warehouses is equivalent to 50 points on your scale. If USA-Mart insists on better SLA performance, you’ll just have to bear the 50-point cost to setup a warehouse.</p>
+
+<table style="width:95%">
+  <tr><th>Inventory SLA</th><th>Points</th></tr>
+  <tr><td>No Inventory SLA</td><td>0</td></tr>
+  <tr><td>90% Inventory SLA</td><td>-30</td></tr>
+  <tr><td>Greater than 90% Inventory SLA</td><td>-50</td></tr>
+</table>
+<br><br>
+<h5>Exclusive Contract</h5>
+<p>Bissap Bops are a runaway hit in Nigeria and have been featured on a few local afrobeats songs. You’ve recently heard that one of the songs that mention Bissap Bops is going to be remixed featuring an American music superstar. As the brand social media manager, you also know that fans have been posting videos featuring your juices. With a little luck, maybe some will go viral.</p>
+<p>You’re excited about this and know that Bissap Bops is on the cusp of becoming a runaway hit. While you appreciate USA-Mart for taking a chance on you, and want to maintain a strong relationship with them, you really want to be able to capitalize on your moment. This means being available in multiple retailers when demand increases.</p>
+<p>You’re currently not in an exclusive contract with USA-Mart and would prefer to maintain the status quo.</p>
+
+<table style="width:95%">
+  <tr><th>Contract Length</th><th>Points</th></tr>
+  <tr><td>5-year U.S. exclusive contract</td><td>-100</td></tr>
+  <tr><td>3-year U.S. exclusive contract</td><td>-50</td></tr>
+  <tr><td>1-year U.S. exclusive contract</td><td>-15</td></tr>
+  <tr><td>No exclusive contract</td><td>0</td></tr>
+</table>
+
+<br><br>
+
+
+
+<br><br>
+<h3>Downloads</h3>
+<span style="font-size:1.2em">
+<a target="_blank" rel="noopener noreferrer" href="{% static xlsx_file %}">Point system spreadsheet</a><br>
+<a target="_blank" rel="noopener noreferrer" href="{% static pdf_file %}">Role PDF</a></span>
+<br>
+<br>
+
+
+<div style="margin-left:90%">
+    {% next_button %}
+</div>
+<div id="clocked" style="margin-left:75%">
+<span style="color:red">Caution:</span><br>You can't return to this page once you click next.
+</div>
+
+{% endblock %}

@@ -1,0 +1,153 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+
+<div style="background-color:lightgray; font-size:.75em;padding:2%">
+<center>The <strong>Bissap Bops</strong> negotiation<br>
+<span style="font-size:.5em">By Onome Uwhuba and Prof. Jon Atwell</span></center></div>
+{% endblock %}
+
+
+{% block styles %}
+<link rel="stylesheet" href="{% static "global/custom_theme.css" %}">
+{% endblock %}
+
+{% block content %}
+<script type="text/javascript" src="{% static 'global/jquery.countdown.js' %}"></script>
+
+<script type="text/javascript">
+    $(function() {
+        var currentDate = new Date();
+        var milliseconds = 480000;
+        $('div#clocked').countdown(currentDate.valueOf() + milliseconds, function(event) {
+                console.log(event.type)
+                switch(event.type) {
+                    case "finish":
+                      $('div#clocked').hide();
+                    case "finished":
+                        $('div#clocked').hide();
+                }
+            });
+
+
+    });
+</script>
+
+
+<br>
+<span style="font-size:1.2em"><strong>Role of Ann-Marie Ryan</strong></span>, VP of International Foods, USA-Mart
+<br><br>
+<h5>GENERAL BACKGROUND</h5>
+
+<p>USA-Mart and Nigerian Juices LLC (thereafter referred to as NJ LLC) are meeting in Kansas City, KS to negotiate their commercial agreement for the upcoming year (FY23, spanning in Oct. 2022 – Sept. 2023). You’ll be meeting shortly with Edosio (Osi) Ono, the VP of North American Sales for NJ LLC.</p>
+
+<p>USA-Mart is the premium national grocery retailer, with stores in all 50 states, across major cities and key neighborhoods. As a premium chain, they are known for being food trend-spotters and have been early adopters of recent food hits (e.g. kombucha and kale). The International Foods category is an especially important category for trend spotting since many “hit” foods start off as foreign products before being adopted into the mainstream. USA-Mart is headquartered in Kansas City, KS, and is one of the biggest employers in that city. </p>
+
+<p>NJ LLC is a young & vibrant company focused on organic & natural beverages and foods with West African and Caribbean flavors (African Star Apple, Sour Sop, Breadfruit, etc.). The juices are sold under the Bissap Bops™ brand and are entirely natural, organic, low-sugar and are brewed with heritage techniques to achieve a slight carbonation. NJ’s beverages span products that do and don’t require refrigeration. NJ LLC also has a robust selection of non-beverage products including dried fruit snacks and spice mixes. NJ LLC is headquartered in Warri, Nigeria and is doing robust business all over West Africa.</p>
+
+<h5>WHO YOU ARE</h5>
+<p>You are Ann-Marie Ryan, the International Foods Category Manager for USA-Mart. As International Foods Category Manager, you are one of the more important business leads at USA-Mart. You need to be able to spot trends and bring them to market, determining how many stores they’ll be sold in, and in what quantities, etc. </p>
+
+<p>One of the hardest parts of your job is knowing when an “international” food will go mainstream and become a hit. As a result, you need to make sure you have enough available shelf space to experiment with and rotate in up & coming products. That’s how you discovered and built the US market for Bissap Bops, and you’re eager to maintain this approach. </p>
+
+<h5>YOUR INTERESTS & PAYOFFS</h5>
+
+<p>NJ LLC’s Bissap Bops juices have sold very well in the last year. You brought them on in an experimental rotation 5 quarters ago and gave them permanent shelf space 4 quarters ago. They’ve seen a 100% quarter-on-quarter growth in sales. You’re very pleased with these results and proud to have played a role in opening up the American market for Bissap Bops. However, this next year will be pivotal for NJ LLC and your relationship with them; like many growing companies, its leaders want to capitalize on the moment and scale up quickly. You want to profit from this growth, but also worry that if the process is not more incremental and carefully controlled, NJ LLC could overextend itself and harm its long-term goals.</p>
+
+<p>You’re confident that you can get to an agreement and therefore have not thought much about specific alternatives if you do not reach a commercial agreement. Shelf space in USA-Mart is coveted and it would not take you long to fill Bissap Bops’ space. Because of this, you develop a points system for evaluating any potential agreement with NJ LLC such that anything below 0 points means you should just pursue filling the space with other products. As you negotiate an agreement for the coming year, you have the issues below in mind. </p>
+
+<h5>Market Segment/Region</h5>
+<p>NJ LLC’s products are currently only available in USA-Mart stores in the Northeast because of the relatively large populations of recent African and Caribbean immigrants in that region. You think the obvious choice is to keep Bissap Bops exclusive to the Northeast region for the next year to further cement their growth before expanding nationally. You do not think NJ LLC is ready for national expansion and are very concerned about any contract that results in a full national roll-out for the upcoming year. However, you’re willing to allow them to expand to other cities with large African & Caribbean immigrant populations. </p>
+
+<table style="width:95%">
+<tr><th>Location</th><th>Points</th></tr>
+<tr><td>Northeast region</td><td>100</td></tr>
+<tr><td>Northeast region and cities with large African and Caribbean immigrant populations</td><td>50</td></tr>
+<tr><td>All USA Locations</td><td>-50</td></tr>
+</table>
+<br><br>
+<h5>Inventory Performance</h5>
+<p>One reason you’re worried about a rapid national expansion is that NJ LLC has performed at 80% on their inventory service-level agreement (SLA). A SLA calculates how much inventory is available to USA-Mart to sell versus the planned commercial agreement–meaning that if the agreement is for 100 units and 100 units are delivered for sale, then there’s a 100% SLA. In NJ LLC’s case, they’re delivering only 80 units of the planned 100 units, leading to excessive out-of-stocks. This is bad for USA-Mart because of the missed sales and the fact that its consumers tend to blame USA-Mart when products are out, not the manufacturer. NJ LLC has blamed the U.S. Customs clearance process for these delays but have not been able to improve their SLA performance over the last 4 quarters despite now knowing the difficulties of importing. USA-Mart needs NJ LLC to prove its ability to meet inventory standards before they increase distribution.</p>
+
+<p>To that end, USA-Mart would like to push NJ LLC to agree to a higher Inventory SLA, including the usual financial penalties for failure to meet the agreement. You know that NJ LLC will be stretched to meet this new SLA, but you really believe that Bissap Bops could be the next “big thing” and you need NJ LLC to level-up their supply chain as soon as possible. Holding them accountable to a standard 99% SLA will really force their hand here and you’re prepared to push hard for it.</p>
+
+<table style="width:95%">
+<tr><th>Inventory SLA</th><th>Points</th></tr>
+<tr><td>99% Inventory SLA (USA-Mart standard)</td><td>100</td></tr>
+<tr><td>95% Inventory SLA</td><td>0</td></tr>
+<tr><td>90% Inventory SLA</td><td>-25</td></tr>
+<tr><td>No Inventory SLA</td><td>-50</td></tr>
+</table><br><br>
+
+
+<h5>Warehousing</h5>
+<p>To support better inventory performance, you can offer NJ LLC use of the USA-Mart vendor warehouse in New Jersey. USA-Mart is willing to charge only 80% of market rate for warehouses in the Northeast region. You know that particular warehouse is nowhere near being fully utilized and your supply-chain counterparts are encouraging Category Managers to market the warehouse to brands.</p>
+
+<p>However, you know that many manufacturers don’t want to use USA-Mart’s warehouses because they worry about becoming too dependent on USA-Mart; if USA-Mart becomes part of the manufacturer’s logistics, USA-Mart gains leverage that might allow it to dictate things like exclusivity and prices in future agreements. From experience, you know this can be a touchy subject and can insult the manufacturers, even if from a collaborative perspective it makes a lot of sense. It’s also significant work for you to set up the relationships between manufacturers and the warehouse team and you’ve been stuck in never-ending email threads about these arrangements in the past. You’re very busy and want to avoid this annoyance.</p>
+<table style="width:95%">
+<tr><th>Warehouse</th><th>Points</th></tr>
+<tr><td>NJ LLC uses the USA-Mart Warehouse</td><td>-25</td></tr>
+<tr><td>NJ LLC does NOT use the USA-Mart Warehouse</td><td>0</td></tr>
+</table>
+
+<br><br>
+<h5>Product Lines</h5>
+<p>NJ LLC has 12 juice SKUs, 6 refrigerated and 6 nonrefrigerated. They’ve also told you that they have 6 new SKUs of non-beverage products (3 SKUs of dried fruits and 3 SKUs of spice mixes). Currently USA-Mart carries all 6 refrigerated juices, which are shelved in the Refrigerated section of USA-Mart’s International Foods aisle. Three of the juices have been star performers and you’d like to focus all visibility on these breakout juices by dedicating NJ LLC’s shelf space to them.</p>
+
+<p>You know NJ LLC is not going to want to reduce the number of juices, but, moreover, you’re also expecting that they are going to be pushing you to start carrying more!
+You really don’t want to do that because you want to be able to maintain shelf space to experiment with other brands and products.</p>
+
+<p>However, one option you’re willing to entertain is leveraging your dedicated space in the “standard” aisles. Specifically, you are allowed to place 3 of your “international food” SKUs in standard aisle (that is, the mainstream Refrigerated Beverages aisle). This is generally reserved for your top performers and is very limited. While the three top selling Bissap Bops juices are top performers in their category, you’re reluctant to “promote” them to the standard aisle too early, especially given their inventory issues. But you could use this option to free up more shelf space in your international aisle for more experimentation, so you don’t hate it. The absolute most you’re willing to do is 9 juices, 6 refrigerated split across international and standard aisles and 3 nonrefrigerated in the international aisle. </p>
+
+<table style="width:95%">
+<tr><th>Beverage Lines</th><th>Points</th></tr>
+<tr><td>3 best-selling refrigerated juices, international aisle</td><td>100</td></tr>
+<tr><td>6 refrigerated juices, international aisle<br>
+3 refrigerated juices, international aisle</td><td>50</td></tr>
+<tr><td>3 refrigerated juices, standard aisle<br>
+3 refrigerated juices, international aisle<br>
+3 refrigerated juices, standard aisle</td><td>40</td></tr>
+<tr><td>3 nonrefrigerated juices, international aisle</td><td>10</td></tr>
+<tr><td>12 juices</td><td>-200</td></tr>
+</table><br><br>
+<p>You know the NJ LLC has started selling spice mixtures and dried fruits in its domestic market and think they probably want to try selling them in the American market. As amenable to a wide range of beverages the American market is, you think it is generally not receptive of fruits and spices outside the usual European-oriented ones. People drink juices as a complete product, but spices and dried fruits often need to be incorporated into a dish and most Americans aren’t willing to experiment with making new dishes. So, while spices and dried fruits are easy to distribute and stock, you just aren’t interested in having USA Market carry them.</p>
+
+<table style="width:95%">
+<tr><th>Carry Spices and Dried Fruits?</th><th>Points</th></tr>
+<tr><td>Yes</td><td>-30</td></tr>
+<tr><td>No</td><td>0</td></tr>
+</table>
+<br><br>
+<p>As you think about these issues, something to keep in mind is that you’ve had some success allowing different market segments to carry different product lines. You clearly can’t allow the products to vary by individual stores because USA-Mart values customers having the same, high-quality shopping experience in whatever store they walk into. But you can tolerate some variation across stores serving different market segments; the tastes of customers in small city Montana aren’t the same as those in Atlanta so you con treat them as individual markets. If you agree to sell Bissap Bops items in multiple market segments, you can explore different combinations of SKUs in each segment. If you pursue this approach, the points for products (beverages and spices/fruits) in the table are divided equally out into each market segment and then the issues can be negotiated independently by segment.</p>
+
+<h5>Exclusive Contract</h5>
+<p>Particularly if NJ LLC can solve its supply chain issues, you’d really like to secure an exclusive distribution contract for Bissap Bops. You think that Bissap Bops is on the cusp of becoming a hit product with real brand loyalty. You’ve already discovered a customer Reddit forum with people sharing their discoveries and creating new recipes using Bissap Bops flavors. Some are even making videos that are fun enough that you wouldn’t be surprised if they started circulating on social media and organically building brand recognition. As a result, you’re starting to get nervous that your key competitor (Whole World Foods) will secure an exclusive deal with NJ LLC and you’ll lose exclusive distribution with them. You’re eager to lock in NJ LLC into an exclusive contract with USA-Mart and craft a joint plan for growth together. </p>
+
+<table style="width:95%">
+<tr><th>Contract Length</th><th>Points</th></tr>
+<tr><td>5-year U.S. exclusive contract</td><td>100</td></tr>
+<tr><td>3-year U.S. exclusive contract</td><td>50</td></tr>
+<tr><td>1-year U.S. exclusive contract</td><td>0</td></tr>
+<tr><td>No exclusive contract</td><td>-50</td></tr>
+</table>
+
+
+<br><br>
+<h3>Downloads</h3>
+<span style="font-size:1.2em">
+<a target="_blank" rel="noopener noreferrer" href="{% static xlsx_file %}">Point system spreadsheet</a><br>
+<a target="_blank" rel="noopener noreferrer" href="{% static pdf_file %}">Role PDF</a></span>
+<br>
+<br>
+
+
+<br><br>
+<div style="margin-left:90%">
+    {% next_button %}
+</div>
+<div id="clocked" style="margin-left:75%">
+<span style="color:red">Caution:</span><br>You can't return to this page once you click next.
+</div>
+
+{% endblock %}

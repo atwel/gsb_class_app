@@ -1,0 +1,24 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Bissap Bops
+{% endblock %}
+
+
+{% block styles %}
+<link rel="stylesheet" href="{% static "global/custom_theme.css" %}">
+{% endblock %}
+
+{% block content %}
+<br>
+Today you are going to negotiate the <b><i>Bissap Bops</i></b> case. It is a two-person negotiation about a commercial agreement that will force you to think about negotiating multiple issues. <i>I'm encouraging you to take a collaborative approach to the negotiation.</i><br><br>
+You'll have {{ reading_limit }} minutes to read the case materials and understand your interests. You'll write a planning document ({{ planning_doc_time }} minutes). Then you'll negotiate the case with a partner ({{ negotiating_time }} minutes), report the outcome and briefly write about how the negotiation went for you.
+<br><br>
+The exercise should take just about {{ total_time }} minutes in total. Click the Next button to see the case materials.
+<br><br>
+<div style="margin-left:90%">
+    {% next_button %}
+</div>
+
+{% endblock %}

@@ -45,6 +45,12 @@ dict(
         section_number=1,
         app_sequence=['Federated']),
 dict(
+        name='Bissap_Bops',
+        display_name="Bissap Bops",
+        num_demo_participants=2,
+        section_number=1,
+        app_sequence=['BissapBops']),
+dict(
         name='OmniChannel',
         display_name="OmniChannel",
         num_demo_participants=6,
