@@ -6,7 +6,7 @@ import time
 class New_round(Page):
     form_model = "group"
 
-    timeout_seconds = 60
+    timeout_seconds = 120
 
     def is_displayed(self):
         if self.subsession.round_number == 1:
