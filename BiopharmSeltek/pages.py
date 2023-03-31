@@ -93,7 +93,6 @@ class Preferences_input_BF(Page):
 
 class Planning_doc(Page):
     form_model = "player"
-    form_fields = ["planning_text"]
 
     timeout_seconds= Constants.planning_doc_time_minutes * 60
     timer_text = 'Time left for writing your document:'
@@ -211,7 +210,6 @@ class Finished_case(Page):
 class Journaling_page(Page):
     form_model = "player"
 
-    form_fields = ["journaling_text"]
 
     #timeout_seconds = 180
 

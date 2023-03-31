@@ -49,7 +49,7 @@ class Constants(BaseConstants):
 
 class Subsession(BaseSubsession):
 
-    def before_session_starts(self):
+    def creating_session(self):
 
         if self.session.config["section_number"] == 1:
             section_labels = Constants.names_section1.copy()
