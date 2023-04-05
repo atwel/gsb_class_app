@@ -79,18 +79,18 @@ USE_POINTS = False
 ROOMS = [
     dict(
         name='OB581_01',
-        display_name='OB581.01, Sp22',
-        participant_label_file = "_rooms/Sp22_01.txt",
+        display_name='OB581.01, Sp23',
+        participant_label_file = "_rooms/Sp23_01.txt",
     ),
     dict(
         name='OB581_02',
-        display_name='OB581.02, Sp22',
-        participant_label_file = "_rooms/Sp22_02.txt",
+        display_name='OB581.02, Sp23',
+        participant_label_file = "_rooms/Sp23_02.txt",
     ),
     dict(
         name='OB581_03',
-        display_name='OB581.03, Sp22',
-        participant_label_file = "_rooms/Sp22_03.txt",
+        display_name='OB581.03, Sp23',
+        participant_label_file = "_rooms/Sp32_03.txt",
     )
 ]
 
