@@ -90,7 +90,7 @@ ROOMS = [
     dict(
         name='OB581_03',
         display_name='OB581.03, Sp23',
-        participant_label_file = "_rooms/Sp32_03.txt",
+        participant_label_file = "_rooms/Sp23_03.txt",
     )
 ]
 
