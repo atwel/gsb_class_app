@@ -4,7 +4,7 @@ from .models import Constants
 
 import time
 
-SUNet_to_name = {'fredaddy':'Fred Addy','aabd':'Armando Alejandro Borda','zakb':'Zak Budden','connorca':'Connor Callaway','acohen22':'Adam Scott Cohen','allanfan':'Allan Fan','annafilo':'Anna Filochowska','gforter':'Gabriela Forter','wf539':'Wanning Fu','shreyaa':'Shreya Gupta','lhaffer':'Lukas Haffer','sehughes':'Sarah Hughes','skawatra':'Srishti Kawatra','dkhar22':'David Kharatishvili','yooekim':'Yoo Eun Kim','nskolber':'Natalie Sarah Kolber','kompalla':'Julia Franziska Kompalla','lask1952':'Alexis Misha Laskowski','qixuanli':'Qixuan Li','ptlin84':'Kyle Lin','alvarom':'Alvaro Marin Melero','jackfm':'Jack Francis Michaels','traje':'Tanvi Nikita Vikas Raje','cregan7':'Connor Regan','erose4':'Ethan Rose','tomrose':'Tom Stern Rosenblatt','isabate':'Ignacio Sabaté','nschlein':'Nate Schlein','skrobach':'Mykhailo Skrobach','stanstic':'Stanford Stickney','suwimana':'Sandy Uwimana','nachov':'Nacho Vidri','dwagura':'David Wangombe Wagura','markwhit':'Mark Robert Whittaker','grayy':'Gray Scott Young','drharris':'david harris','ioannaa':'Ioanna Aguilar','piali':'Piali Bopanna','ncable':'Nik Cable','cycampos':'Cheryl Campos','schang63':'Samuel C Chang','amanc2':'Aman Chaudhary','julietc1':'Juliet Choi','ccranmer':'Caitlin Cranmer','jdumiak':'Jen Dumiak','sdunau':'Shane Nicole Dunau','nfewel':'Nathan Fewel','nflanary':'Nicole Flanary','ssfree':'Sarah Seaborn Freeman','cegarcia':'Catalina Eugenia Garcia Gajardo','egetty':'Erin Getty','gabygv':'Gabriela Gonzalez','mngratz':'Maggie Gratz','amholt':'Mandy Holt','irvhsu':'Irving Hsu','blaireym':'Blaire Huang','harshitk':'Harshit Kohli','jkubert':'Jon Kubert','mliamos':'Michael Charles Liamos','lyliang':'Lyanne Liang','slif':'Sandra Lifshits','jdlorenz':'Jonathon Lorenz','irfanx':'Irfan Mahmud','mmallah':'Mariama Mallah','mhmann':'Myles Mann','martyj':'Jason Marty','minali':'Minali Mohindra','jonpeder':'Jonathan Pedersen','mikepeng':'Mike Peng','woodsrp':'Woods Preechawit','craiff':'Clay Raiff','juromero':'Julieta Aldana Romero','jpsand95':'Juan Pablo Sandoval Celis','csapan':'Claire Sapan','msauvage':'Michael Sauvage','jhstyles':'John Henry Styles','darrenjt':'Darren Tan','mtw693':'Marshall Thomas Watkins','emwaxman':'Emily Waxman','liawe':'Lia Michal Weiner','fangting':'Angela Wu','fangfeiy':'Fangfei Yin','aleksz':'Aleksandar Zdravkovski','ipshita9':'Ipshita Agarwal','shaden':'Shaden Alsheik','aamdekar':'Atharva Amdekar','beattymg':'Matt Beatty','zachboy':'Zach Boyette','ychoi24':'Young Choi','rdensley':'Rachel Densley','rduenask':'Ricardo Duenas','elaine24':'Elaine Fang','jierui':'Jierui Fang','alisdair':'Alisdair Ferguson','madisonc':'Madison Freeman','tgerrard':'Tye Gerrard','erikgr':'Erik Grossman','whoran':'Wyatt Horan','jchwang':'Jennifer C. Hwang','jenkinsa':'Alexandra Jenkins','nitikaj':'Nitika Johri','amykim':'Amy Kim','diegollm':'Diego Lloreda Martín','luolaura':'Laura Pai Luo','mmadding':'Michael Madding','amedina8':'Antonio Rafael Medina Perez','emuco':'Evi Muco','amurtlan':'Andrew Murtland','nakamasa':'Masahiro Nakanishi','roakley1':'Rae Oakley','danpil':'Dan Pilewski','epowers2':'Emily Powers','jruben':'James Arthur Ruben','mschein':'Mara Gabrielle Schein','jserra':'Julian Jaime Serra','nishsham':'Nishanth Shamanna','jsharma3':'Jigyasa Sharma','socarras':'Esteban Socarras','gwatsham':'Ginny Watsham','lgwhite':'Louise White','lisaye':'Yuying Ye','yuchenz':'Yuchen Zou','decarlos':'Iñigo de Carlos Artajo','ijdelcid':'Imer J del Cid',"extra1":"Unnamed #1","extra2":"Unnamed #2","extra3":"Unnamed #3","extra4":"Unnamed #4","extra5":"Unnamed #5","extra6":"Unnamed #6","extra7":"Unnamed #7","extra8":"Unnamed #8","extra9":"Unnamed #9","extra10":"Unnamed #10"}
+SUNet_to_name = {'fredaddy':'Fred Addy', 'aabd':'Armando Alejandro Borda', 'zakb':'Zak Budden', 'connorca':'Connor Callaway', 'acohen22':'Adam Scott Cohen', 'annafilo':'Anna Filochowska', 'wf539':'Wanning Fu', 'shreyaa':'Shreya Gupta', 'lhaffer':'Lukas Haffer', 'sehughes':'Sarah Hughes', 'skawatra':'Srishti Kawatra', 'dkhar22':'David Kharatishvili', 'yooekim':'Yoo Eun Kim', 'nskolber':'Natalie Sarah Kolber', 'kompalla':'Julia Franziska Kompalla', 'lask1952':'Alexis Misha Laskowski', 'qixuanli':'Qixuan Li', 'jackfm':'Jack Francis Michaels', 'traje':'Tanvi Nikita Vikas Raje', 'cregan7':'Connor Regan', 'erose4':'Ethan Rose', 'tomrose':'Tom Stern Rosenblatt', 'isabate':'Ignacio Sabaté', 'nschlein':'Nate Schlein', 'skrobach':'Mykhailo Skrobach', 'stanstic':'Stanford Stickney', 'suwimana':'Sandy Uwimana', 'markwhit':'Mark Robert Whittaker', 'grayy':'Gray Scott Young', 'drharris':'david harris', 'ipshita9':'Ipshita Agarwal', 'ioannaa':'Ioanna Aguilar', 'piali':'Piali Bopanna', 'ncable':'Nik Cable', 'cycampos':'Cheryl Campos', 'schang63':'Samuel C Chang', 'amanc2':'Aman Chaudhary', 'julietc1':'Juliet Choi', 'ccranmer':'Caitlin Cranmer', 'jdumiak':'Jen Dumiak', 'sdunau':'Shane Nicole Dunau', 'nflanary':'Nicole Flanary', 'ssfree':'Sarah Seaborn Freeman', 'cegarcia':'Catalina Eugenia Garcia Gajardo', 'egetty':'Erin Getty', 'amholt':'Mandy Holt', 'blaireym':'Blaire Huang', 'harshitk':'Harshit Kohli', 'jkubert':'Jon Kubert', 'mliamos':'Michael Charles Liamos', 'lyliang':'Lyanne Liang', 'jdlorenz':'Jonathon Lorenz', 'irfanx':'Irfan Mahmud', 'mmallah':'Mariama Mallah', 'mhmann':'Myles Mann', 'martyj':'Jason Marty', 'minali':'Minali Mohindra', 'toure':'Toure Kwame Owen', 'jonpeder':'Jonathan Pedersen', 'mikepeng':'Mike Peng', 'woodsrp':'Woods Preechawit', 'craiff':'Clay Raiff', 'juromero':'Julieta Aldana Romero', 'jpsand95':'Juan Pablo Sandoval Celis', 'csapan':'Claire Sapan', 'msauvage':'Michael Sauvage', 'jhstyles':'John Henry Styles', 'darrenjt':'Darren Tan', 'mtw693':'Marshall Thomas Watkins', 'emwaxman':'Emily Waxman', 'liawe':'Lia Michal Weiner', 'fangfeiy':'Fangfei Yin', 'aleksz':'Aleksandar Zdravkovski', 'shaden':'Shaden Alsheik', 'aamdekar':'Atharva Amdekar', 'beattymg':'Matt Beatty', 'zachboy':'Zach Boyette', 'ychoi24':'Young Choi', 'rdensley':'Rachel Densley', 'elaine24':'Elaine Fang', 'jierui':'Jierui Fang', 'alisdair':'Alisdair Ferguson', 'tgerrard':'Tye Gerrard', 'whoran':'Wyatt Horan', 'jchwang':'Jennifer C. Hwang', 'nitikaj':'Nitika Johri', 'diegollm':'Diego Lloreda Martín', 'mmadding':'Michael Madding', 'alvarom':'Alvaro Marin Melero', 'amedina8':'Antonio Rafael Medina Perez', 'emuco':'Evi Muco', 'amurtlan':'Andrew Murtland', 'roakley1':'Rae Oakley', 'danpil':'Dan Pilewski', 'epowers2':'Emily Powers', 'mschein':'Mara Gabrielle Schein', 'jserra':'Julian Jaime Serra', 'jsharma3':'Jigyasa Sharma', 'socarras':'Esteban Socarras', 'dwagura':'David Wangombe Wagura', 'gwatsham':'Ginny Watsham', 'lgwhite':'Louise White', 'fangting':'Angela Wu', 'yuchenz':'Yuchen Zou', 'decarlos':'Iñigo de Carlos Artajo',"extra1":"Unnamed #1","extra2":"Unnamed #2","extra3":"Unnamed #3","extra4":"Unnamed #4","extra5":"Unnamed #5","extra6":"Unnamed #6","extra7":"Unnamed #7","extra8":"Unnamed #8","extra9":"Unnamed #9","extra10":"Unnamed #10"}
 
 
 class IntroWaitPage(WaitPage):
@@ -42,8 +42,8 @@ class Meeting_location(Page):
 class Stanfield_materials(Page):
     form_model = "player"
 
-    timeout_seconds= Constants.reading_time * 60
-    timer_text = 'Time left for reading the materials'
+    #timeout_seconds= Constants.reading_time * 60
+    #timer_text = 'Time left for reading the materials'
 
     def is_displayed(self):
         return self.player.id_in_group == 1
@@ -55,8 +55,8 @@ class Stanfield_materials(Page):
 class Sproles_materials(Page):
     form_model = "player"
 
-    timeout_seconds= Constants.reading_time * 60
-    timer_text = 'Time left for reading the materials'
+    #timeout_seconds= Constants.reading_time * 60
+    #timer_text = 'Time left for reading the materials'
 
 
     def is_displayed(self):
@@ -82,10 +82,9 @@ class Target_input(Page):
 
 class Planning_doc(Page):
     form_model = "player"
-    form_fields = ["planning_text"]
 
-    timeout_seconds= Constants.planning_doc_time_minutes * 60
-    timer_text = 'Time left for writing your document:'
+    #timeout_seconds= Constants.planning_doc_time_minutes * 60
+    #timer_text = 'Time left for writing your document:'
 
     def vars_for_template(self):
         if self.player.id_in_group == 1:
@@ -122,8 +121,8 @@ class Stanfield_materials_no_timer(Page):
 
     template_name = "NoCode/Stanfield_materials.html"
 
-    timeout_seconds= Constants.negotiation_time * 60
-    timer_text = 'Time left to negotiate the case'
+    #timeout_seconds= Constants.negotiation_time * 60
+    #timer_text = 'Time left to negotiate the case'
 
     def is_displayed(self):
         return self.player.id_in_group == 1
@@ -136,8 +135,8 @@ class Sproles_materials_no_timer(Page):
     form_model = "player"
     template_name = "NoCode/Sproles_materials.html"
 
-    timeout_seconds= Constants.negotiation_time * 60
-    timer_text = 'Time left to negotiate the case'
+    #timeout_seconds= Constants.negotiation_time * 60
+    #timer_text = 'Time left to negotiate the case'
 
     def is_displayed(self):
         return self.player.id_in_group == 2
@@ -195,8 +194,6 @@ class Finished_case(Page):
 class Journaling_page(Page):
     form_model = "player"
 
-    form_fields = ["journaling_text"]
-
     def vars_for_template(self):
         if self.player.id_in_group == 1:
             return {"pdf_file": "NoCode/Stanfield.pdf","xlsx_file":"NoCode/Stanfield Point System.xlsx"}
@@ -206,8 +203,6 @@ class Journaling_page(Page):
 
 class Outro(Page):
     form_model = "group"
-
-
 
 
 
