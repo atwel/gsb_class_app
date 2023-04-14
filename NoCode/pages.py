@@ -70,8 +70,6 @@ class Target_input(Page):
     form_model = "player"
     form_fields = ['target_points']
 
-    timeout_seconds= 120
-    timer_text = 'Time left to input values'
 
     def vars_for_template(self):
         if self.player.id_in_group == 1:
