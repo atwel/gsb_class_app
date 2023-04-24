@@ -27,5 +27,4 @@ class Group(BaseGroup):
     pass
 
 class Player(BasePlayer):
-
-    journaling_text = models.LongStringField(label="Please describe your experience of the negotiation.")
+    pass

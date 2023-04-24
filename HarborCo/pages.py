@@ -98,29 +98,27 @@ class Dcr(Page):
 
 class Planning_doc(Page):
     form_model = "player"
-    form_fields = ["planning_text"]
+    #form_fields = ["planning_text"]
 
     def vars_for_template(self):
         if self.player.role() == "dcr":
-            return {"pdf_file": "HarborCo/FederalDCR.pdf"}
+            return {"pdf_file": "HarborCo/FederalDCR.pdf","assignment_url":"https://canvas.stanford.edu/courses/173725/assignments/514484"}
         elif self.player.role() == "harborco":
-            return {"pdf_file": "HarborCo/Harborco.pdf"}
+            return {"pdf_file": "HarborCo/Harborco.pdf","assignment_url":"https://canvas.stanford.edu/courses/173725/assignments/514484"}
         elif self.player.role() == "ports":
-            return {"pdf_file": "HarborCo/OtherPorts.pdf"}
+            return {"pdf_file": "HarborCo/OtherPorts.pdf","assignment_url":"https://canvas.stanford.edu/courses/173725/assignments/514484"}
         elif self.player.role() == "union":
-            return {"pdf_file": "HarborCo/Union.pdf"}
+            return {"pdf_file": "HarborCo/Union.pdf","assignment_url":"https://canvas.stanford.edu/courses/173725/assignments/514484"}
         elif self.player.role() == "gov":
-            return {"pdf_file": "HarborCo/Governor.pdf"}
+            return {"pdf_file": "HarborCo/Governor.pdf","assignment_url":"https://canvas.stanford.edu/courses/173725/assignments/514484"}
         elif self.player.role() == "enviro":
-            return {"pdf_file": "HarborCo/EnvironmentalLeague.pdf"}
+            return {"pdf_file": "HarborCo/EnvironmentalLeague.pdf","assignment_url":"https://canvas.stanford.edu/courses/173725/assignments/514484"}
         else:
-            return {"pdf_file":"HarborCo/Governor.pdf"}
+            return {"pdf_file":"HarborCo/Governor.pdf","assignment_url":"https://canvas.stanford.edu/courses/173725/assignments/514484"}
 
 
 class Back_to_class(Page):
     form_model = "player"
-
-
 
 
 

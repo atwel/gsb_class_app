@@ -28,8 +28,6 @@ class Constants(BaseConstants):
     negotiating_time = 100 # minutes
     reflection_time  = 5 # minutes
 
-    planning_doc_length = 100 #words
-    planning_doc_time = 40
 
 
 class Subsession(BaseSubsession):
@@ -40,9 +38,6 @@ class Group(BaseGroup):
 
 class Player(BasePlayer):
     name = models.StringField()
-    planning_text = models.LongStringField(label="Describe your plan for this negotiation. In particular, how do intend to approach dealing with coalitions?")
-    journaling_text = models.LongStringField(label="Please describe your experience of the negotiation.")
-
 
     def role(self):
         if self.id_in_group == 1:
