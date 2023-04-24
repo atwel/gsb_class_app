@@ -10,23 +10,7 @@ Planning Document
 {% endblock %}
 
 {% block content %}
-<script>
 
-
-function textCounter(field, maxLength)
-{
-var countfield = document.getElementById('counter')
-var words = field.value.split(" ");
- if (words.length> maxLength ) {
-  countfield.innerHTML = "Words Left: 0";
-  document.getElementById("clocked").style.display="block";
-  return false;
- } else {
-  countfield.innerHTML = "Words Left: " + (maxLength - words.length).toString();
- }
-}
-
-</script>
 
 <div style="text-align:left">
 Write about how you will approach this negotiation. You should think about how you will approach organizing your team.
