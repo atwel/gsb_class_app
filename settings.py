@@ -95,7 +95,7 @@ ROOMS = [
         dict(
             name='OB581_01_alt',
             display_name='OB581.01alt, Sp23',
-            participant_label_file = "_rooms/Sp23_01_alt.txt",
+            participant_label_file = "_rooms/Sp23_03.txt",
         )
 ]
 
