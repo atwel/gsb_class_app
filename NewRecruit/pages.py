@@ -67,7 +67,7 @@ class Candidate_calculator(Page):
     #timer_text = "Time left to come up with an initial offer"
 
     def is_displayed(self):
-        return self.player.candidate
+        return True
 
     def before_next_page(self):
         if self.timeout_happened:
