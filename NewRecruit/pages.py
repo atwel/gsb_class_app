@@ -43,7 +43,7 @@ class Recruiter(Page):
     #timer_text = 'Time left for reading the materials'
 
     def is_displayed(self):
-        return not self.player.candidate
+        return True
 
     def vars_for_template(self):
         return {"pdf_file": "NewRecruit/Recruiter.pdf"}
@@ -106,7 +106,7 @@ class Recruiter_calculator(Page):
     #timer_text = "Time left to come up with an initial offer"
 
     def is_displayed(self):
-        return not self.player.candidate
+        return True
 
     def before_next_page(self):
         if self.timeout_happened:
