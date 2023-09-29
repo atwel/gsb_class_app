@@ -27,7 +27,7 @@ class Candidate(Page):
     #timer_text = 'Time left for reading the materials'
 
     def is_displayed(self):
-        return self.player.candidate
+        return True
 
     def vars_for_template(self):
         return {"pdf_file": "NewRecruit/Candidate.pdf"}
