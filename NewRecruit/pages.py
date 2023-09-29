@@ -148,9 +148,7 @@ class Candidate_submission(Page):
                             'location',
                             'insurance_coverage',
                             'vacation_time',
-                            'moving_expenses',
-                            "submitted",
-                            "deal"]
+                            'moving_expenses']
 
 
 
