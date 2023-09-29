@@ -54,7 +54,8 @@ class Recruiter(Page):
 
 class Candidate_calculator(Page):
     form_model = "player"
-    form_fields = ['bonus',
+    form_fields = []
+    """['bonus',
                             'job_assignment',
                             'location',
                             'insurance_coverage',
@@ -87,7 +88,7 @@ class Candidate_calculator(Page):
         #                        Constants.vacation_time[self.player.vacation_time][id]+\
         #                        Constants.moving_expenses[self.player.moving_expenses][id]+\
         #                        Constants.job_assignment[self.player.job_assignment][id]+\
-        #                        Constants.starting_date[self.player.starting_date][id]
+        #                        Constants.starting_date[self.player.starting_date][id]"""
 
 class Recruiter_calculator(Page):
     form_model = "player"
