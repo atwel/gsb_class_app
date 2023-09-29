@@ -144,6 +144,19 @@ class Planning_doc(Page):
         else:
             return {"pdf_file": "NewRecruit/Recruiter.pdf"}
 
+class Candidate_submission(Page):
+    form_model = "player"
+    form_fields = ['bonus',
+                            'job_assignment',
+                            'location',
+                            'insurance_coverage',
+                            'vacation_time',
+                            'moving_expenses',
+                            "salary",
+                            'starting_date',
+                            "submitted",
+                            "deal"]
+
 
 
 class Wait_for_class(Page):
@@ -153,4 +166,4 @@ class Wait_for_class(Page):
 
 
 
-page_sequence = [Introduction, Candidate, Recruiter, Candidate_calculator, Recruiter_calculator, Planning_doc, Wait_for_class]
+page_sequence = [Introduction, Candidate_calculator, Candidate_submission]
