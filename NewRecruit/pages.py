@@ -80,14 +80,14 @@ class Candidate_calculator(Page):
             self.player.starting_date = "June 1"
 
         id = 1
-        self.player.initial_offer_points = Constants.salary[self.player.salary][id]+\
-                                Constants.bonus[self.player.bonus][id]+\
-                                Constants.location[self.player.location][id]+\
-                                Constants.insurance_coverage[self.player.insurance_coverage][id]+\
-                                Constants.vacation_time[self.player.vacation_time][id]+\
-                                Constants.moving_expenses[self.player.moving_expenses][id]+\
-                                Constants.job_assignment[self.player.job_assignment][id]+\
-                                Constants.starting_date[self.player.starting_date][id]
+        #self.player.initial_offer_points = Constants.salary[self.player.salary][id]+\
+        #                        Constants.bonus[self.player.bonus][id]+\
+        #                        Constants.location[self.player.location][id]+\
+        #                        Constants.insurance_coverage[self.player.insurance_coverage][id]+\
+        #                        Constants.vacation_time[self.player.vacation_time][id]+\
+        #                        Constants.moving_expenses[self.player.moving_expenses][id]+\
+        #                        Constants.job_assignment[self.player.job_assignment][id]+\
+        #                        Constants.starting_date[self.player.starting_date][id]
 
 class Recruiter_calculator(Page):
     form_model = "player"
