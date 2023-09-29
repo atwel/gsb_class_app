@@ -35,7 +35,7 @@ dict(
 dict(
         name='newRecruit',
         display_name="New Recruit",
-        num_demo_participants=1,
+        num_demo_participants=2,
         section_number=1,
         app_sequence=["NewRecruit"]),
 dict(
