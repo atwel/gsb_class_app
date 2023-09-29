@@ -59,9 +59,7 @@ class Candidate_calculator(Page):
                             'location',
                             'insurance_coverage',
                             'vacation_time',
-                            'moving_expenses',
-                            "salary",
-                            'starting_date']
+                            'moving_expenses']
 
     #timeout_seconds = Constants.calculator_time * 60
     #timer_text = "Time left to come up with an initial offer"
@@ -98,9 +96,7 @@ class Recruiter_calculator(Page):
                             'location',
                             'insurance_coverage',
                             'vacation_time',
-                            'moving_expenses',
-                            "salary",
-                            'starting_date']
+                            'moving_expenses']
 
     #timeout_seconds = Constants.calculator_time * 60
     #timer_text = "Time left to come up with an initial offer"
@@ -152,8 +148,6 @@ class Candidate_submission(Page):
                             'insurance_coverage',
                             'vacation_time',
                             'moving_expenses',
-                            "salary",
-                            'starting_date',
                             "submitted",
                             "deal"]
 
