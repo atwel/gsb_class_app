@@ -112,6 +112,6 @@ ADMIN_USERNAME = "atwell"
 ADMIN_PASSWORD = "aaaa"
 
 # don't share this with anybody.
-#SECRET_KEY = 'z$k1!j!#nzwc#1af2%x9$^vde#u*(mf$wbdrmsw4f=$u2@jo!e'
+SECRET_KEY = 'z$k1!j!#nzwc#1af2%x9$^vde#u*(mf$wbdrmsw4f=$u2@jo!e'
 
 INSTALLED_APPS = ['otree']
