@@ -19,7 +19,6 @@ SESSION_CONFIG_DEFAULTS = dict(
 
 SESSION_CONFIGS = [
 
-
 dict(
         name='BioPharm_Seltek',
         display_name="BioPharm Seltek",
@@ -111,7 +110,8 @@ Here are some oTree games.
 """
 ADMIN_USERNAME = "atwell"
 ADMIN_PASSWORD = "aaaa"
+
 # don't share this with anybody.
-SECRET_KEY = 'z$k1!j!#nzwc#1af2%x9$^vde#u*(mf$wbdrmsw4f=$u2@jo!e'
+#SECRET_KEY = 'z$k1!j!#nzwc#1af2%x9$^vde#u*(mf$wbdrmsw4f=$u2@jo!e'
 
 INSTALLED_APPS = ['otree']
