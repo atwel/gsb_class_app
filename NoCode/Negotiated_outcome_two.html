@@ -1,0 +1,42 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Negotiated Outcome
+{% endblock %}
+
+{% block styles %}
+<link rel="stylesheet" href="{% static "global/custom_theme.css" %}">
+{% endblock %}
+
+{% block content %}
+
+{% if group.deal %}
+<br><br>
+ {% formfield group.Salary %}<br>
+ {% formfield group.Bonus %}<br>
+ {% formfield group.Equity %}<br>
+ {% formfield group.Days %}<br>
+ {% formfield group.Start %}
+
+{% else %}
+<br><h5>What were the last values Stanfield asked for?</h5>
+{% formfield group.last_Salary_Stanfield %}
+{% formfield group.last_Bonus_Stanfield %}
+{% formfield group.last_Equity_Stanfield %}
+{% formfield group.last_Days_Stanfield %}
+{% formfield group.last_Start_Stanfield %}
+<br><br>
+<h5>What were the last values Sproles asked for?</h5>
+{% formfield group.last_Salary_Sproles %}
+{% formfield group.last_Bonus_Sproles %}
+{% formfield group.last_Equity_Sproles %}
+{% formfield group.last_Days_Sproles %}
+{% formfield group.last_Start_Sproles %}
+{% endif %}
+<br>
+<div id="clocked" style="margin-left:90%">
+    {% next_button %}
+</div>
+
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+  Federated Science
+{% endblock %}
+
+{% block styles %}
+<link rel="stylesheet" href="{% static "global/custom_theme.css" %}">
+{% endblock %}
+
+{% block content %}
+
+You are now preparing to negotiate <b><i>Federated Science</i></b>, a <strong>three-party</strong> case.<br>
+
+<br><br>
+You will:
+<ul>
+<li>read the case.</li>
+<li>write a planning document.</li>
+<li>get assigned to a group.</li>
+<li>have {{ C.NEGOTIATING_TIME }} minutes to negotiate.</li>
+<li>report the outcome.</li>
+<li>debrief in class.</li>
+<li>reflect on the negotiation before the end of the day.</li>
+</ul>
+<br>
+<div style="margin-left:90%">
+    {% next_button %}
+</div>
+<br>
+
+{% endblock %}

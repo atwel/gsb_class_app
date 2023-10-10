@@ -1,0 +1,22 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+Target Points
+{% endblock %}
+
+{% block styles %}
+<link rel="stylesheet" href="{% static "global/custom_theme.css" %}">
+{% endblock %}
+
+{% block content %}
+<br>
+    {% formfields %}
+<br>
+    View the case materials:<br>
+    <a target="_blank" rel="noopener noreferrer" href="{% static pdf_file %}">PDF</a><br>
+    <a target="_blank" rel="noopener noreferrer" href="{% static xlsx_file %}">Point system spreadsheet</a><br>
+    <div id="clocked" style="margin-left:90%">
+        {% next_button %}
+    </div>
+{% endblock %}

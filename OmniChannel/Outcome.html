@@ -1,0 +1,23 @@
+{% extends 'otree/Page.html' %}
+{% load otree %}
+{% block title %}
+Negotiated Agreement
+{% endblock %}
+
+{% block styles %}
+<link rel="stylesheet" href="{% static "global/custom_theme.css" %}">
+{% endblock %}
+
+
+
+{% block content %}
+
+Please report the terms of the deal you negotiated. If no deal was reached, simply go to the next page.
+<br><br>
+{% formfields %}
+<br><br>
+<div style="margin-left:90%">
+    {% next_button %}
+</div>
+
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Federated Science
+{% endblock %}
+
+{% block styles %}
+<link rel="stylesheet" href="{% static "global/custom_theme.css" %}">
+{% endblock %}
+
+{% block content %}
+<br><br>
+<h6>You will be negotiating with {{ partner_1 }} and {{ partner_2 }}. Please meet up with them now.</h6>
+<br>
+<h5>The representative for Turbo can choose to meet with either the United or Stockman representative in private for 5 minutes to start the negotiations.</h5>
+<br>
+Then for the rest of the meeting, any two parties can agree to meet in private for up to 3 minutes and the third party must honor the request.<br><br>
+
+
+<div style="margin-left:90%">
+    {% next_button %}
+</div>
+<br>
+
+{% endblock %}

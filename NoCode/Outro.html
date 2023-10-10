@@ -1,0 +1,23 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+No Code, Inc. <br>
+
+{% endblock %}
+
+{% block styles %}
+<link rel="stylesheet" href="{% static "global/custom_theme.css" %}">
+{% endblock %}
+
+{% block content %}
+<div style="width:65%;margin-top:5%">
+You're all done!<br><br>
+You can close this tab.
+</div>
+<br><br>
+<!--<div style="margin-left:90%">
+    {% next_button %}
+</div>-->
+
+{% endblock %}

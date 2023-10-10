@@ -1,0 +1,243 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+HarborCo
+
+{% endblock %}
+
+
+{% block styles %}
+<link rel="stylesheet" href="{% static "global/custom_theme.css" %}">
+<style>
+
+#points {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 70%;
+  border: 2px solid
+}
+
+#points td {
+  border: 1px solid #ddd;
+  padding: 2px;
+  text-align: center;
+  width: 50%;
+  padding-bottom: 4px;
+}
+
+#points th {
+  border: 1px solid #ddd;
+  text-align: center;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  background-color: #8c1515;
+  border: 1px solid #000;
+  color: white;
+}
+
+#points tr:nth-child(even){background-color: #f2f2f2;}
+
+</style>
+{% endblock %}
+
+{% block content %}
+<br>
+A Harvard <em>Program on Negotiations</em> case written by Denise Madigan and Thomas Weeks under the supervision of Professor Lawrence Susskind (M.I.T.), Assistant Professor David Lax and the Negotiation Roundtable.
+<br><br>
+<p>You'll be able to see these materials again once the live negotiation has started but you can also <a href="{% static pdf_file %}" download>download a pdf version here.</a></p>
+<br>
+<br><br><br>
+<h1>Role of <em>Federal DCR</em> representative</h1>
+<br>
+<h3 id="general">General Instructions</h3>
+<p>Harborco, a newly formed national consortium, is interested in building and operating a deep-water port off the coast of Seaborne. The consortium's members are drawn from a variety of enterprises, most of which are diversified among a number of commercial activities. Harborco is prepared to participate in the financing, construction, and operation of the port. It has already engaged in some preliminary planning and design work, but it cannot proceed without a license issued by the Federal Licensing Agency (FLA).</p>
+<h5>The Project</h5>
+<p>The deep-water port proposed by Harborco would be the first of its kind on the East Coast. It would be located in Seaborne at the estuary of the Banksedge River. Like the European seaport Rotterdam, it would accommodate a new generation of large cargo ships and supertankers – ships believed to be especially cost-effective in transporting raw materials and goods.</p>
+<p>The deep-water port would be based on an artificial island of roughly nine square miles, created with fill from the dredging of the access channel. The island would be connected to the shore by a network of highways, railroads, and pipelines. Onshore, an Air-Sea-Cargo Center (ASCC) would be developed, along with major connections to existing highways, railroads, and pipeline networks. Substantial infrastructure would be needed to accommodate an intermodal freight terminal of this sort. Most of the industrial plant and ancillary facilities would be located on the island. While components of the port could be operational as early as five years after construction begins, the port's full development might not be completed until 20 years later. The projected cost of the port is roughly $4 billion (in current dollars).</p>
+<br>
+<h3 id="parties">The Parties</h3>
+<h5>Harborco</h5>
+<p>Harborco is excited about the prospect of a deep-water port on the East Coast. It believes such a port could generate substantial profits within ten years after operations begin. (Harborco bases its projections on an independent study by Transport Associates, Inc., which concluded that such a port could be economically viable under several possible scenarios.) In addition, Harborco believes the local, regional, and national economies could benefit from a port, which would dramatically reduce the transport costs of imports and exports. Several other parties, however, have an interest in the deep-water port and Harborco's application for a license.</p>
+<h5 id="el">The Environmental League:</h5>
+<p>This coalition of environmental interest groups is generally opposed to any development of coastal areas, especially development that threatens the fragile ecosystems, adds to air and water pollution, increases waste disposal problems, and increases health and safety risks. The League is worried that Harborco's proposed port would seriously damage the environment of Seaborne and destroy the basic Banksedge River ecology.</p>
+<h5 id="unions">Local Federation of Labor Unions (The Unions):</h5>
+<p>The Unions are generally pleased that new development is being considered for Seaborne. They anticipate hundreds of new jobs will be created in both the short and long run. They will argue strongly, however, that these jobs should be reserved for local union members. (This local federation is affiliated with the National Federation of Labor Unions.)</p>
+<h5>Other Ports in the Region:</h5><p>The four other ports in the region are not pleased with Harborco's proposal. They expect to lose a substantial amount of business to the new port, if it is constructed. They are extremely skeptical of Harborco's claim that all regional ports will share in the economic benefits generated by the new port.</p>
+<h5>Federal Department of Coastal Resources (DCR):</h5><p>This Cabinet-level agency created during the Reagan Administration has a dual mandate: (1) to help realize the economic potential of the nation's coastal resources, and (2) to preserve the environmental integrity of the nation's coastal areas. The DCR would like to see a deep-water port established somewhere on the East Coast, and has the resources and authority to subsidize such a port.</p>
+<h5>Governor Sherwood (of Seaborne): </h5><p>Governor Sherwood is in her second gubernatorial term and is eager to promote development in her state. She is sensitive, however, to the needs of organized labor, a powerful political constituency, and is therefore eager to see that unions share in the benefits of the port.</p>
+<br><br>
+<h3>The Licensing Process</h3>
+<p>Harborco submitted an application just one month ago for FLA review. While aware of other parties' interest in its proposal, Harborco expected little difficulty in the licensing phase of this project.</p>
+<p>The FLA, however, has recently been criticized by several members of Congress for failing to consider the "broader public interest" in its previous licensing determinations. Consequently, the FLA is now very sensitive to the level of political support surrounding each application it reviews.</p>
+<p>In this case, the FLA will not approve Harborco's application unless it is clear that there is substantial support for the project. Therefore, the FLA has decided that it will approve Harborco's proposal ONLY IF Harborco can muster the support of at least four other parties. (The FLA would prefer to see all five parties support a Harborco application, but it will grant a license even if only four lend their support.)</p>
+<p>Two parties, however, can exercise some veto power. Harborco can veto any proposal in this negotiation (since no other party is capable of initiating the development). In addition, the Federal DCR can veto any project that requires a federal loan or loan guarantee.</p>
+<br><br>
+<h3>The Issues</h3>
+<p>Preliminary discussions have taken place between Harborco and representatives of the five key parties. As a result of these conversations, Harborco has identified five issues that seem to be of concern to all or some of the parties. A general description of the issues is provided below; more detailed information is provided in each party's Confidential Instructions.</p><br>
+<h5>Issue A: Industry Mix</h5>
+<p>The deep-water port itself is only part of the development Harborco has planned. The construction will attract a variety of industries seeking access to the port. These industries will either lease or purchase land on the artificial island and onshore, and they will eventually generate the bulk of the revenues associated with the new port.</p>
+<p>Harborco has initially requested the freedom to develop any industry mix it chooses. This means that it could choose to develop (or encourage) any type of industry or plant, including oil refineries, steel mills, or a resource recovery plant. The environmentalists, however, have argued that strict limits should be placed on the industry mix allowed in the area; they are asking that only relatively "clean" industries such as high-tech production plants be allowed.</p>
+<p>As a result of this controversy, three options have surfaced in the discussions between Harborco and the environmentalists.</p>
+<p><strong>Option A1: Primarily dirty</strong> — No industry would be excluded, but the mix would probably be dominated by oil refineries, petrochemical plants, steel productions plants, and a resource recovery plant.</p>
+<p><strong>Option A2: Clean/Dirty</strong> — Would exclude the dirtiest industries, but would allow a limited number of moderately dirty plants (including food-processing plants).</p>
+<p><strong>Option A3: All clean</strong> — Would be limited to only clean industries such as high-tech production industries; dirty plants would be excluded.</p>
+<p>Air pollution, water pollution, and waste disposal would vary with the industry mix selected. Regardless of the industry mix, all industries would conform to existing federal and state pollution regulations.</p>
+<br><br>
+<h5>Issue B: Ecological Impact</h5>
+<p>The dredging of the access channel, creation of the island, and general construction activity could seriously disrupt existing ecologically delicate areas both onshore and offshore. The damage would include the alteration of nesting habitats, a reduction in natural tidal flushing, the destruction of wetlands, serious land erosion, adverse impacts on existing fisheries, and substantial subsurface geologic impacts (caused by drilling and dredging).</p>
+<p>Harborco admits that the new deep-water port would create some damage to the ecological setting, but it also claims that such damage would be within the limits defined by federal and state regulations. Environmentalists, however, counter that the damage would be excessive and that Harborco has no right to disrupt the area.</p>
+<p>In light of these arguments, three outcomes are possible:</p>
+<p><strong>Option B1: Some harm to ecology</strong> – This would involve unremedied disruption to the ecology. Fish and animal nesting habitats would be altered (or effectively destroyed), valuable wetlands would disappear, water temperatures and currents would change, and certain types of aquatic flora and fauna would be destroyed. All this would take place within federal and state impact mitigation guidelines.</p>
+<p><strong>Option B2: Maintain or repair ecological balance</strong> – This would involve special precautions to divert construction and dredging activity (where possible) from the most ecologically delicate or important areas. But it would also include the relocation or recreation of habitats destroyed by unavoidable dredging and construction.</p>
+<p><strong>Option B3: Improve the ecological setting</strong> – Like the previous option, this would include special efforts to bypass delicate areas during construction and dredging. But it would also include a variety of other efforts to improve the local environment. Environmentalists propose ongoing fishery management and wildlife protection, creating new and larger protected wetland areas, an active anti-erosion program, and constructing and operating a small waste-treatment facility to treat effluents flowing into the estuary from the Banksedge River.</p>
+<br><br>
+<h5>Issue C: Employment Rules</h5>
+<p>Construction and operation of the deep-water port is expected to generate hundreds of new jobs in the community in both the short and long run. These jobs can be distributed among potential employees in one of three ways:</p>
+<p><strong>Option C1: Unlimited union preference</strong>– Jobs would be reserved for local union workers, where appropriate. This would enable local union members to claim as large a share of the new jobs as possible.</p>
+<p><strong>Option C2: Union quota of 2:1</strong> – Limited preference could be given to union members where the ratio of union to nonunion workers would not fall below 2 to 1.</p>
+<p><strong>Option C3: Union quota of 1:1</strong> – The ratio of union to nonunion workers would not be less than 1 to 1.</p>
+<p><strong>Option C4: No union preference (unrestricted hires).</strong> Harborco would be free to hire whomever it chooses. In this scenario, most workers would probably be nonunion, enabling Harborco to maintain its hiring flexibility and to reduce its expected wage costs. In addition, new workers might be drawn from outside Seaborne.</p>
+<br><br>
+<h5>Issue D: Federal Loan</h5>
+<p>The newly created Federal Department of Coastal Resources (DCR) has a mandate to promote economic use of coastal areas, while preserving their environmental integrity. It can provide a substantial loan (or guarantee private borrowing) to help cover construction and operating costs of the port over the next 20 years.</p>
+<p>Harborco estimates that the total cost of developing the port will be roughly $4 billion, and it has requested $3 billion in guaranteed loans. However, the DCR will insist on certain aspects of port design before it will contribute to the port. Four options appear possible:</p>
+<p><strong>Option D1:</strong> A $3 billion loan (at 15% interest) over the next 20 years</p>
+<p><strong>Option D2:</strong> A $2 billion loan (at 15% interest) over the next 20 years</p>
+<p><strong>Option D3:</strong> A $1 billion loan (at 15% interest) over the 20-year period</p>
+<p><strong>Option D4:</strong> No federal loan</p>
+<br>
+<br>
+<h5>Issue E: Compensation to Other Ports in the Region</h5>
+<p>Harborco believes the new port will generate significant economic growth both inside and outside the state. It contends that the entire regional economy will be improved by the port, and that the other four major ports on the Eastern Seaboard will benefit from this growth.</p>
+<p>The other ports, however, expect to suffer a substantial loss of traffic once the new port begins operation. They have estimated the present discounted value of their losses to be roughly $600 million, representing losses for 10 years after the new port begins operation. They think Harborco should compensate them for these losses.</p>
+<p>In light of this conflict, five possible options are up for consideration.</p>
+<p><strong>Option E1:</strong> Harborco pays $600 million (or 100% compensation) in current dollars to the other ports.</p>
+<p><strong>Option E2: </strong>Harborco pays $450 million (or 75% compensation). </p>
+<p><strong>Option E3: </strong>Harborco pays $300 million (or 50% compensation). </p>
+<p><strong>Option E4: </strong>Harborco pays $150 million (or 25% compensation). </p>
+<p><strong>Option E5: </strong>Harborco makes no compensation to the other ports.</p>
+<p>Though the ports would be free to spend this money as they wished, they could use these funds to make changes that would enable them to serve more effectively as feeder ports for the new deep-water port.</p><br>
+
+<h3>The Negotiation</h3>
+<p>Harborco has already submitted a license application to the FLA, which proposes the following
+<ul>
+<li>A primarily dirty industry mix (Option A1)</li>
+<li> Some harm to the ecology (but within federally and state-prescribed limits)
+(Option B1)</li>
+<li>No special preference for union workers (Option C4)</li>
+<li>A $3 billion loan from the DCR (Option D1)</li>
+<li>No compensation payments to other ports (Option E5)</li></ul>
+<p>Harborco is free to submit changes to its proposal at any time during the licensing review process, but it is anxious to have its application approved as is.</p>
+<p>In an attempt to muster support for its current proposal, Harborco has invited all the key parties to a meeting at the Ritz-Carlton Hotel. Its stated objective for the meeting is to seek a negotiated agreement among all parties to ensure unanimous support for its proposal. (Of course, Harborco needs the support of only four other parties in order to secure a license.)</p>
+<br>
+<h3>Mechanics of the Negotiation</h3>
+<p>All five parties have agreed to attend the meeting, and are seated at the negotiating table. The FLA representative opens the meeting and explains the procedures that the negotiating session will follow. Each party has seen a copy of Harborco's current FLA application.</p>
+<p>The discussion may progress in any direction, but Harborco will be searching for a proposal that will win enough votes for FLA approval. Anyone can suggest alternative proposals, but Harborco's concurrence is needed for any proposal to be adopted.</p>
+<p>Three formal voting rounds are scheduled for the meeting. The first will take place 15 minutes after the meeting begins, the second after 40 minutes of discussion, and the third after 85 minutes of discussion. Additional votes may be taken at any point during the meeting, but at least three voting rounds must take place. (There is of course one exception: if a project receives sufficient votes for FLA approval early in the meeting, the parties may choose to forgo subsequent voting rounds.)</p>
+<p>The FLA representative will administer the three scheduled voting rounds. If Harborco cannot decide on a revised project to propose at the time of a formally scheduled vote, the participants must vote on the original Harborco proposal.</p>
+<p>Voting is done by a show of hands. Once a proposal is passed (i.e., receives supporting votes from at least four of the five other parties), the votes are binding and parties cannot renege on their promise of support. The parties are free, however, to explore improvements in the agreement that either benefit the supporting parties or entice the non-supporting party to vote for the agreement. If the parties to the original agreement do not unanimously support proposed improvements, the original agreement stands.</p>
+<p>Negotiations must stop at the end of the meeting. If no agreement is reached (i.e., if no proposal receives at least four votes in addition to Harborco's), the FLA will reject Harborco's application for a license.</p><br><br>
+
+
+<h3>Confidential Instructions for the Federal DCR Negotiator (From the Secretary of Coastal Resources)</h3>
+<p>Harborco's recent application to build and operate a deep-water port in Seaborne is very intriguing. We are certainly interested in seeing a deep-water port finally developed on the East Coast. Unfortunately, some of our lower-level staff appeared over-eager in initial discussions with Harborco and would have gladly committed our entire budget to this venture had my deputy secretary not stepped in!</p>
+<p>This meeting seems a perfect opportunity to test the strength of Harborco's commitment to the project, and to wrangle some concessions in return for funding.</p><br><br>
+<h5>Scoring</h5>
+<p>In order to help you plan your negotiating strategy, our policy shop has constructed a special 100-point scoring scheme to illustrate which negotiable outcomes are of greatest and least importance to us. Under this scheme, the most-preferred set of outcomes is worth 100 points to us; the least-preferred is worth zero. You can earn up to 100 points depending upon how each of the five issues is resolved.</p>
+<p>The use of points may seem a bit artificial and awkward. But for the purposes of this negotiation, it enables us to combine our several interests -- developing the coastline, appeasing our Congressional oversight committee, retaining control over important projects, etc. -- into a single "currency." This, in turn, allows us to compare the gains and losses associated with different issues.</p>
+<p>Your task is to try to earn as many points as possible in this negotiation. This is not being greedy -- it simply means that we want to further our legitimate interests as far as possible. We will support any project worth at least 65 points, but that is the bare minimum we can accept. We certainly hope you will do much better.</p><br><br>
+
+<h5>Federal Loan</h5>
+<p>This issue is obviously of paramount importance to us. We would prefer to have at least some financial involvement in the project in order to retain some control over its operation. If we support this port and it turns out to be successful, our institutional credibility will improve dramatically. In addition, the current administration would like to claim credit for helping to establish the East Coast's first deep-water port.</p>
+<p>We do not, unfortunately, have unlimited funds to bestow on this project, and so we have assigned the following points to this issue:
+<ul><li>$1 billion loan = 40 points </li>
+<li>$2 billion loan = 26 points</li>
+<li> $3 billion loan = 10 points</li>
+<li>No loan = 0 points</li></ul></p>
+<p>As indicated by the point distribution, we would definitely prefer some financial involvement to none. But our Congressional oversight committee is anxious to see significant private-sector involvement in all projects we underwrite. Consequently, our first choice is to provide just $1 billion. While Harborco will have a somewhat difficult time raising the remaining $3 billion, it will not be impossible for them. (We think they already have almost $2 billion in potential commitments lined up.)</p>
+<p>In addition, there are several other projects being planned on both the East and West Coasts, many involving improvements to the existing ports. While we acknowledge the tremendous public benefits associated with a deep-water port on the East Coast, we would like to spread our money across as many worthwhile projects as possible. (Congress would also like to see our money spent in as many congressional districts as possible.)</p><br><br>
+<h5>Ecological Impact</h5>
+<p>In light of our dual mandate, we cannot accept a port that promises to do substantial damage to the environment. On the other hand, we do not want to burden Harborco with improving the ecology if such improvement threatens the economic viability of the port. We have assigned the following points to this issue:
+<ul><li> Improve the setting = 25 points</li>
+<li>Maintain and repair the setting = 20 points</li>
+<li>Do some harm to the ecological setting = 0 points</li>
+</ul></p>
+<p>As you can see, we are not averse to improvements. We can, after all, win some political credibility if improvements take place. But we are far more concerned that Harborco at least agrees to maintain and repair the setting. Improvements should be considered icing on the cake.</p><br><br>
+<h5>Compensation to Other Ports</h5>
+<p>This is a tricky issue for us because the four other ports in the region are part of our newly created constituency. We would be somewhat reluctant to sign an agreement that specifically excludes these ports from consideration. In addition, we should be very careful not to alienate members of Congress from these areas.</p>
+<p>On the other hand, we do not want to jeopardize the economic viability of the port by imposing huge compensation costs on it. The proposed compensation payments are calculated in current dollars and could prove to be a substantial burden for Harborco.</p>
+<p>Consequently, we prefer the compromise solutions to either of the two extremes. Our analysts suggest that, in fact, the other ports have overestimated their projected losses. We think a fair solution would be compensation of roughly $300 million. While these other ports may lose some business, they will undoubtedly gain other business as feeder ports; estimates of the value of this new business do not appear to have been included in their projected loss estimates.</p>
+<p>The following points are assigned to the various compensation levels proposed:
+<ul><li> $300 million = 15 points</li>
+<li> $150 million = 12 points </li>
+<li> $450 million = 8 points </li>
+<li> $600 million = 4 points </li>
+<li>No compensation = 0 points </li></ul></p><br><br>
+
+
+<h5>Industry Mix</h5>
+<p>This issue is moderately important because of its impact on the environment. While our mandate requires us to be sensitive to environmental concerns, we need not be overly sensitive. Here we think the environmentalists' demands may be a bit extreme. While we agree that the all-clean industry mix would create the least environmental damage, it would also unduly limit the profit potential of Harborco's port. Harborco should be free to develop a reasonably diverse industry mix. Too narrow a mix would make the port extremely vulnerable to fluctuations in the economy. Moreover, clean/dirty industries are much more likely to benefit from access to the port than all-clean industries.</p>
+<p>We have assigned the following points to this issue:
+<ul><li>Clean/dirty = 11 points</li>
+<li>All clean = 5 points </li>
+<li>Primarily dirty = 0 points </li></ul>
+As you can see, we again prefer the compromise position to either of the two extremes.</p><br><br>
+
+<h5>Employment Distribution</h5>
+<p>Compared to the other issues in this negotiation, this is perhaps a minor issue. Nevertheless, as former businesspeople we have some private qualms about tailoring a federally subsidized project to help organized labor. The workers haven't even been hired yet and already the unions are involved.</p>
+<p>Publicly opposing the unions on ideological grounds is probably very risky. But you should feel free to lend your support on this issue to any allies whose interests coincide with our own. The following points are assigned to this issue:
+<ul><li>No union preference = 9 points</li>
+<li>Union quota of 1:1 = 4 points</li>
+<li>Union quota of 2:1 = 2 points</li>
+<li>Unlimited union preference = 0 points</li></ul>
+
+<p>Keeping the unions out of the port will enable Harborco to keep its wage costs reasonably low. It will also allow Harborco an opportunity to experiment with labor- saving technologies that have historically been blocked by unions at other ports.</p>
+
+<p>Below is a scoring table that summarizes the points we have assigned to each of the five issues. This information is CONFIDENTIAL! You should not show your scoring sheet to anyone! Good luck. We are confident that you will negotiate an extremely valuable agreement for us.</p><br><br>
+
+
+<center>
+<h4>Points table</h4>
+<div id="points"><table>
+<tr><th>Issue</th><th>Options</th><th>Points</th></tr>
+
+<tr><td rowspan=3>Industry Mix</td><td>Primarily dirty</td><td>0</td></tr>
+<tr><td>Clean & dirty</td><td>11</td></tr>
+<tr><td>All clean</td><td>5</td></tr>
+
+<tr><td rowspan=3>Ecological Impact</td><td>Harm</td><td>0</td></tr>
+<tr><td>Maintain & repair</td><td>20</td></tr>
+<tr><td>Improve</td><td>25</td></tr>
+
+<tr><td rowspan=4>Employment Rules</td><td>Unlimited union preference</td><td>0</td></tr>
+<tr><td>Union quota 2:1</td><td>2</td></tr>
+<tr><td>Union quota 1:1</td><td>4</td></tr>
+<tr><td>No Union preference</td><td>9</td></tr>
+
+<tr><td rowspan=4 style="background-color:white">Federal Loan</td><td>$3 Billion</td><td>10</td></tr>
+<tr><td>$2 Billion</td><td>26</td></tr>
+<tr><td>$1 Billion</td><td>40</td></tr>
+<tr><td>no federal loan</td><td>0</td></tr>
+
+<tr><td rowspan=5>Compensation to other ports</td><td>HarborCo pays $600 million</td><td>4</td></tr>
+<tr><td>HarborCo pays $450 million</td><td>8</td></tr>
+<tr><td>HarborCo pays $300 million</td><td>15</td></tr>
+<tr><td>HarborCo pays $150 million</td><td>12</td></tr>
+<tr><td>HarborCo pays nothing</td><td>0</td></tr>
+
+</table></div><br>
+<strong>MINIMUM NEEDED FOR AGREEMENT = 65</strong>. This is also your score if no agreement is eached.
+</center>
+<br><br><br>
+
+
+<div style="background-color:lightgray; font-size:.75em;padding:2%">
+This case was written by Denise Madigan and Thomas Weeks under the supervision of Professor Lawrence Susskind (M.I.T.), Assistant Professor David Lax and the Negotiation Roundtable. Copies are available from the Teaching Negotiation Resource Center (TNRC), online at www.pon.org, by email: tnrc@law.harvard.edu, or by telephone at 800-258-4406. This case may not be reproduced, revised or translated in whole or in part by any means without the written permission of the Teaching Negotiation Resource Center Coordinator, Program on Negotiation at Harvard Law School, 501 Pound Hall, Cambridge, MA 02138. Please help to preserve the usefulness of this case by keeping it confidential. Copyright © 1984, 1988, 1989, 1994, 1995, 1996, 2007, 2014, 2018 by the President and Fellows of Harvard College. All rights reserved. (Rev. 9/18)
+</div>
+<br><br>
+<div id="clocked" style="margin-left:90%">
+    {% next_button %}
+</div>
+
+{% endblock %}
