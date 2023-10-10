@@ -31,12 +31,7 @@ dict(
         num_demo_participants=1,
         section_number=1,
         app_sequence=["calculator"]),
-dict(
-        name='newRecruit',
-        display_name="New Recruit",
-        num_demo_participants=2,
-        section_number=1,
-        app_sequence=["NewRecruit"]),
+
 dict(
         name='NoCode',
         display_name="NoCode, Inc",
@@ -49,12 +44,6 @@ dict(
         num_demo_participants=3,
         section_number=1,
         app_sequence=['Federated']),
-dict(
-        name='Bissap_Bops',
-        display_name="Bissap Bops",
-        num_demo_participants=2,
-        section_number=1,
-        app_sequence=['BissapBops']),
 dict(
         name='OmniChannel',
         display_name="OmniChannel",
@@ -72,7 +61,7 @@ dict(
         display_name="HarborCo voting",
         num_demo_participants=6,
         section_number=1,
-        app_sequence=['HarborCo_vote',"just_journal"])
+        app_sequence=['HarborCo_vote'])
 ]
 
 

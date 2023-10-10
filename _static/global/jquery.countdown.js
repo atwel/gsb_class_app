@@ -1,6 +1,6 @@
 /*
  * jQuery The Final Countdown plugin v1.0.0
- * http://github.com/hilios/jquery.countdown
+ * https://github.com/hilios/jquery.countdown
  *
  * Copyright (c) 2011 Edson Hilios
  *
@@ -24,14 +24,14 @@
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 (function($) {
-  
+
   $.fn.countdown = function(toDate, callback) {
     var handlers = ['seconds', 'minutes', 'hours', 'days', 'weeks', 'daysLeft'];
-    
+
     function delegate(scope, method) {
       return function() { return method.call(scope) }
     }
-    
+
     return this.each(function() {
       // Convert
       if(!(toDate instanceof Date)) {
@@ -41,7 +41,7 @@
             toDate.match(/([0-9]{2,4})\/([0-9]{1,2})\/([0-9]{1,2})\s([0-9]{1,2})\:([0-9]{2})\:([0-9]{2})/)
             ) {
           toDate = new Date(toDate);
-        } else if(toDate.match(/([0-9]{1,2})\/([0-9]{1,2})\/([0-9]{2,4})/) || 
+        } else if(toDate.match(/([0-9]{1,2})\/([0-9]{1,2})\/([0-9]{2,4})/) ||
                   toDate.match(/([0-9]{2,4})\/([0-9]{1,2})\/([0-9]{1,2})/)
                   ) {
           toDate = new Date(toDate)
@@ -49,14 +49,14 @@
           throw new Error("Doesn't seen to be a valid date object or string")
         }
       }
-      
+
       var $this = $(this),
           values = {},
           lasting = {},
           interval = $this.data('countdownInterval'),
           currentDate = new Date(),
           secondsLeft = Math.floor((toDate.valueOf() - currentDate.valueOf()) / 1000);
-      
+
       function triggerEvents() {
         // Evaluate if this node is included in the html
         if($this.closest('html').length === 0) {
@@ -84,13 +84,13 @@
             dispatchEvent(eventName);
           }
         }
-        if(secondsLeft == 0) { 
+        if(secondsLeft == 0) {
           stop();
           dispatchEvent('finished');
         }
       }
       triggerEvents();
-      
+
       function dispatchEvent(eventName) {
         var event     = $.Event(eventName);
         event.date    = new Date(new Date().valueOf() + secondsLeft);
@@ -111,7 +111,7 @@
         }
         callback.call($this, event);
       }
-      
+
       function stop() {
         clearInterval(interval);
       }
@@ -120,7 +120,7 @@
         $this.data('countdownInterval', setInterval(delegate($this, triggerEvents), 1000));
         interval = $this.data('countdownInterval');
       }
-      
+
       if(interval) stop();
       start();
     });
