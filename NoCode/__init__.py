@@ -223,12 +223,14 @@ class Planning_doc(Page):
                 "pdf_file": "NoCode/Stanfield.pdf",
                 "max_word_limit": C.PLANNING_DOC_LENGTH,
                 "xlsx_file": "NoCode/Stanfield Point System.xlsx",
+                "assignment_url":"/173725/assignments/514456"
             }
         if player.id_in_group == 2:
             return {
                 "pdf_file": "NoCode/Sproles.pdf",
                 "max_word_limit": C.PLANNING_DOC_LENGTH,
                 "xlsx_file": "NoCode/Sproles Point System.xlsx",
+                "assignment_url":"/173725/assignments/514456"
             }
 
 
@@ -367,11 +369,13 @@ class Journaling_page(Page):
             return {
                 "pdf_file": "NoCode/Stanfield.pdf",
                 "xlsx_file": "NoCode/Stanfield Point System.xlsx",
+                "assignment_url":"/173725/assignments/514458"
             }
         if player.id_in_group == 2:
             return {
                 "pdf_file": "NoCode/Sproles.pdf",
                 "xlsx_file": "NoCode/Sproles Point System.xlsx",
+                "assignment_url":"/173725/assignments/514458"
             }
 
 

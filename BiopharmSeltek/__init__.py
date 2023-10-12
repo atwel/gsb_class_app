@@ -205,11 +205,13 @@ class Planning_doc(Page):
         if player.id_in_group == 1:
             return {
                 "return_link": "BiopharmSeltek/Seltek_materials.html",
+                "assignment_url":"/173725/assignments/514336",
                 "max_word_limit": C.PLANNING_DOC_LENGTH,
             }
         if player.id_in_group == 2:
             return {
                 "return_link": "BiopharmSeltek/Biopharm_materials.html",
+                "assignment_url":"/173725/assignments/514336",
                 "max_word_limit": C.PLANNING_DOC_LENGTH,
             }
 
@@ -341,9 +343,9 @@ class Journaling_page(Page):
     @staticmethod
     def vars_for_template(player: Player):
         if player.id_in_group == 1:
-            return {"pdf_file": "BiopharmSeltek/Seltek.pdf"}
+            return {"pdf_file": "BiopharmSeltek/Seltek.pdf", "assignment_url":"/173725/assignments/514450"}
         if player.id_in_group == 2:
-            return {"pdf_file": "BiopharmSeltek/BioPharm.pdf"}
+            return {"pdf_file": "BiopharmSeltek/BioPharm.pdf","assignment_url":"/173725/assignments/514450"}
 
 
 class Outro(Page):

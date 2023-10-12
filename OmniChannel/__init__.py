@@ -189,12 +189,12 @@ class Planning_doc(Page):
         if role(player) == "3dtv":
             return {
                 "pdf_file": "OmniChannel/3DTV.pdf",
-                "assignment_url": "https://canvas.stanford.edu/courses/173725/assignments/514474",
+                "assignment_url": "/173725/assignments/514474",
             }
         elif role(player) == "omni":
             return {
                 "pdf_file": "OmniChannel/OmniChannel.pdf",
-                "assignment_url": "https://canvas.stanford.edu/courses/173725/assignments/514474",
+                "assignment_url": "/173725/assignments/514474",
             }
 
 
@@ -243,7 +243,7 @@ class Journaling_page(Page):
 
     @staticmethod
     def vars_for_template(player: Player):
-        return {"assignment_url": "https://canvas.stanford.edu/courses/173725/assignments/514475"}
+        return {"assignment_url": "/173725/assignments/514475"}
 
 
 class Outro(Page):

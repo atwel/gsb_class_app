@@ -267,11 +267,11 @@ class Planning_doc(Page):
     @staticmethod
     def vars_for_template(player: Player):
         if role(player) == "stockman":
-            return {"pdf_file": "Federated/Stockman.pdf"}
+            return {"pdf_file": "Federated/Stockman.pdf", "assignment_url":"/173725/assignments/514461"}
         elif role(player) == "turbo":
-            return {"pdf_file": "Federated/Turbo.pdf"}
+            return {"pdf_file": "Federated/Turbo.pdf", "assignment_url":"/173725/assignments/514461"}
         elif role(player) == "united":
-            return {"pdf_file": "Federated/United.pdf"}
+            return {"pdf_file": "Federated/United.pdf", "assignment_url":"/173725/assignments/514461"}
 
 
 class Ready_for_class(Page):
@@ -361,8 +361,8 @@ class Outcome(Page):
 
 class Journaling_page(Page):
     form_model = "player"
-    # form_fields = ["journaling_text"]
-    # timeout_seconds = C.REFLECTION_TIME*60
+    def vars_for_template(player: Player):
+        return {"assignment_url": "/173725/assignments/514463"}
 
 
 class Outro(Page):

@@ -151,37 +151,37 @@ class Planning_doc(Page):
         if role(player) == "dcr":
             return {
                 "pdf_file": "HarborCo/FederalDCR.pdf",
-                "assignment_url": "https://canvas.stanford.edu/courses/173725/assignments/514484",
+                "assignment_url": "/173725/assignments/514484",
             }
         elif role(player) == "harborco":
             return {
                 "pdf_file": "HarborCo/Harborco.pdf",
-                "assignment_url": "https://canvas.stanford.edu/courses/173725/assignments/514484",
+                "assignment_url": "/173725/assignments/514484",
             }
         elif role(player) == "ports":
             return {
                 "pdf_file": "HarborCo/OtherPorts.pdf",
-                "assignment_url": "https://canvas.stanford.edu/courses/173725/assignments/514484",
+                "assignment_url": "/173725/assignments/514484",
             }
         elif role(player) == "union":
             return {
                 "pdf_file": "HarborCo/Union.pdf",
-                "assignment_url": "https://canvas.stanford.edu/courses/173725/assignments/514484",
+                "assignment_url": "/173725/assignments/514484",
             }
         elif role(player) == "gov":
             return {
                 "pdf_file": "HarborCo/Governor.pdf",
-                "assignment_url": "https://canvas.stanford.edu/courses/173725/assignments/514484",
+                "assignment_url": "/173725/assignments/514484",
             }
         elif role(player) == "enviro":
             return {
                 "pdf_file": "HarborCo/EnvironmentalLeague.pdf",
-                "assignment_url": "https://canvas.stanford.edu/courses/173725/assignments/514484",
+                "assignment_url": "/173725/assignments/514484",
             }
         else:
             return {
                 "pdf_file": "HarborCo/Governor.pdf",
-                "assignment_url": "https://canvas.stanford.edu/courses/173725/assignments/514484",
+                "assignment_url": "/173725/assignments/514484",
             }
 
 
