@@ -9,13 +9,6 @@ SESSION_CONFIG_DEFAULTS = dict(
     real_world_currency_per_point=1.00, participation_fee=0.00, doc=""
 )
 
-"""dict(name="Seating",
-        display_name="Seating allocation",
-        num_demo_participants=1,
-        app_sequence=["seating"],
-        section_number=1,
-        section_seats = 23,
-        start_index=0),"""
 
 SESSION_CONFIGS = [
 
@@ -97,10 +90,10 @@ ROOMS = [
 DEMO_PAGE_INTRO_HTML = """
 Here are some oTree games.
 """
-ADMIN_USERNAME = "atwell"
-ADMIN_PASSWORD = "aaaa"
+#ADMIN_USERNAME = "atwell"
+#ADMIN_PASSWORD = "aaaa"
 
 # don't share this with anybody.
-SECRET_KEY = 'z$k1!j!#nzwc#1af2%x9$^vde#u*(mf$wbdrmsw4f=$u2@jo!e'
+#SECRET_KEY = 'z$k1!j!#nzwc#1af2%x9$^vde#u*(mf$wbdrmsw4f=$u2@jo!e'
 
 INSTALLED_APPS = ['otree']
