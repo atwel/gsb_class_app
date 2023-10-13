@@ -75,7 +75,7 @@ ROOMS = [
         participant_label_file = "_rooms/Sp23_02.txt",
     ),
     dict(
-            name='219472,219477',
+            name='219472219477',
             display_name='OB581_error',
             participant_label_file = "_rooms/Sp23_02.txt",
     )
