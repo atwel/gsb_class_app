@@ -1,0 +1,1 @@
+https://gsb-ob581.herokuapp.com/room/${Canvas.course.sectionIds}?participant_label=${Person.name.given}_${Person.name.family}

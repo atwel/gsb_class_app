@@ -1,0 +1,37 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+Voting
+
+{% endblock %}
+
+
+{% block styles %}
+<link rel="stylesheet" href="{% static "global/custom_theme.css" %}">
+
+{% endblock %}
+
+
+
+{% block content %}
+
+<h5>Stellar Cove has asked you to vote on the following proposal:</h5><br>
+
+The <strong>Property Mix</strong> of the project would be <strong>{{ mix }}</strong>.<br>
+
+The <strong>Green Space</strong> would be <strong>{{ green }}</strong> acres.<br>
+
+The <strong>Maximum Building Height</strong> would be <strong>{{ height }}</strong>.<br>
+
+The project would have <strong>{{ low_income }} low income housing</strong>.
+<br>
+The project could have <strong>{{ venues }}</strong> for entertainment.
+
+{% formfields %}
+<br>
+<div style="margin-left:90%">
+    {% next_button %}
+</div>
+
+{% endblock %}

@@ -136,52 +136,8 @@ class Recruiter_calculator(Page):
 
 class Explore_calc(Page):
     form_model = "player"
-    form_fields = [
-        'bonus_pareto',
-        'job_assignment_pareto',
-        'location_pareto',
-        'insurance_coverage_pareto',
-        'vacation_time_pareto',
-        'moving_expenses_pareto',
-        "salary_pareto",
-        'starting_date_pareto',
-        'bonus_pair',
-        'job_assignment_pair',
-        'location_pair',
-        'insurance_coverage_pair',
-        'vacation_time_pair',
-        'moving_expenses_pair',
-        "salary_pair",
-        'starting_date_pair',
-    ]
-    # timeout_seconds = C.CALCULATOR_TIME * 60
-    @staticmethod
-    def before_next_page(player: Player, timeout_happened):
-        points_recruiter = (
-            C.SALARY[player.salary_pareto][0]
-            + C.BONUS[player.bonus_pareto][0]
-            + C.LOCATION[player.location_pareto][0]
-            + C.INSURANCE_COVERAGE[player.insurance_coverage_pareto][0]
-            + C.VACATION_TIME[player.vacation_time_pareto][0]
-            + C.MOVING_EXPENSES[player.moving_expenses_pareto][0]
-            + C.JOB_ASSIGNMENT[player.job_assignment_pareto][0]
-            + C.STARTING_DATE[player.starting_date_pareto][0]
-        )
-        points_candidate = (
-            C.SALARY[player.salary_pareto][1]
-            + C.BONUS[player.bonus_pareto][1]
-            + C.LOCATION[player.location_pareto][1]
-            + C.INSURANCE_COVERAGE[player.insurance_coverage_pareto][1]
-            + C.VACATION_TIME[player.vacation_time_pareto][1]
-            + C.MOVING_EXPENSES[player.moving_expenses_pareto][1]
-            + C.JOB_ASSIGNMENT[player.job_assignment_pareto][1]
-            + C.STARTING_DATE[player.starting_date_pareto][1]
-        )
-        player.optimal_points = points_candidate + points_recruiter
 
 
-class Explore_calc2(Page):
-    form_model = "player"
 
 
-page_sequence = [Candidate_calculator, Recruiter_calculator, Explore_calc, Explore_calc2]
+page_sequence = [Candidate_calculator, Recruiter_calculator, Explore_calc]

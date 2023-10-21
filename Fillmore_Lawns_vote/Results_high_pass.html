@@ -1,0 +1,33 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+Voting Results
+
+{% endblock %}
+
+
+{% block styles %}
+<link rel="stylesheet" href="{% static "global/custom_theme.css" %}">
+<style>
+.otree-timer {
+    display: none;
+}
+</style>
+{% endblock %}
+
+{% block content %}
+
+<h5>Congratulations all, the proposal passed unanimously!</h5>
+<br>
+The <em>Federal Licensing Administration</em> is very pleased with the consensus that was reached and will fast-track the licensing process. <br><br>
+The negotiation is complete and you are finished with class for the day. However, please make sure to submit your reflection by continuing to the next page. The submission is untimed.
+<br><br><br><br>
+
+
+
+<div id="clocked" style="margin-left:90%">
+    {% next_button %}
+</div>
+
+{% endblock %}

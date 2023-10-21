@@ -2,7 +2,7 @@
 {% load otree %}
 
 {% block global_styles  %}
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self' script-src 'unsafe-inline' style-src 'unsafe-inline' ">
 <link href="{% static 'global/favicon.ico' %}" rel="shortcut icon" />
 {% endblock %}
 

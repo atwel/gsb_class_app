@@ -8,30 +8,11 @@ THE BIOPHARM-SELTEK NEGOTIATION<br>
 
 
 {% block styles %}
-<link rel="stylesheet" href="{% static "global/custom_theme.css" %}">
+<link rel="stylesheet" href="{% static 'global/custom_theme.css' %}">
 {% endblock %}
 
 {% block content %}
 <script type="text/javascript" src="{% static 'global/jquery.countdown.js' %}"></script>
-
-<script type="text/javascript">
-    $(function() {
-        var currentDate = new Date();
-        var milliseconds = 480000;
-        $('div#clocked').countdown(currentDate.valueOf() + milliseconds, function(event) {
-                console.log(event.type)
-                switch(event.type) {
-                    case "finish":
-                      $('div#clocked').hide();
-                    case "finished":
-                        $('div#clocked').hide();
-                }
-            });
-
-
-    });
-</script>
-
 <h2></h2>
 <br>
 <h4>Role for BioPharm, CFO</h4>
@@ -70,23 +51,17 @@ The following information is in the public domain and was made available to BioP
 <li>An identical plot of land across the street from the Seltek plant just sold for $500,000 after being on the market for three years.</li>
 
 <li>There are no environmental liabilities pending, but there is a $200,000 tax lien on the property.</li>
-</ol><br><br>
-
+</ol><br>
+<div style="margin-left:90%">
+    {% next_button %}
+</div>
+<br>
 <div style="background-color:lightgray; font-size:.75em;padding:2%">
 Formerly known as Synertech-Dosagen<br>
 Leonard Greenhalgh - Dartmouth College<br>
 © 2000-2018 Dispute Resolution Research Center (DRRC), Kellogg School of Management, Northwestern University. All rights reserved.<br>
 DRRC teaching materials are protected by copyright law. DRRC requires a per person royalty for use of its exercises. Each purchase of an exercise authorizes copying or electronic distribution of that exercise equal to the quantity purchased.
-
 </div>
 <br><br>
-<div style="margin-left:90%">
-    {% next_button %}
-</div>
-<br>
-<br>
-<!--<div id="clocked" style="margin-left:75%">
-<span style="color:red">Caution:</span><br>You can't return to this page once you click next.
-</div>-->
 
 {% endblock %}

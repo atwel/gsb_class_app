@@ -6,7 +6,7 @@ Possible Outcomes
 {% endblock %}
 
 {% block styles %}
-<link rel="stylesheet" href="{% static "global/custom_theme.css" %}">
+<link rel="stylesheet" href="{% static 'global/custom_theme.css' %}">
 {% endblock %}
 
 {% block content %}
@@ -15,10 +15,10 @@ Possible Outcomes
 <br>
     {% formfields %}
 <br><br>
-View the case materials
+If you need to view the case materials again, click
 <a target="_blank" rel="noopener noreferrer" href="{% static pdf_file %}">here</a> (new tab).
 <br><br>
-    <div id="clocked" style="margin-left:90%">
+    <div style="margin-left:90%">
         {% next_button %}
     </div>
     <br><br>

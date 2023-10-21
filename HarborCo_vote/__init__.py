@@ -8,11 +8,11 @@ author = 'Jon Atwell'
 doc = """
 Voting platform for HarborCo
 """
-with open("_rooms/Sp23_01.txt", "r") as f:
+with open("_rooms/FALL23_01.txt", "r") as f:
     raw_string = f.read()
     names_section1 = raw_string.split("\n")
     # names_section1.pop()
-with open("_rooms/Sp23_02.txt", "r") as f:
+with open("_rooms/FALL23_02.txt", "r") as f:
     raw_string = f.read()
     names_section2 = raw_string.split("\n")
     # names_section2.pop()

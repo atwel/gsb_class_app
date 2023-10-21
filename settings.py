@@ -44,19 +44,18 @@ dict(
         section_number=1,
         app_sequence=['OmniChannel']),
 dict(
-        name='HarborCo',
-        display_name="Harbor Co",
+        name='Fillmore_lawns',
+        display_name="Fillmore Lawns",
         num_demo_participants=6,
         section_number=1,
-        app_sequence=['HarborCo']),
+        app_sequence=['Fillmore_Lawns']),
 dict(
-        name='HarborCo_vote',
-        display_name="HarborCo voting",
+        name='Fillmore_votes',
+        display_name="Fillmore Lawns voting",
         num_demo_participants=6,
         section_number=1,
-        app_sequence=['HarborCo_vote'])
+        app_sequence=['Fillmore_Lawns_vote'])
 ]
-
 
 LANGUAGE_CODE = 'en'
 
@@ -67,17 +66,17 @@ ROOMS = [
     dict(
         name='219472',
         display_name='Section 1',
-        participant_label_file = "_rooms/Sp23_01.txt",
+        participant_label_file = "_rooms/FALL23_01.txt",
     ),
     dict(
         name='219477',
         display_name='Section 2',
-        participant_label_file = "_rooms/Sp23_02.txt",
+        participant_label_file = "_rooms/FALL23_02.txt",
     ),
     dict(
             name='219472219477',
             display_name='OB581_error',
-            participant_label_file = "_rooms/Sp23_02.txt",
+            participant_label_file = "_rooms/Sp23_03.txt",
     )
 ]
 
@@ -87,6 +86,7 @@ Here are some oTree games.
 """
 ADMIN_USERNAME = environ.get("ADMIN_USERNAME")
 ADMIN_PASSWORD = environ.get('ADMIN_PASSWORD')
+
 # don't share this with anybody.
 SECRET_KEY = environ.get('SECRET_KEY')
 

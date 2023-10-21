@@ -5,7 +5,7 @@ from otree.api import *
 
 author = 'Jon Atwell'
 doc = """
-Negotatiing BioPharm Seltek with a partner
+Negotating BioPharm Seltek with a partner
 """
 
 
@@ -17,13 +17,16 @@ class C(BaseConstants):
     PLANNING_DOC_LENGTH = 75
     PLANNING_DOC_TIME_MINUTES = 5
     NEGOTIATING_TIME = 25
-
+    CLASSCODE = 180595
+    PLANNING_ASSIGNMENT_CODE = 542282
+    REFLECTION_ASSIGNMENT_CODE = 542283
+    FEEDBACK_ASSIGNMENT_CODE = 560007
 
 class Subsession(BaseSubsession):
     pass
 
 class Group(BaseGroup):
-    # link = models.StringField(label="Stanford Zoom URL")
+
     initial_price = models.CurrencyField(
         label="What was the price of the first offer? (In millions of USD [e.g. $XX.xx])"
     )
@@ -64,31 +67,19 @@ class Player(BasePlayer):
     journaling_text = models.LongStringField(
         label="Please describe your experience of the negotiation."
     )
-    partner = models.StringField()
     name = models.StringField()
     grole = models.StringField()
+    partner_name = models.StringField()
+    feedback = models.BooleanField()
+    consent = models.BooleanField(label="Are you willing to RECEIVE constructive feedback from your negotiation partner?")
+    review_consent = models.BooleanField(label="Similarly, are you willing to GIVE constructive feedback to your negotiation partner?")
 
 
 # FUNCTIONS
 def set_timer(group: Group):
     start_time = time.time()
     for player in group.get_players():
-        player.participant.vars["sim_timer"] = start_time + C.NEGOTIATING_TIME * 60 + 30
-
-
-def waiting_too_long(player: Player):
-    return time.time() - player.participant.vars['arrival_time'] > 120
-
-
-# PAGES
-SUNet_to_name = {
-    "extra1": "Unnamed #1 (see Pr. Atwell)",
-    "extra2": "Unnamed #2 (see Pr. Atwell)",
-    "extra3": "Unnamed #3 (see Pr. Atwell)",
-    "extra4": "Unnamed #4 (see Pr. Atwell)",
-    "extra5": "Unnamed #5 (see Pr. Atwell)",
-    "extra6": "Unnamed #6 (see Pr. Atwell)",
-}
+        player.participant.vars["sim_timer"] = start_time + C.NEGOTIATING_TIME * 60 + 120
 
 
 class IntroWaitPage(WaitPage):
@@ -108,11 +99,14 @@ class Introduction(Page):
     @staticmethod
     def before_next_page(player: Player, timeout_happened):
         try:
-            player.participant.vars["SUNet"] = player.participant.label
-            player.participant.vars["name"] = SUNet_to_name[player.participant.label]
+            name =" ".join(player.participant.label.split("_"))
+            player.participant.vars["name"] = name
         except:
-            player.participant.vars["SUNet"] = "none"
-            player.participant.vars["name"] = "(come see Dr. Atwell)"
+            try:
+                name = player.participant.label.split("_")[0]
+                player.participant.vars["name"] = name
+            except:
+                player.participant.vars["name"] = "NOT PROVIDED"
         player.name = player.participant.vars["name"]
 
     @staticmethod
@@ -121,20 +115,9 @@ class Introduction(Page):
             C.READING_TIME
             + C.PLANNING_DOC_TIME_MINUTES
             + C.NEGOTIATING_TIME
-            + 10
+            + 5
         )
         return {"reading_limit": C.READING_TIME, "total_time": total_time}
-
-
-class Meeting_location(Page):
-    form_model = "player"
-
-    @staticmethod
-    def vars_for_template(player: Player):
-        return {
-            "zoom_link": player.participant.vars["zoom_link"],
-            "pdf_file": "global/OutdoorMap.pdf",
-        }
 
 
 class Seltek_materials(Page):
@@ -205,33 +188,28 @@ class Planning_doc(Page):
         if player.id_in_group == 1:
             return {
                 "return_link": "BiopharmSeltek/Seltek_materials.html",
-                "assignment_url":"/173725/assignments/514336",
+                "assignment_url":"/{}/assignments/{}".format(C.CLASSCODE, C.PLANNING_ASSIGNMENT_CODE),
                 "max_word_limit": C.PLANNING_DOC_LENGTH,
             }
         if player.id_in_group == 2:
             return {
                 "return_link": "BiopharmSeltek/Biopharm_materials.html",
-                "assignment_url":"/173725/assignments/514336",
+                "assignment_url":"/{}/assignments/{}".format(C.CLASSCODE, C.PLANNING_ASSIGNMENT_CODE),
                 "max_word_limit": C.PLANNING_DOC_LENGTH,
             }
 
 
-class Meeting_location_reminder(Page):
+class Partner_reveal(Page):
     form_model = "player"
 
     @staticmethod
     def vars_for_template(player: Player):
         partner = player.get_others_in_group()[0]
-        player.partner = partner.participant.vars["name"]
-        if player.id_in_group == 1:
-            player.grole = "Seltek"
-        else:
-            player.grole = "BioPharm"
+        player.partner_name = partner.name#participant.vars["name"]
         return {
             "negotiating_time": C.NEGOTIATING_TIME,
-            "partner": partner.participant.vars["name"],
+            "partner": player.partner_name,
         }
-        # return {"zoom_link":self.participant.vars["zoom_link"], "pdf_file":"global/OutdoorMap.pdf"}
 
 
 class Meeting_wait(WaitPage):
@@ -242,7 +220,7 @@ class Meeting_wait(WaitPage):
     def vars_for_template(player: Player):
         return {
             "title_text": "Waiting...",
-            "body_text": "We're waiting for your counterparty to be ready. Once they finish up, you'll go back to the case materials page and the timed negotiation will begin.",
+            "body_text": "We're waiting for your counterparty to be ready. Once they are done preparing, you'll advance to the next page and learn who they are.",
         }
 
 
@@ -253,7 +231,7 @@ class Seltek_materials_no_timer(Page):
 
     @staticmethod
     def get_timeout_seconds(player: Player):
-        return C.NEGOTIATING_TIME * 60  # self.participant.vars["sim_timer"] - time.time()
+        return player.participant.vars["sim_timer"] - time.time()
 
     @staticmethod
     def is_displayed(player: Player):
@@ -271,7 +249,7 @@ class BioPharm_materials_no_timer(Page):
 
     @staticmethod
     def get_timeout_seconds(player: Player):
-        return C.NEGOTIATING_TIME * 60  # self.participant.vars["sim_timer"] - time.time()
+        return player.participant.vars["sim_timer"] - time.time()
 
     @staticmethod
     def is_displayed(player: Player):
@@ -308,7 +286,6 @@ class Negotiated_outcome_two(Page):
 
 class Outcome_wait(WaitPage):
     form_model = "group"
-    form_fields = ["nego_time"]
 
     @staticmethod
     def vars_for_template(player: Player):
@@ -323,33 +300,34 @@ class Outcome_wait(WaitPage):
                 "body_text": "Wait a moment for the Seltek representative.\n\n",
             }
 
-
-class Sign_off_page(Page):
-    form_model = "group"
-
-    @staticmethod
-    def before_next_page(player: Player, timeout_happened):
-        bio = player.group.get_player_by_id(2)
-        player.group.nego_time = int(time.time() - bio.participant.vars["sim_start"])
-
-
-class Finished_case(Page):
-    form_model = "group"
-
-
-class Journaling_page(Page):
+class Feedback_consent(Page):
     form_model = "player"
-    # timeout_seconds = 180
+    form_fields = ["consent", "review_consent"]
+
+class ConsentWaitPage(WaitPage):
+
     @staticmethod
     def vars_for_template(player: Player):
-        if player.id_in_group == 1:
-            return {"pdf_file": "BiopharmSeltek/Seltek.pdf", "assignment_url":"/173725/assignments/514450"}
-        if player.id_in_group == 2:
-            return {"pdf_file": "BiopharmSeltek/BioPharm.pdf","assignment_url":"/173725/assignments/514450"}
+        return {
+            "title_text": "Waiting...",
+            "body_text": "Please wait while your partner considers whether they want feedback",
+        }
 
 
-class Outro(Page):
-    form_model = "group"
+class Reflection_page(Page):
+    form_model = "player"
+
+    @staticmethod
+    def vars_for_template(player: Player):
+        feedback_url = "/{}/assignments/{}".format(C.CLASSCODE, C.FEEDBACK_ASSIGNMENT_CODE)
+        reflection_url = "/{}/assignments/{}".format(C.CLASSCODE, C.REFLECTION_ASSIGNMENT_CODE)
+
+        if player.review_consent and player.get_others_in_group()[0].consent:
+            player.feedback = True
+        else:
+            player.feedback = False
+        return {"feedback_url":feedback_url, "reflection_url":reflection_url, "BF_pdf_file": "BiopharmSeltek/BioPharm.pdf", "ST_pdf_file": "BiopharmSeltek/Seltek.pdf"}
+
 
 
 page_sequence = [
@@ -361,13 +339,13 @@ page_sequence = [
     Preferences_input_ST,
     Planning_doc,
     Meeting_wait,
-    Meeting_location_reminder,
+    Partner_reveal,
     Seltek_materials_no_timer,
     BioPharm_materials_no_timer,
     Negotiated_outcome_one,
     Negotiated_outcome_two,
     Outcome_wait,
-    Finished_case,
-    Journaling_page,
-    Outro,
+    Feedback_consent,
+    ConsentWaitPage,
+    Reflection_page
 ]

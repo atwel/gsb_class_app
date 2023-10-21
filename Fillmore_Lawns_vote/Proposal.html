@@ -1,0 +1,30 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+Construct a proposal
+
+{% endblock %}
+
+
+{% block styles %}
+<link rel="stylesheet" href="{% static "global/custom_theme.css" %}">
+
+{% endblock %}
+
+{% block content %}
+<br>
+<h5>As Stellar Cove you can put proposals up for vote. Select an option for each of the five issues listed below.</h5>
+<br>
+<h6>Note that you will not be able to change the options after submitting . Please select carefully!</h6>
+<br><br>
+
+{% formfields %}
+
+<br><br>
+<div style="margin-left:90%">
+    {% next_button %}
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+Negotiation Experience
+{% endblock %}
+
+
+{% block styles %}
+<link rel="stylesheet" href="{% static "global/custom_theme.css" %}">
+{% endblock %}
+
+{% block content %}
+
+Now that the negotiation has ended, you need to reflect on your experience of it.<br>
+There is no word-count requirement.
+<br>
+<br>
+<a target="_blank" rel="noopener noreferrer" href='https://canvas.stanford.edu/courses'\{{ assignment_url }}'>Link to Canvas assignment</a>.
+<br>
+
+
+<br><br>
+<div style="margin-left:90%">
+    {% next_button %}
+</div>
+
+{% endblock %}
