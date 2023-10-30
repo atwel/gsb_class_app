@@ -74,6 +74,11 @@ ROOMS = [
         participant_label_file = "_rooms/FALL23_02.txt",
     ),
     dict(
+            name='fillmore',
+            display_name='Fillmore Lawns',
+            participant_label_file = "_rooms/Fillmore_Lawns.txt",
+        ),
+    dict(
             name='219472219477',
             display_name='OB581_error',
             participant_label_file = "_rooms/Sp23_03.txt",
