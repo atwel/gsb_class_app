@@ -2,99 +2,30 @@
 {% load otree static %}
 
 {% block title %}
-Calculator and straw polls
+Calculator and <em> informal</em> voting
 {% endblock %}
 
 {% block styles %}
 <link rel="stylesheet" href="{% static 'global/custom_theme.css' %}">
-<style>
-.points {
-  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-  border-collapse: collapse;
-  width: 100%;
-  border: 2px solid
-}
 
-.points td {
-  border: 1px solid #ddd;
-  padding: 1px;
-  width: 14.5%;
-  text-align: center;
-  padding-bottom: 4px;
-}
-
-.points th {
-  border: 1px solid #ddd;
-  text-align: center;
-  padding-top: 1px;
-  padding-bottom: 1px;
-  background-color: #0170a3;
-  border-bottom: 2px solid  #0170a3;
-  color: white;
-}
-
-.tr_bottom {
-  border-bottom: 3px solid;
-}
-
-.points tr:nth-child(even){background-color: #f2f2f2;}
-
-.columnone {
-  float: left;
-  width: 80%;
-  padding: 5px;
-}
-.columntwo {
-  float: left;
-  width: 20%;
-  padding: 5px;
-}
-
-/* Clearfix (clear floats) */
-.row::after {
-  content: "";
-  clear: both;
-  display: table;
-}
-
-</style>
 {% endblock %}
 
 {% block content %}
   <br>
-    <h5>Use this calculator to understand your interests in this negotiation.</h5><br>
-
+<h6>Use this calculator to understand your interests in this negotiation.</h6>
 <div class="row">
   <div class="columnone">
     <div id="calculator">
+      As the representative for <strong>{{ my_name }}</strong>, your reservation price is <strong>{{ my_rp }}</strong>.
     <table class="points">
-    <tr><th>Issues</th><th colspan=5>Options</th><th>Issue Points</th></tr>
+    <tr><th>Issues</th><th colspan=5>Options</th><th>Points</th></tr>
 
-    <tr>
-      <td rowspan=2>Max Building Height</td>
-      <td>400ft</td><td>500ft</td><td>600ft</td><td>700ft</td><td>800ft</td>
-      <td rowspan=2><output id="height_output"></output></td>
-  </tr>
-  <tr>
-      <td><input type="radio" name="height" value="400" oninput="height_output.value = {{height_1}}"></td>
-      <td><input type="radio" name="height" value="500" oninput="height_output.value = {{height_2}}"></td>
-      <td><input type="radio" name="height" value="600" oninput="height_output.value = {{ height_3 }}"></td>
-      <td><input type="radio" name="height" value="700" oninput="height_output.value = {{ height_4 }}"></td>
-      <td><input type="radio" name="height" value="800" oninput="height_output.value = {{ height_5 }}"></td>
-  </tr>
 
-  <tr>
-      <td rowspan=2>Entertainment Complex</td>
-      <td>0 venues</td><td>1 venue</td><td>2 venues</td><td>3 venues</td><td>4 venues</td>
-      <td rowspan=2><output id="venues_output"></output></td>
-  </tr>
-  <tr>
-      <td><input type="radio" name="venues" value=0 oninput="venues_output.value = {{ venue_1 }}"></td>
-      <td><input type="radio" name="venues" value=1 oninput="venues_output.value = {{ venue_2 }}"></td>
-      <td><input type="radio" name="venues" value=2 oninput="venues_output.value = {{ venue_3 }}"></td>
-      <td><input type="radio" name="venues" value=3 oninput="venues_output.value = {{ venue_4 }}"></td>
-      <td><input type="radio" name="venues" value=4 oninput="venues_output.value = {{ venue_5 }}"></td>
-  </tr>
+
+  <tr><td rowspan=2>Property mix (r:c)</td><td>30:70</td><td>50:50</td><td>70:30</td><td rowspan=2></td><td rowspan=2></td><td rowspan=2><output id="mix_output"></output></td></tr>
+          <tr><td ><input type="radio" name="mix" value="30:70" oninput="mix_output.value = {{ mix_1 }}"></td>
+                <td ><input type="radio" name="mix" value="50:50" oninput="mix_output.value = {{ mix_2 }}" ></td>
+                <td><input type="radio" name="mix" value="70:30" oninput="mix_output.value = {{ mix_3 }}"></td></tr>
 
   <tr>
       <td rowspan=2>Low-income residential</td>
@@ -120,29 +51,54 @@ Calculator and straw polls
       <td><input type="radio" name="green" value=20 oninput="green_output.value = {{ green_4 }}"></td>
   </tr>
 
-  <tr><td rowspan=2>Property mix (r:c)</td><td>30:70</td><td>50:50</td><td>70:30</td><td rowspan=2></td><td rowspan=2></td><td rowspan=2><output id="mix_output"></output></td></tr>
-          <tr><td ><input type="radio" name="mix" value="30:70" oninput="mix_output.value = {{ mix_1 }}"></td>
-                <td ><input type="radio" name="mix" value="50:50" oninput="mix_output.value = {{ mix_2 }}" ></td>
-                <td><input type="radio" name="mix" value="70:30" oninput="mix_output.value = {{ mix_3 }}"></td></tr></table>
+  <tr>
+    <td rowspan=2>Max Building Height</td>
+    <td>400ft</td><td>500ft</td><td>600ft</td><td>700ft</td><td>800ft</td>
+    <td rowspan=2><output id="height_output"></output></td>
+</tr>
+<tr>
+    <td><input type="radio" name="height" value="400" oninput="height_output.value = {{height_1}}"></td>
+    <td><input type="radio" name="height" value="500" oninput="height_output.value = {{height_2}}"></td>
+    <td><input type="radio" name="height" value="600" oninput="height_output.value = {{ height_3 }}"></td>
+    <td><input type="radio" name="height" value="700" oninput="height_output.value = {{ height_4 }}"></td>
+    <td><input type="radio" name="height" value="800" oninput="height_output.value = {{ height_5 }}"></td>
+</tr>
 
+<tr>
+    <td rowspan=2>Entertainment Complex</td>
+    <td>0 venues</td><td>1 venue</td><td>2 venues</td><td>3 venues</td><td>4 venues</td>
+    <td rowspan=2><output id="venues_output"></output></td>
+</tr>
+<tr>
+    <td><input type="radio" name="venues" value=0 oninput="venues_output.value = {{ venue_1 }}"></td>
+    <td><input type="radio" name="venues" value=1 oninput="venues_output.value = {{ venue_2 }}"></td>
+    <td><input type="radio" name="venues" value=2 oninput="venues_output.value = {{ venue_3 }}"></td>
+    <td><input type="radio" name="venues" value=3 oninput="venues_output.value = {{ venue_4 }}"></td>
+    <td><input type="radio" name="venues" value=4 oninput="venues_output.value = {{ venue_5 }}"></td>
+</tr>
 
-
-
-        <span style="margin-left:74%;font-size:1.3em">Total Points:&emsp;&emsp;&emsp;<span id="total">-</span></span>
-<span style="margin-left:74%;font-size:1.3em"><button type="button" id="submit_prop" onclick=submit_proposal()>Submit for Straw Poll</button></span>
+</table>
+<table class="totalpoints">
+    <tr><td></td><td></td><td></td><td></td><td></td><td style="text-align:right">Total Points:</td><td style="text-align:center"><span id="total">-</span></td></tr>
+<tr><td></td><td></td><td></td><td></td><td></td><td colspan=2 style="text-align:center"><span><button type="button" id="submit_prop" onclick=submit_proposal() style="text-align:center">Submit for Informal vote</button></span></td></tr></table>
 </div></div>
+
+
+
 <div class="columntwo">
   <div id="hidden_prop" visible=false value=""></div>
-<table class="points"><tr><th><span id="who">{{ straw_init }}</span> straw poll</th></tr>
-  <tr><td rowspan=2 style="height:4em"><span id="poll_height">-</span></td></tr>
+  <em>Informal</em> Proposal:
+<table class="points"><tr><th><span id="who"> {{ straw_init }}</span></th></tr>
+  <tr><td rowspan=2 style="height:4em"><span id="poll_mix">-</span></td></tr>
   <tr></tr>
-  <tr><td style="height:3.68em"><span id="poll_venue">-</span></td></tr>
   <tr><td style="height:3.68em"><span id="poll_li">-</span></td></tr>
   <tr><td style="height:3.68em"><span id="poll_green">-</span></td></tr>
-  <tr><td style="height:3.68em"><span id="poll_mix">-</span></td></tr>
+  <tr><td style="height:3.68em"><span id="poll_height">-</span></td></tr>
+  <tr><td style="height:3.68em"><span id="poll_venue">-</span></td></tr>
 </table>
-<table>
-  <tr><td><button type="button" id="accept" onclick=accept_sp() hidden>Vote Yes</button></td><td><button type="button" id="decline" onclick=decline_sp() hidden>Vote No</button></td></tr>
+
+<table style="width:100%">
+  <tr><td style="width:50%"><button type="button" id="accept" onclick=accept_sp() style="width:100%" hidden>For</button></td><td style="width:50%"><button type="button" id="decline" onclick=decline_sp() style="width:100%" hidden>Against</button></td></tr>
 <tr><td colspan=2><span id="ivoted"></span><tr></table>
 </div>
 </div>
@@ -165,7 +121,7 @@ Calculator and straw polls
     console.log(height_switch(e), venue_switch(e), green_switch(e), mix_switch(e), li_switch(e))
     if (height_switch(e)=="0" || venue_switch(e)=="0" || green_switch(e)=="0" || mix_switch(e)=="0" || li_switch(e)=="0") {alert("Please provide a complete proposal");}
     else {
-      if (confirm("Are you sure you want to submit this as a straw poll?") == true) {
+      if (confirm("Are you sure you want to submit this as an informal vote?") == true) {
         var interaction = "2;"+height_switch(e)+venue_switch(e)+green_switch(e)+li_switch(e)+mix_switch(e)+";"+decodeURIComponent(document.cookie) +";"+Date.now();
         liveSend(interaction);
       };
@@ -173,8 +129,8 @@ Calculator and straw polls
   };
 
   function accept_sp(e){
-    if (confirm("Please confirm you are voting FOR this straw proposal.")==true){
-    document.querySelector("#ivoted").innerHTML = "You voted FOR this straw proposal";
+    if (confirm("Please confirm you are voting in FAVOR for this informal proposal.")==true){
+    document.querySelector("#ivoted").innerHTML = "You voted IN FAVOR of this informal proposal";
     document.querySelector("#accept").hidden=true;
     document.querySelector("#decline").hidden=true;
     response = "3;"+document.querySelector("#hidden_prop").value+";1;"+decodeURIComponent(document.cookie) +";"+Date.now();
@@ -182,7 +138,7 @@ Calculator and straw polls
   }
   };
   function decline_sp(e){
-    if (confirm("Please confirm you are voting AGAINST this straw proposal.")==true) {document.querySelector("#ivoted").innerHTML = "You voted AGAINST this straw proposal";
+    if (confirm("Please confirm you are voting AGAINST this informal proposal.")==true) {document.querySelector("#ivoted").innerHTML = "You voted AGAINST this informal proposal";
     document.querySelector("#accept").hidden=true;
     document.querySelector("#decline").hidden=true;
     response = "3;"+document.querySelector("#hidden_prop").value+";0;"+ decodeURIComponent(document.cookie)+";"+Date.now();
@@ -206,17 +162,12 @@ Calculator and straw polls
   function liveRecv(data) {
     if (data[0]=="2"){
       populate_straw_poll(data.slice(1,));
-      document.querySelector("#who").innerHTML = data.slice(6,)+"'s";
+      document.querySelector("#who").innerHTML = data.slice(6,);
 
     } else if (data[0]=="3") {
-      passes = data[1];
-      votes = data[2];
-      if (passes=="1") {
-        var message = "This proposal passed with "+ votes + " votes";
-      } else {
-        var message = "This proposal did not pass. It received " + votes + " votes";
-      }
-      document.querySelector("#ivoted").innerHTML=message;
+      votes = data.slice(2,);
+      console.log(votes)
+      document.querySelector("#ivoted").innerHTML=votes;
       document.querySelector("#accept").visible=false;
       document.querySelector("#decline").visible=false;
       document.querySelector("#submit_prop").disabled=false;

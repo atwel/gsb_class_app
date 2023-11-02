@@ -8,23 +8,152 @@ Construct a proposal
 
 
 {% block styles %}
-<link rel="stylesheet" href="{% static "global/custom_theme.css" %}">
+<link rel="stylesheet" href="{% static 'global/custom_theme.css' %}">
 
 {% endblock %}
 
 {% block content %}
 <br>
-<h5>As Stellar Cove you can put proposals up for vote. Select an option for each of the five issues listed below.</h5>
+<h6>As the representative of Stellar Cove, you need to submit a proposal for consideration.
+  Select an option for each of the five issues using the drop down lists to the right.</h6>
 <br>
-<h6>Note that you will not be able to change the options after submitting . Please select carefully!</h6>
+Note that you will not be able to change the options after submitting . Please select carefully!
 <br><br>
 
-{% formfields %}
+<div id="calculator">
+Remember that your reservation price is <strong>{{ my_rp }}</strong>.
+<table class="points">
+<tr><th>Issues</th><th colspan=5>Options</th><th>Points</th></tr>
 
-<br><br>
-<div style="margin-left:90%">
-    {% next_button %}
+<tr><td rowspan=2>Property mix (r:c)</td><td>30:70</td><td>50:50</td><td>70:30</td><td rowspan=2></td><td rowspan=2></td><td rowspan=2><output id="mix_output"></output></td></tr>
+      <tr><td ><input type="radio" name="mix" value="30:70" oninput="mix_output.value = {{ mix_1 }}"></td>
+            <td ><input type="radio" name="mix" value="50:50" oninput="mix_output.value = {{ mix_2 }}" ></td>
+            <td><input type="radio" name="mix" value="70:30" oninput="mix_output.value = {{ mix_3 }}"></td></tr>
+
+<tr>
+  <td rowspan=2>Low-income residential</td>
+  <td>6%</td><td>9%</td><td>12%</td><td>15%</td><td rowspan=2></td>
+  <td rowspan=2><output id="li_output"></output></td>
+</tr>
+<tr>
+  <td><input type="radio" name="low_income" value="6" oninput="li_output.value = {{ li_1 }}"></td>
+  <td><input type="radio" name="low_income" value="9" oninput="li_output.value = {{ li_2 }}"></td>
+  <td><input type="radio" name="low_income" value="12" oninput="li_output.value = {{ li_3 }}"></td>
+  <td><input type="radio" name="low_income" value="15" oninput="li_output.value = {{ li_4 }}"></td>
+</tr>
+
+<tr>
+  <td rowspan=2>Green Space</td>
+  <td>14 acres</td><td>16 acres</td><td>18 acres</td><td>20 acres</td><td rowspan=2></td>
+  <td rowspan=2><output id="green_output"></output></td>
+</tr>
+<tr>
+  <td><input type="radio" name="green" value=14 oninput="green_output.value = {{ green_1 }}"></td>
+  <td><input type="radio" name="green" value=16 oninput="green_output.value = {{ green_2 }}"></td>
+  <td><input type="radio" name="green" value=18 oninput="green_output.value = {{ green_3 }}"></td>
+  <td><input type="radio" name="green" value=20 oninput="green_output.value = {{ green_4 }}"></td>
+</tr>
+
+<tr>
+<td rowspan=2>Max Building Height</td>
+<td>400ft</td><td>500ft</td><td>600ft</td><td>700ft</td><td>800ft</td>
+<td rowspan=2><output id="height_output"></output></td>
+</tr>
+<tr>
+<td><input type="radio" name="height" value="400" oninput="height_output.value = {{height_1}}"></td>
+<td><input type="radio" name="height" value="500" oninput="height_output.value = {{height_2}}"></td>
+<td><input type="radio" name="height" value="600" oninput="height_output.value = {{ height_3 }}"></td>
+<td><input type="radio" name="height" value="700" oninput="height_output.value = {{ height_4 }}"></td>
+<td><input type="radio" name="height" value="800" oninput="height_output.value = {{ height_5 }}"></td>
+</tr>
+
+<tr>
+<td rowspan=2>Entertainment Complex</td>
+<td>0 venues</td><td>1 venue</td><td>2 venues</td><td>3 venues</td><td>4 venues</td>
+<td rowspan=2><output id="venues_output"></output></td>
+</tr>
+<tr>
+<td><input type="radio" name="venues" value=0 oninput="venues_output.value = {{ venue_1 }}"></td>
+<td><input type="radio" name="venues" value=1 oninput="venues_output.value = {{ venue_2 }}"></td>
+<td><input type="radio" name="venues" value=2 oninput="venues_output.value = {{ venue_3 }}"></td>
+<td><input type="radio" name="venues" value=3 oninput="venues_output.value = {{ venue_4 }}"></td>
+<td><input type="radio" name="venues" value=4 oninput="venues_output.value = {{ venue_5 }}"></td>
+</tr>
+
+</table>
+<table class="totalpoints">
+<tr><td></td><td></td><td></td><td></td><td></td><td style="text-align:right">Total Points:</td><td style="text-align:center"><span id="total">-</span></td></tr>
+<tr><td></td><td></td><td></td><td></td><td></td><td></td><td style="text-align:center"><button class="otree-btn-next btn btn-primary">Submit for Vote</button></td></tr></table>
 </div>
+<br><br>
+
+<script>
+randomID = decodeURIComponent(document.cookie)
+if (randomID == "") {
+randomID = Math.random().toString(36).substr(2, 9);
+document.cookie = "randomID="+randomID+";SameSite=Strict"
+}
+
+
+function height_switch(e) {
+switch (document.querySelector("#height_output").value) {
+    case String({{ height_1 }}): return "1";
+    case String({{ height_2 }}): return "2";
+    case String({{ height_3 }}): return "3";
+    case String({{ height_4 }}): return "4";
+    case String({{ height_5 }}): return "5";
+    default: return "0";
+}
+};
+
+function venue_switch(e) {
+switch (document.querySelector("#venues_output").value) {
+    case String({{ venue_1 }}): return "1";
+    case String({{ venue_2 }}): return "2";
+    case String({{ venue_3 }}): return "3";
+    case String({{ venue_4 }}): return "4";
+    case String({{ venue_5 }}): return "5";
+    default: return "0";
+};
+};
+
+function green_switch(e) {
+switch (document.querySelector("#green_output").value) {
+    case String({{ green_1 }}): return "1";
+    case String({{ green_2 }}): return "2";
+    case String({{ green_3 }}): return "3";
+    case String({{ green_4 }}): return "4";
+    default: return "0";
+};
+};
+
+function mix_switch(e) {
+switch (document.querySelector("#mix_output").value) {
+    case String({{ mix_1 }}): return "1";
+    case String({{ mix_2 }}): return "2";
+    case String({{ mix_3 }}): return "3";
+    default: return "0";
+};
+};
+
+function li_switch(e) {
+switch (document.querySelector("#li_output").value) {
+    case String({{ li_1 }}): return "1";
+    case String({{ li_2 }}): return "2";
+    case String({{ li_3 }}): return "3";
+    case String({{ li_4 }}): return "4";
+    default: return "0";
+};
+};
+
+document.querySelector("#calculator").addEventListener("change", function(e){
+var subtotal=Number(document.querySelector("#mix_output").value)+Number(document.querySelector("#green_output").value)+Number(document.querySelector("#li_output").value)+Number(document.querySelector("#height_output").value)+Number(document.querySelector("#venues_output").value);
+document.querySelector("#total").innerHTML= subtotal.toString();
+var interaction = "1;"+height_switch(e)+venue_switch(e)+green_switch(e)+li_switch(e)+mix_switch(e)+";"+ decodeURIComponent(document.cookie)+";"+Date.now();
+console.log(interaction);
+liveSend(interaction);
+});
+</script>
 
 
 {% endblock %}

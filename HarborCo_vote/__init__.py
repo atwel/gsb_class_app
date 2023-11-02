@@ -35,7 +35,7 @@ SUNet_to_name = {
 
 
 class C(BaseConstants):
-    NAME_IN_URL = 'Voting'
+    NAME_IN_URL = 'HC_Voting'
     PLAYERS_PER_GROUP = 6
     NUM_ROUNDS = 10
     SUNET_TO_NAME = SUNet_to_name

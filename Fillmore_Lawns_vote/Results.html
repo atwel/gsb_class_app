@@ -10,33 +10,6 @@ Voting Results
 {% block styles %}
 <link rel="stylesheet" href="{% static "global/custom_theme.css" %}">
 <style>
-#points {
-  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-  border-collapse: collapse;
-  width: 50%;
-}
-
-#points td, #points th {
-  border: 1px solid #ddd;
-  padding: 2px;
-
-  text-align: center;
-}
-
-.tr_top {
-  border-bottom: 3px solid;
-}
-
-#points tr:nth-child(even){background-color: #f2f2f2;}
-
-
-#points th {
-  padding-top: 12px;
-  padding-bottom: 12px;
-  text-align: center;
-  background-color: #8c1515;
-  color: white;
-}
 
 .otree-timer {
     display: none;
@@ -47,18 +20,20 @@ Voting Results
 {% endblock %}
 
 {% block content %}
+{% if player.group.passed %}
+<h4>The proposal passed!</h4>
+{{ for_votes }} vote for the proposal.<br>
+{{ against }} voted against it.
 
-<h4>The proposal {{ outcome }} with {{ group.votes_for }} votes in support.</h4>
+<br><br>
+You are now done with this exercise.<br>
 
+{% else %}
+<h4> The proposal did not pass.</h4>
+{{ outcome }} parties voted for the proposal.
 
-<br><br><br>
-<div id="our_button" style="margin-left:90%;visibility:visible">
+<div id="our_button" style="margin-left:90%">
     {% next_button %}
 </div>
-<br>
-<script>
-if (String({{ group.votes_for }}) > 4){
-  document.querySelector("#our_button").visibility = "hidden";
-};
-</script>
+{% endif %}
 {% endblock %}

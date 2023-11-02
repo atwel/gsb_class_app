@@ -8,114 +8,39 @@ Voting
 
 
 {% block styles %}
-<link rel="stylesheet" href="{% static "global/custom_theme.css" %}">
-
-<style>
-.points {
-  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-  border-collapse: collapse;
-  width: 100%;
-  border: 2px solid
-}
-
-.points td {
-  border: 1px solid #ddd;
-  padding: 1px;
-  width: 14.5%;
-  text-align: center;
-  padding-bottom: 4px;
-}
-
-.points th {
-  border: 1px solid #ddd;
-  text-align: center;
-  padding-top: 1px;
-  padding-bottom: 1px;
-  background-color: #0170a3;
-  border-bottom: 2px solid  #0170a3;
-  color: white;
-}
-
-.tr_bottom {
-  border-bottom: 3px solid;
-}
-
-.points tr:nth-child(even){background-color: #f2f2f2;}
-
-.columnone {
-  float: left;
-  width: 80%;
-  padding: 5px;
-}
-.columntwo {
-  float: left;
-  width: 20%;
-  padding: 5px;
-}
-
-/* Clearfix (clear floats) */
-.row::after {
-  content: "";
-  clear: both;
-  display: table;
-}
-
-</style>
+<link rel="stylesheet" href="{% static 'global/custom_theme.css' %}">
 {% endblock %}
 
 
 
 {% block content %}
 
-<h5>Stellar Cove has asked you to vote on the following proposal:</h5><br>
+<h5>Stellar Cove has asked you to vote on the following <em>formal and binding</em> proposal:</h5><br>
 
 The <strong>Property Mix</strong> of the project would be <strong>{{ mix }}</strong>.<br>
 
+The project would have <strong>{{ low_income }}% low income housing</strong>.
+<br>
+
 The <strong>Green Space</strong> would be <strong>{{ green }}</strong> acres.<br>
 
-The <strong>Maximum Building Height</strong> would be <strong>{{ height }}</strong>.<br>
+The <strong>Maximum Building Height</strong> would be <strong>{{ height }} ft</strong>.<br>
 
-The project would have <strong>{{ low_income }} low income housing</strong>.
-<br>
-The project could have <strong>{{ venues }}</strong> for entertainment.
-
-{% formfields %}
-<br>
-<div style="margin-left:90%">
-    {% next_button %}
-</div>
+The project could have <strong>{{ venues }} venues</strong> for entertainment.
 <br><br>
-Here is the same calculator as before:
-
+<button name="vote" value="True">Vote For</button>
+<button name="vote" value="False">Vote Against</button>
+<br><br><br><br>
+Here is the same calculator as before. As the representative for {{ my_name }}, your reservation price is <strong>{{ my_rp }} </strong>.
 <div id="calculator">
     <table class="points">
     <tr><th>Issues</th><th colspan=5>Options</th><th>Issue Points</th></tr>
 
-    <tr>
-      <td rowspan=2>Max Building Height</td>
-      <td>400ft</td><td>500ft</td><td>600ft</td><td>700ft</td><td>800ft</td>
-      <td rowspan=2><output id="height_output"></output></td>
-  </tr>
-  <tr>
-      <td><input type="radio" name="height" value="400" oninput="height_output.value = {{height_1}}"></td>
-      <td><input type="radio" name="height" value="500" oninput="height_output.value = {{height_2}}"></td>
-      <td><input type="radio" name="height" value="600" oninput="height_output.value = {{ height_3 }}"></td>
-      <td><input type="radio" name="height" value="700" oninput="height_output.value = {{ height_4 }}"></td>
-      <td><input type="radio" name="height" value="800" oninput="height_output.value = {{ height_5 }}"></td>
-  </tr>
-
-  <tr>
-      <td rowspan=2>Entertainment Complex</td>
-      <td>0 venues</td><td>1 venue</td><td>2 venues</td><td>3 venues</td><td>4 venues</td>
-      <td rowspan=2><output id="venues_output"></output></td>
-  </tr>
-  <tr>
-      <td><input type="radio" name="venues" value=0 oninput="venues_output.value = {{ venue_1 }}"></td>
-      <td><input type="radio" name="venues" value=1 oninput="venues_output.value = {{ venue_2 }}"></td>
-      <td><input type="radio" name="venues" value=2 oninput="venues_output.value = {{ venue_3 }}"></td>
-      <td><input type="radio" name="venues" value=3 oninput="venues_output.value = {{ venue_4 }}"></td>
-      <td><input type="radio" name="venues" value=4 oninput="venues_output.value = {{ venue_5 }}"></td>
-  </tr>
+<tr><td rowspan=2>Property mix (r:c)</td><td>30:70</td><td>50:50</td><td>70:30</td><td rowspan=2></td><td rowspan=2></td><td rowspan=2><output id="mix_output"></output></td></tr>
+            <tr>
+                  <td ><input type="radio" name="mix" value="30:70" oninput="mix_output.value = {{ mix_1 }}"></td>
+                  <td ><input type="radio" name="mix" value="50:50" oninput="mix_output.value = {{ mix_2 }}" ></td>
+                  <td><input type="radio" name="mix" value="70:30" oninput="mix_output.value = {{ mix_3 }}"></td></tr>
 
   <tr>
       <td rowspan=2>Low-income residential</td>
@@ -141,16 +66,37 @@ Here is the same calculator as before:
       <td><input type="radio" name="green" value=20 oninput="green_output.value = {{ green_4 }}"></td>
   </tr>
 
-  <tr><td rowspan=2>Property mix (r:c)</td><td>30:70</td><td>50:50</td><td>70:30</td><td rowspan=2></td><td rowspan=2></td><td rowspan=2><output id="mix_output"></output></td></tr>
-          <tr><td ><input type="radio" name="mix" value="30:70" oninput="mix_output.value = {{ mix_1 }}"></td>
-                <td ><input type="radio" name="mix" value="50:50" oninput="mix_output.value = {{ mix_2 }}" ></td>
-                <td><input type="radio" name="mix" value="70:30" oninput="mix_output.value = {{ mix_3 }}"></td></tr></table>
 
+  <tr>
+      <td rowspan=2>Max Building Height</td>
+      <td>400ft</td><td>500ft</td><td>600ft</td><td>700ft</td><td>800ft</td>
+      <td rowspan=2><output id="height_output"></output></td>
+      </tr>
+                <tr>
+                  <td><input type="radio" name="height" value="400" oninput="height_output.value = {{height_1}}"></td>
+                  <td><input type="radio" name="height" value="500" oninput="height_output.value = {{height_2}}"></td>
+                  <td><input type="radio" name="height" value="600" oninput="height_output.value = {{ height_3 }}"></td>
+                  <td><input type="radio" name="height" value="700" oninput="height_output.value = {{ height_4 }}"></td>
+                  <td><input type="radio" name="height" value="800" oninput="height_output.value = {{ height_5 }}"></td>
+                </tr>
 
+    <tr>
+      <td rowspan=2>Entertainment Complex</td>
+      <td>0 venues</td><td>1 venue</td><td>2 venues</td><td>3 venues</td><td>4 venues</td>
+      <td rowspan=2><output id="venues_output"></output></td>
+      </tr>
+      <tr>
+                  <td><input type="radio" name="venues" value=0 oninput="venues_output.value = {{ venue_1 }}"></td>
+                  <td><input type="radio" name="venues" value=1 oninput="venues_output.value = {{ venue_2 }}"></td>
+                  <td><input type="radio" name="venues" value=2 oninput="venues_output.value = {{ venue_3 }}"></td>
+                  <td><input type="radio" name="venues" value=3 oninput="venues_output.value = {{ venue_4 }}"></td>
+                  <td><input type="radio" name="venues" value=4 oninput="venues_output.value = {{ venue_5 }}"></td>
+      </tr>
+  </table>
+  <table class="totalpoints" style="width:100%">
+    <tr><td></td><td></td><td></td><td></td><td></td><td style="text-align:right">Total Points:</td><td style="text-align:center"><span id="total">-</span></td></tr>
+</table>
 
-
-<span style="margin-left:74%;font-size:1.3em">Total Points:&emsp;&emsp;&emsp;<span id="total">-</span></span>
-</div></div>
 </div>
 
 <script>

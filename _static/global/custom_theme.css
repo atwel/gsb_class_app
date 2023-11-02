@@ -115,3 +115,64 @@ padding-top:4%;
     max-width:80%;
     background-color: white;
 }
+
+.points {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+  border: 2px solid
+}
+
+.points td {
+  border: 1px solid #ddd;
+  padding: 1px;
+  width: 14.5%;
+  text-align: center;
+  padding-bottom: 4px;
+}
+
+.points th {
+  border: 1px solid #ddd;
+  text-align: center;
+  padding-top: 1px;
+  padding-bottom: 1px;
+  background-color: #0170a3;
+  border-bottom: 2px solid  #0170a3;
+  color: white;
+}
+
+.tr_bottom {
+  border-bottom: 3px solid;
+}
+
+.points tr:nth-child(even){background-color: #f2f2f2;}
+
+.totalpoints {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.totalpoints td {
+  width: 14.5%;
+}
+
+
+.columnone {
+  float: left;
+  width: 79%;
+  margin-left:.5%;
+  padding: 5px;
+}
+.columntwo {
+  float: left;
+  width: 20%;
+  padding: 5px;
+}
+
+/* Clearfix (clear floats) */
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}

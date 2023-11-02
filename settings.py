@@ -44,17 +44,21 @@ dict(
         section_number=1,
         app_sequence=['OmniChannel']),
 dict(
-        name='Fillmore_lawns',
-        display_name="Fillmore Lawns",
-        num_demo_participants=6,
-        section_number=1,
-        app_sequence=['Fillmore_Lawns']),
-dict(
         name='Fillmore_votes',
         display_name="Fillmore Lawns voting",
         num_demo_participants=6,
+        first_vote_minutes=12,
+        second_vote_minutes=37,
+        third_vote_minutes=72,
+        vote_time = 3,
+        propose_time = 3,
+        app_sequence=["Fillmore_Lawns_assemble", 'Fillmore_Lawns_vote',"Fillmore_Lawns_end"]),
+dict(
+        name='HarborCo_votes',
+        display_name="HC voting",
+        num_demo_participants=6,
         section_number=1,
-        app_sequence=['Fillmore_Lawns_vote'])
+        app_sequence=['HarborCo_vote'])
 ]
 
 LANGUAGE_CODE = 'en'
@@ -74,14 +78,54 @@ ROOMS = [
         participant_label_file = "_rooms/FALL23_02.txt",
     ),
     dict(
-            name='fillmore',
-            display_name='Fillmore Lawns',
-            participant_label_file = "_rooms/Fillmore_Lawns.txt",
+            name='APX',
+            display_name='FL_APX',
+            participant_label_file = "_rooms/Fillmore_Lawns_apx.txt",
         ),
+    dict(
+                name='DIL',
+                display_name='FL_DIL',
+                participant_label_file = "_rooms/Fillmore_Lawns_dil.txt",
+            ),
+    dict(
+                name='FMO',
+                display_name='FL_FMO',
+                participant_label_file = "_rooms/Fillmore_Lawns_fmo.txt",
+            ),
+    dict(
+                name='GUP',
+                display_name='FL_GUP',
+                participant_label_file = "_rooms/Fillmore_Lawns_gup.txt",
+            ),
+    dict(
+                name='KAS',
+                display_name='FL_KAS',
+                participant_label_file = "_rooms/Fillmore_Lawns_kas.txt",
+            ),
+    dict(
+                name='PEX',
+                display_name='FL_PEX',
+                participant_label_file = "_rooms/Fillmore_Lawns_pex.txt",
+            ),
+    dict(
+                name='QTI',
+                display_name='FL_QTI',
+                participant_label_file = "_rooms/Fillmore_Lawns_qti.txt",
+            ),
+    dict(
+                name='RAV',
+                display_name='FL_RAV',
+                participant_label_file = "_rooms/Fillmore_Lawns_rav.txt",
+            ),
+    dict(
+                name='TUK',
+                display_name='FL_TUK',
+                participant_label_file = "_rooms/Fillmore_Lawns_tuk.txt",
+            ),
     dict(
             name='219472219477',
             display_name='OB581_error',
-            participant_label_file = "_rooms/Sp23_03.txt",
+            participant_label_file = "_rooms/FALL23_01.txt",
     )
 ]
 
