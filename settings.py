@@ -122,6 +122,7 @@ ROOMS = [
                 display_name='FL_TUK',
                 participant_label_file = "_rooms/Fillmore_Lawns_tuk.txt",
             ),
+    dict(   name="OB581", display_name="spare"),
     dict(
             name='219472219477',
             display_name='OB581_error',

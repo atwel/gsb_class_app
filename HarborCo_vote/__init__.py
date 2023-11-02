@@ -16,9 +16,6 @@ with open("_rooms/FALL23_02.txt", "r") as f:
     raw_string = f.read()
     names_section2 = raw_string.split("\n")
     # names_section2.pop()
-with open("_rooms/Sp23_03.txt", "r") as f:
-    raw_string = f.read()
-    names_section3 = raw_string.split("\n")
     # names_section3.pop()
 SUNet_to_name = {
     "extra1": "Unnamed #1",
@@ -41,7 +38,7 @@ class C(BaseConstants):
     SUNET_TO_NAME = SUNet_to_name
     NAMES_SECTION1 = names_section1
     NAMES_SECTION2 = names_section2
-    NAMES_SECTION3 = names_section3
+    #NAMES_SECTION3 = names_section3
 
 
 class Subsession(BaseSubsession):
