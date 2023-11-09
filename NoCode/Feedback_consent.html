@@ -1,0 +1,27 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+BioPharm - Seltek
+{% endblock %}
+
+
+{% block styles %}
+<link rel="stylesheet" href="{% static "global/custom_theme.css" %}">
+{% endblock %}
+
+{% block content %}
+<br><br>
+As we will talk about in class, our perceptions of social interactions do not always cleanly map to the perceptions of others. To help you learn about how your negotiation partner perceived the situation, including things like the effectiveness of your negotiation style, you can <em>opt in</em> to receive feedback.
+<br>
+<br>
+Opting in does not guarantee you'll get feedback because your partner might to be willing to provide it. If they are, Prof. Atwell will personally review its appropriateness before releasing it to you.
+<br>
+<br>
+{% formfields %}
+<br><br>
+<div style="margin-left:90%">
+    {% next_button %}
+</div>
+
+{% endblock %}

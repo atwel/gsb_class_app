@@ -160,7 +160,7 @@ class Calculator(Page):
             # An incoming straw proposal
             prop = data[2:7]
             # The return sends the proposal out to everyone, including who proposed it.
-            for p in player.get_others_in_group():
+            for p in player.group.get_players():
                 p.straw_voted = 0
                 p.straw_vote = 0
             player.group.straw_prop = prop

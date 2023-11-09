@@ -63,10 +63,6 @@ class Group(BaseGroup):
 
 
 class Player(BasePlayer):
-    planning_text = models.LongStringField(label="Describe your plan for this negotiation.")
-    journaling_text = models.LongStringField(
-        label="Please describe your experience of the negotiation."
-    )
     name = models.StringField()
     grole = models.StringField()
     partner_name = models.StringField()
