@@ -43,35 +43,13 @@ Federated Science Fund
 {% block content %}
 <script type="text/javascript" src="{% static 'global/jquery.countdown.js' %}"></script>
 
-<script type="text/javascript">
-    $(function() {
-        var currentDate = new Date();
-        var milliseconds = js_vars.button_show;
-        $('div#clocked').countdown(currentDate.valueOf() + milliseconds, function(event) {
-                console.log(event.type)
-                switch(event.type) {
-                    case "finish":
-                      $('div#clocked').show();
-                    case "finished":
-                        $('div#clocked').show();
-                }
-            });
-
-
-    });
-</script>
 a DRRC case written by Elizabeth A. Mannix
 <h2></h2>
 <br>
 <h4>Role of <em>Stockman, Inc</em></h4>
 <br>
 <h6>You'll be able to see these materials again once the live negotiation has started but you can also <a target="_blank" rel="noopener noreferrer" href="{% static pdf_file %}">download a pdf version here.</a></h6>
-<br>
-{% if show_end_time %}
-<h5>You have until <span style="color:red">{{ End_time }}</span> to finish the negotiation</h5><br>
-{% else %}
-<span></span>
-{% endif %}
+
 
 
 <br>
