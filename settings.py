@@ -44,21 +44,11 @@ dict(
         section_number=1,
         app_sequence=['OmniChannel']),
 dict(
-        name='Fillmore_votes',
-        display_name="Fillmore Lawns voting",
-        num_demo_participants=6,
-        first_vote_minutes=12,
-        second_vote_minutes=37,
-        third_vote_minutes=72,
-        vote_time = 3,
-        propose_time = 3,
-        app_sequence=["Fillmore_Lawns_assemble", 'Fillmore_Lawns_vote',"Fillmore_Lawns_end"]),
-dict(
-        name='HarborCo_votes',
-        display_name="HC voting",
+        name='OmniChannel_homeprep',
+        display_name="OmniChannel prep",
         num_demo_participants=6,
         section_number=1,
-        app_sequence=['HarborCo_vote'])
+        app_sequence=['OmniChannel_home'])
 ]
 
 LANGUAGE_CODE = 'en'

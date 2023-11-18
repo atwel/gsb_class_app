@@ -1,0 +1,32 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+OmniChannel
+{% endblock %}
+
+{% block styles %}
+<link rel="stylesheet" href="{% static "global/custom_theme.css" %}">
+{% endblock %}
+
+{% block content %}
+
+You now preparing to negotiate the <b><i>OmniChannel</i></b> case, a <strong>two-party, team-against-team</strong> negotiation.<br>
+
+<br><br>
+You will:
+<ul>
+<li>read the case materials.</li>
+<li>submit a planning document before <strong>8pm on Monday, November 27th</strong></li>
+<li>have {{ C.COORDINATING_TIME }} minutes to coordinate with your team members on Tuesday</li>
+<li>have the remainder of class ({{ C.NEGOTIATING_TIME }} minutes) to negotiate an agreement.</li>
+<li>report the outcome and reflect on the negotiation (by midnight, Tuesday 11/28).</li>
+</ul>
+We will debrief the results in the next class session.
+<br><br><br>
+<div style="margin-left:90%">
+    {% next_button %}
+</div>
+<br>
+
+{% endblock %}

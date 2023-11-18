@@ -1,0 +1,27 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+Planning Document
+{% endblock %}
+
+{% block styles %}
+<link rel="stylesheet" href="{% static "global/custom_theme.css" %}">
+{% endblock %}
+
+{% block content %}
+
+
+<div style="text-align:left">
+Write about how you will approach this negotiation. A key part of that should be how you will approach organizing your team.
+
+Submit your plan on the <a target="_blank" rel="noopener noreferrer" href="https://canvas.stanford.edu/courses\{{ assignment_url }}">Canvas assignment page</a> before {{ submission_time }}.
+<br><br>
+<br>
+    View the case materials <a target="_blank" rel="noopener noreferrer" href="{% static pdf_file %}">here.
+<br><br>
+  <div style="margin-left:90%">
+        {% next_button %}
+  </div>
+
+{% endblock %}
