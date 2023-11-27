@@ -24,7 +24,6 @@ dict(
         num_demo_participants=1,
         section_number=1,
         app_sequence=["calculator"]),
-
 dict(
         name='NoCode',
         display_name="NoCode, Inc",
@@ -43,6 +42,12 @@ dict(
         num_demo_participants=6,
         section_number=1,
         app_sequence=['OmniChannel']),
+dict(
+        name='OmniChannel_outcome',
+        display_name="OmniChannel_outcome",
+        num_demo_participants=6,
+        section_number=1,
+        app_sequence=['OmniChannel_agreement']),
 dict(
         name='OmniChannel_homeprep',
         display_name="OmniChannel prep",
