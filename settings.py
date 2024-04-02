@@ -63,60 +63,20 @@ USE_POINTS = False
 
 ROOMS = [
     dict(
-        name='219472',
+        name='233147',
         display_name='Section 1',
         participant_label_file = "_rooms/FALL23_01.txt",
     ),
     dict(
-        name='219477',
+        name='233151',
         display_name='Section 2',
         participant_label_file = "_rooms/FALL23_02.txt",
     ),
     dict(
-            name='APX',
-            display_name='FL_APX',
-            participant_label_file = "_rooms/Fillmore_Lawns_apx.txt",
+            name='233156',
+            display_name='Section 3',
+            participant_label_file = "_rooms/FALL23_02.txt",
         ),
-    dict(
-                name='DIL',
-                display_name='FL_DIL',
-                participant_label_file = "_rooms/Fillmore_Lawns_dil.txt",
-            ),
-    dict(
-                name='FMO',
-                display_name='FL_FMO',
-                participant_label_file = "_rooms/Fillmore_Lawns_fmo.txt",
-            ),
-    dict(
-                name='GUP',
-                display_name='FL_GUP',
-                participant_label_file = "_rooms/Fillmore_Lawns_gup.txt",
-            ),
-    dict(
-                name='KAS',
-                display_name='FL_KAS',
-                participant_label_file = "_rooms/Fillmore_Lawns_kas.txt",
-            ),
-    dict(
-                name='PEX',
-                display_name='FL_PEX',
-                participant_label_file = "_rooms/Fillmore_Lawns_pex.txt",
-            ),
-    dict(
-                name='QTI',
-                display_name='FL_QTI',
-                participant_label_file = "_rooms/Fillmore_Lawns_qti.txt",
-            ),
-    dict(
-                name='RAV',
-                display_name='FL_RAV',
-                participant_label_file = "_rooms/Fillmore_Lawns_rav.txt",
-            ),
-    dict(
-                name='TUK',
-                display_name='FL_TUK',
-                participant_label_file = "_rooms/Fillmore_Lawns_tuk.txt",
-            ),
     dict(   name="OB581", display_name="spare"),
     dict(
             name='219472219477',
