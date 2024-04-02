@@ -79,7 +79,7 @@ ROOMS = [
         ),
     dict(
             name="OB581",
-            display_name="spare")
+            display_name="spare"),
     dict(
             name='219472219477',
             display_name='OB581_error',
