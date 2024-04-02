@@ -11,16 +11,11 @@
 
 {% block content %}
 
-{% if group.deal %}
-<br><br>
- {% formfield group.final_sale_price %}
-
-{% else %}
 What were the last prices the respective companies offered?<br><br><br>
  {% formfield group.last_Seltek %}
 <br>
  {% formfield group.last_Biopharm %}
-{% endif %}
+
 <br>
 <div id="clocked" style="margin-left:90%">
     {% next_button %}

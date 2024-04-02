@@ -65,23 +65,25 @@ ROOMS = [
     dict(
         name='233147',
         display_name='Section 1',
-        participant_label_file = "_rooms/FALL23_01.txt",
+        participant_label_file = "_rooms/SP24_01.txt",
     ),
     dict(
         name='233151',
         display_name='Section 2',
-        participant_label_file = "_rooms/FALL23_02.txt",
+        participant_label_file = "_rooms/SP24_02.txt",
     ),
     dict(
             name='233156',
             display_name='Section 3',
-            participant_label_file = "_rooms/FALL23_02.txt",
+            participant_label_file = "_rooms/SP24_03.txt",
         ),
-    dict(   name="OB581", display_name="spare"),
+    dict(
+            name="OB581",
+            display_name="spare")
     dict(
             name='219472219477',
             display_name='OB581_error',
-            participant_label_file = "_rooms/FALL23_01.txt",
+            participant_label_file = "_rooms/SP24_01.txt",
     )
 ]
 

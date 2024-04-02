@@ -1,0 +1,24 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+Federated Sciences<br>
+{% endblock %}
+
+{% block styles %}
+<link rel="stylesheet" href="{% static "global/custom_theme.css" %}">
+{% endblock %}
+
+{% block content %}
+<div style="width:65%;margin-top:5%">
+Congratulations, you are all done negotiating the Federated Sciences case! <br><br>
+
+Please to go to the next page to reflect on your negotiation. Please finish it sometime today, but do come back to the classroom shortly.
+
+</div>
+<br><br>
+<div style="margin-left:90%">
+    {% next_button %}
+</div>
+
+{% endblock %}
