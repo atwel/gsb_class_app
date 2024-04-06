@@ -99,3 +99,4 @@ SECRET_KEY = environ.get('SECRET_KEY')
 
 
 INSTALLED_APPS = ['otree']
+#postgres://u39lhka8kpao7p:p82f2077afa2fe5d36e5c2051af74e35823d882b7a4884c48a411fa1a530797ce@ec2-18-235-143-221.compute-1.amazonaws.com:5432/d6orgvvbmijmjv
