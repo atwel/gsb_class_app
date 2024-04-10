@@ -1,10 +1,7 @@
 jpbda
 rbayne
 cblanck
-anicarte
-camc
 oliviacn
-sejdavis
 vfanelle
 afatsche
 cgonzal
@@ -14,7 +11,6 @@ vkanodia
 dongsukl
 levinez
 lexielin
-marwanga
 raachini
 lmaymar
 sashan
@@ -22,17 +18,15 @@ kdnelson
 fnkameni
 oke
 suppapat
-kellip
 peniston
 petrichp
 joshpick
 mpierce
 rcquinn
-drivera1
+annarowe
 nsvan
 isabelvg
 bgward
-jjwise
 awyner
 jyao10
 atwell
