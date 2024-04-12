@@ -13,13 +13,10 @@ class C(BaseConstants):
     NAME_IN_URL = 'NoCode'
     PLAYERS_PER_GROUP = 2
     NUM_ROUNDS = 1
-    READING_TIME = 15
-    NEGOTIATION_TIME = 25
-    PLANNING_DOC_TIME_MINUTES = 10
-    CLASSCODE = 180595
-    PLANNING_ASSIGNMENT_CODE = 542292
-    REFLECTION_ASSIGNMENT_CODE = 542293
-    FEEDBACK_ASSIGNMENT_CODE = 560153
+    NEGOTIATION_TIME = 35
+    CLASSCODE = 190881
+    PLANNING_ASSIGNMENT_CODE = 610576
+    FEEDBACK_ASSIGNMENT_CODE = 610723
 
 
 class Subsession(BaseSubsession):
@@ -78,13 +75,23 @@ class Group(BaseGroup):
     )
 
 class Player(BasePlayer):
-    target_points = models.IntegerField(label="What is your target amount of points to get from this negotiation?")
     name = models.StringField()
     grole = models.StringField()
     partner_name = models.StringField()
-    feedback = models.BooleanField()
-    consent = models.BooleanField(label="Are you willing to RECEIVE constructive feedback from your negotiation partner?")
-    review_consent = models.BooleanField(label="Similarly, are you willing to GIVE constructive feedback to your negotiation partner?")
+
+    most_important = models.StringField(
+            label="Which issue is most important to you?",
+            choices=["Start date", "Salary", "Bonus", "Equity", "Remote work options"],
+        )
+    second_important = models.StringField(
+                label="Which issue is second most important to you?",
+                choices=["Start date", "Salary", "Bonus", "Equity", "Remote work options"],
+            )
+    least_important = models.StringField(
+                label="Which issue is least important to you?",
+                choices=["Start date", "Salary", "Bonus", "Equity", "Remote work options"],
+            )
+
 
 # FUNCTIONS
 def set_timer(group: Group):
@@ -94,73 +101,90 @@ def set_timer(group: Group):
 
 # PAGES
 SUNet_to_name = {
-    "Extra_1": "Unnamed #1",
-    "Extra_2": "Unnamed #2",
-    "Extra_3": "Unnamed #3",
-    "Extra_4": "Unnamed #4",
-    "Extra_5": "Unnamed #5",
-    "Extra_6": "Unnamed #6",
-    "Extra_7": "Unnamed #7",
-    "Extra_8": "Unnamed #8",
-    "Extra_9": "Unnamed #9",
-    "Extra_10": "Unnamed #10",
-    "addachan":"Addie Achan",
-    "sbeaton":"Stephen Beaton",
-    "lbrito":"Louise Brito",
-    "vcharoon":"Victor Charoonsophonsak",
-    "rchun1":"Robert Chun",
-    "dowlingp":"Patrick Dowling",
-    "laurajg":"Laura Griffiths",
-    "ruthguan":"Ruth Guan",
-    "whooper":"Whitney Hooper",
-    "exyhuang":"Eileen Huang",
-    "thuang24":"Tony Huang",
-    "adrianus":"Adrian Hunggara",
-    "shubhij":"Shubhi Jain",
-    "noorissa":"Noorissa Khoja",
-    "lroberds":"Lia Lilleness",
-    "clifflim":"Cliff Lim",
-    "amaderoo":"Andrea Madero",
-    "mcgarryg":"Gavin McGarry",
-    "knyman":"Knut Nyman",
-    "jphaneuf":"Jeff Phaneuf",
-    "dansegev":"Dan Segev",
-    "bsinghla":"Bharti Singhla",
-    "smithc52":"Christian Smith",
-    "sesuarez":"Sofia Suarez",
-    "avaldi":"Adolfo Valdivieso Quiroz",
-    "gbreeves":"Bear Vasquez",
-    "bwilber":"Bryce Wilberding",
-    "ijdelcid":"Imer del Cid",
-    "nnandrew":"Nick Andrews",
-    "ebendezu":"Edgar Bendezú",
-    "darapc":"Dara Canavan",
-    "nchedid":"Nicholas Chedid",
-    "tdodson":"Trey Dodson III",
-    "storeydk":"Storey Dyer Kloman",
-    "aevenson":"Austin Evenson",
-    "onf":"Oren Fliegelman",
-    "asjfu":"Allison Fu",
-    "lfunke":"Lennart Funke",
-    "dhersh":"Daniel Hersh",
-    "cjanis":"Chad Janis",
-    "sjonn":"Sarah Jonn",
-    "ajow":"Alex Jow",
-    "alacey":"Alex Lacey",
-    "rlhannah":"Hannah Lee",
-    "brlobato":"Breno Lobato",
-    "grantmcn":"Grant McNaughton",
-    "gaamello":"Gui Mello",
-    "hneffa":"Henrique Neffa",
-    "rspark":"Rachel Park",
-    "pressler":"Sam Pressler",
-    "athomp10":"Alexander Thompson",
-    "jamesu":"James Underwood",
-    "jaw33":"Jelani Williamson",
-    "paulyap":"Paul Yap",
-    "alexyin":"Alex Yin",
-    "sszou ":"Sophia Sun Alex",
-    "jdacosta":"James da Costa"}
+"Extra_1": "Unnamed #1",
+"Extra_2": "Unnamed #2",
+"Extra_3": "Unnamed #3",
+"Extra_4": "Unnamed #4",
+"Extra_5": "Unnamed #5",
+"Extra_6": "Unnamed #6",
+"Extra_7": "Unnamed #7",
+"Extra_8": "Unnamed #8",
+"Extra_9": "Unnamed #9",
+"Extra_10": "Unnamed #10",
+'jpbda':'Joao Almeida',
+'rbayne':'Ryan Bayne',
+'cblanck':'Caroline Blanck',
+'oliviacn':'Olivia Somerlyn Hollins Christensen',
+'vfanelle':'Valerie Fanelle',
+'afatsche':'Andreas Fatschel',
+'cgonzal':'Cayo Alexander Gonzalez',
+'yaqi':'Yaqi Grover',
+'jonhoey':'Jon W. L. Hoey',
+'vkanodia':'Vikram Kanodia',
+'dongsukl':'Paul Lee',
+'levinez':'Zach James Levine',
+'lexielin':'Lexie Lin',
+'raachini':'Anthony Mattar El Raachini',
+'lmaymar':'Lauren Maymar',
+'sashan':'Sasha Nanda',
+'kdnelson':'Kyle DeVille Nelson',
+'fnkameni':'Floriane Ngako Kameni',
+'oke':'Oke Osevwe',
+'suppapat':'Suppapat Ken Pattarasittiwate',
+'peniston':'Olivia Lyerly Peniston',
+'petrichp':'Petra Petrich',
+'joshpick':'Josh Pickering',
+'mpierce':'Melanie Pierce',
+'rcquinn':'Riley Christopher Quinn',
+'annarowe':'Anna Rowe',
+'nsvan':'Natia Svanidze',
+'isabelvg':'Isabel Vallina Garcia',
+'bgward':'Brad Ward',
+'jyao10':'Julia Yao',
+'nazerke':'Naza Aibar',
+'mfahim':'Maha Al Fahim',
+'mansell':'Mark Garo Ansell',
+'dabacci':'Diego Bacci',
+'wilclark':'Will Clark',
+'rakiyac':'Rakiya Cunningham',
+'tylererb':'Tyler Tyler Erb',
+'irvhsu':'Irving Hsu',
+'kwjk':'Katharine Jessiman-Ketcham',
+'dkurup':'Deepika Kurup',
+'clevy25':'Caroline Levy',
+'bmaina':'Ndirangu Bryan Maina',
+'marwanga':'Moraa Marwango',
+'alexjmcc':'Alex Justin McCarthy',
+'akm24':'Adam Merrill',
+'mmoiz':'Munim Moiz',
+'arinze':'Arinze Nwagbata',
+'gloriao':'Gloria Ijeoma Odoemelam',
+'pparas37':'Paulina Paras',
+'arushis':'Arushi Sharma',
+'zstiles':'Zane Stiles',
+'cavarres':'Camila Vargas Restrepo',
+'wangjess':'Jessica Wang',
+'cmweiner':'Charlotte Weiner',
+'capujol':'Claudia Álvarez Pujol',
+'niranja9':'Niranjan Balachandar',
+'cbeckma3':'Chris Beckmann',
+'jhcohen':'Josh Harrison Cohen',
+'emduarte':'Emily Duarte',
+'mandygao':'Mandy Gao',
+'sgarciav':'Santiago Garcia Vargas',
+'krjindal':'Kripanshi Jindal',
+'estherk1':'Esther Kamgaing',
+'aklee33':'Alexander Keith Lee',
+'helenjlu':'Helen Lu',
+'mmont':'Mason Montgomery',
+'hmurdoch':'Hannah Murdoch',
+'gyutae95':'Terry Park',
+'npatel21':'Neal Atul Patel',
+'atpims':'Alan Tomás Pimstein',
+'orosen':'Olivia Ellen Rosen',
+'erubini':'Eduardo Rubini',
+'willzhou':'Will Zhou'
+}
 
 
 class IntroWaitPage(WaitPage):
@@ -189,23 +213,14 @@ class Introduction(Page):
 
     @staticmethod
     def vars_for_template(player: Player):
-        total_time = (
-            C.READING_TIME
-            + C.PLANNING_DOC_TIME_MINUTES
-            + C.NEGOTIATION_TIME
-            + 5
-        )
-        return {
-            "reading_limit": C.READING_TIME,
-            "total_time": total_time,
-            "planning_doc_time": C.PLANNING_DOC_TIME_MINUTES,
-        }
+        total_time = (C.NEGOTIATION_TIME+ 5)
+
+        return {"total_time": total_time}
 
 
 class Stanfield_materials(Page):
     form_model = "player"
-    timeout_seconds= C.READING_TIME * 60
-    timer_text = 'Time left for reading the materials'
+
     @staticmethod
     def is_displayed(player: Player):
         return player.id_in_group == 1
@@ -220,8 +235,7 @@ class Stanfield_materials(Page):
 
 class Sproles_materials(Page):
     form_model = "player"
-    timeout_seconds= C.READING_TIME * 60
-    timer_text = 'Time left for reading the materials'
+
     @staticmethod
     def is_displayed(player: Player):
         return player.id_in_group == 2
@@ -233,7 +247,7 @@ class Sproles_materials(Page):
 
 class Target_input(Page):
     form_model = "player"
-    form_fields = ['target_points']
+    form_fields = ['most_important', 'second_important', 'least_important']
 
     @staticmethod
     def vars_for_template(player: Player):
@@ -268,17 +282,10 @@ class Planning_doc(Page):
                 "assignment_url":"/{}/assignments/{}".format(C.CLASSCODE, C.PLANNING_ASSIGNMENT_CODE)
             }
 
+class Prep_done(Page):
+    form_model = "player"
 
-class Meeting_wait(WaitPage):
-    form_model = "group"
-    after_all_players_arrive = 'set_timer'
 
-    @staticmethod
-    def vars_for_template(player: Player):
-        return {
-            "title_text": "Waiting...",
-            "body_text": "We're waiting for your counterparty to be ready. Once they finish up, you'll learn who it is. You'll then go back to the case materials page and the timed negotiation will begin.",
-        }
 
 class Partner_reveal(Page):
     form_model = "player"
@@ -296,8 +303,12 @@ class Partner_reveal(Page):
             "partner": partner.participant.vars["name"],
         }
 
+    @staticmethod
+    def before_next_page(player, timeout_happened):
+        player.participant.vars["sim_timer"] = time.time() + C.NEGOTIATION_TIME * 60
 
-class Stanfield_materials_no_timer(Page):
+
+class Stanfield_materials_timer(Page):
     form_model = "player"
     template_name = "NoCode/Stanfield_materials.html"
     timer_text = 'Time left to negotiate the case'
@@ -318,10 +329,9 @@ class Stanfield_materials_no_timer(Page):
         }
 
 
-class Sproles_materials_no_timer(Page):
+class Sproles_materials_timer(Page):
     form_model = "player"
     template_name = "NoCode/Sproles_materials.html"
-
     timer_text = 'Time left to negotiate the case'
 
     @staticmethod
@@ -389,32 +399,14 @@ class Outcome_wait(WaitPage):
             }
 
 
-class Feedback_consent(Page):
-    form_model = "player"
-    form_fields = ["consent", "review_consent"]
-
-class ConsentWaitPage(WaitPage):
-
-    @staticmethod
-    def vars_for_template(player: Player):
-        return {
-            "title_text": "Waiting...",
-            "body_text": "Please wait while your partner considers whether they want feedback",
-        }
-
-class Reflection_page(Page):
+class Feedback_page(Page):
     form_model = "player"
 
     @staticmethod
     def vars_for_template(player: Player):
         feedback_url = "/{}/assignments/{}".format(C.CLASSCODE, C.FEEDBACK_ASSIGNMENT_CODE)
-        reflection_url = "/{}/assignments/{}".format(C.CLASSCODE, C.REFLECTION_ASSIGNMENT_CODE)
 
-        if player.review_consent and player.get_others_in_group()[0].consent:
-            player.feedback = True
-        else:
-            player.feedback = False
-        return {"feedback_url":feedback_url, "reflection_url":reflection_url, "Stanfield_pdf_file": "NoCode/Stanfield.pdf", "Sproles_pdf_file": "NoCode/Sproles.pdf","Stanfield_xlsx_file": "NoCode/Stanfield Point System.xlsx", "Sproles_xlsx_file": "NoCode/Sproles Point System.xlsx"}
+        return {"feedback_url":feedback_url, "Stanfield_pdf_file": "NoCode/Stanfield.pdf", "Sproles_pdf_file": "NoCode/Sproles.pdf","Stanfield_xlsx_file": "NoCode/Stanfield Point System.xlsx", "Sproles_xlsx_file": "NoCode/Sproles Point System.xlsx"}
 
 
 page_sequence = [
@@ -424,14 +416,12 @@ page_sequence = [
     Stanfield_materials,
     Planning_doc,
     Target_input,
-    Meeting_wait,
+    Prep_done,
     Partner_reveal,
-    Sproles_materials_no_timer,
-    Stanfield_materials_no_timer,
+    Sproles_materials_timer,
+    Stanfield_materials_timer,
     Negotiated_outcome_one,
     Negotiated_outcome_two,
     Outcome_wait,
-    Feedback_consent,
-    ConsentWaitPage,
-    Reflection_page
+    Feedback_page
 ]

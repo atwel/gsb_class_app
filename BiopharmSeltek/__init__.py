@@ -74,6 +74,16 @@ def set_timer(group: Group):
         player.participant.vars["sim_timer"] = start_time + C.NEGOTIATING_TIME * 60 + 120
 
 SUNet_to_name = {
+"Extra_1": "Unnamed #1",
+"Extra_2": "Unnamed #2",
+"Extra_3": "Unnamed #3",
+"Extra_4": "Unnamed #4",
+"Extra_5": "Unnamed #5",
+"Extra_6": "Unnamed #6",
+"Extra_7": "Unnamed #7",
+"Extra_8": "Unnamed #8",
+"Extra_9": "Unnamed #9",
+"Extra_10": "Unnamed #10",
 'jpbda':'Joao Almeida',
 'rbayne':'Ryan Bayne',
 'cblanck':'Caroline Blanck',
@@ -103,7 +113,6 @@ SUNet_to_name = {
 'nsvan':'Natia Svanidze',
 'isabelvg':'Isabel Vallina Garcia',
 'bgward':'Brad Ward',
-'awyner':'Andrew Wyner',
 'jyao10':'Julia Yao',
 'nazerke':'Naza Aibar',
 'mfahim':'Maha Al Fahim',
