@@ -410,7 +410,6 @@ class Feedback_page(Page):
 
 
 page_sequence = [
-    IntroWaitPage,
     Introduction,
     Sproles_materials,
     Stanfield_materials,
