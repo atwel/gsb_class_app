@@ -1,4 +1,4 @@
-import datetime
+import time
 import itertools
 import random
 
@@ -27,7 +27,7 @@ class Subsession(BaseSubsession):
 class Group(BaseGroup):
     stockman = models.BooleanField()
     pairing = models.StringField()
-    end_time = models.StringField()
+    end_time = models.FloatField()
     started = models.BooleanField(initial=False)
 
 
@@ -54,9 +54,11 @@ def creating_session(subsession: Subsession):
 
 
 def set_end_time(group: Group):
-    group.end_time = (
-        datetime.datetime.now() + datetime.timedelta(minutes=C.NEGOTIATING_TIME + 1)
-    ).strftime("%H:%M:%S")
+
+    start_time = time.time()
+    for player in group.get_players():
+        player.participant.vars["sim_timer"] = start_time + C.NEGOTIATING_TIME * 60
+    #).strftime("%H:%M:%S")
     group.started = True
 
 
@@ -204,8 +206,11 @@ class Stockman_nt(Page):
     form_model = "player"
     template_name = "Federated/Stockman.html"
 
-    timeout_seconds = C.NEGOTIATING_TIME*60
     timer_text = 'Time left for negotiating'
+    def get_timeout_seconds(player):
+        return player.participant.vars["sim_timer"] - time.time()
+
+
     @staticmethod
     def is_displayed(player: Player):
         return role(player) == "stockman"
@@ -217,7 +222,6 @@ class Stockman_nt(Page):
 
 class Turbo(Page):
     form_model = "player"
-
 
     @staticmethod
     def is_displayed(player: Player):
@@ -231,9 +235,10 @@ class Turbo(Page):
 class Turbo_nt(Page):
     form_model = "player"
     template_name = "Federated/Turbo.html"
-
-    timeout_seconds = C.NEGOTIATING_TIME*60
     timer_text = 'Time left for negotiating'
+
+    def get_timeout_seconds(player):
+        return player.participant.vars["sim_timer"] - time.time()
 
     @staticmethod
     def is_displayed(player: Player):
@@ -259,8 +264,11 @@ class United(Page):
 class United_nt(Page):
     form_model = "player"
     template_name = "Federated/United.html"
+    timer_text = 'Time left for negotiating'
 
-    timeout_seconds = C.NEGOTIATING_TIME*60
+    def get_timeout_seconds(player):
+        return player.participant.vars["sim_timer"] - time.time()
+
     timer_text = 'Time left for negotiating'
 
     @staticmethod
@@ -291,11 +299,12 @@ class Ready_for_class(Page):
     form_model = "player"
 
 
+
 class Back_to_class(Page):
     form_model = "player"
 
     @staticmethod
-    def before_next_page(player: Player, timeout_happened):
+    def before_next_page(player: Player,timeout_happened):
         if not player.group.started:
             set_end_time(player.group)
 
