@@ -15,13 +15,10 @@ class C(BaseConstants):
     NAME_IN_URL = 'Federated_Sciences'
     PLAYERS_PER_GROUP = 3
     NUM_ROUNDS = 1
-    READING_TIME = 10
-    PLANNING_DOC_TIME = 10
     NEGOTIATING_TIME = 30
-    CLASSCODE = 180595
-    PLANNING_ASSIGNMENT_CODE = 542285
-    REFLECTION_ASSIGNMENT_CODE = 542286
-    FEEDBACK_ASSIGNMENT_CODE = 560154
+    CLASSCODE = 190881
+    PLANNING_ASSIGNMENT_CODE = 610583
+    FEEDBACK_ASSIGNMENT_CODE = 610729
 
 class Subsession(BaseSubsession):
     pass
@@ -93,85 +90,90 @@ def role(player: Player):
 
 # PAGES
 SUNet_to_name = {
-    "Extra_1": "Unnamed #1",
-    "Extra_2": "Unnamed #2",
-    "Extra_3": "Unnamed #3",
-    "Extra_4": "Unnamed #4",
-    "Extra_5": "Unnamed #5",
-    "Extra_6": "Unnamed #6",
-    "Extra_7": "Unnamed #7",
-    "Extra_8": "Unnamed #8",
-    "Extra_9": "Unnamed #9",
-    "Extra_10": "Unnamed #10",
-    "addachan":"Addie Achan",
-    "jand271": "Jason Anderson",
-    "sbeaton":"Stephen Beaton",
-    "lbrito":"Louise Brito",
-    "vcharoon":"Victor Charoonsophonsak",
-    "rchun1":"Robert Chun",
-    "dowlingp":"Patrick Dowling",
-    "laurajg":"Laura Griffiths",
-    "ruthguan":"Ruth Guan",
-    "whooper":"Whitney Hooper",
-    "exyhuang":"Eileen Huang",
-    "thuang24":"Tony Huang",
-    "adrianus":"Adrian Hunggara",
-    "shubhij":"Shubhi Jain",
-    "noorissa":"Noorissa Khoja",
-    "lroberds":"Lia Lilleness",
-    "clifflim":"Cliff Lim",
-    "amaderoo":"Andrea Madero",
-    "mcgarryg":"Gavin McGarry",
-    "knyman":"Knut Nyman",
-    "jphaneuf":"Jeff Phaneuf",
-    "dansegev":"Dan Segev",
-    "bsinghla":"Bharti Singhla",
-    "smithc52":"Christian Smith",
-    "sesuarez":"Sofia Suarez",
-    "avaldi":"Adolfo Valdivieso Quiroz",
-    "gbreeves":"Bear Vasquez",
-    "bwilber":"Bryce Wilberding",
-    "ijdelcid":"Imer del Cid",
-    "nnandrew":"Nick Andrews",
-    "ebendezu":"Edgar Bendezú",
-    "darapc":"Dara Canavan",
-    "nchedid":"Nicholas Chedid",
-    "tdodson":"Trey Dodson III",
-    "storeydk":"Storey Dyer Kloman",
-    "aevenson":"Austin Evenson",
-    "onf":"Oren Fliegelman",
-    "asjfu":"Allison Fu",
-    "lfunke":"Lennart Funke",
-    "dhersh":"Daniel Hersh",
-    "cjanis":"Chad Janis",
-    "sjonn":"Sarah Jonn",
-    "ajow":"Alex Jow",
-    "alacey":"Alex Lacey",
-    "rlhannah":"Hannah Lee",
-    "brlobato":"Breno Lobato",
-    "grantmcn":"Grant McNaughton",
-    "gaamello":"Gui Mello",
-    "hneffa":"Henrique Neffa",
-    "rspark":"Rachel Park",
-    "pressler":"Sam Pressler",
-    "athomp10":"Alexander Thompson",
-    "jamesu":"James Underwood",
-    "jaw33":"Jelani Williamson",
-    "paulyap":"Paul Yap",
-    "alexyin":"Alex Yin",
-    "sszou ":"Sophia Sun Alex",
-    "jdacosta":"James da Costa"}
-
-
-class IntroWaitPage(WaitPage):
-    group_by_arrival_time = True
-
-    @staticmethod
-    def vars_for_template(player: Player):
-        return {
-            "title_text": "Waiting for others",
-            "body_text": "Please wait a moment while you're assigned to a group.\n\n",
-        }
+"Extra_1": "Unnamed #1",
+"Extra_2": "Unnamed #2",
+"Extra_3": "Unnamed #3",
+"Extra_4": "Unnamed #4",
+"Extra_5": "Unnamed #5",
+"Extra_6": "Unnamed #6",
+"Extra_7": "Unnamed #7",
+"Extra_8": "Unnamed #8",
+"Extra_9": "Unnamed #9",
+"Extra_10": "Unnamed #10",
+'jpbda':'Joao Almeida',
+'rbayne':'Ryan Bayne',
+'cblanck':'Caroline Blanck',
+'oliviacn':'Olivia Somerlyn Hollins Christensen',
+'vfanelle':'Valerie Fanelle',
+'afatsche':'Andreas Fatschel',
+'cgonzal':'Cayo Alexander Gonzalez',
+'yaqi':'Yaqi Grover',
+'jonhoey':'Jon W. L. Hoey',
+'vkanodia':'Vikram Kanodia',
+'dongsukl':'Paul Lee',
+'levinez':'Zach James Levine',
+'lexielin':'Lexie Lin',
+'raachini':'Anthony Mattar El Raachini',
+'lmaymar':'Lauren Maymar',
+'sashan':'Sasha Nanda',
+'kdnelson':'Kyle DeVille Nelson',
+'fnkameni':'Floriane Ngako Kameni',
+'oke':'Oke Osevwe',
+'suppapat':'Suppapat Ken Pattarasittiwate',
+'peniston':'Olivia Lyerly Peniston',
+'petrichp':'Petra Petrich',
+'joshpick':'Josh Pickering',
+'mpierce':'Melanie Pierce',
+'rcquinn':'Riley Christopher Quinn',
+'annarowe':'Anna Rowe',
+'nsvan':'Natia Svanidze',
+'isabelvg':'Isabel Vallina Garcia',
+'bgward':'Brad Ward',
+'jyao10':'Julia Yao',
+'nazerke':'Naza Aibar',
+'mfahim':'Maha Al Fahim',
+'mansell':'Mark Garo Ansell',
+'dabacci':'Diego Bacci',
+'wilclark':'Will Clark',
+'rakiyac':'Rakiya Cunningham',
+'tylererb':'Tyler Tyler Erb',
+'irvhsu':'Irving Hsu',
+'kwjk':'Katharine Jessiman-Ketcham',
+'dkurup':'Deepika Kurup',
+'clevy25':'Caroline Levy',
+'bmaina':'Ndirangu Bryan Maina',
+'marwanga':'Moraa Marwango',
+'alexjmcc':'Alex Justin McCarthy',
+'akm24':'Adam Merrill',
+'mmoiz':'Munim Moiz',
+'arinze':'Arinze Nwagbata',
+'gloriao':'Gloria Ijeoma Odoemelam',
+'pparas37':'Paulina Paras',
+'arushis':'Arushi Sharma',
+'zstiles':'Zane Stiles',
+'cavarres':'Camila Vargas Restrepo',
+'wangjess':'Jessica Wang',
+'cmweiner':'Charlotte Weiner',
+'capujol':'Claudia Álvarez Pujol',
+'niranja9':'Niranjan Balachandar',
+'cbeckma3':'Chris Beckmann',
+'jhcohen':'Josh Harrison Cohen',
+'emduarte':'Emily Duarte',
+'mandygao':'Mandy Gao',
+'sgarciav':'Santiago Garcia Vargas',
+'krjindal':'Kripanshi Jindal',
+'estherk1':'Esther Kamgaing',
+'aklee33':'Alexander Keith Lee',
+'helenjlu':'Helen Lu',
+'mmont':'Mason Montgomery',
+'hmurdoch':'Hannah Murdoch',
+'gyutae95':'Terry Park',
+'npatel21':'Neal Atul Patel',
+'atpims':'Alan Tomás Pimstein',
+'orosen':'Olivia Ellen Rosen',
+'erubini':'Eduardo Rubini',
+'willzhou':'Will Zhou'
+}
 
 
 class Introduction(Page):
@@ -187,8 +189,7 @@ class Introduction(Page):
 
 class Stockman(Page):
     form_model = "player"
-    timeout_seconds = C.READING_TIME*60
-    timer_text = 'Time left for reading the materials'
+
 
     @staticmethod
     def is_displayed(player: Player):
@@ -216,8 +217,7 @@ class Stockman_nt(Page):
 
 class Turbo(Page):
     form_model = "player"
-    timeout_seconds = C.READING_TIME*60
-    timer_text = 'Time left for reading the materials'
+
 
     @staticmethod
     def is_displayed(player: Player):
@@ -246,8 +246,6 @@ class Turbo_nt(Page):
 
 class United(Page):
     form_model = "player"
-    timeout_seconds = C.READING_TIME*60
-    timer_text = 'Time left for reading the materials'
 
     @staticmethod
     def is_displayed(player: Player):
@@ -256,7 +254,6 @@ class United(Page):
     @staticmethod
     def vars_for_template(player: Player):
         return {"pdf_file": "Federated/United.pdf"}
-
 
 
 class United_nt(Page):
@@ -278,8 +275,6 @@ class United_nt(Page):
 
 class Planning_doc(Page):
     form_model = "player"
-    timeout_seconds = C.PLANNING_DOC_TIME *60
-    timer_text = "Time left to finish the planning document"
 
     @staticmethod
     def vars_for_template(player: Player):
@@ -294,17 +289,6 @@ class Planning_doc(Page):
 
 class Ready_for_class(Page):
     form_model = "player"
-
-
-class Wait_to_negotiate(WaitPage):
-    form_model = "group"
-
-    @staticmethod
-    def vars_for_template(player: Player):
-        return {
-            "title_text": "Waiting for your counterparts to finish preparing",
-            "body_text": "It shouldn't be too long now!\n\n",
-        }
 
 
 class Back_to_class(Page):
@@ -376,46 +360,19 @@ class Outcome(Page):
     form_model = "player"
     form_fields = ["united", "stockman", "turbo", "first_meeting"]
 
-
-class Feedback_consent(Page):
-    form_model = "player"
-    form_fields = ["consent", "review_consent"]
-
-class ConsentWaitPage(WaitPage):
-
     @staticmethod
-    def vars_for_template(player: Player):
-        return {
-            "title_text": "Waiting...",
-            "body_text": "Please wait while your partner considers whether they want feedback",
-        }
+    def is_displayed(player: Player):
+        return role(player) == "stockman"
 
-class Reflection_page(Page):
+class Feedback_page(Page):
     form_model = "player"
 
     @staticmethod
     def vars_for_template(player: Player):
         feedback_url = "/{}/assignments/{}".format(C.CLASSCODE, C.FEEDBACK_ASSIGNMENT_CODE)
-        reflection_url = "/{}/assignments/{}".format(C.CLASSCODE, C.REFLECTION_ASSIGNMENT_CODE)
-
-        if player.review_consent:
-            willing = []
-            for p in player.get_others_in_group():
-                if p.consent:
-                    willing.append(p.name)
-            if len(willing)==2:
-                fb_str="{} and {} are".format(willing[0], willing[1])
-                player.feedback = True
-            elif len(willing)==1:
-                fb_str = "{} is".format(willing[0])
-                player.feedback = True
-            else:
-                fb_str = ""
-                player.feedback = False
-        else:
-            player.feedback = False
-            fb_str=""
-        return {"feedback_url":feedback_url, "reflection_url":reflection_url, "feedback_names":fb_str}
+        others = player.get_others_in_group()
+        fb_str="{} and {} are".format(others[0].name, others[1].name)
+        return {"feedback_url":feedback_url, "feedback_names":fb_str}
 
 class Outro(Page):
     form_model = "group"
@@ -428,14 +385,11 @@ page_sequence = [
     United,
     Planning_doc,
     Ready_for_class,
-    Wait_to_negotiate,
     Back_to_class,
     Stockman_nt,
     Turbo_nt,
     United_nt,
     Outcome,
-    Feedback_consent,
-    ConsentWaitPage,
-    Reflection_page,
+    Feedback_page,
     Outro,
 ]
