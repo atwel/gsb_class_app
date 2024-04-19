@@ -185,13 +185,13 @@ class Planning_doc(Page):
             return {
                 "pdf_file": "OmniChannel/3DTV.pdf",
                 "assignment_url": url,
-                "submission_time": "Two hours before class"
+                "submission_time": "two hours before class"
             }
         elif role(player) == "omni":
             return {
                 "pdf_file": "OmniChannel/OmniChannel.pdf",
                 "assignment_url": url,
-                "submission_time": "Two hours before class"
+                "submission_time": "two hours before class"
             }
 
 
