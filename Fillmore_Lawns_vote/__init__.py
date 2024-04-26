@@ -86,6 +86,8 @@ class Player(BasePlayer):
 
         return "3<strong>For:</strong> {}<br><strong>Against</strong>: {}".format(", ".join(votes_for),", ".join(votes_against))
 
+
+
 class Calculator(Page):
     form_model = "player"
     timer_text = "Time until an official vote:"

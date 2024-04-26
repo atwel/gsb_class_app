@@ -1,0 +1,329 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+Role: {{ my_name }}
+{% endblock %}
+
+
+{% block styles %}
+<link rel="stylesheet" href="{% static "global/custom_theme.css" %}">
+<style>
+#points {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 70%;
+  border: 2px solid
+}
+
+#points td {
+  border: 1px solid #ddd;
+  padding: 2px;
+  text-align: center;
+  width: 50%;
+  padding-bottom: 4px;
+}
+
+#points th {
+  border: 1px solid #ddd;
+  text-align: center;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  background-color: #8c1515;
+  border: 1px solid #000;
+  color: white;
+}
+
+#points tr:nth-child(even){background-color: #f2f2f2;}
+</style>
+{% endblock %}
+
+{% block content %}
+
+<div style="box-sizing: border-box;padding: 10px;border: 6px #0170a3 solid"> <h2>Fillmore Lawns case</h2>
+By Nour Kteily, Jennifer Whitson, Cynthia Wang, & Denise Akason
+<br><strong>©2020 Dispute Resolution Research Center (DRRC), Kellogg School of Management, Northwestern University. All rights reserved.</strong></div><br><br>
+
+<h4>Please download <a target="_blank" rel="noopener noreferrer" href="{% static pdf_file %}">a pdf version of your role materials here.</a></h4><br><br>
+
+<h4> Public Information</h4>
+<br>
+<h5>The Project</h5>
+<p>Fillmore Lawns is proposed to be a 60-acre site running alongside the Morda River in the city of Newpoint. The site itself—located between two major avenues, 23rd Avenue and Oxford Avenue— is a blighted plot long since abandoned by a large manufacturing company that went out of business. Still, the plot straddles two of the city’s wealthiest neighborhoods. The developer of the site is Stellar Cove, one of Newpoint’s most successful developers. Stellar Cove is well-regarded nationwide and has an established track record of driving major investment into distressed areas. That said, their projects have sparked controversy in some quarters, with some detractors accusing the developers of turning neighborhoods into inaccessible playgrounds for the wealthy, a particularly sore point in a city with a long history of socioeconomic and racial inequality.</p>
+
+<p>Fillmore Lawns is by far the most ambitious development project attempted in many decades, and as tends to be the case with developments of this magnitude, it has sparked a wide range of commentary. Some of the less flattering news coverage of the development has accused Stellar Cove of building a “city within a city”. The project is estimated to cost $6 billion dollars and take eight to twelve years to finish developing.</p>
+
+<p>The development’s plan is to build several different zones, each reflecting a different aspect of Newpoint’s history or of the site itself. The zones are:</p>
+<ul>
+  <li>1. The East Luther Corridor: Primarily office buildings which overlook the Morda River, including a tree-lined river walk with cafes and high-end retail and other green spaces.</li>
+  <li>2. The West Luther Corridor: Smaller office, mixed-use, and residential buildings bordering a bridge across the river, with the two tallest towers set back from the street.</li>
+  <li>3. The Ashton Gateway: Retail with some residential connecting the development to key transit locations. It is also being considered a potential site for a new entertainment complex with a range of potential venues, including museums, live entertainment, and sporting events.</li>
+  <li>4. The Ludford Corridor: Primarily residential area with a center containing restaurants and some retail.</li>
+  <li>5. The Riverfront District: A walking-friendly area fronting onto the river with spaces for retail, festivals, and public shows as well as a potential location for a public park.</li>
+  </ul>
+<br>
+<h5>The Parties</h5>
+<p>Stellar Cove is eager to build Fillmore Lawns; the development will be a true landmark that will secure their standing for decades to come, and if successful, their most profitable project to date. Of course, that all depends on costs, and the type of deal they can get approval for. Not only will the Fillmore Lawns development generate substantial profits for Stellar Cove if it proceeds according to their plans, Stellar Cove also believes that this development will breathe new life—and critically, jobs and tax revenue for the city—into an abandoned plot that could be so much more. The city has recently been plagued by budget shortfalls, a situation made worse as residents continue to depart for the suburbs or other large cities. Indeed, much of the public infrastructure surrounding the Fillmore Lawns area is crumbling, and the city has been unable to find the funds to invest in restoring and updating it. Despite the potential benefits to both the city’s coffers and Stellar Cove’s balance sheet, there are many stakeholders whose divergent interests the city—and, therefore, Stellar Cove—need to take into account. Stellar Cove needs to make sure that they can secure the approval of enough of the key players necessary in order to see the development proceed, and proceed profitably.</p>
+<p>In total, there are six parties (including Stellar Cove):
+  <ul>
+<li>1. <strong>Green Living Collective</strong>: The Green Living Collective is a grassroots organization that is becoming increasingly influential in city politics. Their communications emphasize their view that a healthy city requires both a vibrant system of public parks and green spaces as well as a diverse populace with people from many walks of life. The group has historically focused on securing commitments from important decision-makers to maintain or even grow the amount of green space in the city dedicated to public use, and to increase the amount of low-income housing available for city residents.</li>
+<li>2. <strong>The Illium Group</strong>: The Illium Group is another developer in the city concerned about the loss of business they will experience should Fillmore Lawns be built as per the current proposal. With Fillmore Lawns occupying a huge swathe of what would become prime real estate along a revived Morda River bank, they would likely have their pick of the residents, big retail outlets, and large companies. The Illium Group worry that this would harm their ability to attract the key constituents they need to make their own development plans viable. At the same time, the Illium Group recognizes that there would be some meaningful advantages to getting Fillmore Lawns approved. If the city approved a project of this scale, it would set a precedent that would pave the way for easier approvals for their own grandiose plans.</li>
+<li>3. <strong>Mayor Gabriel</strong>: Mayor Gabriel has been a mayor for three terms. Mayor Gabriel has a reputation as pro- business, and sees Fillmore Lawns as an amazing opportunity to return the city to its previously economically vibrant state. Still, it is an election year, and given his years of experience in politics, he is aware that he must balance the interests of the various parties, and of the people of Newpoint overall, if he is to have any chance of re-election.</li>
+<li>4. <strong>Newpoint Planning Commission (NPC)</strong>: The Newpoint Planning Commission is officially charged with ensuring that the city remains culturally vibrant and enjoys economic growth, low levels of unemployment, and positive media attention. When it comes to considering developments, this often means balancing the sometimes differing interests of a variety of different parties. The NPC is generally pleased with the prospects of this new development, and particularly the potential for increased tax dollars to help the city. At the same time, it has reservations about the impact the project might have on gentrification and inequality in the city (and the negative media coverage that would bring) should it be carried out carelessly or without consideration for the needs of all the city’s residents.</li>
+<li>5. <strong>Our Backyards</strong>: Our Backyards is a group formed by concerned residents whose homes border the Fillmore Lawns planned development. While the prospect of increased property values is appealing to them, they have serious concerns about dealing with the additional traffic the development might cause and with the prospect of a large number of very high-rise towers changing the character of their neighborhood (primarily comprised of single family homes and mid-rise townhouses). They are also interested in the possibility of broader infrastructure improvements in the area that Stellar Cove will need to accomplish in order to make the project viable. That said, they (along with others constituents in the city) are concerned about the amount of money rumored to have been promised to Stellar Cove by the Mayor in Infrastructure Improvement Financing (IIF) Funds (estimates range widely from $250 million to $1 billion), especially because this amount will be funded by diverting their property taxes.</li>
+</ul>
+<div style="box-sizing: border-box;padding: 10px;border: 2px black solid;font-size:.75em"><strong>IIF Funds</strong><br>IIF Funds are a mechanism for the city to reimburse property developers for infrastructure improvements (e.g., building new roads) they make as part of developments in blighted areas, provided the developer can prove that their project would not be financially viable “but for” this reimbursement. Developers front these costs but then receive tax breaks up to the amount they invested in infrastructure improvements once their project begins generating taxable revenue. These tax breaks are funded by the city diverting property taxes of residents in the neighborhoods where the infrastructure is improved. Although in principle this does not directly affect the tax rate of neighborhood residents, the diversion of property taxes to the developer means that these funds are not invested in other neighborhood initiatives, stoking fears that property taxes will, in the longer term, need to be raised to meet neighborhood budgetary requirements. Moreover, whereas developers argue that IIF funds are a positive for residents because they are paid on tax revenue that would otherwise not be generated (and which developers will continue to pay after the tax breaks expire), some claim that IIF funds are simply a subsidy for rich developers who stretch the truth when making the “but for” case in order to line their pockets on the public’s backs.</div>
+<br><br>
+<h5>The Approval Process</h5>
+<p>Over a number of years, Stellar Cove carefully and quietly bought up all of the land needed to execute their bold Fillmore Lawns plans. Initially, early conversations with the city about Stellar Cove’s development plans were going relatively smoothly. But then, news of these early plans leaked, and what had previously been a reasonably streamlined process became much more chaotic, as multiple parties came onto the scene, each with their own vested interests and strong opinions they were quite happy to go public with.</p>
+<p>The State Governor, Governor Stark, is not a party to the negotiation, but still has an influential role to play. As the Governor of the State of Midlands (within which the city of Newpoint lies) — Stark will have final approval over the project. According to Midlands’s law, the Governor has final approval when any project includes public tax subsidies above $200 million dollars, and even the most conservative estimates project that Stellar Cove will be given more than that sum in IIF Funds. Stark is known to disfavor projects that generate large controversy in the state, and has not been shy to sink deals in the past on this basis. Given the amount of attention the development is garnering, Governor Stark has made it clear that approval is unlikely to be forthcoming for the use of IIF funds for the development unless there is evidence of wide support for the project. Despite the project’s potential profitability for Stellar Cove, all financial estimates make it clear that the project will not be viable without any IIF funding. Stellar Cove would love a unanimous vote of approval from all interested parties, as this would increase positive media attention throughout the city and state. Still, Stellar Cove will receive the funds and be able to proceed with the development so long as it has the support of at least four of the other five parties. If less than four of the other parties approve the project, there is no way Governor Stark will allow it to proceed.</p>
+<br>
+<h5>Negotiation Issues</h5>
+<p>Based on several conversations between the various parties above, there seem to be five major issues that will need to be resolved before approval can be gained.</p>
+<p><strong>Issue 1: Property mix</strong>: The plans for the site show a mix of property types, and one decision is the split between residential versus commercial (e.g., office and retail) property types. The various interest groups have different priorities for the use of the land and what needs to be negotiated is the percentage that will be used for residential versus commercial spaces. Three outcomes have been discussed when talking to the various constituents:</p>
+<ul>
+<li>Majority Commercial (30-70). 30% of the property types built would be residential and 70% would be commercial</li>
+<li>Equal Split (50-50). The split would be 50-50</li>
+<li>Majority Residential (70-30). 70% of the property types built would be residential and 30% would be
+commercial</li></ul>
+
+<p><strong>Issue 2: Low-income residential housing</strong>: The city is experiencing a housing shortage, particularly for people with low income, and the issue has been a central part of public conversation in the city for years. As with all new development projects in the city, a minimum of 6% of Fillmore Lawns’ units will need, by law, to be dedicated to low-income residential housing provided by the developer at a subsidized rate. The big question is what that percentage will be. The potential outcomes are the following:</p>
+<ul>
+<li>6% of the residential housing built will be dedicated as low-income residential</li>
+<li>9% of the residential housing built will be dedicated as low-income residential</li>
+<li>12% of the residential housing built will be dedicated as low-income residential</li>
+<li>15% of the residential housing built will be dedicated as low-income residential</li></ul>
+<p><strong>Issue 3: Green space</strong>: Newpoint prides itself on its beauty and the amount of green space it has. In reference to the city’s unique placement along the Morda River, it years ago adopted the motto “flos in litore,” Latin for flower on the shore. The city's leaders have taken that phrase to heart. There are over 7,000 acres of parks, nature preserves, and trails the residents of Newpoint can explore. Fillmore Lawns’ plans already call for several acres of greenspace, including parks, riverwalk and other open spaces, but the more acreage is dedicated to open and green space, the less left over for Stellar Cove to build profitably on. Thus, the number of acres of green space there will be in Fillmore Lawns is up for negotiation. The potential outcomes are the following:</p>
+<ul>
+  <li>14 acres of greenspace</li>
+  <li>16 acres of greenspace</li>
+  <li>18 acres of greenspace</li>
+  <li>20 acres of greenspace</li>
+</ul>
+
+<p><strong>Issue 4: Maximum building height</strong>A point of debate among observers is how high the tallest parts of the Fillmore Lawns will reach. On one hand, higher buildings allow for more residents and commercial space. However, very high buildings would meaningfully contrast with the character of the surrounding neighborhoods, and more people also means more crowding. Everyone knows that restricting building height below 400 feet would make the project unviable, and that allowing more than 800 feet is unrealistic. Thus, the range currently being negotiated is 400 to 800 feet towers. Therefore, the potential outcomes are the following:</p>
+<ul><li>400 feet</li>
+<li>500 feet</li>
+<li>600 feet</li>
+<li>700 feet</li>
+<li>800 feet</li></ul>
+
+<p><strong>Issue 5: Entertainment complex</strong> While Newpoint’s entertainment scene is already a vibrant one – there are many great music venues, comedy clubs, restaurants and bars – Stellar Cove has proposed something on an even grander scale. They intend to include an entire inter-connected entertainment complex in the Fillmore Lawns development. Proposals include an outdoor concert venue, a stadium, areas in which community events could be held, and a museum that celebrates some of the biggest stars in the Newpoint’s history. The grandest proposals call for four large inter-connected venue-spaces within this complex. The size, and even existence, of this entertainment complex has been a big issue of contention. Whereas some considering the complex to be an exciting proposition that would build on Newpoint’s existing strengths in entertainment, others see it as gaudy and commercialized and worry that it will undermine the viability of longstanding independent venues in the surrounding neighborhoods.
+Therefore, the potential outcomes are the following:</p>
+<ul>
+<li>0 venues</li>
+<li>1 venue</li>
+<li>2 venues</li>
+<li>3 venues</li>
+<li>4 venues</li></ul>
+<br>
+<hr style="height:2px">
+<br>
+<h5>Confidential Information</h5>
+<p>You represent the Newpoint Planning Commission (NPC). The NPC’s primary interest is in promoting responsible development that balances the concerns of the majority of the city’s various stakeholders, many of whom want different—sometimes opposing—things. You see your role as taking a bigger-picture perspective, pushing people towards compromise and away from their tendency to focus exclusively on their self-interest. You believe that a project the size of Fillmore Lawns has the potential to bolster the economic standing of the city and stem some of the population loss the city has experienced in these uncertain times. At the same time, you believe that, its large upside economic notwithstanding, a project like Fillmore Lawns needs to be good for the city on multiple fronts. For that reason, you would like to see Stellar Cove address several of the major issues that have been raised in conversations about its plans, including (among other things) the need for a good property mix, sufficient green space, low-income housing, and concerns raised by neighborhood concerns about character and congestion.</p>
+<br>
+<h5>Outcome Scoring</h5>
+<p>You can earn a total of 100 points if you get everything you want in the negotiation, but you will not support this deal if you cannot secure an agreement that is <strong>at least 65 points.</strong> If it is below that, you don’t think this project will meet your criteria of
+a responsible development that balances a broad set of interests. You would of course like to get significantly more than 65 points and are targeting to get 100 points.</p>
+
+<br>
+<h5>Issues</h5>
+<p><strong>Property mix</strong>: The NPC favors a mix of commercial developments (which will drive increased tax revenue for the city long-term) and residential housing that will allow people to move in to the area (and remain consistent with the primarily residential nature of the surrounding neighborhoods). You think a 50-50 split would be ideal. That said, if you can’t achieve that, you favor a majority residential over a majority commercial development (which would risk upsetting the neighborhood balance).</p>
+<ul><li>Majority Commercial (30-70): 0 points</li>
+<li>Equal Split (50-50): 20 points</li>
+<li>Majority Residential (70-30): 10 points</li></ul>
+
+<p><strong>Low-income residential housing:</strong>As you well know, your city has found itself in a predicament with regard to shortages in low-income housing. You have been vocal in supporting efforts to bring more low-income housing to Newpoint, and your efforts have started to pay off. Indeed, legislation passed by Mayor Gabriel several years ago—in no small part thanks to your advocacy—has guaranteed that all new developments must have at least 6% low-income residential housing. A core part of your argument at the time was that, if developers committed to 6%, the low-income housing shortage would abate within 5-10 years. Unfortunately, the housing shortage has continued and actually worsened because of recent economic setbacks the city has faced. In addition, rental prices have continued to rise unexpectedly. According to your current analyses, 9% or 12% will be necessary to address the shortage. In principle, you’d love to push for as high as 15%, but you worry that pushing Stellar Cove to shoulder more than double the existing minimum could backfire and hurt your credibility as fair and reasonable.</p>
+<ul><li>6% low-income residential: 0 points</li>
+<li>9% low-income residential: 15 points</li>
+<li>12% low-income residential: 15 points</li>
+<li>15% low-income residential: 0 points</li></ul>
+
+<p><strong>Green space</strong>: Newpoint prides itself on the amount of green space it has and you think it is good for your residents to have the opportunity to enjoy a vibrant system of public parks and green spaces. Generally speaking, you tend to think the more green space the better, and you’d really love to ensure that the development has more than the 14 acres you’ve heard Stellar Cove is pushing for. Still, growing the amount of green space over 18 acres, which you suspect some parties might try to insist on, is less appealing to you. That much green space will start seriously cutting into the amount of space Fillmore Lawns has for both residences and commercial businesses—something you believe your city needs to bring in residents, jobs, and revenue.</p>
+<ul><li> 14 acres of green space: 0 points</li>
+<li>16 acres of green space: 20 points</li>
+<li>18 acres of green space: 30 points</li>
+<li>20 acres of green space: 0 points</li></ul>
+
+<p><strong>Maximum building height</strong>: One point of contention is the proposed height reached by the tallest towers in Fillmore Lawns. You are sensitive to the fact that some nearby residents want to keep the towers as low as possible, and seem very resistant to any buildings over 600 feet high. They have expressed concerns that towers too tall will clash with the neighborhood’s historic architecture and block views. At the same time, you’re also aware that taller towers mean more taxpayers bringing much-needed money into the city’s coffers. In your view, 500 or 600 feet would be a happy medium. You’re worried that 400 feet just won’t cut it economically, and although you see the upsides of letting Stellar Cove build as high as 700 or 800 feet, you think that would be a tough sell with the neighborhood residents. Therefore, the potential outcomes are the following:</p>
+<ul><li>400 feet: 0 points</li>
+<li>500 feet: 20 points</li>
+<li>600 feet: 15 points</li>
+<li>700 feet: 5 points</li>
+<li>800 feet: 5 points</li></ul>
+
+<p><strong>Entertainment complex</strong>: You believe that an entertainment complex will be a boon for the city. It will help build on the stellar reputation Newpoint has for being a premier destination for nightlife and entertainment. You expect that it will also drive increased business and tax revenues. That said, you feel that the 4 venues you’ve heard Stellar Cove plans to propose will cause a lot of problems—you have concerns about the effects of a truly giant complex on traffic congestion in the area and on the viability of the independent entertainment venues central to the history and charm of the surrounding neighborhoods. In your view, the sweet spot is anywhere between 1 and 3 venues. That’ll help ensure both the economic vibrancy of the Fillmore Lawns project and managing concerns about the viability of independent venues and congestion.</p>
+<ul>
+  <li>0 venues: 0 points</li>
+<li>1 venue: 15 points</li>
+<li>2 venues: 15 points</li>
+<li>3 venues: 15 points</li>
+<li>4 venues: 0 points</li></ul>
+
+<br>
+<hr style="height:2px">
+<br>
+<h4>Calculator</h4>
+Use this calculator to understand your interests in this negotiation. You'll have access to it for the actual negotiation too.<br><br>
+    <div id="calculator">
+      Remember that, as the representative for <strong>{{ my_name }}</strong>, your reservation price is <strong>{{ my_rp }}</strong>.<br><br>
+    <table class="points">
+    <tr><th>Issues</th><th colspan=5>Options</th><th>Points</th></tr>
+
+
+
+  <tr><td rowspan=2>Property mix (r:c)</td><td>30:70</td><td>50:50</td><td>70:30</td><td rowspan=2></td><td rowspan=2></td><td rowspan=2><output id="mix_output"></output></td></tr>
+          <tr><td ><input type="radio" name="mix" value="30:70" oninput="mix_output.value = {{ mix_1 }}"></td>
+                <td ><input type="radio" name="mix" value="50:50" oninput="mix_output.value = {{ mix_2 }}" ></td>
+                <td><input type="radio" name="mix" value="70:30" oninput="mix_output.value = {{ mix_3 }}"></td></tr>
+
+  <tr>
+      <td rowspan=2>Low-income residential</td>
+      <td>6%</td><td>9%</td><td>12%</td><td>15%</td><td rowspan=2></td>
+      <td rowspan=2><output id="li_output"></output></td>
+  </tr>
+  <tr>
+      <td><input type="radio" name="li" value="6" oninput="li_output.value = {{ li_1 }}"></td>
+      <td><input type="radio" name="li" value="9" oninput="li_output.value = {{ li_2 }}"></td>
+      <td><input type="radio" name="li" value="12" oninput="li_output.value = {{ li_3 }}"></td>
+      <td><input type="radio" name="li" value="15" oninput="li_output.value = {{ li_4 }}"></td>
+  </tr>
+
+  <tr>
+      <td rowspan=2>Green Space</td>
+      <td>14 acres</td><td>16 acres</td><td>18 acres</td><td>20 acres</td><td rowspan=2></td>
+      <td rowspan=2><output id="green_output"></output></td>
+  </tr>
+  <tr>
+      <td><input type="radio" name="green" value=14 oninput="green_output.value = {{ green_1 }}"></td>
+      <td><input type="radio" name="green" value=16 oninput="green_output.value = {{ green_2 }}"></td>
+      <td><input type="radio" name="green" value=18 oninput="green_output.value = {{ green_3 }}"></td>
+      <td><input type="radio" name="green" value=20 oninput="green_output.value = {{ green_4 }}"></td>
+  </tr>
+
+  <tr>
+    <td rowspan=2>Max Building Height</td>
+    <td>400ft</td><td>500ft</td><td>600ft</td><td>700ft</td><td>800ft</td>
+    <td rowspan=2><output id="height_output"></output></td>
+</tr>
+<tr>
+    <td><input type="radio" name="height" value="400" oninput="height_output.value = {{height_1}}"></td>
+    <td><input type="radio" name="height" value="500" oninput="height_output.value = {{height_2}}"></td>
+    <td><input type="radio" name="height" value="600" oninput="height_output.value = {{ height_3 }}"></td>
+    <td><input type="radio" name="height" value="700" oninput="height_output.value = {{ height_4 }}"></td>
+    <td><input type="radio" name="height" value="800" oninput="height_output.value = {{ height_5 }}"></td>
+</tr>
+
+<tr>
+    <td rowspan=2>Entertainment Complex</td>
+    <td>0 venues</td><td>1 venue</td><td>2 venues</td><td>3 venues</td><td>4 venues</td>
+    <td rowspan=2><output id="venues_output"></output></td>
+</tr>
+<tr>
+    <td><input type="radio" name="venues" value=0 oninput="venues_output.value = {{ venue_1 }}"></td>
+    <td><input type="radio" name="venues" value=1 oninput="venues_output.value = {{ venue_2 }}"></td>
+    <td><input type="radio" name="venues" value=2 oninput="venues_output.value = {{ venue_3 }}"></td>
+    <td><input type="radio" name="venues" value=3 oninput="venues_output.value = {{ venue_4 }}"></td>
+    <td><input type="radio" name="venues" value=4 oninput="venues_output.value = {{ venue_5 }}"></td>
+</tr>
+
+</table>
+<table class="totalpoints">
+    <tr><td></td><td></td><td></td><td></td><td></td><td style="text-align:right">Total Points:</td><td style="text-align:center"><span id="total">-</span></td></tr>
+</table>
+</div>
+<br><br>
+
+<script>
+  randomID = decodeURIComponent(document.cookie)
+  if (randomID == "") {
+    randomID = Math.random().toString(36).substr(2, 9);
+    document.cookie = "randomID="+randomID+";SameSite=Strict"
+  }
+
+  function height_unswitch(v) {
+    switch (v) {case "1": return "400ft"; case "2": return "500ft"; case "3": return "600ft"; case "4": return "700ft"; case "5": return "800ft";};
+  };
+
+  function venue_unswitch(v) {
+    switch (v) {case "1": return "0 venues"; case "2": return "1 venue"; case "3": return "2 venues"; case "4": return "3 venues"; case "5": return "4 venues";};
+  };
+
+  function green_unswitch(v) {
+    switch (v) {case "1": return "14 acres"; case "2": return "16 acres"; case "3": return "18 acres"; case "4": return "20 acres";};
+  };
+
+  function li_unswitch(v) {
+    switch (v) {case "1": return "6%"; case "2": return "9%"; case "3": return "12%"; case "4": return "15%";};
+  };
+
+  function mix_unswitch(v) {
+    switch (v) {case "1": return "30:70"; case "2": return "50:50"; case "3": return "70:30";};
+  };
+// updated below:
+
+  function height_switch(e) {
+    switch (document.querySelector("#height_output").value) {
+        case String({{ height_1 }}): return "1";
+        case String({{ height_2 }}): return "2";
+        case String({{ height_3 }}): return "3";
+        case String({{ height_4 }}): return "4";
+        case String({{ height_5 }}): return "5";
+        default: return "0";
+    }
+  };
+
+function venue_switch(e) {
+    switch (document.querySelector("#venues_output").value) {
+        case String({{ venue_1 }}): return "1";
+        case String({{ venue_2 }}): return "2";
+        case String({{ venue_3 }}): return "3";
+        case String({{ venue_4 }}): return "4";
+        case String({{ venue_5 }}): return "5";
+        default: return "0";
+    };
+  };
+
+function green_switch(e) {
+    switch (document.querySelector("#green_output").value) {
+        case String({{ green_1 }}): return "1";
+        case String({{ green_2 }}): return "2";
+        case String({{ green_3 }}): return "3";
+        case String({{ green_4 }}): return "4";
+        default: return "0";
+    };
+  };
+
+function mix_switch(e) {
+    switch (document.querySelector("#mix_output").value) {
+        case String({{ mix_1 }}): return "1";
+        case String({{ mix_2 }}): return "2";
+        case String({{ mix_3 }}): return "3";
+        default: return "0"
+    };
+  };
+
+function li_switch(e) {
+    switch (document.querySelector("#li_output").value) {
+        case String({{ li_1 }}): return "1";
+        case String({{ li_2 }}): return "2";
+        case String({{ li_3 }}): return "3";
+        case String({{ li_4 }}): return "4";
+        default: return "0";
+    };
+  };
+
+  document.querySelector("#calculator").addEventListener("change", function(e){
+    var subtotal=Number(document.querySelector("#mix_output").value)+Number(document.querySelector("#green_output").value)+Number(document.querySelector("#li_output").value)+Number(document.querySelector("#height_output").value)+Number(document.querySelector("#venues_output").value);
+    document.querySelector("#total").innerHTML= subtotal.toString();
+    var interaction = "1;"+height_switch(e)+venue_switch(e)+green_switch(e)+li_switch(e)+mix_switch(e)+";"+ decodeURIComponent(document.cookie)+";"+Date.now();
+    console.log(interaction);
+    liveSend(interaction);
+  });
+</script>
+
+<div style="margin:2%; border:4px #0170a3 solid;"><br><br>
+  <h3> <center>Remember to submit your <a target="_blank" rel="noopener noreferrer" href="https://canvas.stanford.edu/courses\{{ assignment_url }}">planning document here on Canvas.</a>
+    </center></h3>
+<br><br>
+{% endblock %}

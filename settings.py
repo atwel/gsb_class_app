@@ -37,11 +37,13 @@ dict(
         section_number=1,
         app_sequence=['Federated']),
 dict(
-        name='OmniChannel',
-        display_name="OmniChannel",
+        name='Fillmore_Lawns',
+        display_name="Fillmore Lawns",
         num_demo_participants=6,
-        section_number=1,
-        app_sequence=['OmniChannel']),
+        first_vote_minutes=13,
+        second_vote_minutes=37,
+        third_vote_minutes=72,
+        app_sequence=["FillmoreLawns"]),
 dict(
         name='OmniChannel_outcome',
         display_name="OmniChannel_outcome",
