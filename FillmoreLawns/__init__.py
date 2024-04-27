@@ -639,7 +639,7 @@ class Planning_Commission(Page):
 
 
 
-page_sequence = [
+page_sequence = [Introduction,
     Stellar_Cove,
     Green_Living,
     Illium,
