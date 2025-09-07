@@ -14,9 +14,9 @@ class C(BaseConstants):
     PLAYERS_PER_GROUP = 2
     NUM_ROUNDS = 1
     NEGOTIATION_TIME = 35
-    CLASSCODE = 190881
-    PLANNING_ASSIGNMENT_CODE = 610576
-    FEEDBACK_ASSIGNMENT_CODE = 610723
+    CLASSCODE = 208809
+    PLANNING_ASSIGNMENT_CODE = 704773
+    FEEDBACK_ASSIGNMENT_CODE = 704774
 
 
 class Subsession(BaseSubsession):
@@ -99,92 +99,7 @@ def set_timer(group: Group):
     for player in group.get_players():
         player.participant.vars["sim_timer"] = start_time + C.NEGOTIATION_TIME * 60 + 120
 
-# PAGES
-SUNet_to_name = {
-"Extra_1": "Unnamed #1",
-"Extra_2": "Unnamed #2",
-"Extra_3": "Unnamed #3",
-"Extra_4": "Unnamed #4",
-"Extra_5": "Unnamed #5",
-"Extra_6": "Unnamed #6",
-"Extra_7": "Unnamed #7",
-"Extra_8": "Unnamed #8",
-"Extra_9": "Unnamed #9",
-"Extra_10": "Unnamed #10",
-'jpbda':'Joao Almeida',
-'rbayne':'Ryan Bayne',
-'cblanck':'Caroline Blanck',
-'oliviacn':'Olivia Somerlyn Hollins Christensen',
-'vfanelle':'Valerie Fanelle',
-'afatsche':'Andreas Fatschel',
-'cgonzal':'Cayo Alexander Gonzalez',
-'yaqi':'Yaqi Grover',
-'jonhoey':'Jon W. L. Hoey',
-'vkanodia':'Vikram Kanodia',
-'dongsukl':'Paul Lee',
-'levinez':'Zach James Levine',
-'lexielin':'Lexie Lin',
-'raachini':'Anthony Mattar El Raachini',
-'lmaymar':'Lauren Maymar',
-'sashan':'Sasha Nanda',
-'kdnelson':'Kyle DeVille Nelson',
-'fnkameni':'Floriane Ngako Kameni',
-'oke':'Oke Osevwe',
-'suppapat':'Suppapat Ken Pattarasittiwate',
-'peniston':'Olivia Lyerly Peniston',
-'petrichp':'Petra Petrich',
-'joshpick':'Josh Pickering',
-'mpierce':'Melanie Pierce',
-'rcquinn':'Riley Christopher Quinn',
-'annarowe':'Anna Rowe',
-'nsvan':'Natia Svanidze',
-'isabelvg':'Isabel Vallina Garcia',
-'bgward':'Brad Ward',
-'jyao10':'Julia Yao',
-'nazerke':'Naza Aibar',
-'mfahim':'Maha Al Fahim',
-'mansell':'Mark Garo Ansell',
-'dabacci':'Diego Bacci',
-'wilclark':'Will Clark',
-'rakiyac':'Rakiya Cunningham',
-'tylererb':'Tyler Tyler Erb',
-'irvhsu':'Irving Hsu',
-'kwjk':'Katharine Jessiman-Ketcham',
-'dkurup':'Deepika Kurup',
-'clevy25':'Caroline Levy',
-'bmaina':'Ndirangu Bryan Maina',
-'marwanga':'Moraa Marwango',
-'alexjmcc':'Alex Justin McCarthy',
-'akm24':'Adam Merrill',
-'mmoiz':'Munim Moiz',
-'arinze':'Arinze Nwagbata',
-'gloriao':'Gloria Ijeoma Odoemelam',
-'pparas37':'Paulina Paras',
-'arushis':'Arushi Sharma',
-'zstiles':'Zane Stiles',
-'cavarres':'Camila Vargas Restrepo',
-'wangjess':'Jessica Wang',
-'cmweiner':'Charlotte Weiner',
-'capujol':'Claudia Álvarez Pujol',
-'niranja9':'Niranjan Balachandar',
-'cbeckma3':'Chris Beckmann',
-'jhcohen':'Josh Harrison Cohen',
-'emduarte':'Emily Duarte',
-'mandygao':'Mandy Gao',
-'sgarciav':'Santiago Garcia Vargas',
-'krjindal':'Kripanshi Jindal',
-'estherk1':'Esther Kamgaing',
-'aklee33':'Alexander Keith Lee',
-'helenjlu':'Helen Lu',
-'mmont':'Mason Montgomery',
-'hmurdoch':'Hannah Murdoch',
-'gyutae95':'Terry Park',
-'npatel21':'Neal Atul Patel',
-'atpims':'Alan Tomás Pimstein',
-'orosen':'Olivia Ellen Rosen',
-'erubini':'Eduardo Rubini',
-'willzhou':'Will Zhou'
-}
+
 
 
 class IntroWaitPage(WaitPage):

@@ -55,7 +55,13 @@ dict(
         display_name="OmniChannel prep",
         num_demo_participants=6,
         section_number=1,
-        app_sequence=['OmniChannel_home'])
+        app_sequence=['OmniChannel_home']),
+    dict(
+                name='Penalty',
+                display_name="Penalty",
+                num_demo_participants=1,
+                section_number=1,
+                app_sequence=['Founders'])
 ]
 
 LANGUAGE_CODE = 'en'
@@ -93,11 +99,12 @@ ROOMS = [
 DEMO_PAGE_INTRO_HTML = """
 Here are some oTree games.
 """
-ADMIN_USERNAME = environ.get("ADMIN_USERNAME")
-ADMIN_PASSWORD = environ.get('ADMIN_PASSWORD')
+ADMIN_USERNAME = "atwell" # environ.get("ADMIN_USERNAME")
+ADMIN_PASSWORD = "aaaaa" #environ.get('ADMIN_PASSWORD')
+print(ADMIN_PASSWORD,ADMIN_USERNAME)
 
 # don't share this with anybody.
-SECRET_KEY = environ.get('SECRET_KEY')
+SECRET_KEY = "z$k1\!j\!#nzwc#1af2%x9$^vde#u*(mf$wbdrmsw4f=$u2@jo\!e" #environ.get('SECRET_KEY')
 
 
 INSTALLED_APPS = ['otree']

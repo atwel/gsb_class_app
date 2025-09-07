@@ -1,0 +1,18 @@
+{% extends "global/Page.html" %}
+{% block content %}
+
+<h1>Click the resume you would like to read</h1>
+
+<div class="image-grid">
+    {% for image in images %}
+        <div>
+            <img src="{{ image.summary }}" alt="{{ image.alt }}" style="cursor: pointer;" 
+                 onclick="document.getElementById('selected_image').value={{ loop.index0 }}; this.form.submit();">
+            <div class="note">{{ player.notes }}</div>
+        </div>
+    {% endfor %}
+</div>
+
+<input type="hidden" id="selected_image" name="selected_image" value="">
+
+{% endblock %}

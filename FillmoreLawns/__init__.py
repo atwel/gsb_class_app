@@ -12,6 +12,7 @@ Negotating Fillmore Lawns
 class C(BaseConstants):
     NAME_IN_URL = 'Fillmore_Lawns'
     PLAYERS_PER_GROUP = 6
+    STANFORD_VERSION = False
     NUM_ROUNDS = 1
     CLASSCODE = 190881
     PLANNING_ASSIGNMENT_CODE = 610705
@@ -32,8 +33,8 @@ class Group(BaseGroup):
 
 
 class Player(BasePlayer):
-    name = models.StringField()
     calc_props = models.StringField(initial="")
+    name = models.StringField(label="First and last name")
 
 
 # FUNCTIONS
@@ -53,6 +54,12 @@ def role(player: Player):
 
 
 # PAGES
+class GetName(Page):
+    form_model = 'player'
+    form_fields = ["name"]
+    
+
+
 class Introduction(Page):
     form_model = "player"
 
@@ -639,7 +646,7 @@ class Planning_Commission(Page):
 
 
 
-page_sequence = [Introduction,
+page_sequence = [GetName,Introduction,
     Stellar_Cove,
     Green_Living,
     Illium,

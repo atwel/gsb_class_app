@@ -1,0 +1,185 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+Available resumes
+{% endblock %}
+
+{% block content %}
+<style>
+    /* General layout and grid styles */
+    .image-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); /* 2 images per row */
+        gap: 30px 15px;
+        padding: 20px;
+    }
+
+    .image-grid img {
+        width: 100%;  /* Ensure each image fills its grid cell */
+        cursor: pointer;
+    }
+
+    .image-grid div {
+        text-align: center;
+    }
+
+    .resume-container {
+        display: none; /* Hidden by default */
+        flex-direction: row;
+        align-items: flex-start;
+        gap: 20px;
+        padding: 20px;
+    }
+
+    /* Larger, responsive resume image */
+    .resume-container embed {
+        width: 80%;  /* Set a width to ensure visibility */
+        height: auto;
+        max-width: 600px;  /* Limit the maximum size */
+        display: grid;
+    }
+
+    textarea {
+        width: 100%;
+        height: 300px;
+    }
+
+    .note {
+        margin-top: 10px;
+        color: gray;
+        font-style: italic;
+    }
+
+    .back-button {
+        margin-top: 20px;
+    }
+</style>
+<h1>Click the resume you would like to read</h1>
+
+<!-- Image grid view -->
+<div id="image-grid" class="image-grid"></div>
+
+<!-- Individual resume view with text box -->
+<div id="resume-container" class="resume-container">
+    <embed id="resume-image" src="" alt="Resume" style="width: 80%; height: 50vh; max-width: 600px;">
+    <div>
+        <textarea id="note-input" placeholder="Write your notes here..."></textarea>
+        <button id="save-button">Save Note</button>
+        <button id="back-button" class="back-button">Back to Resumes</button>
+    </div>
+</div>
+
+<script>
+    // Image data array with mapping between Summary images and Resume images
+    const images = [
+        { summary: "{{ static 'Founders/Summary_WS.png' }}", alt: 'William Smith', resume: "{{ static 'Founders/Resume_WS.pdf' }}"},
+        { summary: "{{ static 'Founders/Summary_RA.png' }}", alt: 'Robert Anderson', resume: "{{ static 'Founders/Resume_RA.pdf' }}"},
+        { summary: "{{ static 'Founders/Summary_DT.png' }}", alt: 'Daniel Thompson', resume: "{{ static 'Founders/Resume_DT.pdf' }}"},
+        { summary: "{{ static 'Founders/Summary_JW.png' }}", alt: 'James Wilson', resume: "{{ static 'Founders/Resume_JW.pdf' }}"},
+        { summary: "{{ static 'Founders/Summary_MM.png' }}", alt: 'Mathew Martin', resume: "{{ static 'Founders/Resume_MM.pdf' }}"},
+        { summary: "{{ static 'Founders/Summary_LJ.png' }}", alt: 'Luke Johnson', resume: "{{ static 'Founders/Resume_LJ.pdf' }}"},
+        { summary: "{{ static 'Founders/Summary_CY.png' }}", alt: 'Charles Young', resume: "{{ static 'Founders/Resume_CY.pdf' }}"},
+        { summary: "{{ static 'Founders/Summary_CD.png' }}", alt: 'Christopher Davis', resume: "{{ static 'Founders/Resume_CD.pdf' }}"},
+    ];
+    // To store the notes for each image
+    const notes = {};
+
+    // Check if shuffle order already exists in local storage
+    const storedImages = JSON.parse(localStorage.getItem('shuffledImages'));
+
+    // Shuffle function to randomize image display for the first load
+    function shuffle(array) {
+        for (let i = array.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [array[i], array[j]] = [array[j], array[i]];
+        }
+        return array;
+    }
+
+    // If there's no saved order, shuffle and store it
+    let shuffledImages;
+    if (storedImages) {
+        shuffledImages = storedImages;
+    } else {
+        shuffledImages = shuffle([...images]); // Randomize order initially
+        localStorage.setItem('shuffledImages', JSON.stringify(shuffledImages)); // Save order in local storage
+    }
+
+    // DOM Elements
+    const imageGrid = document.getElementById('image-grid');
+    const resumeContainer = document.getElementById('resume-container');
+    const resumeImage = document.getElementById('resume-image');
+    const noteInput = document.getElementById('note-input');
+    const saveButton = document.getElementById('save-button');
+    const backButton = document.getElementById('back-button');
+
+    let currentImageIndex = null;
+
+
+    // Render the grid of images
+    function renderGrid() {
+        imageGrid.innerHTML = ''; // Clear the grid
+        console.log(shuffledImages)
+        shuffledImages.forEach((image, index) => {
+            const imageDiv = document.createElement('div');
+            const imgElement = document.createElement('img');
+            imgElement.src = image.summary;
+            console.log(image.summary);
+            imgElement.alt = image.alt;
+            imgElement.onclick = () => showResume(index); // Set click handler
+
+            imageDiv.appendChild(imgElement);
+
+            // If there's a saved note, display it under the image
+            if (notes[image.alt]) {
+                const noteDiv = document.createElement('div');
+                noteDiv.className = 'note';
+                noteDiv.innerText = notes[image.alt];
+                imageDiv.appendChild(noteDiv);
+            }
+
+            imageGrid.appendChild(imageDiv);
+        });
+    }
+
+    // Show the individual resume view
+    function showResume(index) {
+        currentImageIndex = index;
+        const image = shuffledImages[index];
+
+        // Print the image path to the console for debugging
+        console.log('Loading resume image:', image.resume);
+
+        resumeImage.src = image.resume; // Set the resume image
+        resumeImage.alt = image.alt; // Set the alt text
+        resumeImage.style.display = 'grid'; // Ensure the image is displayed
+        noteInput.value = notes[image.alt] || ''; // Load existing note if any
+
+        // Hide grid and show resume view
+        imageGrid.style.display = 'none';
+        resumeContainer.style.display = 'flex';
+    }
+
+    // Save the note and go back to the grid view
+    saveButton.onclick = function() {
+        const currentNote = noteInput.value;
+        notes[shuffledImages[currentImageIndex].alt] = currentNote; // Save note
+        backToGrid();
+    };
+
+    // Back to grid view without saving
+    backButton.onclick = backToGrid;
+
+    // Function to return to the grid view
+    function backToGrid() {
+        renderGrid(); // Re-render grid with updated notes
+        resumeContainer.style.display = 'none'; // Hide resume view
+        imageGrid.style.display = 'grid'; // Show grid view
+    }
+
+    // Initial render of the grid
+    renderGrid();
+</script>
+
+{% endblock %}

@@ -327,8 +327,10 @@ function li_switch(e) {
   });
 </script>
 
+{{ if C.STANFORD_VERSION }}
 <div style="margin:2%; border:4px #0170a3 solid;"><br><br>
   <h3> <center>Remember to submit your <a target="_blank" rel="noopener noreferrer" href="https://canvas.stanford.edu/courses\{{ assignment_url }}">planning document here on Canvas.</a>
     </center></h3>
 <br><br>
+{{ endif }}
 {% endblock %}

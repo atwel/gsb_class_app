@@ -1,0 +1,179 @@
+/*************************
+ *         FORMS         *
+ *************************/
+
+/* Checkbox and radio button lists shall not have bullet points for every
+   item. */
+.controls > ul {
+    list-style-type: none;
+    padding-left: 2em;
+}
+
+/* Input fields should only take up to 400px width and not stretch over the
+   whole screen */
+.input-group,
+input.form-control,
+select.form-control
+}
+
+/* This allows the number field to contain around 7 digits. */
+input[type=number].form-control {
+    max-width: 100px;
+}
+
+.input-group-narrow {
+    /* Choosing a very small value that will always be filled with the input
+     * type and input-group-addon. That way we don't allow a gap between the
+     * two. See: https://github.com/oTree-org/otree-core/issues/257
+     */
+    max-width: 200px;
+}
+
+/* Dropdowns shall occupy only the needed space. */
+select.form-control {
+    width: auto;
+}
+
+.form-control-errors {
+    margin-top: 5px;
+    color: #b94a48;
+}
+
+/* Hide those input spinners on webkit and mozilla browsers */
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button { -webkit-appearance : none; margin : 0; }
+input[type=number] { -moz-appearance : textfield; }
+
+/* Slider Widget */
+.slider [data-slider-value] {
+    min-width: 5em;
+}
+.asteriskField {
+    display: none;
+}
+
+.radio {
+    margin-top:0px;
+}
+.help-block {
+    margin-top:5px;
+    margin-bottom:5px;
+}
+
+.page-header {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding-top: 40px;
+}
+
+
+/* DEBUG TOOLBAR */
+
+.scrollable {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: auto;
+}
+
+table.table-debug td.debug-var-name {
+    width: 20% !important;
+}
+
+table.table-debug td.debug-var-value {
+    max-width: 0px;
+}
+
+.top-left-fixed-alert {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: lightgray;
+    font-style: italic;
+    visibility: hidden;
+    /* need to be on top of bs4 navbar which is 1030 */
+    z-index: 1100;
+}
+
+body {
+  background-color: rgba(204, 255, 217, .3); /*#00C8FF*/
+}
+
+.container {
+padding-left: 8%;
+padding-right: 8%;
+padding-top:4%;
+margin-top: 4%;
+}
+
+.page-header {
+padding-top:4%;
+}
+
+.otree-body {
+    max-width:80%;
+    background-color: white;
+}
+
+.points {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+  border: 2px solid
+}
+
+.points td {
+  border: 1px solid #ddd;
+  padding: 1px;
+  width: 14.5%;
+  text-align: center;
+  padding-bottom: 4px;
+}
+
+.points th {
+  border: 1px solid #ddd;
+  text-align: center;
+  padding-top: 1px;
+  padding-bottom: 1px;
+  background-color: #0170a3;
+  border-bottom: 2px solid  #0170a3;
+  color: white;
+}
+
+
+.tr_bottom {
+  border-bottom: 3px solid;
+}
+
+.points tr:nth-child(even){background-color: #f2f2f2;}
+
+.totalpoints {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.totalpoints td {
+  width: 14.5%;
+}
+
+
+.columnone {
+  float: left;
+  width: 79%;
+  margin-left:.5%;
+  padding: 5px;
+}
+.columntwo {
+  float: left;
+  width: 20%;
+  padding: 5px;
+}
+
+/* Clearfix (clear floats) */
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}

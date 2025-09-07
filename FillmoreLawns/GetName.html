@@ -1,0 +1,20 @@
+
+{% block title %}
+Fillmore Lawns case
+{% endblock %}
+
+{% block styles %}
+<link rel="stylesheet" href="{% static "global/custom_theme.css" %}">
+{% endblock %}
+
+{% block content %}
+
+Before you begin, please enter the name you registered for this class with:
+<br><br>
+{% formfields %}
+
+<div style="margin-left:90%">
+    {% next_button %}
+</div>
+
+{% endblock %}
