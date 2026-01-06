@@ -6,4 +6,7 @@ from otree.api import Bot
 
 class PlayerBot(Bot):
     def play_round(self):
+        """
+        Define the bot's behavior for a single round of the game.
+        """
         pass
